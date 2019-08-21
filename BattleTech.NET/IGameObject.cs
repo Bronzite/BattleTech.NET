@@ -5,7 +5,7 @@ namespace BattleTechNET
 {
     public interface IGameObject
     {
-        Guid ID { get; }
+        Guid Id { get; }
         string Name { get; }
 
     }

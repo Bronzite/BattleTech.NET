@@ -4,7 +4,7 @@ namespace BattleTechNET.TotalWarfare
 {
     public class Unit:IGameObject
     {
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 }

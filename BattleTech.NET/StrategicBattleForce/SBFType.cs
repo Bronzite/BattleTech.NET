@@ -8,14 +8,12 @@ namespace BattleTechNET.StrategicBattleForce
 {
     public class SBFType
     {
-        private string mDescription;
-        public string Description { get { return mDescription; } set { mDescription = value; } }
+        
+        public string Description { get; set; }
 
-        private string mCode;
-        public string Code { get { return mCode; } set { mCode = value; } }
+        public string Code { get; set; }
 
-        private bool mAeroType;
-        public bool AeroType { get { return mAeroType; } set { mAeroType = value; } }
+        public bool AeroType { get; set; }
         
     }
 }

@@ -13,7 +13,7 @@ namespace BattleTechNET.AlphaStrike
             SpecialAbilities = new List<SpecialAbility>();
         }
 
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         public int PV { get; set; }
 

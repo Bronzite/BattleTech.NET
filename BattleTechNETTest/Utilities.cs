@@ -10,7 +10,7 @@ namespace BattleTechNETTest
         {
             Element retval = new Element();
             retval.Name = "Generic BattleMech";
-            retval.ID = Guid.NewGuid();
+            retval.Id = Guid.NewGuid();
             retval.UnitType = new UnitTypeBattleMech();
             if(iWalk > 0)
             retval.MovementModes.Add(new BattleTechNET.Common.MovementMode(iWalk, ""));

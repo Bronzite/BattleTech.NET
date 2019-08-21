@@ -8,7 +8,7 @@ namespace BattleTechNET.AbstractCombatSystem
 {
     public class CombatTeam:IGameObject
     {
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }
