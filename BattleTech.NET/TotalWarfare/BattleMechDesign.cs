@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BattleTechNET.TotalWarfare
+{
+    public class BattleMechDesign:Design
+    {
+
+        public Common.ComponentEngine Engine { get; set; }
+
+
+    }
+}

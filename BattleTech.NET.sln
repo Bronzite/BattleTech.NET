@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleTech.NET", "BattleTech.NET\BattleTech.NET.csproj", "{066206D3-EC0B-4464-8F75-F534635FC140}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleTechNETTest", "BattleTechNETTest\BattleTechNETTest.csproj", "{5A4FF1DD-5A47-4119-BBFC-17C8CAA33F56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0EECFBC2-66AC-483A-8EB4-3523633105D3}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{066206D3-EC0B-4464-8F75-F534635FC140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066206D3-EC0B-4464-8F75-F534635FC140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066206D3-EC0B-4464-8F75-F534635FC140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066206D3-EC0B-4464-8F75-F534635FC140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A4FF1DD-5A47-4119-BBFC-17C8CAA33F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A4FF1DD-5A47-4119-BBFC-17C8CAA33F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A4FF1DD-5A47-4119-BBFC-17C8CAA33F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A4FF1DD-5A47-4119-BBFC-17C8CAA33F56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B943DDF6-5523-4E12-AF5D-7C600E339177}
+	EndGlobalSection
+EndGlobal
