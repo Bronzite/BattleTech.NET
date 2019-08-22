@@ -51,7 +51,7 @@ namespace BattleTechNET.Data
                 }
 
                 if (sLines[1].Trim() != "") retval.Model = sLines[1]; else throw new Exception("File does not contain a model name");
-                if (sLines[2].Trim() != "") retval.Model = sLines[2];
+                if (sLines[2].Trim() != "") retval.Variant = sLines[2];
                 string sConfig = "";
                 for (int i = 3;i < sLines.Length;i ++)
                 {

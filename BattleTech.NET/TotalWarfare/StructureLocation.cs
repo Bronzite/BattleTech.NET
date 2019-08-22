@@ -8,9 +8,12 @@ namespace BattleTechNET.TotalWarfare
 {
     public class StructureLocation
     {
-        public virtual string Type { get { return "Standard"; } }
-        public int StructurePoints { get; set; }
-        public int MaxStructurePoints { get; set; }
+        public StructureType StructureType { get; set; }
+        //Structure Points need to be decimalized because Reinforced Structure
+        //allows BattleMechs to take fractional structure damage that does not
+        //round at all (TO343)
+        public double StructurePoints { get; set; }
+        public double MaxStructurePoints { get; set; }
         public string Name { get; set; }
 
     }

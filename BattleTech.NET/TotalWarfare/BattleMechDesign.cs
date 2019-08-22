@@ -10,7 +10,8 @@ namespace BattleTechNET.TotalWarfare
     {
         public Guid Id { get; set; }
         public Common.ComponentEngine Engine { get; set; }
-
+        public StructureType StructureType { get; set; }
+        
         public override string ToString()
         {
             return string.Format("{0} {1}", this.Model, this.Variant);

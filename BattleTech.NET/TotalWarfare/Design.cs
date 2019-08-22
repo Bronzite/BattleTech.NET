@@ -10,6 +10,7 @@ namespace BattleTechNET.TotalWarfare
         public double Tonnage { get; set; }
         public List<HitLocation> HitLocations { get; set; }
         public double BV {get;}
+        public BattleTechNET.Common.TECHNOLOGY_BASE TechnologyBase { get; set; }
 
     }
 }
