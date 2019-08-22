@@ -6,7 +6,7 @@ namespace BattleTechNET.TotalWarfare
     {
         public ArmorFacing()
         {
-            ArmorType = new ArmorType()
+            ArmorType = new ArmorType();
         }
         public ArmorType ArmorType { get; set; }
         public int ArmorPoints { get; set; }

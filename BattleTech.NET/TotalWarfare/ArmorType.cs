@@ -4,6 +4,12 @@ using System.Text;
 
 namespace BattleTechNET.TotalWarfare
 {
+    /// <summary>
+    /// Object for storing data about an Armor Type.
+    /// TODO: There's more data encoded on TO280, especially regarding Critical
+    /// slots.  We need to expand this class to cover them, and poossible make
+    /// derived classes for some subtypes.
+    /// </summary>
     public class ArmorType
     {
         public ArmorType():this("Standard",16,0) { }
