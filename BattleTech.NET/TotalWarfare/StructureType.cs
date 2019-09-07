@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleTechNET.TotalWarfare
 {
-    public class StructureType
+    public class StructureType:ICloneable
     {
         public StructureType() : this("Standard", TECHNOLOGY_BASE.BOTH , 0.1, 0, 1, false) { }
         
@@ -54,6 +54,11 @@ namespace BattleTechNET.TotalWarfare
             retval.Add(new StructureType("Reinforced", TECHNOLOGY_BASE.INNERSPHERE, 0.2, 0, 0.5, false)); //TO343
 
             return retval;
+        }
+
+        public object Clone()
+        {
+            return new StructureType(Name, TechnologyBase, TonnageMultipler, CriticalHitSlots, DamageMultiplier, CriticalLocationsTreatedAsRollAgain);
         }
     }
 }

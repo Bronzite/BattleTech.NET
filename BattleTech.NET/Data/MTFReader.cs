@@ -50,8 +50,11 @@ namespace BattleTechNET.Data
                     throw new Exception(string.Format("Current Implementation only supports MTF Version 1.0.  File is version {0}", sVersionFields[1]));
                 }
 
+                //Get Model and Variant
                 if (sLines[1].Trim() != "") retval.Model = sLines[1]; else throw new Exception("File does not contain a model name");
                 if (sLines[2].Trim() != "") retval.Variant = sLines[2];
+
+
                 string sConfig = "";
                 for (int i = 3;i < sLines.Length;i ++)
                 {
@@ -73,7 +76,34 @@ namespace BattleTechNET.Data
                         }
                         if(kvp.Key == "Engine")
                         {
-
+                            int iSpaceIndex = kvp.Value.IndexOf(' ');
+                            if(iSpaceIndex==-1)
+                            {
+                                throw new Exception(string.Format("Invalid Engine Type: {0}", kvp.Value));
+                            }
+                            string sRating = kvp.Value.Substring(0, iSpaceIndex);
+                            string sType = kvp.Value.Substring(iSpaceIndex).Trim();
+                            int iRating = 0;
+                            if(!int.TryParse(sRating,out iRating))
+                            {
+                                throw new Exception(string.Format("Unable to parse engine rating: {0}", sRating));
+                            }
+                            //Remove the work Engine from Engine Type
+                            sType = sType.Replace("Engine", "").Trim();
+                            //Convert just Fusion to Standard to match TechManual terminology.
+                            if (sType.Equals("Fusion", StringComparison.CurrentCultureIgnoreCase)) sType = "Standard";
+                            retval.Engine = new Common.ComponentEngine(iRating, sType);
+                        }
+                        if(kvp.Key == "Structure")
+                        {
+                            foreach(StructureType curStructureType in StructureType.GetCanonicalStructureTypes())
+                            {
+                                if(curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    retval.StructureType = curStructureType;
+                                }
+                            }
+                            if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }
                     }
                 }
