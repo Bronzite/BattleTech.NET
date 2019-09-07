@@ -11,6 +11,7 @@ namespace BattleTechNET.TotalWarfare
         public Guid Id { get; set; }
         public Common.ComponentEngine Engine { get; set; }
         public StructureType StructureType { get; set; }
+        public MyomerType MyomerType { get; set; }
         
         public override string ToString()
         {

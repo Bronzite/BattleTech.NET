@@ -105,6 +105,18 @@ namespace BattleTechNET.Data
                             }
                             if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }
+
+                        if (kvp.Key == "Myomer")
+                        {
+                            foreach (MyomerType curMyomerType in MyomerType.GetCanonicalMyomerTypes())
+                            {
+                                if (curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    retval.MyomerType = curMyomerType;
+                                }
+                            }
+                            if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
+                        }
                     }
                 }
 
