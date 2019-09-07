@@ -11,6 +11,6 @@ namespace BattleTechNET.Common
         public string Name { get; set; }
         public double Tonnage { get; set; }
         public double BaseCost { get; set; }
-
+        public TECHNOLOGY_BASE TechnologyBase { get; set; }
     }
 }
