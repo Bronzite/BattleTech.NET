@@ -117,6 +117,24 @@ namespace BattleTechNET.Data
                             }
                             if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
                         }
+
+                        if (kvp.Key == "Armor")
+                        {
+                            foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
+                            {
+                                if (curArmorType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase))
+                                {
+                                    foreach(BattleMechHitLocation hitLocation in retval.HitLocations)
+                                    {
+                                        foreach(ArmorFacing armorFacing in hitLocation.ArmorFacings.Values)
+                                        {
+                                            armorFacing.ArmorType = curArmorType;
+                                        }
+                                    }
+                                }
+                            }
+                            if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
+                        }
                     }
                 }
 
