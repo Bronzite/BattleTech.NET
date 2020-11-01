@@ -53,7 +53,7 @@ namespace BattleTechNET.Data
                 //Get Model and Variant
                 if (sLines[1].Trim() != "") retval.Model = sLines[1]; else throw new Exception("File does not contain a model name");
                 if (sLines[2].Trim() != "") retval.Variant = sLines[2];
-
+                retval.HitLocations = new List<HitLocation>();
 
                 string sConfig = "";
                 for (int i = 3;i < sLines.Length;i ++)
@@ -64,6 +64,156 @@ namespace BattleTechNET.Data
                         if(kvp.Key == "Config")
                         {
                             sConfig = kvp.Value;
+                            if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                BattleMechHitLocation mhlHead = new BattleMechHitLocation()
+                                {
+                                    Name = "HD",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "HD", new ArmorFacing() { Name = "HD" } }
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+                                        
+                                            Name = "HD",
+                                            StructureType = retval.StructureType,
+                                            MaxStructurePoints = 3,
+                                            StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlLeftArm =  new BattleMechHitLocation()
+                                {
+                                    Name = "LA",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "LA", new ArmorFacing() { Name = "LA" } }
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "LA",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlLeftTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "LT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "LT", new ArmorFacing() { Name = "LT" } },
+                                        { "RTL", new ArmorFacing() { Name = "RTL" } },
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "LT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRightArm = new BattleMechHitLocation()
+                                {
+                                    Name = "RA",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RA", new ArmorFacing() { Name = "RA" } }
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RA",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRightTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "RT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RT", new ArmorFacing() { Name = "RT" } },
+                                        { "RTR", new ArmorFacing() { Name = "RTR" } },
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlCenterTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "CT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "CT", new ArmorFacing() { Name = "CT" } },
+                                        { "RTC", new ArmorFacing() { Name = "RTC" } },
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "CT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlLeftLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "LL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "LL", new ArmorFacing() { Name = "" } }
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "LL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRightLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "RL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RL", new ArmorFacing() { Name = "RL" } }
+                                    },
+                                    CriticalSlotCount = 6,
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                retval.HitLocations.Add(mhlHead);
+                                retval.HitLocations.Add(mhlLeftArm);
+                                retval.HitLocations.Add(mhlLeftTorso);
+                                retval.HitLocations.Add(mhlCenterTorso);
+                                retval.HitLocations.Add(mhlRightTorso);
+                                retval.HitLocations.Add(mhlRightArm);
+                                retval.HitLocations.Add(mhlLeftLeg);
+                                retval.HitLocations.Add(mhlRightLeg);
+                            }
                         }
                         if(kvp.Key == "Mass")
                         {
@@ -134,6 +284,19 @@ namespace BattleTechNET.Data
                                 }
                             }
                             if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
+                        }
+                        if (kvp.Key.Contains(" Armor"))
+                        {
+                            int iArmorAmount = int.Parse(kvp.Value);
+                            string sArmorLocationKey = kvp.Key.Replace(" Armor", "").Trim();
+                            foreach(BattleMechHitLocation bmhl in retval.HitLocations)
+                            {
+                                if (bmhl.ArmorFacings.ContainsKey(sArmorLocationKey))
+                                {
+                                    bmhl.ArmorFacings[sArmorLocationKey].ArmorPoints = iArmorAmount;
+                                }
+                            }
+
                         }
                     }
                 }

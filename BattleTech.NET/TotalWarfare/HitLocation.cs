@@ -9,8 +9,6 @@ namespace BattleTechNET.TotalWarfare
     public class HitLocation
     {
         public string Name { get; set; }
-        public int Armor { get; set; }
-        public int MaxArmor { get; set; }
 
     }
 }
