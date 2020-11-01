@@ -179,6 +179,94 @@ namespace BattleTechNETTest
             Assert.Equal(41, Facing.ArmorPoints);
         }
 
+        [Fact(DisplayName = "Battlemech HD Structure Read Correctly")]
+        public void BattlemechHDISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "HD");
+            Assert.Equal(3,structure.MaxStructurePoints);
+        }
+
+        [Fact(DisplayName = "Battlemech LA Structure Read Correctly")]
+        public void BattlemechLAISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "LA");
+            Assert.Equal(17, structure.MaxStructurePoints);
+        }
+            [Fact(DisplayName = "Battlemech RA Structure Read Correctly")]
+            public void BattlemechRAISCheck()
+            {
+                string sFilePath = TestFilePath;
+                BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+                StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "RA");
+                Assert.Equal(17, structure.MaxStructurePoints);
+            }
+
+        [Fact(DisplayName = "Battlemech RT Structure Read Correctly")]
+        public void BattlemechRTISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "RT");
+            Assert.Equal(21, structure.MaxStructurePoints);
+        }
+
+        [Fact(DisplayName = "Battlemech LT Structure Read Correctly")]
+        public void BattlemechLTISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "LT");
+            Assert.Equal(21, structure.MaxStructurePoints);
+        }
+        [Fact(DisplayName = "Battlemech CT Structure Read Correctly")]
+        public void BattlemechCTISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "CT");
+            Assert.Equal(31, structure.MaxStructurePoints);
+        }
+        [Fact(DisplayName = "Battlemech LL Structure Read Correctly")]
+        public void BattlemechLLISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "LL");
+            Assert.Equal(21, structure.MaxStructurePoints);
+        }
+        [Fact(DisplayName = "Battlemech RL Structure Read Correctly")]
+        public void BattlemechRLISCheck()
+        {
+            string sFilePath = TestFilePath;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            StructureLocation structure = GetBattleMechStructureLocation(battleMechDesign, "RL");
+            Assert.Equal(21, structure.MaxStructurePoints);
+        }
+
+
+
+
+        public StructureLocation GetBattleMechStructureLocation(BattleMechDesign bmd, string sLocation)
+        {
+            foreach(BattleMechHitLocation bmhl in bmd.HitLocations)
+            {
+                if (bmhl.Name.Equals(sLocation)) return bmhl.Structure;
+            }
+            throw new Exception($"Location {sLocation} not found in Battlemech Design {bmd.Variant} {bmd.Model}");
+        }
+
         public ArmorFacing GetBattleMechArmorFacing(BattleMechDesign bmd, string sLocation)
         {
             

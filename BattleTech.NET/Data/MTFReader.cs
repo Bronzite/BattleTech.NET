@@ -253,6 +253,12 @@ namespace BattleTechNET.Data
                                     retval.StructureType = curStructureType;
                                 }
                             }
+                            foreach(BattleMechHitLocation bmhl in retval.HitLocations)
+                            {
+                                int iStructureAmount = BattleMechDesign.InternalStructureByLocation(bmhl.Name, (int)retval.Tonnage);
+                                bmhl.Structure.MaxStructurePoints = iStructureAmount;
+                                bmhl.Structure.StructurePoints = iStructureAmount;
+                            }
                             if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }
 
