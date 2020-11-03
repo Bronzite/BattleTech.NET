@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace BattleTechNET.Data
@@ -36,9 +37,11 @@ namespace BattleTechNET.Data
         public static BattleMechDesign ReadBattleMechDesignFile(Stream inStream)
         {
             BattleMechDesign retval = new BattleMechDesign();
+            
             try
             {
-
+                bool bGyroscope = false;
+                bool bCockpit = false;
                 List<string> lstFileLines = new List<string>();
                 StreamReader streamReader = new StreamReader(inStream);
                 while(!streamReader.EndOfStream)
@@ -79,7 +82,7 @@ namespace BattleTechNET.Data
                     if(sLines[i] != "")
                     {
                         KeyValuePair<string, string> kvp = GetKVP(sLines[i]);
-                        if(kvp.Key == "Config")
+                        if (kvp.Key == "Config")
                         {
                             sConfig = kvp.Value;
                             if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase))
@@ -393,6 +396,14 @@ namespace BattleTechNET.Data
                             }
                             retval.Tonnage = iMass;
                         }
+                        if(kvp.Key == "Gyro" && kvp.Value.Trim() != "")
+                        {
+                            ComponentGyro gyro = new ComponentGyro(kvp.Value, retval.Engine.EngineRating);
+                            HitLocation hit = retval.GetHitLocationByName("CT");
+
+                            retval.Components.Add( new UnitComponent(gyro,hit));
+                            bGyroscope = true;
+                        }
                         if(kvp.Key == "Engine")
                         {
                             int iSpaceIndex = kvp.Value.IndexOf(' ');
@@ -409,9 +420,15 @@ namespace BattleTechNET.Data
                             }
                             //Remove the work Engine from Engine Type
                             sType = sType.Replace("Engine", "").Trim();
-                            //Convert just Fusion to Standard to match TechManual terminology.
-                            if (sType.Equals("Fusion", StringComparison.CurrentCultureIgnoreCase)) sType = "Standard";
+                            //Normalize the Engine Type
+                            foreach(string sEngineType in ComponentEngine.GetEngineTypes())
+                            {
+                                if (Utilities.IsSynonymFor(sEngineType, sType)) sType = sEngineType;
+                            }
                             retval.Engine = new Common.ComponentEngine(iRating, sType);
+                            
+                            
+
                         }
                         if(kvp.Key == "Structure")
                         {
@@ -433,7 +450,6 @@ namespace BattleTechNET.Data
                             }
                             if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }
-
                         if (kvp.Key == "Myomer")
                         {
                             foreach (MyomerType curMyomerType in MyomerType.GetCanonicalMyomerTypes())
@@ -449,7 +465,6 @@ namespace BattleTechNET.Data
                             }
                             if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
                         }
-
                         if (kvp.Key == "Armor")
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
@@ -526,11 +541,22 @@ namespace BattleTechNET.Data
                                 commandConsole.Tonnage = 3;
                                 retval.Components.Add(new UnitComponent() { Component = commandConsole, HitLocation = actualLocation });
                             }
+                            bCockpit = true;
                         }
-
+                        if(kvp.Key == "Jump MP")
+                        {
+                            int iJumpMP = int.Parse(kvp.Value);
+                            for(int iJump = 0; iJump< iJumpMP; iJump++)
+                            {
+                                //TODO: How does MTF store Improved Jump jets?
+                                ComponentJumpJet jumpJet = new ComponentJumpJet((int)retval.Tonnage, false);
+                                //TODO: We need to associate these with the correct location.
+                                retval.Components.Add(new UnitComponent(jumpJet,retval.GetHitLocationByName("CT")));
+                            }
+                        }
                         foreach(string sKey in CriticalHitSlotCount.Keys)
                         {
-                            if(kvp.Key.Trim() == $"{sKey}:")
+                            if (Utilities.IsSynonymFor(kvp.Key.Trim(), sKey.Replace(":", "")))
                             {
                                 BattleMechHitLocation selectedLocation = null;
                                 foreach (BattleMechHitLocation bmhl in retval.HitLocations)
@@ -545,12 +571,46 @@ namespace BattleTechNET.Data
 
                                     CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim(), Location=selectedLocation,SlotNumber = j };
                                     if (criticalSlot.Label == "-Empty-") criticalSlot.RollAgain = true;
-                                    selectedLocation.CriticalSlots.Add(criticalSlot);
+                                    if (criticalSlot.Label.Contains(" Ammo"))
+                                    {
+                                        ComponentAmmunition ammunition = new ComponentAmmunition();
+                                        ammunition.Name = criticalSlot.Label;
+                                        ammunition.TechnologyBase = retval.TechnologyBase;
+                                        ammunition.Tonnage = 1;
+                                        ammunition.Rounds = 1;
+                                        ammunition.BaseCost = 1000;
+                                        criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
+                                        retval.Components.Add(criticalSlot.AffectedComponent);
+                                    }
+                                    selectedLocation.AddCriticalSlot(criticalSlot);
                                     
                                 }
                             }
                         }
-                        if(kvp.Key.Equals("Weapons"))
+                        if (kvp.Key.Equals("Heat Sinks"))
+                        {
+                            string[] sFields = kvp.Value.Split(' ');
+                            int iHeatSinkCount = int.Parse(sFields[0]);
+                            string sHeatSinkSize = sFields[1];
+                            ComponentHeatSink componentHeatSinkTemplate = new ComponentHeatSink();
+                            bool bSingle = true;
+                            
+                            if(sHeatSinkSize == "Double")
+                            {
+                                bSingle = false;
+                            }
+                            HitLocation hl = retval.GetHitLocationByName("CT");
+                            int iIntegralHeatSinks = (int)(retval.Engine.EngineRating / 25);
+                            for(int j=0;j<iHeatSinkCount;j++)
+                            {
+                                
+                                    //Integral Heatsink
+                                    retval.Components.Add(new UnitComponent() { Component = new ComponentHeatSink(retval.TechnologyBase, bSingle, j<iIntegralHeatSinks ,j<10),HitLocation=hl });
+                               
+                            }
+                            
+                        }
+                        if (kvp.Key.Equals("Weapons"))
                         {
                             int iWeaponsCount = int.Parse(kvp.Value);
 
@@ -593,6 +653,33 @@ namespace BattleTechNET.Data
                     }
                 }
 
+                if(!bGyroscope)
+                {
+                    ComponentGyro gyro = new ComponentGyro("Standard Gyro", retval.Engine.EngineRating);
+                    HitLocation hit = retval.GetHitLocationByName("CT");
+
+                    retval.Components.Add(new UnitComponent(gyro, hit));
+                    bGyroscope = true;
+                }
+
+                if (!bCockpit)
+                {
+                    List<ComponentCockpit> cockpits = ComponentCockpit.GetCanonicalCockpits();
+                    ComponentCockpit selectedCockpit = null;
+                    string sCockpitType = "Standard Cockpit";
+                    foreach (ComponentCockpit cockpit in cockpits)
+                    {
+                        if (cockpit.Name.Equals(sCockpitType) || Utilities.IsSynonymFor(sCockpitType, cockpit.Name))
+                        {
+                            selectedCockpit = cockpit;
+                        }
+                    }
+
+                    HitLocation hit = retval.GetHitLocationByName("HD");
+
+                    retval.Components.Add(new UnitComponent(selectedCockpit, hit));
+                    bCockpit = true;
+                }
             }
             catch(Exception ex)
             {

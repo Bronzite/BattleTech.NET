@@ -420,7 +420,7 @@ namespace BattleTechNET.Data
             },
              {"Machine Gun",new ComponentWeapon() //TM341
             {
-                Name = "LRM 5",
+                Name = "Machine Gun",
                 BaseCost = 20000,
                 Heat = 0,
                 AeroHeat = 0,
@@ -793,6 +793,33 @@ namespace BattleTechNET.Data
                 CriticalSpaceDropShips = 1,
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+             {"Hatchet",new ComponentWeapon() //TM341
+            {
+                Name = "Hatchet",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 20, //TODO: We need to compute this value
+                AeroDamage = 30,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 1,
+                LongRange = 1,
+                AmmoPerTon = 0,
+                Tonnage = 7, //TODO: Need to compute this value
+                CriticalSpaceMech = 1, //TODO: Need to compute this value
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = int.MaxValue,
+                CriticalSpaceSupportVehicle = int.MaxValue,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.EXTREME, //TODO: Need an NA AerospaceWeaponRange
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }

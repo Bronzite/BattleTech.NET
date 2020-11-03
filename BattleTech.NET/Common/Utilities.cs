@@ -48,6 +48,8 @@ namespace BattleTechNET.Common
             new string[] {"UAC5", "Ultra AC/5", "Ultra Autocannon 5", "Ultra Autocannon/5" },
             new string[] {"UAC10", "Ultra AC/10", "Ultra Autocannon 10", "Ultra Autocannon/10" },
             new string[] {"UAC20", "Ultra AC/20", "Ultra Autocannon 20", "Ultra Autocannon/20" },
+            new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)" },
+            new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)" },
 
 
 

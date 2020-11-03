@@ -72,5 +72,63 @@ namespace BattleTechNET.TotalWarfare
                 ) iLocation = 1;
             return iTable[iTonnage,iLocation];
         }
+
+        /// <summary>
+        /// Written to help me debug issues with tonnage.
+        /// </summary>
+        public string TonnageLedger
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine($"Nominal Tonnage: {Tonnage.ToString()}");
+                sb.AppendLine($"{Engine.EngineType} {Engine.EngineRating} Engine Tonnage: {Engine.Tonnage.ToString()}");
+                sb.AppendLine($"{StructureType.Name} Structure Tonnage: {(StructureType.TonnageMultipler * Tonnage).ToString()}");
+                sb.AppendLine($"{MyomerType.Name} Myomer Tonnage: {(MyomerType.MassFraction * Tonnage).ToString()}");
+                double retval = base.ComputedTonnage;
+                retval += Engine.Tonnage;
+                retval += StructureType.TonnageMultipler * Tonnage;
+                retval += MyomerType.MassFraction * Tonnage;
+                double ArmorFacing = 0;
+                string sArmorType = "";
+                foreach (BattleMechHitLocation bmhl in HitLocations)
+                {
+                    foreach (ArmorFacing armorFacing in bmhl.ArmorFacings.Values)
+                    {
+                        retval += armorFacing.Tonnage;
+                        ArmorFacing += armorFacing.Tonnage;
+                        sArmorType = armorFacing.ArmorType.Name;
+                    }
+                }
+
+                sb.AppendLine($"{sArmorType} Armor Tonnage: {ArmorFacing.ToString()}");
+                foreach(UnitComponent comp in Components)
+                {
+                    if(comp.Component.Tonnage > 0)
+                    sb.AppendLine($"{comp.Component.Name}: {comp.Component.Tonnage}");
+                }
+                return sb.ToString();
+            }
+        }
+
+        public override double ComputedTonnage
+        {
+            get
+            {
+                double retval = base.ComputedTonnage;
+                retval += Engine.Tonnage;
+                retval += StructureType.TonnageMultipler * Tonnage;
+                retval += MyomerType.MassFraction * Tonnage;
+                
+                foreach(BattleMechHitLocation bmhl in HitLocations )
+                {
+                    foreach(ArmorFacing armorFacing in bmhl.ArmorFacings.Values)
+                    {
+                        retval += armorFacing.Tonnage;
+                    }
+                }
+                return retval;
+            }
+        }
     }
 }

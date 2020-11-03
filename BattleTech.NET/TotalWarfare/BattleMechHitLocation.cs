@@ -9,6 +9,10 @@ namespace BattleTechNET.TotalWarfare
 {
     public class BattleMechHitLocation:ArmorHitLocation
     {
+        public BattleMechHitLocation()
+        {
+            CriticalSlots = new List<CriticalSlot>();
+        }
         public int CriticalSlotCount { get; set; }
         public List<CriticalSlot> CriticalSlots { get; set; }
 

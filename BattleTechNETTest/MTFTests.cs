@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BattleTechNETTest
 {
@@ -12,6 +13,34 @@ namespace BattleTechNETTest
     {
         public static string AtlasTestFile = "./TestFiles/AtlasAS7-D.mtf";
         public static string GoliathTestFile = "./TestFiles/GoliathGOL-1H.mtf";
+
+        private readonly ITestOutputHelper _outputHelper;
+
+        public MTFTests(ITestOutputHelper testOutputHelper)
+        {
+            _outputHelper = testOutputHelper;
+        }
+
+        [Fact(DisplayName = "Atlas Computed Tonnage Check")]
+        public void AtlasTonnageCheck()
+        {
+            string sFilePath = AtlasTestFile;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+
+            _outputHelper.WriteLine(battleMechDesign.TonnageLedger);
+
+            Assert.Equal(100, battleMechDesign.ComputedTonnage);
+            
+        }
+
+        [Fact(DisplayName = "Goliath Computed Tonnage Check")]
+        public void GoliathTonnageCheck()
+        {
+            string sFilePath = GoliathTestFile;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
+            _outputHelper.WriteLine(battleMechDesign.TonnageLedger);
+            Assert.Equal(80, battleMechDesign.ComputedTonnage);
+        }
 
         [Fact(DisplayName ="Read Atlas Data File")]
         public void ReadAtlasFile()
