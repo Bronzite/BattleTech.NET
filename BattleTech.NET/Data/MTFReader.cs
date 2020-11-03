@@ -3,6 +3,7 @@ using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 
 namespace BattleTechNET.Data
@@ -479,6 +480,54 @@ namespace BattleTechNET.Data
                             }
 
                         }
+                        if(kvp.Key.Equals("Cockpit") && kvp.Value != "")
+                        {
+                            string sCockpitType = kvp.Value.Trim();
+                            bool bIncludeCommandConsole = false;
+                            if(sCockpitType == "Command Console")
+                            {
+                                //MTF Files handle Command Consoles in a weird way, so
+                                //we need to do some ugly adjustments here.
+
+                                sCockpitType = "Standard Cockpit";
+                                bIncludeCommandConsole = true;
+                            }
+                            List<ComponentCockpit> cockpits = ComponentCockpit.GetCanonicalCockpits();
+                            ComponentCockpit selectedCockpit = null;
+                            
+                            foreach(ComponentCockpit cockpit in cockpits)
+                            {
+                                if(cockpit.Name.Equals(sCockpitType) || Utilities.IsSynonymFor(sCockpitType, cockpit.Name))
+                                {
+                                    selectedCockpit = cockpit;
+                                }
+                            }
+
+                            //TODO: We need to adjust this for Torso Cockpits
+                            BattleMechHitLocation actualLocation = null;
+                            foreach (BattleMechHitLocation bmhl in retval.HitLocations)
+                            {
+                                if(Utilities.IsSynonymFor("Head",bmhl.Name) && bmhl.Name == "HD")
+                                {
+                                    actualLocation = bmhl;
+                                }
+                            }
+
+                            if (selectedCockpit == null) 
+                                throw new Exception($"Unable to find cockpit {sCockpitType}");
+                            else
+                                retval.Components.Add(new UnitComponent() { Component = selectedCockpit, HitLocation = actualLocation});
+
+                            if(bIncludeCommandConsole)
+                            {
+                                Component commandConsole = new Component();
+                                commandConsole.Name = "Command Console";
+                                commandConsole.TechnologyBase = TECHNOLOGY_BASE.BOTH;
+                                commandConsole.Tonnage = 3;
+                                retval.Components.Add(new UnitComponent() { Component = commandConsole, HitLocation = actualLocation });
+                            }
+                        }
+
                         foreach(string sKey in CriticalHitSlotCount.Keys)
                         {
                             if(kvp.Key.Trim() == $"{sKey}:")
@@ -494,7 +543,7 @@ namespace BattleTechNET.Data
                                 for (int j = 0; j<CriticalHitSlotCount[sKey];j++)
                                 {
 
-                                    CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim() };
+                                    CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim(), Location=selectedLocation,SlotNumber = j };
                                     if (criticalSlot.Label == "-Empty-") criticalSlot.RollAgain = true;
                                     selectedLocation.CriticalSlots.Add(criticalSlot);
                                     
