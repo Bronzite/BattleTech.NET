@@ -25,9 +25,9 @@ namespace BattleTechNET.Common
             new string[] {"LT","Left Torso" },
             new string[] {"CT","Center Torso" },
             new string[] {"HD","Head" },
-            new string[] {"Medium Laser","MLaser" },
-            new string[] {"Small Laser","SLaser" },
-            new string[] {"Large Laser","LLaser" },
+            new string[] {"Medium Laser","MLaser","ISMediumLaser" },
+            new string[] {"Small Laser","SLaser","ISSmallLaser" },
+            new string[] {"Large Laser","LLaser","ISLargeLaser" },
             new string[] {"AC2","AC/2","Autocannon 2", "Autocannon/2" },
             new string[] {"AC5","AC/5","Autocannon 5", "Autocannon/5" },
             new string[] {"AC10","AC/10","Autocannon 10", "Autocannon/10" },
@@ -39,7 +39,16 @@ namespace BattleTechNET.Common
             new string[] {"LRM 10","LRM/10","LRM10"},
             new string[] {"LRM 15","LRM/15","LRM15"},
             new string[] {"LRM 20","LRM/20","LRM20"},
-            new string[] {"Machine Gun","MGun","MG"}
+            new string[] {"Machine Gun","MGun","MG"},
+            new string[] {"Endo Steel", "Endo Steel (I.S.)", "Endo Steel (Clan)" },
+            new string[] {"TSM","Triple-Strength","Triple-Strength Myomer"},
+            new string[] {"Standard","IS Standard","Clan Standard"},
+            new string[] {"PPC","Particle Cannon"},
+            new string[] {"UAC2","Ultra AC/2","Ultra Autocannon 2", "Ultra Autocannon/2" },
+            new string[] {"UAC5", "Ultra AC/5", "Ultra Autocannon 5", "Ultra Autocannon/5" },
+            new string[] {"UAC10", "Ultra AC/10", "Ultra Autocannon 10", "Ultra Autocannon/10" },
+            new string[] {"UAC20", "Ultra AC/20", "Ultra Autocannon 20", "Ultra Autocannon/20" },
+
 
 
 

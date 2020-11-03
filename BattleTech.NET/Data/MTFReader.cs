@@ -62,7 +62,7 @@ namespace BattleTechNET.Data
                     throw new Exception(string.Format("Version number not parseable: {0}", sVersionFields[1]));
                 }
 
-                if(dVersion != 1)
+                if(dVersion > 1.1)
                 {
                     throw new Exception(string.Format("Current Implementation only supports MTF Version 1.0.  File is version {0}", sVersionFields[1]));
                 }
@@ -416,7 +416,10 @@ namespace BattleTechNET.Data
                         {
                             foreach(StructureType curStructureType in StructureType.GetCanonicalStructureTypes())
                             {
-                                if(curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase))
+                                if((curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase) ||
+                                   Utilities.IsSynonymFor (curStructureType.Name,kvp.Value)) &&
+                                   (curStructureType.TechnologyBase == retval.TechnologyBase || curStructureType.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                   )
                                 {
                                     retval.StructureType = curStructureType;
                                 }
@@ -434,7 +437,11 @@ namespace BattleTechNET.Data
                         {
                             foreach (MyomerType curMyomerType in MyomerType.GetCanonicalMyomerTypes())
                             {
-                                if (curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase))
+                                if ((curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase) ||
+                                    Utilities.IsSynonymFor(curMyomerType.Name, kvp.Value)) &&
+                                    (curMyomerType.TechnologyBase == retval.TechnologyBase || 
+                                    curMyomerType.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                    )
                                 {
                                     retval.MyomerType = curMyomerType;
                                 }
@@ -503,6 +510,15 @@ namespace BattleTechNET.Data
                                 string[] sTerms = sLines[++i].Trim().Split(',');
                                 string sComponentName = sTerms[0].Trim();
                                 string sHitLocation = sTerms[1].Trim();
+                                int iNumberOfEntries = 1;
+                                string[] sFirstTerm = sComponentName.Split(' ');
+                                int EntryCount = 0;
+                                if(int.TryParse(sFirstTerm[0],out EntryCount))
+                                {
+                                    iNumberOfEntries = EntryCount;
+                                    sComponentName = sComponentName.Substring(sFirstTerm[0].Length + 1);
+                                }
+                                
                                 Component c = null;
                                 foreach(string sKey in ComponentLibrary.Weapons.Keys)
                                 {
@@ -519,7 +535,8 @@ namespace BattleTechNET.Data
                                 }
                                 if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
                                 if (c == null) throw new Exception($"Could not find weapon {sComponentName} for {sLines[i]}");
-                                retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation });
+                                for(int iRepeats = 0; iRepeats<iNumberOfEntries; iRepeats++)
+                                    retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation });
                             }
 
                         }

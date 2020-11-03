@@ -7,9 +7,10 @@ namespace BattleTechNET.Data
 {
     public class ComponentLibrary
     {
+        //TODO: Base Costs are wrong
         static public Dictionary<string, ComponentWeapon> Weapons = new System.Collections.Generic.Dictionary<string, ComponentWeapon>()
         {
-            {"LRM 5",new ComponentWeapon()
+            {"LRM 5",new ComponentWeapon() //TM341
             {
                 Name = "LRM 5",
                 BaseCost = 20000,
@@ -39,7 +40,7 @@ namespace BattleTechNET.Data
 
             }
             },
-            {"LRM 10",new ComponentWeapon()
+            {"LRM 10",new ComponentWeapon() //TM341
             {
                 Name = "LRM 10",
                 BaseCost = 20000,
@@ -66,7 +67,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"LRM 15",new ComponentWeapon()
+            {"LRM 15",new ComponentWeapon() //TM341
             {
                 Name = "LRM 15",
                 BaseCost = 20000,
@@ -93,7 +94,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"LRM 20",new ComponentWeapon()
+            {"LRM 20",new ComponentWeapon() //TM341
             {
                 Name = "LRM 20",
                 BaseCost = 20000,
@@ -120,7 +121,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Autocannon 2",new ComponentWeapon()
+            {"Autocannon 2",new ComponentWeapon() //TM341
             {
                 Name = "Autocannon 2",
                 BaseCost = 20000,
@@ -147,7 +148,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Autocannon 5",new ComponentWeapon()
+            {"Autocannon 5",new ComponentWeapon() //TM341
             {
                 Name = "Autocannon 5",
                 BaseCost = 20000,
@@ -174,7 +175,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-              {"Autocannon 10",new ComponentWeapon()
+              {"Autocannon 10",new ComponentWeapon() //TM341
             {
                 Name = "Autocannon 10",
                 BaseCost = 20000,
@@ -201,7 +202,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Autocannon 20",new ComponentWeapon()
+            {"Autocannon 20",new ComponentWeapon() //TM341
             {
                 Name = "Autocannon 20",
                 BaseCost = 20000,
@@ -228,7 +229,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Small Laser",new ComponentWeapon()
+            {"Small Laser",new ComponentWeapon() //TM341
             {
                 Name = "Small Laser",
                 BaseCost = 20000,
@@ -255,7 +256,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Medium Laser",new ComponentWeapon()
+            {"Medium Laser",new ComponentWeapon() //TM341
             {
                 Name = "Medium Laser",
                 BaseCost = 20000,
@@ -282,7 +283,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"Large Laser",new ComponentWeapon()
+             {"Large Laser",new ComponentWeapon() //TM341
             {
                 Name = "Large Laser",
                 BaseCost = 20000,
@@ -309,7 +310,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-              {"PPC",new ComponentWeapon()
+              {"PPC",new ComponentWeapon() //TM341
             {
                 Name = "PPC",
                 BaseCost = 20000,
@@ -336,7 +337,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 2",new ComponentWeapon()
+            {"SRM 2",new ComponentWeapon() //TM341
             {
                 Name = "SRM 2",
                 BaseCost = 20000,
@@ -363,7 +364,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 4",new ComponentWeapon()
+            {"SRM 4",new ComponentWeapon() //TM341
             {
                 Name = "SRM 4",
                 BaseCost = 20000,
@@ -390,7 +391,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 6",new ComponentWeapon()
+            {"SRM 6",new ComponentWeapon() //TM341
             {
                 Name = "SRM 6",
                 BaseCost = 20000,
@@ -417,7 +418,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"Machine Gun",new ComponentWeapon()
+             {"Machine Gun",new ComponentWeapon() //TM341
             {
                 Name = "LRM 5",
                 BaseCost = 20000,
@@ -444,7 +445,358 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
 
             }
-             }
+             },
+            {"Flamer",new ComponentWeapon() //TM341
+            {
+                Name = "Small Laser",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+                {"LB 2-X AC",new ComponentWeapon() //TM341
+            {
+                Name = "LB 2-X AC",
+                BaseCost = 20000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 4,
+                ShortRange = 9,
+                MediumRange = 18,
+                LongRange = 27,
+                AmmoPerTon = 45,
+                Tonnage = 6,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+                {"LB 5-X AC",new ComponentWeapon() //TM341
+            {
+                Name = "LB 5-X AC",
+                BaseCost = 20000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 5,
+                AeroDamage = 3,
+                MinimumRange = 3,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 20,
+                Tonnage = 8,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+                {"LB 10-X AC",new ComponentWeapon() //TM341
+            {
+                Name = "LB 10-X AC",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 10,
+                AeroDamage = 6,
+                MinimumRange = 0,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 10,
+                Tonnage = 11,
+                CriticalSpaceMech = 6,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 6,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+                {"LB 20-X AC",new ComponentWeapon() //TM341
+            {
+                Name = "LB 20-X AC",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 20,
+                AeroDamage = 12,
+                MinimumRange = 0,
+                ShortRange = 4,
+                MediumRange = 8,
+                LongRange = 12,
+                AmmoPerTon = 5,
+                Tonnage = 14,
+                CriticalSpaceMech = 11,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 11,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+                  {"ER Small Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Small Laser",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 3,
+                AeroDamage = 3,
+                MinimumRange = 0,
+                ShortRange = 2,
+                MediumRange = 4,
+                LongRange = 5,
+                AmmoPerTon = 0,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"ER Medium Laser",new ComponentWeapon() //TM341
+            {
+                Name = "ER Medium Laser",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 0,
+                ShortRange = 4,
+                MediumRange = 8,
+                LongRange = 12,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+             {"ER Large Laser",new ComponentWeapon() //TM341
+            {
+                Name = "ER Large Laser",
+                BaseCost = 20000,
+                Heat = 12,
+                AeroHeat = 12,
+                Damage = 8,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 19,
+                AmmoPerTon = 0,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+              {"ER PPC",new ComponentWeapon() //TM341
+            {
+                Name = "PPC",
+                BaseCost = 20000,
+                Heat = 15,
+                AeroHeat = 15,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 23,
+                AmmoPerTon = 0,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"Ultra Autocannon 2",new ComponentWeapon() //TM341
+            {
+                Name = "Ultra Autocannon 2",
+                BaseCost = 20000,
+                Heat = 1,
+                AeroHeat = 2,
+                Damage = 2,
+                AeroDamage = 3,
+                MinimumRange = 3,
+                ShortRange = 8,
+                MediumRange = 17,
+                LongRange = 25,
+                AmmoPerTon = 45,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"Ultra Autocannon 5",new ComponentWeapon() //TM341
+            {
+                Name = "Ultra Autocannon 5",
+                BaseCost = 20000,
+                Heat = 1, //TODO: Seems like this is wrong
+                AeroHeat = 2,
+                Damage = 5,
+                AeroDamage = 7,
+                MinimumRange = 2,
+                ShortRange = 6,
+                MediumRange = 13,
+                LongRange = 20,
+                AmmoPerTon = 20,
+                Tonnage = 9,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+              {"Ultra Autocannon 10",new ComponentWeapon() //TM341
+            {
+                Name = "Ultra Autocannon 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 8,
+                Damage = 10,
+                AeroDamage = 15,
+                MinimumRange = 0,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 10,
+                Tonnage = 13,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"Ultra Autocannon 20",new ComponentWeapon() //TM341
+            {
+                Name = "Ultra Autocannon 20",
+                BaseCost = 20000,
+                Heat = 8,
+                AeroHeat = 16,
+                Damage = 20,
+                AeroDamage = 30,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 10,
+                AmmoPerTon = 5,
+                Tonnage = 15,
+                CriticalSpaceMech = 10,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 10,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            }
         };
     }
 }
