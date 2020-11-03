@@ -20,6 +20,9 @@
     <None Update="TestFiles\AtlasAS7-D.mtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="TestFiles\GoliathGOL-1H.mtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

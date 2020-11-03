@@ -21,7 +21,6 @@ namespace BattleTechNET.Common
         public int LongRange { get; set; }
         public AerospaceWeaponRanges AeroRange { get; set; }
         public double AmmoPerTon { get; set; }
-        public double Mass { get; set; }
         public int CriticalSpaceMech { get; set; }
         public int CriticalSpaceProtomech { get; set; }
         public int CriticalSpaceCombatVehicle { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleTechNET.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,6 @@ namespace BattleTechNET.TotalWarfare
         public Common.ComponentEngine Engine { get; set; }
         public StructureType StructureType { get; set; }
         public MyomerType MyomerType { get; set; }
-        
         public override string ToString()
         {
             return string.Format("{0} {1}", this.Model, this.Variant);
@@ -49,7 +49,15 @@ namespace BattleTechNET.TotalWarfare
                 sLocation.Equals("Right Arm") ||
                 sLocation.Equals("RA") 
                 ) iLocation = 3;
-            if (sLocation.Equals("Left Leg") ||
+            if (sLocation.Equals("Front Left Leg") ||
+                sLocation.Equals("FLL") ||
+                sLocation.Equals("Front Right Leg") ||
+                sLocation.Equals("FRL") ||
+                sLocation.Equals("Rear Left Leg") ||
+                sLocation.Equals("RLL") ||
+                sLocation.Equals("Rear Right Leg") ||
+                sLocation.Equals("RRL") || 
+                sLocation.Equals("Left Leg") ||
                 sLocation.Equals("LL") ||
                 sLocation.Equals("Right Leg") ||
                 sLocation.Equals("RL")

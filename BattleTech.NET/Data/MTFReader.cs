@@ -1,4 +1,5 @@
-﻿using BattleTechNET.TotalWarfare;
+﻿using BattleTechNET.Common;
+using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,22 @@ namespace BattleTechNET.Data
     /// </summary>
     public static class MTFReader
     {
+        public static Dictionary<string, int> CriticalHitSlotCount = new Dictionary<string, int>()
+        {
+            {"Front Left Leg",12 },
+            {"Front Right Leg",12 },
+            {"Rear Right Leg",12 },
+            {"Rear Left Leg",12 },
+            {"Left Leg",12 },
+            {"Right Leg",12 },
+            {"Left Torso",12 },
+            {"Right Torso",12 },
+            {"Center Torso",12 },
+            {"Left Arm",12 },
+            {"Right Arm",12 },
+            {"Head",12 }
+        };
+
         public static BattleMechDesign ReadBattleMechDesignFile(string sFilename)
         {
             return ReadBattleMechDesignFile(File.OpenRead(sFilename));
@@ -54,7 +71,7 @@ namespace BattleTechNET.Data
                 if (sLines[1].Trim() != "") retval.Model = sLines[1]; else throw new Exception("File does not contain a model name");
                 if (sLines[2].Trim() != "") retval.Variant = sLines[2];
                 retval.HitLocations = new List<HitLocation>();
-
+                retval.Components = new List<UnitComponent>();
                 string sConfig = "";
                 for (int i = 3;i < sLines.Length;i ++)
                 {
@@ -73,7 +90,7 @@ namespace BattleTechNET.Data
                                     {
                                         { "HD", new ArmorFacing() { Name = "HD" } }
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Head"],
                                     Structure = new StructureLocation()
                                     {
                                         
@@ -90,7 +107,7 @@ namespace BattleTechNET.Data
                                     {
                                         { "LA", new ArmorFacing() { Name = "LA" } }
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Left Arm"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -108,7 +125,7 @@ namespace BattleTechNET.Data
                                         { "LT", new ArmorFacing() { Name = "LT" } },
                                         { "RTL", new ArmorFacing() { Name = "RTL" } },
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Left Torso"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -125,7 +142,7 @@ namespace BattleTechNET.Data
                                     {
                                         { "RA", new ArmorFacing() { Name = "RA" } }
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Right Arm"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -143,7 +160,7 @@ namespace BattleTechNET.Data
                                         { "RT", new ArmorFacing() { Name = "RT" } },
                                         { "RTR", new ArmorFacing() { Name = "RTR" } },
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Right Torso"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -161,7 +178,7 @@ namespace BattleTechNET.Data
                                         { "CT", new ArmorFacing() { Name = "CT" } },
                                         { "RTC", new ArmorFacing() { Name = "RTC" } },
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Center Torso"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -176,9 +193,9 @@ namespace BattleTechNET.Data
                                     Name = "LL",
                                     ArmorFacings = new Dictionary<string, ArmorFacing>()
                                     {
-                                        { "LL", new ArmorFacing() { Name = "" } }
+                                        { "LL", new ArmorFacing() { Name = "LL" } }
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Left Leg"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -195,7 +212,7 @@ namespace BattleTechNET.Data
                                     {
                                         { "RL", new ArmorFacing() { Name = "RL" } }
                                     },
-                                    CriticalSlotCount = 6,
+                                    CriticalSlotCount = CriticalHitSlotCount["Right Leg"],
                                     Structure = new StructureLocation()
                                     {
 
@@ -213,6 +230,157 @@ namespace BattleTechNET.Data
                                 retval.HitLocations.Add(mhlRightArm);
                                 retval.HitLocations.Add(mhlLeftLeg);
                                 retval.HitLocations.Add(mhlRightLeg);
+                            }
+
+                            if(sConfig.Equals("Quad",StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                BattleMechHitLocation mhlHead = new BattleMechHitLocation()
+                                {
+                                    Name = "HD",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "HD", new ArmorFacing() { Name = "HD" } }
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Head"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "HD",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlFrontLeftLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "FLL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "FLL", new ArmorFacing() { Name = "FLL" } }
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Front Left Leg"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "FLL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlLeftTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "LT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "LT", new ArmorFacing() { Name = "LT" } },
+                                        { "RTL", new ArmorFacing() { Name = "RTL" } },
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Left Torso"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "LT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlFrontRightLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "FRL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "FRL", new ArmorFacing() { Name = "FRL" } }
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Front Right Leg"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "FRL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRightTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "RT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RT", new ArmorFacing() { Name = "RT" } },
+                                        { "RTR", new ArmorFacing() { Name = "RTR" } },
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Right Torso"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlCenterTorso = new BattleMechHitLocation()
+                                {
+                                    Name = "CT",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "CT", new ArmorFacing() { Name = "CT" } },
+                                        { "RTC", new ArmorFacing() { Name = "RTC" } },
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Center Torso"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "CT",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRearLeftLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "RLL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RLL", new ArmorFacing() { Name = "RLL" } }
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Rear Left Leg"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RLL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                BattleMechHitLocation mhlRearRightLeg = new BattleMechHitLocation()
+                                {
+                                    Name = "RRL",
+                                    ArmorFacings = new Dictionary<string, ArmorFacing>()
+                                    {
+                                        { "RRL", new ArmorFacing() { Name = "RRL" } }
+                                    },
+                                    CriticalSlotCount = CriticalHitSlotCount["Rear Right Leg"],
+                                    Structure = new StructureLocation()
+                                    {
+
+                                        Name = "RRL",
+                                        StructureType = retval.StructureType,
+                                        MaxStructurePoints = 3,
+                                        StructurePoints = 3
+                                    },
+                                };
+                                retval.HitLocations.Add(mhlHead);
+                                retval.HitLocations.Add(mhlFrontLeftLeg);
+                                retval.HitLocations.Add(mhlLeftTorso);
+                                retval.HitLocations.Add(mhlCenterTorso);
+                                retval.HitLocations.Add(mhlRightTorso);
+                                retval.HitLocations.Add(mhlFrontRightLeg);
+                                retval.HitLocations.Add(mhlRearLeftLeg);
+                                retval.HitLocations.Add(mhlRearRightLeg);
                             }
                         }
                         if(kvp.Key == "Mass")
@@ -304,6 +472,58 @@ namespace BattleTechNET.Data
                             }
 
                         }
+                        foreach(string sKey in CriticalHitSlotCount.Keys)
+                        {
+                            if(kvp.Key.Trim() == $"{sKey}:")
+                            {
+                                BattleMechHitLocation selectedLocation = null;
+                                foreach (BattleMechHitLocation bmhl in retval.HitLocations)
+                                {
+                                    if (Utilities.IsSynonymFor(bmhl.Name, sKey))
+                                    {
+                                        selectedLocation = bmhl;
+                                    }
+                                }
+                                for (int j = 0; j<CriticalHitSlotCount[sKey];j++)
+                                {
+
+                                    CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim() };
+                                    if (criticalSlot.Label == "-Empty-") criticalSlot.RollAgain = true;
+                                    selectedLocation.CriticalSlots.Add(criticalSlot);
+                                    
+                                }
+                            }
+                        }
+                        if(kvp.Key.Equals("Weapons"))
+                        {
+                            int iWeaponsCount = int.Parse(kvp.Value);
+
+                            for(int j=0;j<iWeaponsCount;j++)
+                            {
+                                string[] sTerms = sLines[++i].Trim().Split(',');
+                                string sComponentName = sTerms[0].Trim();
+                                string sHitLocation = sTerms[1].Trim();
+                                Component c = null;
+                                foreach(string sKey in ComponentLibrary.Weapons.Keys)
+                                {
+                                    if(Utilities.IsSynonymFor(sComponentName,sKey) || sComponentName.Equals(sKey))
+                                    {
+                                        c = ComponentLibrary.Weapons[sKey];
+                                    }
+                                }
+                                HitLocation hitLocation = null;
+                                foreach(BattleMechHitLocation bmhl in retval.HitLocations)
+                                {
+                                    if (Utilities.IsSynonymFor(bmhl.Name, sHitLocation) || bmhl.Name.Equals(sHitLocation))
+                                        hitLocation = bmhl;
+                                }
+                                if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
+                                if (c == null) throw new Exception($"Could not find weapon {sComponentName} for {sLines[i]}");
+                                retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation });
+                            }
+
+                        }
+
                     }
                 }
 
