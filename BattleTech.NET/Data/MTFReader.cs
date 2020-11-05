@@ -582,6 +582,13 @@ namespace BattleTechNET.Data
                                         criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
                                         retval.Components.Add(criticalSlot.AffectedComponent);
                                     }
+                                    if (Utilities.IsSynonymFor(criticalSlot.Label,"CASE"))
+                                    {
+                                        ComponentCASE caseComponent = new ComponentCASE(retval);
+                                        criticalSlot.AffectedComponent = new UnitComponent(caseComponent, selectedLocation);
+                                        retval.Components.Add(criticalSlot.AffectedComponent);
+                                    }
+
                                     selectedLocation.AddCriticalSlot(criticalSlot);
                                     
                                 }

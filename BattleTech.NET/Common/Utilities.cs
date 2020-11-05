@@ -51,7 +51,8 @@ namespace BattleTechNET.Common
             new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)" },
             new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)" },
             new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)" },
-            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)" }
+            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)" },
+            new string[] { "CASE","ISCASE","ClanCASE" }
 
 
 
