@@ -3,6 +3,7 @@ using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
@@ -20,11 +21,22 @@ namespace BattleTechNETTest
         {
             _outputHelper = testOutputHelper;
         }
-
+        //Recursive file get
+        private string[] GetFiles(string sDirectory,string sPattern)
+        {
+            List<string> retval = new List<string>();
+            string[] sDirectories = Directory.GetDirectories(sDirectory);
+            foreach(string sSubdirectory in sDirectories)
+            {
+                retval.AddRange(GetFiles(sSubdirectory, sPattern));
+            }
+            retval.AddRange(Directory.GetFiles(sDirectory, sPattern));
+            return retval.ToArray();
+        }
         [Fact(DisplayName="Load MegaMek Files")]
         public void TestMegaMekFiles()
         {
-            string[] sFiles = Directory.GetFiles(sDirectory);
+            string[] sFiles = GetFiles(sDirectory,"*.mtf");
 
             int iLoadCount = 0;
 
@@ -48,7 +60,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Mass Check MegaMek Files")]
         public void MassCheckMegaMekFiles()
         {
-            string[] sFiles = Directory.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             
             foreach (string sFile in sFiles)

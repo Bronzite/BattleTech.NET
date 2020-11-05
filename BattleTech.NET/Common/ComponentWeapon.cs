@@ -31,5 +31,34 @@ namespace BattleTechNET.Common
         public string TechRating { get; set; }
         public string LauncherType { get; set; }
 
+        public object Clone()
+        {
+            ComponentWeapon retval = new ComponentWeapon();
+            retval.Name = Name;
+            retval.Tonnage = Tonnage;
+            retval.BaseCost = BaseCost;
+            retval.TechnologyBase = TechnologyBase;
+            retval.Heat = Heat;
+            retval.AeroHeat = AeroHeat;
+            retval.HeatIsPerShot = HeatIsPerShot;
+            retval.Damage = Damage;
+            retval.AeroDamage = AeroDamage;
+            retval.MinimumRange = MinimumRange;
+            retval.ShortRange = ShortRange;
+            retval.MediumRange = MediumRange;
+            retval.LongRange = LongRange;
+            retval.AeroRange = AeroRange;
+            retval.AmmoPerTon = AmmoPerTon;
+            retval.CriticalSpaceMech = CriticalSpaceMech;
+            retval.CriticalSpaceProtomech = CriticalSpaceProtomech;
+            retval.CriticalSpaceCombatVehicle = CriticalSpaceCombatVehicle;
+            retval.CriticalSpaceDropShips = CriticalSpaceDropShips;
+            retval.CriticalSpaceFighters = CriticalSpaceFighters;
+            retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
+            retval.CriticalSpaceSupportVehicle = CriticalSpaceSupportVehicle;
+            retval.TechRating = TechRating;
+            retval.LauncherType = LauncherType;
+            return retval;
+        }
     }
 }

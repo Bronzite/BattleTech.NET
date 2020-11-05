@@ -797,21 +797,21 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"Hatchet",new ComponentWeapon() //TM341
+             {"Hatchet",new ComponentHatchet() //TM341
             {
                 Name = "Hatchet",
                 BaseCost = 20000,
                 Heat = 0,
                 AeroHeat = 0,
-                Damage = 20, //TODO: We need to compute this value
+                Damage = 20, 
                 AeroDamage = 30,
                 MinimumRange = 0,
                 ShortRange = 1,
                 MediumRange = 1,
                 LongRange = 1,
                 AmmoPerTon = 0,
-                Tonnage = 7, //TODO: Need to compute this value
-                CriticalSpaceMech = 1, //TODO: Need to compute this value
+                Tonnage = 7, 
+                CriticalSpaceMech = 1, 
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = int.MaxValue,
                 CriticalSpaceSupportVehicle = int.MaxValue,

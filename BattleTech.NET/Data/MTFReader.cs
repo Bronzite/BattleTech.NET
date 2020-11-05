@@ -644,6 +644,9 @@ namespace BattleTechNET.Data
                                 }
                                 if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
                                 if (c == null) throw new Exception($"Could not find weapon {sComponentName} for {sLines[i]}");
+                                c = (Component)c.Clone();
+                                IDesignConfigured designConfigured = c as IDesignConfigured;
+                                if (designConfigured != null) designConfigured.Configure(retval);
                                 for(int iRepeats = 0; iRepeats<iNumberOfEntries; iRepeats++)
                                     retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation });
                             }
@@ -680,8 +683,41 @@ namespace BattleTechNET.Data
                     retval.Components.Add(new UnitComponent(selectedCockpit, hit));
                     bCockpit = true;
                 }
+
+                //There's an issue with Hatchet because they don't appear on
+                //the Weapons list in MTF files.  We need to check if there's
+                //one on either arm.
+                if (sConfig == "Biped")
+                {
+                    BattleMechHitLocation leftArm = retval.GetHitLocationByName("LA") as BattleMechHitLocation;
+                    BattleMechHitLocation rightArm = retval.GetHitLocationByName("RA") as BattleMechHitLocation;
+                    if (leftArm == null) throw new Exception("No Left Arm");
+                    if (rightArm == null) throw new Exception("No Right Arm");
+                    if (leftArm.CriticalSlots == null) throw new Exception("No Left Arm Critical Hit Slots");
+                    if (rightArm.CriticalSlots == null) throw new Exception("No Right Arm Critical Hit Slots");
+                    bool bLeftArmHatchet = false, bRightArmHatchet = false;
+                    foreach (CriticalSlot curCriticalSlot in leftArm.CriticalSlots)
+                        if (curCriticalSlot.Label.Equals("Hatchet"))
+                            bLeftArmHatchet = true;
+
+                    foreach (CriticalSlot curCriticalSlot in rightArm.CriticalSlots)
+                        if (curCriticalSlot.Label.Equals("Hatchet"))
+                            bRightArmHatchet = true;
+
+                    if (bLeftArmHatchet)
+                    {
+                        ComponentHatchet hatchet = new ComponentHatchet(retval);
+                        retval.Components.Add(new UnitComponent(hatchet, leftArm));
+                    }
+
+                    if (bRightArmHatchet)
+                    {
+                        ComponentHatchet hatchet = new ComponentHatchet(retval);
+                        retval.Components.Add(new UnitComponent(hatchet, rightArm));
+                    }
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception("Exception reading Battlemech Design",ex);
             }
