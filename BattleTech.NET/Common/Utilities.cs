@@ -50,6 +50,8 @@ namespace BattleTechNET.Common
             new string[] {"UAC20", "Ultra AC/20", "Ultra Autocannon 20", "Ultra Autocannon/20" },
             new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)" },
             new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)" },
+            new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)" },
+            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)" }
 
 
 
@@ -67,6 +69,7 @@ namespace BattleTechNET.Common
         /// </summary>
         static public bool IsSynonymFor(string a, string b)
         {
+            if (a.Equals(b)) return true;
             for (int i = 0; i < sSynonyms.GetLength(0); i++)
             {
                 if ((sSynonyms[i].Contains(a)) && (sSynonyms[i].Contains(b)))

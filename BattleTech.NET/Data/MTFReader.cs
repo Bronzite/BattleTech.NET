@@ -469,7 +469,7 @@ namespace BattleTechNET.Data
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
                             {
-                                if (curArmorType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase))
+                                if (Utilities.IsSynonymFor(curArmorType.Name,kvp.Value))
                                 {
                                     foreach(BattleMechHitLocation hitLocation in retval.HitLocations)
                                     {
