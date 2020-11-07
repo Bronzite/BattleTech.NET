@@ -1,32 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public enum AerospaceWeaponRanges { SHORT,MEDIUM,LONG,EXTREME};
-    public class ComponentWeapon:Component
+    public class ComponentWeaponClustered:ComponentWeapon
     {
-        
-        public int Heat { get; set; }
-        public int AeroHeat { get; set; }
-        public bool HeatIsPerShot { get; set; }
-        public int Damage { get; set; }
-        public int AeroDamage { get; set; }
-        public int MinimumRange { get; set; }
-        public int ShortRange { get; set; }
-        public int MediumRange { get; set; }
-        public int LongRange { get; set; }
-        public AerospaceWeaponRanges AeroRange { get; set; }
-        public double AmmoPerTon { get; set; }
-
-        public string LauncherType { get; set; }
+        public int SalvoSize { get; set; }
+        public int DamagePerMissile { get { return Damage; } set { Damage = value; } }
+        public ComponentFireControlSystem FireControlSystem { get; set; }
 
         public new object Clone()
         {
-            ComponentWeapon retval = new ComponentWeapon();
+            ComponentWeaponClustered retval = new ComponentWeaponClustered();
             retval.Name = Name;
             retval.Tonnage = Tonnage;
             retval.BaseCost = BaseCost;
@@ -51,7 +37,10 @@ namespace BattleTechNET.Common
             retval.CriticalSpaceSupportVehicle = CriticalSpaceSupportVehicle;
             retval.TechRating = TechRating;
             retval.LauncherType = LauncherType;
+            retval.FireControlSystem = (ComponentFireControlSystem)FireControlSystem.Clone();
             return retval;
         }
+
+
     }
 }

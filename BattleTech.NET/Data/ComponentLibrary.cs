@@ -823,7 +823,118 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            },
+             {"LRM 5 + Artemis IV",new ComponentWeapon() //TM341
+            {
+                Name = "LRM 5 + Artemis IV",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                AeroDamage = 4,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 3,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+
+
+
             }
+            },
+            {"LRM 10 + Artemis IV",new ComponentWeapon() //TM341
+            {
+                Name = "LRM 10 + Artemis IV",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 8,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 6,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"LRM 15 + Artemis IV",new ComponentWeapon() //TM341
+            {
+                Name = "LRM 15 + Artemis IV",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 8,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
+            {"LRM 20 + Artemis IV",new ComponentWeapon() //TM341
+            {
+                Name = "LRM 20 + Artemis IV",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                AeroDamage = 16,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 11,
+                CriticalSpaceMech = 6,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 6,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+            }
+            },
         };
     }
 }

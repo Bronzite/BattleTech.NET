@@ -19,7 +19,7 @@ namespace BattleTechNET.TotalWarfare
         public void AddCriticalSlot(CriticalSlot slot)
         {
             CriticalSlot replaceSlot = null;
-            int iFirstAvailableSlot = 1;
+            int iFirstAvailableSlot = 0;
             CriticalSlots.Sort((a, b) => { return a.SlotNumber.CompareTo(b.SlotNumber); });
             foreach(CriticalSlot curSlot in CriticalSlots)
             {

@@ -712,8 +712,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="TestFiles\MassTesting\" />
-  </ItemGroup>
-
 </Project>

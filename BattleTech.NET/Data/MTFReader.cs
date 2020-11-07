@@ -27,7 +27,7 @@ namespace BattleTechNET.Data
             {"Center Torso",12 },
             {"Left Arm",12 },
             {"Right Arm",12 },
-            {"Head",12 }
+            {"Head",12 } //MTFs have 12 slots in the head.
         };
 
         public static BattleMechDesign ReadBattleMechDesignFile(string sFilename)
@@ -570,7 +570,7 @@ namespace BattleTechNET.Data
                                 {
 
                                     CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim(), Location=selectedLocation,SlotNumber = j };
-                                    if (criticalSlot.Label == "-Empty-") criticalSlot.RollAgain = true;
+                                    if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
                                     if (criticalSlot.Label.Contains(" Ammo"))
                                     {
                                         ComponentAmmunition ammunition = new ComponentAmmunition();
@@ -579,6 +579,8 @@ namespace BattleTechNET.Data
                                         ammunition.Tonnage = 1;
                                         ammunition.Rounds = 1;
                                         ammunition.BaseCost = 1000;
+                                        if (Utilities.IsSynonymFor("IS Machine Gun Ammo - Half", criticalSlot.Label))
+                                            ammunition.Tonnage = 0.5;
                                         criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
                                         retval.Components.Add(criticalSlot.AffectedComponent);
                                     }
@@ -588,10 +590,10 @@ namespace BattleTechNET.Data
                                         criticalSlot.AffectedComponent = new UnitComponent(caseComponent, selectedLocation);
                                         retval.Components.Add(criticalSlot.AffectedComponent);
                                     }
-
                                     selectedLocation.AddCriticalSlot(criticalSlot);
                                     
                                 }
+                                if (CriticalHitSlotCount[sKey] != selectedLocation.CriticalSlots.Count) throw new Exception($"Error loading {sKey} -- only {selectedLocation.CriticalSlots.Count} of {CriticalHitSlotCount[sKey]} slots.");
                             }
                         }
                         if (kvp.Key.Equals("Heat Sinks"))
@@ -690,6 +692,65 @@ namespace BattleTechNET.Data
                     retval.Components.Add(new UnitComponent(selectedCockpit, hit));
                     bCockpit = true;
                 }
+
+                //Install any Electronic Warfare components
+                ComponentElectronicWarfare.ResolveComponent(retval);
+
+                //Install any FCS systems
+                ComponentFireControlSystem.ResolveComponent(retval);
+
+                //The collapsible command center needs to have all of its
+                //critical hit slots in the same Torso.
+                BattleMechHitLocation leftTorso = retval.GetHitLocationByName("LT") as BattleMechHitLocation;
+                BattleMechHitLocation rightTorso = retval.GetHitLocationByName("RT") as BattleMechHitLocation;
+                
+                int iLeftCCM = 0;
+                foreach(CriticalSlot slot in leftTorso.CriticalSlots)
+                {
+                    if(Utilities.IsSynonymFor(slot.Label, "ISCollapsibleCommandModule"))
+                    {
+                        iLeftCCM++;
+                    }
+                }
+                int iRightCCM = 0;
+                foreach (CriticalSlot slot in rightTorso.CriticalSlots)
+                {
+                    if (Utilities.IsSynonymFor(slot.Label, "ISCollapsibleCommandModule"))
+                    {
+                        iRightCCM++;
+                    }
+                }
+                if (iLeftCCM > 0 && iLeftCCM < 12) throw new Exception($"CCM Module exception: Only {iLeftCCM}/12 entries in Left Torso.");
+                if (iRightCCM > 0 && iRightCCM < 12) throw new Exception($"CCM Module exception: Only {iRightCCM}/12 entries in Right Torso.");
+                if (iLeftCCM == 12)
+                {
+                    Component CollapsibleCommandModule = new Component()
+                    {
+                        Name = "Collapsible Command Module",
+                        BaseCost = 1000, //TODO: CCM Base Cost
+                        TechnologyBase = retval.TechnologyBase,
+                        Tonnage = 16
+                    };
+                    UnitComponent uc = new UnitComponent(CollapsibleCommandModule, leftTorso);
+                    foreach (CriticalSlot slot in leftTorso.CriticalSlots) slot.AffectedComponent = uc;
+                    retval.Components.Add(uc);
+                }
+                if (iRightCCM == 12)
+                {
+                    Component CollapsibleCommandModule = new Component()
+                    {
+                        Name = "Collapsible Command Module",
+                        BaseCost = 1000, //TODO: CCM Base Cost
+                        TechnologyBase = retval.TechnologyBase,
+                        Tonnage = 16
+                    };
+                    UnitComponent uc = new UnitComponent(CollapsibleCommandModule, rightTorso);
+                    foreach (CriticalSlot slot in rightTorso.CriticalSlots) slot.AffectedComponent = uc;
+                    retval.Components.Add(uc);
+                }
+
+                
+
 
                 //There's an issue with Hatchet because they don't appear on
                 //the Weapons list in MTF files.  We need to check if there's

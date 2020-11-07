@@ -52,7 +52,13 @@ namespace BattleTechNET.Common
             new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)" },
             new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)" },
             new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)" },
-            new string[] { "CASE","ISCASE","ClanCASE" }
+            new string[] { "CASE","ISCASE","ClanCASE" },
+            new string[] {"LRM 5 + Artemis IV","LRM/5 + Artemis IV","LRM5 + Artemis IV"},
+            new string[] { "Collapsible Command Module", "ISCollapsibleCommandModule" },
+            new string[] { "Electronic Warfare Equipment","ISElectronicWarfareEquipment" },
+            new string[] { "ISArtemisIV", "Artemis IV" },
+            new string[] { "ClanArtemisV","Artemis V" },
+            new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half" }
 
 
 
