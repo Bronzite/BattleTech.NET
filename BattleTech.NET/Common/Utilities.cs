@@ -70,7 +70,7 @@ namespace BattleTechNET.Common
             new string[] {"LRM 5 + Artemis IV","LRM/5 + Artemis IV","LRM5 + Artemis IV"},
             new string[] { "Collapsible Command Module", "ISCollapsibleCommandModule" },
             new string[] { "Electronic Warfare Equipment","ISElectronicWarfareEquipment" },
-            new string[] { "Guardian ECM","ISGuardianECM","Guardian ECM Suite","CLECMSuite" },
+            new string[] { "Guardian ECM","ISGuardianECM","Guardian ECM Suite","CLECMSuite","ISGuardianECMSuite" },
             new string[] { "Beagle Active Probe","ISBeagleActiveProbe" },
             new string[] { "ISArtemisIV", "Artemis IV" },
             new string[] { "ClanArtemisV","Artemis V" },
