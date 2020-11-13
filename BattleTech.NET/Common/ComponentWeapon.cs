@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public enum AerospaceWeaponRanges { SHORT,MEDIUM,LONG,EXTREME};
+    public enum AerospaceWeaponRanges { SHORT,MEDIUM,LONG,EXTREME,POINTDEFENSE,NA};
     public class ComponentWeapon:Component
     {
         
@@ -21,8 +21,8 @@ namespace BattleTechNET.Common
         public int LongRange { get; set; }
         public AerospaceWeaponRanges AeroRange { get; set; }
         public double AmmoPerTon { get; set; }
-
         public string LauncherType { get; set; }
+        public int ToHitModifier { get; set; }
 
         public new object Clone()
         {
@@ -49,6 +49,7 @@ namespace BattleTechNET.Common
             retval.CriticalSpaceFighters = CriticalSpaceFighters;
             retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
             retval.CriticalSpaceSupportVehicle = CriticalSpaceSupportVehicle;
+            retval.ToHitModifier = ToHitModifier;
             retval.TechRating = TechRating;
             retval.LauncherType = LauncherType;
             return retval;

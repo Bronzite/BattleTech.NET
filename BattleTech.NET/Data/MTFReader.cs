@@ -66,8 +66,9 @@ namespace BattleTechNET.Data
                     throw new Exception(string.Format("Version number not parseable: {0}", sVersionFields[1]));
                 }
 
-                if(dVersion > 1.1)
+                if(dVersion > 1.2)
                 {
+                    //TODO: We need to add Ejection support for v1.2
                     throw new Exception(string.Format("Current Implementation only supports MTF Version 1.0.  File is version {0}", sVersionFields[1]));
                 }
 
@@ -85,7 +86,8 @@ namespace BattleTechNET.Data
                         if (kvp.Key == "Config")
                         {
                             sConfig = kvp.Value;
-                            if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase))
+                            if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
+                                sConfig.Equals("Biped OmniMech", StringComparison.InvariantCultureIgnoreCase))
                             {
                                 BattleMechHitLocation mhlHead = new BattleMechHitLocation()
                                 {
@@ -236,7 +238,8 @@ namespace BattleTechNET.Data
                                 retval.HitLocations.Add(mhlRightLeg);
                             }
 
-                            if(sConfig.Equals("Quad",StringComparison.InvariantCultureIgnoreCase))
+                            if(sConfig.Equals("Quad",StringComparison.InvariantCultureIgnoreCase)||
+                                sConfig.Equals("Quad OmniMech", StringComparison.InvariantCultureIgnoreCase))
                             {
                                 BattleMechHitLocation mhlHead = new BattleMechHitLocation()
                                 {
@@ -387,7 +390,33 @@ namespace BattleTechNET.Data
                                 retval.HitLocations.Add(mhlRearRightLeg);
                             }
                         }
-                        if(kvp.Key == "Mass")
+                        if(kvp.Key == "TechBase")
+                        {
+                            bool bValidTechBase = false;
+                            if(Utilities.IsSynonymFor(kvp.Value,"Inner Sphere"))
+                            {
+                                retval.TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;
+                                bValidTechBase = true;
+                            }
+                            if (Utilities.IsSynonymFor(kvp.Value, "Clan"))
+                            {
+                                retval.TechnologyBase = TECHNOLOGY_BASE.CLAN;
+                                bValidTechBase = true;
+                            }
+                            if (Utilities.IsSynonymFor(kvp.Value, "Mixed (IS Chassis)"))
+                            {
+                                retval.TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;
+                                bValidTechBase = true;
+                            }
+                            if (Utilities.IsSynonymFor(kvp.Value, "Mixed (Clan Chassis)"))
+                            {
+                                retval.TechnologyBase = TECHNOLOGY_BASE.CLAN;
+                                bValidTechBase = true;
+                            }
+                            if (!bValidTechBase) throw new Exception($"Could not identify Tech Base {kvp.Value}");
+
+                        }
+                        if (kvp.Key == "Mass")
                         {
                             int iMass = 0;
                             if(!int.TryParse(kvp.Value, out iMass))
@@ -484,7 +513,9 @@ namespace BattleTechNET.Data
                         }
                         if (kvp.Key.Contains(" Armor"))
                         {
-                            int iArmorAmount = int.Parse(kvp.Value);
+                            int iArmorAmount = 0;
+                            if (!int.TryParse(kvp.Value, out iArmorAmount))
+                                throw new Exception($"Unable to get value from {kvp.Key}:{kvp.Value} at line {i+1}.");
                             string sArmorLocationKey = kvp.Key.Replace(" Armor", "").Trim();
                             foreach(BattleMechHitLocation bmhl in retval.HitLocations)
                             {
@@ -554,6 +585,8 @@ namespace BattleTechNET.Data
                                 retval.Components.Add(new UnitComponent(jumpJet,retval.GetHitLocationByName("CT")));
                             }
                         }
+
+                        //This is where we load the slot for critical hit locations.
                         foreach(string sKey in CriticalHitSlotCount.Keys)
                         {
                             if (Utilities.IsSynonymFor(kvp.Key.Trim(), sKey.Replace(":", "")))
@@ -568,32 +601,39 @@ namespace BattleTechNET.Data
                                 }
                                 for (int j = 0; j<CriticalHitSlotCount[sKey];j++)
                                 {
-
-                                    CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[++i].Trim(), Location=selectedLocation,SlotNumber = j };
-                                    if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
-                                    if (criticalSlot.Label.Contains(" Ammo"))
+                                    i++;
+                                    //if (sLines.Length <= i) throw new Exception($"Critical Hit reading has run off the end of the file at line {i + 1} while reading {selectedLocation.Name}.");
+                                    if (i == sLines.Length)
+                                        j = CriticalHitSlotCount[sKey];
+                                    else if (sLines[i].Trim() == "" )
+                                        j = CriticalHitSlotCount[sKey];
+                                    else
                                     {
-                                        ComponentAmmunition ammunition = new ComponentAmmunition();
-                                        ammunition.Name = criticalSlot.Label;
-                                        ammunition.TechnologyBase = retval.TechnologyBase;
-                                        ammunition.Tonnage = 1;
-                                        ammunition.Rounds = 1;
-                                        ammunition.BaseCost = 1000;
-                                        if (Utilities.IsSynonymFor("IS Machine Gun Ammo - Half", criticalSlot.Label))
-                                            ammunition.Tonnage = 0.5;
-                                        criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
-                                        retval.Components.Add(criticalSlot.AffectedComponent);
+                                        CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Trim(), Location = selectedLocation, SlotNumber = j };
+                                        if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
+                                        if (criticalSlot.Label.Contains(" Ammo"))
+                                        {
+                                            ComponentAmmunition ammunition = new ComponentAmmunition();
+                                            ammunition.Name = criticalSlot.Label;
+                                            ammunition.TechnologyBase = retval.TechnologyBase;
+                                            ammunition.Tonnage = 1;
+                                            ammunition.Rounds = 1;
+                                            ammunition.BaseCost = 1000;
+                                            if (Utilities.IsSynonymFor("IS Machine Gun Ammo - Half", criticalSlot.Label))
+                                                ammunition.Tonnage = 0.5;
+                                            criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
+                                            retval.Components.Add(criticalSlot.AffectedComponent);
+                                        }
+                                        if (Utilities.IsSynonymFor(criticalSlot.Label, "CASE"))
+                                        {
+                                            ComponentCASE caseComponent = new ComponentCASE(retval);
+                                            criticalSlot.AffectedComponent = new UnitComponent(caseComponent, selectedLocation);
+                                            retval.Components.Add(criticalSlot.AffectedComponent);
+                                        }
+                                        selectedLocation.AddCriticalSlot(criticalSlot);
                                     }
-                                    if (Utilities.IsSynonymFor(criticalSlot.Label,"CASE"))
-                                    {
-                                        ComponentCASE caseComponent = new ComponentCASE(retval);
-                                        criticalSlot.AffectedComponent = new UnitComponent(caseComponent, selectedLocation);
-                                        retval.Components.Add(criticalSlot.AffectedComponent);
-                                    }
-                                    selectedLocation.AddCriticalSlot(criticalSlot);
-                                    
                                 }
-                                if (CriticalHitSlotCount[sKey] != selectedLocation.CriticalSlots.Count) throw new Exception($"Error loading {sKey} -- only {selectedLocation.CriticalSlots.Count} of {CriticalHitSlotCount[sKey]} slots.");
+                                //if (CriticalHitSlotCount[sKey] != selectedLocation.CriticalSlots.Count) throw new Exception($"Error loading {sKey} -- only {selectedLocation.CriticalSlots.Count} of {CriticalHitSlotCount[sKey]} slots.");
                             }
                         }
                         if (kvp.Key.Equals("Heat Sinks"))
@@ -625,39 +665,77 @@ namespace BattleTechNET.Data
 
                             for(int j=0;j<iWeaponsCount;j++)
                             {
-                                string[] sTerms = sLines[++i].Trim().Split(',');
-                                string sComponentName = sTerms[0].Trim();
-                                string sHitLocation = sTerms[1].Trim();
-                                int iNumberOfEntries = 1;
-                                string[] sFirstTerm = sComponentName.Split(' ');
-                                int EntryCount = 0;
-                                if(int.TryParse(sFirstTerm[0],out EntryCount))
+                                if (sLines[++i].Trim() == "")
+                                    //Added because the 3050U FS9-B lies about
+                                    //its weapon count.
+                                    j = iWeaponsCount;
+                                else
                                 {
-                                    iNumberOfEntries = EntryCount;
-                                    sComponentName = sComponentName.Substring(sFirstTerm[0].Length + 1);
-                                }
-                                
-                                Component c = null;
-                                foreach(string sKey in ComponentLibrary.Weapons.Keys)
-                                {
-                                    if(Utilities.IsSynonymFor(sComponentName,sKey) || sComponentName.Equals(sKey))
+                                    string[] sTerms = sLines[i].Trim().Split(',');
+                                    string sComponentName = sTerms[0].Trim();
+                                    string sHitLocation = sTerms[1].Trim();
+                                    bool bRearMounted = false;
+                                    if (sHitLocation.Contains("(R)"))
                                     {
-                                        c = ComponentLibrary.Weapons[sKey];
+                                        bRearMounted = true;
+                                        sHitLocation = sHitLocation.Replace("(R)", "").Trim();
+                                    }
+                                    int iNumberOfEntries = 1;
+                                    string[] sFirstTerm = sComponentName.Split(' ');
+                                    int EntryCount = 0;
+                                    if (int.TryParse(sFirstTerm[0], out EntryCount))
+                                    {
+                                        iNumberOfEntries = EntryCount;
+                                        sComponentName = sComponentName.Substring(sFirstTerm[0].Length + 1);
+                                    }
+
+                                    Component c = null;
+                                    foreach (string sKey in ComponentLibrary.Weapons.Keys)
+                                    {
+                                        if (Utilities.IsSynonymFor(sComponentName, ComponentLibrary.Weapons[sKey].Name))
+                                        {
+                                            if (ComponentLibrary.Weapons[sKey].TechnologyBase == retval.TechnologyBase || ComponentLibrary.Weapons[sKey].TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                                c = ComponentLibrary.Weapons[sKey];
+                                        }
+                                    }
+                                    HitLocation hitLocation = null;
+                                    foreach (BattleMechHitLocation bmhl in retval.HitLocations)
+                                    {
+                                        if (Utilities.IsSynonymFor(bmhl.Name, sHitLocation) || bmhl.Name.Equals(sHitLocation))
+                                            hitLocation = bmhl;
+                                    }
+                                    if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
+
+                                    if (c == null)
+                                    {
+                                        // Is this an ECW system?  MTF files 
+                                        // sometimes list ECM as a weapon, but we 
+                                        // read them in later in the MTF load.
+                                        bool bIsECM = false;
+                                        foreach (ComponentElectronicWarfare componentElectronicWarfare in ComponentElectronicWarfare.CanonicalECMs)
+                                        {
+                                            if (Utilities.IsSynonymFor(sComponentName, componentElectronicWarfare.Name))
+                                            {
+                                                bIsECM = true;
+                                            }
+                                        }
+
+                                        // If it isn't an ECW system we need to
+                                        // throw an exception, because we don't
+                                        // know what this weapon is supposed to
+                                        // be
+                                        if (!bIsECM)
+                                            throw new Exception($"Could not find weapon {sComponentName} for {sLines[i]}");
+                                    }
+                                    else
+                                    {
+                                        c = (Component)c.Clone();
+                                        IDesignConfigured designConfigured = c as IDesignConfigured;
+                                        if (designConfigured != null) designConfigured.Configure(retval);
+                                        for (int iRepeats = 0; iRepeats < iNumberOfEntries; iRepeats++)
+                                            retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation, RearFacing = bRearMounted });
                                     }
                                 }
-                                HitLocation hitLocation = null;
-                                foreach(BattleMechHitLocation bmhl in retval.HitLocations)
-                                {
-                                    if (Utilities.IsSynonymFor(bmhl.Name, sHitLocation) || bmhl.Name.Equals(sHitLocation))
-                                        hitLocation = bmhl;
-                                }
-                                if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
-                                if (c == null) throw new Exception($"Could not find weapon {sComponentName} for {sLines[i]}");
-                                c = (Component)c.Clone();
-                                IDesignConfigured designConfigured = c as IDesignConfigured;
-                                if (designConfigured != null) designConfigured.Configure(retval);
-                                for(int iRepeats = 0; iRepeats<iNumberOfEntries; iRepeats++)
-                                    retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation });
                             }
 
                         }
@@ -763,15 +841,21 @@ namespace BattleTechNET.Data
                     if (rightArm == null) throw new Exception("No Right Arm");
                     if (leftArm.CriticalSlots == null) throw new Exception("No Left Arm Critical Hit Slots");
                     if (rightArm.CriticalSlots == null) throw new Exception("No Right Arm Critical Hit Slots");
-                    bool bLeftArmHatchet = false, bRightArmHatchet = false;
+                    bool bLeftArmHatchet = false, bRightArmHatchet = false, bLeftArmSword = false, bRightArmSword = false;
                     foreach (CriticalSlot curCriticalSlot in leftArm.CriticalSlots)
+                    {
                         if (curCriticalSlot.Label.Equals("Hatchet"))
                             bLeftArmHatchet = true;
-
+                        if (curCriticalSlot.Label.Equals("Sword"))
+                            bLeftArmSword = true;
+                    }
                     foreach (CriticalSlot curCriticalSlot in rightArm.CriticalSlots)
+                    {
                         if (curCriticalSlot.Label.Equals("Hatchet"))
                             bRightArmHatchet = true;
-
+                        if (curCriticalSlot.Label.Equals("Sword"))
+                            bRightArmSword = true;
+                    }
                     if (bLeftArmHatchet)
                     {
                         ComponentHatchet hatchet = new ComponentHatchet(retval);
@@ -782,6 +866,17 @@ namespace BattleTechNET.Data
                     {
                         ComponentHatchet hatchet = new ComponentHatchet(retval);
                         retval.Components.Add(new UnitComponent(hatchet, rightArm));
+                    }
+                    if (bLeftArmSword)
+                    {
+                        ComponentSword sword = new ComponentSword(retval);
+                        retval.Components.Add(new UnitComponent(sword, leftArm));
+                    }
+
+                    if (bRightArmSword)
+                    {
+                        ComponentSword sword = new ComponentSword(retval);
+                        retval.Components.Add(new UnitComponent(sword, rightArm));
                     }
                 }
             }

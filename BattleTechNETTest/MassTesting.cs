@@ -82,7 +82,7 @@ namespace BattleTechNETTest
                     throw new Exception($"Error loading {sFile}", ex);
                 }
             }
-
+            _outputHelper.WriteLine($"Checked {sFiles.Length} MTF files.");
             Assert.Equal(iLoadCount, sFiles.Length);
         }
 
