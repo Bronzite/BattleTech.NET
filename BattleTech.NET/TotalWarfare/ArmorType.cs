@@ -15,7 +15,7 @@ namespace BattleTechNET.TotalWarfare
     {
         public ArmorType():this("Standard",TECHNOLOGY_BASE.BOTH, 16,0) { }
         public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons) : this(sName, tb, dPointsPerTons, 0) { }
-        public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons, int iCriticalSlotsRequired) { Name = sName; PointsPerTon = dPointsPerTons; CriticalSlotsRequired = iCriticalSlotsRequired; }
+        public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons, int iCriticalSlotsRequired) { Name = sName; PointsPerTon = dPointsPerTons; CriticalSlotsRequired = iCriticalSlotsRequired; TechnologyBase = tb; }
         public string Name { get; set; }
         public TECHNOLOGY_BASE TechnologyBase { get; set; }
         public double PointsPerTon { get; set; }
