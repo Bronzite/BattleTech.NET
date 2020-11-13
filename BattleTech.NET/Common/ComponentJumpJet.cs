@@ -25,7 +25,17 @@ namespace BattleTechNET.Common
 
         }
 
-        public int CriticalSpaceMech { get; set; }
-        
+        public override Component CreateInstance()
+        {
+            return new ComponentJumpJet();
+        }
+
+        public override object Clone()
+        {
+            ComponentJumpJet retval = base.Clone() as ComponentJumpJet;
+            return retval;
+        }
     }
+
 }
+

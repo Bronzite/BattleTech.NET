@@ -53,23 +53,17 @@ namespace BattleTechNET.Common
         public int ToHitModifier { get; set; }
         public int ClusterHitsModifier { get; set; }
 
-        public new object Clone()
+        public override object Clone()
         {
-            ComponentFireControlSystem retval = new ComponentFireControlSystem();
-            retval.Name = Name;
-            retval.Tonnage = Tonnage;
-            retval.BaseCost = BaseCost;
-            retval.TechnologyBase = TechnologyBase;
-            retval.CriticalSpaceMech = CriticalSpaceMech;
-            retval.CriticalSpaceProtomech = CriticalSpaceProtomech;
-            retval.CriticalSpaceCombatVehicle = CriticalSpaceCombatVehicle;
-            retval.CriticalSpaceSupportVehicle = CriticalSpaceSupportVehicle;
-            retval.CriticalSpaceFighters = CriticalSpaceFighters;
-            retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
-            retval.CriticalSpaceDropShips = CriticalSpaceDropShips;
+            ComponentFireControlSystem retval = base.Clone() as ComponentFireControlSystem;
             retval.ToHitModifier = ToHitModifier;
             retval.ClusterHitsModifier = ClusterHitsModifier;
             return retval;
+        }
+
+        public override Component CreateInstance()
+        {
+            return new ComponentFireControlSystem();
         }
 
         public static void ResolveComponent(Design design)

@@ -40,7 +40,6 @@ namespace BattleTechNET.Common
         }
 
         public double WeightMultiplier { get; set; }
-        public int CriticalSpaceMech { get; set; }
 
         public static List<ComponentGyro> GetCanonicalGyros()
         {
@@ -58,5 +57,18 @@ namespace BattleTechNET.Common
 
             return retval;
         }
+
+        public override Component CreateInstance()
+        {
+            return new ComponentGyro();
+        }
+
+        public override object Clone()
+        {
+            ComponentGyro retval = base.Clone() as ComponentGyro;
+            retval.WeightMultiplier = WeightMultiplier;
+            return retval;
+        }
     }
 }
+

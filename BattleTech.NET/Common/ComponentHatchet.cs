@@ -43,5 +43,16 @@ namespace BattleTechNET.Common
             Damage = (int)Math.Ceiling(battleMechDesign.Tonnage / 5);
         }
 
+        public override Component CreateInstance()
+        {
+            return new ComponentHatchet();
+        }
+
+        public override object Clone()
+        {
+            ComponentHatchet retval = base.Clone() as ComponentHatchet;
+            return retval;
+        }
     }
 }
+

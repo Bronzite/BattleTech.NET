@@ -28,5 +28,17 @@ namespace BattleTechNET.Common
             //TM210 for details.
             this.TechnologyBase = design.TechnologyBase;
         }
+
+        public override Component CreateInstance()
+        {
+            return new ComponentCASE();
+        }
+
+        public override object Clone()
+        {
+            ComponentCASE retval = base.Clone() as ComponentCASE;
+            return retval;
+        }
     }
 }
+

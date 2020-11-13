@@ -39,7 +39,6 @@ namespace BattleTechNET.Common
 
         public string EngineType { get; set; }
 
-        public int CriticalSpaceMech { get; set; }
         public double Tonnage {
             get
             {
@@ -57,6 +56,17 @@ namespace BattleTechNET.Common
 
         }
 
-    }
+        public override Component CreateInstance()
+        {
+            return new ComponentEngine(EngineRating, EngineType);
+        }
 
+        public override object Clone()
+        {
+            ComponentEngine retval = base.Clone() as ComponentEngine;
+            return retval;
+        }
+    }
 }
+
+

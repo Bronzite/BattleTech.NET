@@ -152,6 +152,19 @@ namespace BattleTechNET.Common
 
         public int ECMRange { get; set; }
         public int ActiveRange { get; set; }
-        
+
+        public override Component CreateInstance()
+        {
+            return new ComponentElectronicWarfare();
+        }
+
+        public override object Clone()
+        {
+            ComponentElectronicWarfare retval = base.Clone() as ComponentElectronicWarfare;
+            retval.ECMRange = ECMRange;
+            retval.ActiveRange = ActiveRange;
+            return retval;
+        }
     }
 }
+

@@ -1,4 +1,5 @@
 ﻿using BattleTechNET.Common;
+using BattleTechNET.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -76,5 +77,20 @@ namespace BattleTechNETTest
             }
         }
 
+        [Fact(DisplayName = "Test Cloning of Clustered Weapons")]
+        public void ClusteredWeaponCloningTest()
+        {
+            ComponentWeaponClustered component = ComponentLibrary.Weapons["SRM 2"] as ComponentWeaponClustered;
+
+            Component postClone = component.Clone() as Component;
+            ComponentWeapon postComponentWeapon = postClone as ComponentWeapon;
+            ComponentWeaponClustered postClusteredWeapon = postClone as ComponentWeaponClustered;
+
+            Assert.Equal(component.Name, postClone.Name);
+            Assert.Equal(component.ShortRange, postComponentWeapon.ShortRange);
+            Assert.Equal(component.SalvoSize, postClusteredWeapon.SalvoSize);
+
+
+        }
     }
 }

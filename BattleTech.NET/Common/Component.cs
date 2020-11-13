@@ -13,9 +13,9 @@ namespace BattleTechNET.Common
         public double BaseCost { get; set; }
         public TECHNOLOGY_BASE TechnologyBase { get; set; }
         public string TechRating { get; set; }
-        public object Clone()
+        public virtual object Clone()
         {
-            Component retval = new Component();
+            Component retval = CreateInstance();
             retval.Name = Name;
             retval.Tonnage = Tonnage;
             retval.BaseCost = BaseCost;
@@ -38,5 +38,10 @@ namespace BattleTechNET.Common
         public int? CriticalSpaceFighters { get; set; }
         public int? CriticalSpaceSmallCraft { get; set; }
         public int? CriticalSpaceDropShips { get; set; }
+
+        public virtual Component CreateInstance()
+        {
+            return new Component();
+        }
     }
 }

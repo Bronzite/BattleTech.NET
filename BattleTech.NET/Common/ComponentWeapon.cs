@@ -23,14 +23,42 @@ namespace BattleTechNET.Common
         public double AmmoPerTon { get; set; }
         public string LauncherType { get; set; }
         public int ToHitModifier { get; set; }
+        public bool ContributesToTargetingComputerMass { get; set; }
 
-        public new object Clone()
+
+        public void CopyComponents(ComponentWeapon weapon)
         {
-            ComponentWeapon retval = new ComponentWeapon();
-            retval.Name = Name;
-            retval.Tonnage = Tonnage;
-            retval.BaseCost = BaseCost;
-            retval.TechnologyBase = TechnologyBase;
+            Name = weapon.Name;
+            Tonnage = weapon.Tonnage;
+            BaseCost = weapon.BaseCost;
+            TechnologyBase = weapon.TechnologyBase;
+            Heat = weapon.Heat;
+            AeroHeat = weapon.AeroHeat;
+            HeatIsPerShot = weapon.HeatIsPerShot;
+            Damage = weapon.Damage;
+            AeroDamage = weapon.AeroDamage;
+            MinimumRange = weapon.MinimumRange;
+            ShortRange = weapon.ShortRange;
+            MediumRange = weapon.MediumRange;
+            LongRange = weapon.LongRange;
+            AeroRange = weapon.AeroRange;
+            AmmoPerTon = weapon.AmmoPerTon;
+            CriticalSpaceMech = weapon.CriticalSpaceMech;
+            CriticalSpaceProtomech = weapon.CriticalSpaceProtomech;
+            CriticalSpaceCombatVehicle = weapon.CriticalSpaceCombatVehicle;
+            CriticalSpaceDropShips = weapon.CriticalSpaceDropShips;
+            CriticalSpaceFighters = weapon.CriticalSpaceFighters;
+            CriticalSpaceSmallCraft = weapon.CriticalSpaceSmallCraft;
+            CriticalSpaceSupportVehicle = weapon.CriticalSpaceSupportVehicle;
+            ToHitModifier = weapon.ToHitModifier;
+            TechRating = weapon.TechRating;
+            LauncherType = weapon.LauncherType;
+            ContributesToTargetingComputerMass = weapon.ContributesToTargetingComputerMass;
+
+        }
+        public override object Clone()
+        {
+            ComponentWeapon retval = base.Clone() as ComponentWeapon;
             retval.Heat = Heat;
             retval.AeroHeat = AeroHeat;
             retval.HeatIsPerShot = HeatIsPerShot;
@@ -42,17 +70,14 @@ namespace BattleTechNET.Common
             retval.LongRange = LongRange;
             retval.AeroRange = AeroRange;
             retval.AmmoPerTon = AmmoPerTon;
-            retval.CriticalSpaceMech = CriticalSpaceMech;
-            retval.CriticalSpaceProtomech = CriticalSpaceProtomech;
-            retval.CriticalSpaceCombatVehicle = CriticalSpaceCombatVehicle;
-            retval.CriticalSpaceDropShips = CriticalSpaceDropShips;
-            retval.CriticalSpaceFighters = CriticalSpaceFighters;
-            retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
-            retval.CriticalSpaceSupportVehicle = CriticalSpaceSupportVehicle;
             retval.ToHitModifier = ToHitModifier;
-            retval.TechRating = TechRating;
             retval.LauncherType = LauncherType;
+            retval.ContributesToTargetingComputerMass = ContributesToTargetingComputerMass;
             return retval;
+        }
+        public override Component CreateInstance()
+        {
+            return new ComponentWeapon();
         }
     }
 }

@@ -8,7 +8,6 @@ namespace BattleTechNET.Common
 {
     public class ComponentHeatSink:Component
     {
-        public int CriticalSpaceMech { get; set; }
         public int HeatDissipation { get; set; }
         public bool Integral { get; set; }
 
@@ -45,5 +44,19 @@ namespace BattleTechNET.Common
                 Tonnage = 0;
             
         }
+
+        public override Component CreateInstance()
+        {
+            return new ComponentHeatSink();
+        }
+
+        public override object Clone()
+        {
+            ComponentHeatSink retval = base.Clone() as ComponentHeatSink;
+            retval.HeatDissipation = HeatDissipation;
+            retval.Integral = Integral;
+            return retval;
+        }
     }
 }
+

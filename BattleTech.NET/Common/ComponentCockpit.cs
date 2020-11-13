@@ -62,5 +62,19 @@ namespace BattleTechNET.Common
 
             return retval;
         }
+
+        public override Component CreateInstance()
+        {
+            return new ComponentCockpit();
+        }
+
+        public override object Clone()
+        {
+            ComponentCockpit retval = base.Clone() as ComponentCockpit;
+            retval.PilotingRollModifier = PilotingRollModifier;
+            //TODO: CriticalSlots clone
+            return retval;
+        }
     }
 }
+
