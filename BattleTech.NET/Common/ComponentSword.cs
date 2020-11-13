@@ -22,8 +22,9 @@ namespace BattleTechNET.Common
             AeroHeat = 0;
             AeroRange = AerospaceWeaponRanges.SHORT;
             TechRating = "B";
-            AeroRange = AerospaceWeaponRanges.EXTREME; //TODO: Need an NA AerospaceWeaponRange
+            AeroRange = AerospaceWeaponRanges.NA; 
             HeatIsPerShot = true;
+            Name = "Sword";
         }
 
         public ComponentSword(BattleMechDesign battleMechDesign) : this()
