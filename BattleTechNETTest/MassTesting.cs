@@ -54,7 +54,7 @@ namespace BattleTechNETTest
                 }
             }
 
-            Assert.Equal(iLoadCount, sFiles.Length);
+            Assert.Equal(sFiles.Length, iLoadCount);
         }
 
         [Fact(DisplayName = "Mass Check MegaMek Files")]
@@ -83,7 +83,7 @@ namespace BattleTechNETTest
                 }
             }
             _outputHelper.WriteLine($"Checked {sFiles.Length} MTF files.");
-            Assert.Equal(iLoadCount, sFiles.Length);
+            Assert.Equal(sFiles.Length, iLoadCount);
         }
 
 
