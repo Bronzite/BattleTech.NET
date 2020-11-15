@@ -9,5 +9,6 @@ namespace BattleTechNET.TotalWarfare
         public string Label { get; set; }
         public int SlotNumber { get; set; }
         public BattleMechHitLocation Location { get; set; }
+        public bool Omnipod { get; set; }
     }
 }

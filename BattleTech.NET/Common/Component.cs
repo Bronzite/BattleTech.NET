@@ -13,6 +13,7 @@ namespace BattleTechNET.Common
         public double BaseCost { get; set; }
         public TECHNOLOGY_BASE TechnologyBase { get; set; }
         public string TechRating { get; set; }
+        public bool Omnipod { get; set; }
         public virtual object Clone()
         {
             Component retval = CreateInstance();

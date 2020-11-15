@@ -86,6 +86,40 @@ namespace BattleTechNETTest
             Assert.Equal(sFiles.Length, iLoadCount);
         }
 
+        [Fact(DisplayName = "Clan Mass Check MegaMek Files")]
+        public void MassCheckClanMegaMekFiles()
+        {
+            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            int iLoadCount = 0;
+            int iClanMechCount = 0;
+            foreach (string sFile in sFiles)
+            {
+                try
+                {
+                    BattleMechDesign bmd = MTFReader.ReadBattleMechDesignFile(sFile);
+                    if (bmd.TechnologyBase == BattleTechNET.Common.TECHNOLOGY_BASE.CLAN)
+                    {
+                        double dComputedTonnage = bmd.ComputedTonnage;
+                        if ((dComputedTonnage - bmd.Tonnage) > 0.00005 || bmd.Tonnage - dComputedTonnage > 0.5)
+                        {
+                            _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
+                            if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
+                            if (bmd.Tonnage - dComputedTonnage > 0.5) _outputHelper.WriteLine("Computed tonnage more than 0.5 tons below nominal tonnage.");
+                            _outputHelper.WriteLine(bmd.TonnageLedger);
+                        }
+                        else
+                            iLoadCount++;
+                        iClanMechCount++;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Error loading {sFile}", ex);
+                }
+            }
+            _outputHelper.WriteLine($"Checked {sFiles.Length} MTF files.");
+            Assert.Equal(iClanMechCount, iLoadCount);
+        }
 
     }
 }

@@ -84,7 +84,7 @@ namespace BattleTechNET.TotalWarfare
                 sb.AppendLine($"Nominal Tonnage: {Tonnage.ToString()}");
                 sb.AppendLine($"{Engine.EngineType} {Engine.EngineRating} Engine Tonnage: {Engine.Tonnage.ToString()}");
                 sb.AppendLine($"{StructureType.Name} Structure Tonnage: {(StructureType.TonnageMultipler * Tonnage).ToString()}");
-                sb.AppendLine($"{MyomerType.Name} Myomer Tonnage: {(MyomerType.MassFraction * Tonnage).ToString()}");
+                sb.AppendLine($"{MyomerType.Name} Myomer Tonnage: {Math.Ceiling((MyomerType.MassFraction * Tonnage)).ToString()}");
                 double retval = base.ComputedTonnage;
                 retval += Engine.Tonnage;
                 retval += StructureType.TonnageMultipler * Tonnage;
@@ -118,7 +118,7 @@ namespace BattleTechNET.TotalWarfare
                 double retval = base.ComputedTonnage;
                 retval += Engine.Tonnage;
                 retval += StructureType.TonnageMultipler * Tonnage;
-                retval += MyomerType.MassFraction * Tonnage;
+                retval += Math.Ceiling(MyomerType.MassFraction * Tonnage);
                 
                 foreach(BattleMechHitLocation bmhl in HitLocations )
                 {

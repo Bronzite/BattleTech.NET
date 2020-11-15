@@ -481,6 +481,10 @@ namespace BattleTechNET.Data
                         }
                         if (kvp.Key == "Myomer")
                         {
+                            //Note: MTF Files frequently list Standard Myomer, 
+                            //but subsequently have MASC critical hit locations
+                            //so we also need to do a post-read pass to change
+                            //the file if necessary.
                             foreach (MyomerType curMyomerType in MyomerType.GetCanonicalMyomerTypes())
                             {
                                 if ((curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase) ||
@@ -498,7 +502,7 @@ namespace BattleTechNET.Data
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
                             {
-                                if (Utilities.IsSynonymFor(curArmorType.Name,kvp.Value))
+                                if (Utilities.IsSynonymFor(curArmorType.Name,kvp.Value) && (curArmorType.TechnologyBase == TECHNOLOGY_BASE.BOTH || curArmorType.TechnologyBase == retval.TechnologyBase))
                                 {
                                     foreach(BattleMechHitLocation hitLocation in retval.HitLocations)
                                     {
@@ -609,9 +613,9 @@ namespace BattleTechNET.Data
                                         j = CriticalHitSlotCount[sKey];
                                     else
                                     {
-                                        CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Trim(), Location = selectedLocation, SlotNumber = j };
+                                        CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Replace("(omnipod)","").Trim(), Location = selectedLocation, SlotNumber = j ,Omnipod = sLines[i].Contains("(omnipod)")};
                                         if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
-                                        if (criticalSlot.Label.Contains(" Ammo"))
+                                        if (criticalSlot.Label.Contains(" Ammo") || criticalSlot.Label.Equals("CLPlasmaCannonAmmo"))
                                         {
                                             ComponentAmmunition ammunition = new ComponentAmmunition();
                                             ammunition.Name = criticalSlot.Label;
@@ -649,7 +653,7 @@ namespace BattleTechNET.Data
                                 bSingle = false;
                             }
                             HitLocation hl = retval.GetHitLocationByName("CT");
-                            int iIntegralHeatSinks = (int)(retval.Engine.EngineRating / 25);
+                            int iIntegralHeatSinks = (int)Math.Truncate((double)retval.Engine.EngineRating / 25D);
                             for(int j=0;j<iHeatSinkCount;j++)
                             {
                                 
@@ -777,6 +781,9 @@ namespace BattleTechNET.Data
                 //Install any FCS systems
                 ComponentFireControlSystem.ResolveComponent(retval);
 
+                //Install any Targeting Computer
+                ComponentTargetingComputer.ResolveComponent(retval);
+
                 //The collapsible command center needs to have all of its
                 //critical hit slots in the same Torso.
                 BattleMechHitLocation leftTorso = retval.GetHitLocationByName("LT") as BattleMechHitLocation;
@@ -830,7 +837,7 @@ namespace BattleTechNET.Data
                 
 
 
-                //There's an issue with Hatchet because they don't appear on
+                //There's an issue with Hatchets because they don't appear on
                 //the Weapons list in MTF files.  We need to check if there's
                 //one on either arm.
                 if (sConfig == "Biped")
@@ -856,6 +863,9 @@ namespace BattleTechNET.Data
                         if (curCriticalSlot.Label.Equals("Sword"))
                             bRightArmSword = true;
                     }
+                    //TODO: Sometimes, we do have the Sword in the Weapons list.
+                    //If so, we need to replace the entry that was put in here.
+                    //rather than adding a new one.
                     if (bLeftArmHatchet)
                     {
                         ComponentHatchet hatchet = new ComponentHatchet(retval);
@@ -879,6 +889,52 @@ namespace BattleTechNET.Data
                         retval.Components.Add(new UnitComponent(sword, rightArm));
                     }
                 }
+
+                //A number of MTF files will list the Myomer as Standard for
+                //MASC-equipped BattleMechs.  We need to search for MASC crit
+                //slots to see if this is a MASC-equipped Mech.
+                foreach(BattleMechHitLocation bmhl in retval.HitLocations)
+                {
+                    if(bmhl.CriticalSlots != null)
+                    foreach(CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                        {
+                            foreach (MyomerType myomerType in MyomerType.GetCanonicalMyomerTypes())
+                            {
+                                if (Utilities.IsSynonymFor(criticalSlot.Label, myomerType.Name) && 
+                                    (myomerType.TechnologyBase == retval.TechnologyBase || 
+                                    myomerType.TechnologyBase == TECHNOLOGY_BASE.BOTH))
+                                    {
+                                    retval.MyomerType = myomerType;
+                                    }
+
+                            }
+                        }
+                }
+
+                //A-Pods and B-Pods don't show up on the weapons list is most
+                //MTF files that contain them.
+                foreach (BattleMechHitLocation bmhl in retval.HitLocations)
+                {
+                    if (bmhl.CriticalSlots != null)
+                        foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                        {
+                            foreach (Component weapon in ComponentLibrary.Weapons.Values)
+                            {
+                                ComponentAntiPersonnelPod antiPersonnelPod = weapon as ComponentAntiPersonnelPod;
+                                if (antiPersonnelPod != null)
+                                {
+                                    if (Utilities.IsSynonymFor(criticalSlot.Label, antiPersonnelPod.Name) &&
+                                        (antiPersonnelPod.TechnologyBase == retval.TechnologyBase ||
+                                        antiPersonnelPod.TechnologyBase == TECHNOLOGY_BASE.BOTH))
+                                    {
+                                        UnitComponent unitComponent = new UnitComponent(antiPersonnelPod.Clone() as Component, bmhl);
+                                        retval.Components.Add(unitComponent);
+                                    }
+                                }
+                            }   
+                        }
+                }
+
             }
             catch (Exception ex)
             {

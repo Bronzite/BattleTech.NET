@@ -87,6 +87,7 @@ namespace BattleTechNET.Common
 
                 foreach (ComponentFireControlSystem component in fireControlSystems)
                 {
+                    //TODO: Multiple FCSs in one location
                     if (dicComponents[component.Name].Count == component.CriticalSpaceMech)
                     {
                         //Add component to design

@@ -9,7 +9,7 @@ namespace BattleTechNET.Common
     {
         //NOTE: I really want to read this array from a file, but I don't think
         //the usability of this library is as great if it requires a lookup
-        //file to be desitrbuted with it.
+        //file to be distributed with it.
 
         private static string[][] sSynonyms = new string[][]
         {
@@ -64,17 +64,19 @@ namespace BattleTechNET.Common
             new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion" },
             new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion" },
             new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)" },
-            new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)" },
-            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)" },
+            new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)","Ferro-Fibrous","Ferro-Fibrous (I.S.)" },
+            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)","Ferro-Fibrous" },
+            new string[] { "Light Ferro-Fibrous(Inner Sphere)", "Light Ferro-Fibrous" },
             new string[] { "CASE","ISCASE","ClanCASE" },
             new string[] {"LRM 5 + Artemis IV","LRM/5 + Artemis IV","LRM5 + Artemis IV"},
             new string[] { "Collapsible Command Module", "ISCollapsibleCommandModule" },
             new string[] { "Electronic Warfare Equipment","ISElectronicWarfareEquipment" },
-            new string[] { "Guardian ECM","ISGuardianECM","Guardian ECM Suite","CLECMSuite","ISGuardianECMSuite" },
+            new string[] { "Guardian ECM","ISGuardianECM","Guardian ECM Suite","ISGuardianECMSuite" },
+            new string[] {"ECM Suite", "CLECMSuite" },
             new string[] { "Beagle Active Probe","ISBeagleActiveProbe" },
-            new string[] { "ISArtemisIV", "Artemis IV" },
+            new string[] { "ISArtemisIV", "Artemis IV","CLArtemisIV"},
             new string[] { "ClanArtemisV","Artemis V" },
-            new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half" },
+            new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half","Clan Machine Gun Ammo - Half","Clan Light Machine Gun Ammo - Half" },
             new string[] { "LB 2-X AC","ISLBXAC2" },
             new string[] { "LB 5-X AC","ISLBXAC5" },
             new string[] { "LB 10-X AC","ISLBXAC10" },
@@ -124,7 +126,12 @@ namespace BattleTechNET.Common
             new string[] { "Light Machine Gun","ISLightMG" },
             new string[] { "SRM 2 (OS)","ISSRM2 (OS)" },
             new string[] { "SRM 4 (OS)","ISSRM4 (OS)" },
-            new string[] { "SRM 6 (OS)","ISSRM6 (OS)" }
+            new string[] { "SRM 6 (OS)","ISSRM6 (OS)" },
+            new string[] { "Targeting Computer","ISTargeting Computer","CLTargeting Computer","CLTargeting Computer"},
+            new string[] { "CLAntiPersonnelPod","A-Pod","A-Pods","CLAntiPersonnelPod" },
+            new string[] {"Active Probe","CLActiveProbe"},
+            new string[] {"Light Active Probe","CLLightActiveProbe"},
+
 
         };
 

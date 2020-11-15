@@ -6,10 +6,11 @@ namespace BattleTechNET.Common
 {
     public class ComponentArtillery:ComponentWeapon
     {
+        public ComponentArtillery() : base() { }
         public int ArtilleryRange { get; set; }
         public override Component CreateInstance()
         {
-            return new ComponentAmmunition();
+            return new ComponentArtillery();
         }
 
         public override object Clone()

@@ -35,8 +35,8 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
-                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ContributesToTargetingComputerMass=false,
 
 
             }
@@ -65,6 +65,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -92,6 +93,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -119,6 +121,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -146,6 +149,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -173,6 +177,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -200,6 +205,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -227,6 +233,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -527,13 +534,15 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 2",new ComponentWeapon() //TM341
+            {"SRM 2",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 2",
                 BaseCost = 20000,
                 Heat = 2,
                 AeroHeat = 2,
                 Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=2,
                 AeroDamage = 2,
                 MinimumRange = 0,
                 ShortRange = 3,
@@ -551,10 +560,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 4",new ComponentWeapon() //TM341
+            {"SRM 4",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 4",
                 BaseCost = 20000,
@@ -562,6 +572,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 2,
                 AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -578,10 +590,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 6",new ComponentWeapon() //TM341
+            {"SRM 6",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 6",
                 BaseCost = 20000,
@@ -589,6 +602,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 2,
                 AeroDamage = 8,
+                DamagePerMissile=2,
+                SalvoSize=6,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -605,10 +620,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"SRM 2 (OS)",new ComponentWeapon() //TM341
+             {"SRM 2 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 2 (OS)",
                 BaseCost = 20000,
@@ -617,6 +633,8 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 2,
                 MinimumRange = 0,
+                DamagePerMissile=2,
+                SalvoSize=2,
                 ShortRange = 3,
                 MediumRange = 6,
                 LongRange = 9,
@@ -632,10 +650,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 4 (OS)",new ComponentWeapon() //TM341
+            {"SRM 4 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 4 (OS)",
                 BaseCost = 20000,
@@ -643,6 +662,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 2,
                 AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -659,10 +680,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"SRM 6 (OS)",new ComponentWeapon() //TM341
+            {"SRM 6 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 6 (OS)",
                 BaseCost = 20000,
@@ -670,6 +692,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 2,
                 AeroDamage = 8,
+                DamagePerMissile=2,
+                SalvoSize=6,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -686,10 +710,11 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"Clan SRM 2",new ComponentWeapon() //TM341
+             {"Clan SRM 2",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 2",
                 BaseCost = 20000,
@@ -698,6 +723,8 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 2,
                 MinimumRange = 0,
+                DamagePerMissile=2,
+                SalvoSize=2,
                 ShortRange = 3,
                 MediumRange = 6,
                 LongRange = 9,
@@ -713,10 +740,11 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
-            {"Clan SRM 4",new ComponentWeapon() //TM341
+            {"Clan SRM 4",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 4",
                 BaseCost = 20000,
@@ -724,6 +752,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 2,
                 AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -740,16 +770,19 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
-            {"Clan SRM 6",new ComponentWeapon() //TM341
+            {"Clan SRM 6",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 6",
                 BaseCost = 20000,
                 Heat = 4,
                 AeroHeat = 4,
                 Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=6,
                 AeroDamage = 8,
                 MinimumRange = 0,
                 ShortRange = 3,
@@ -767,6 +800,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -794,6 +828,7 @@ namespace BattleTechNET.Data
                 TechRating="B",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
 
             }
@@ -822,6 +857,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
 
             }
@@ -850,6 +886,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
 
             }
@@ -878,6 +915,7 @@ namespace BattleTechNET.Data
                 TechRating="B",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
 
             }
@@ -906,6 +944,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
 
             }
@@ -934,6 +973,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -961,6 +1001,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -1327,7 +1368,7 @@ namespace BattleTechNET.Data
                 MinimumRange = 0,
                 ShortRange = 1,
                 MediumRange = 2,
-                LongRange = 3,
+                LongRange = 4,
                 AmmoPerTon = 0,
                 Tonnage = 0.25,
                 CriticalSpaceMech = 1,
@@ -1491,7 +1532,7 @@ namespace BattleTechNET.Data
                 MediumRange = 14,
                 LongRange = 21,
                 AmmoPerTon = 20,
-                Tonnage = 8,
+                Tonnage = 7, //TechManual Errata 4.0 p.35
                 CriticalSpaceMech = 3,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
@@ -1821,7 +1862,7 @@ namespace BattleTechNET.Data
                 MediumRange = 4,
                 LongRange = 6,
                 AmmoPerTon = 0,
-                Tonnage = 0.5,
+                Tonnage = 1,
                 CriticalSpaceMech = 1,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
@@ -2040,7 +2081,7 @@ namespace BattleTechNET.Data
                 MediumRange = 15,
                 LongRange = 25,
                 AmmoPerTon = 0,
-                Tonnage = 5,
+                Tonnage = 4,
                 CriticalSpaceMech = 4, //TODO: Seems like this should be 2 (TM343)
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
@@ -2132,6 +2173,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.MEDIUM, //TODO: Need NA Aerospace Range
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2159,6 +2201,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.MEDIUM, //TODO: Need NA Aerospace Range
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2186,6 +2229,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.NA, //TODO: Need NA Aerospace Range
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2513,6 +2557,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.POINTDEFENSE,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2540,6 +2585,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.POINTDEFENSE,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2567,6 +2613,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2594,6 +2641,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2621,6 +2669,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2649,6 +2698,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2677,6 +2727,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2705,6 +2756,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2732,6 +2784,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2759,6 +2812,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2786,6 +2840,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -2814,6 +2869,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2842,6 +2898,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2870,6 +2927,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2924,6 +2982,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2951,6 +3010,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -2978,6 +3038,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -3005,6 +3066,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -3032,6 +3094,7 @@ namespace BattleTechNET.Data
                 TechRating="B",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
             },
@@ -3059,6 +3122,7 @@ namespace BattleTechNET.Data
                 TechRating="B",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
             },
@@ -3086,6 +3150,7 @@ namespace BattleTechNET.Data
                 TechRating="B",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
             },
@@ -3114,6 +3179,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3142,6 +3208,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -3170,6 +3237,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3198,6 +3266,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
@@ -3226,6 +3295,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3254,6 +3324,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3282,6 +3353,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3310,6 +3382,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3395,6 +3468,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3423,6 +3497,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3451,6 +3526,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3479,6 +3555,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
@@ -3562,6 +3639,7 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
             }
             },
@@ -3589,6 +3667,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
             }
             },
@@ -3616,10 +3695,11 @@ namespace BattleTechNET.Data
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
+                ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
             }
             },
-            {"Clan A-Pods",new ComponentWeapon() //TM341
+            {"Clan A-Pods",new ComponentAntiPersonnelPod() //TM341
             {
                 Name = "A-Pod",
                 BaseCost = 20000,
@@ -3646,7 +3726,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
-            {"Clan B-Pod",new ComponentWeapon() //TM341
+            {"Clan B-Pod",new ComponentAntiPersonnelPod() //TM341
             {
                 Name = "B-Pod",
                 BaseCost = 20000,

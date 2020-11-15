@@ -15,6 +15,7 @@ namespace BattleTechNETTest
         /// engine that the ComponentEngine returns.
         /// </summary>
         [Fact(DisplayName = "Test Engine Tonnages")]
+        [Trait("Category", "Engine")]
         public void TestEngineTonnage()
         {
             List<string> lstEngineTypes = new List<string>(ComponentEngine.GetEngineTypes());
@@ -50,6 +51,7 @@ namespace BattleTechNETTest
             }
         }
 
+
         public void TestEngineTonnagesAreProgressive(string sName)
         {
             double dLastTonnage = 0;
@@ -67,6 +69,7 @@ namespace BattleTechNETTest
         /// Confirm that each engine size has a increasing tonnage from Rating 
         /// 5 to Rating 400.
         /// </summary>
+        [Trait("Category","Engine")]
         [Fact(DisplayName = "Test Engine Size Verification")]
         public void TestEngineSizeAttributes()
         {
@@ -77,6 +80,7 @@ namespace BattleTechNETTest
             }
         }
 
+        [Trait("Category","Cloning")]
         [Fact(DisplayName = "Test Cloning of Clustered Weapons")]
         public void ClusteredWeaponCloningTest()
         {

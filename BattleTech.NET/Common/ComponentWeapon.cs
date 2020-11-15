@@ -9,7 +9,10 @@ namespace BattleTechNET.Common
     public enum AerospaceWeaponRanges { SHORT,MEDIUM,LONG,EXTREME,POINTDEFENSE,NA};
     public class ComponentWeapon:Component
     {
-        
+        public ComponentWeapon()
+        {
+            ContributesToTargetingComputerMass = true;
+        }
         public int Heat { get; set; }
         public int AeroHeat { get; set; }
         public bool HeatIsPerShot { get; set; }

@@ -30,6 +30,22 @@ namespace BattleTechNET.Common
                 }); //TO407
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
+                    Name = "ECM Suite",
+                    TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                    Tonnage = 1,
+                    BaseCost = 500000, //TODO: Lookup this number
+                    TechRating = "F",
+                    ECMRange = 6,
+                    ActiveRange = 0,
+                    CriticalSpaceMech = 1,
+                    CriticalSpaceCombatVehicle = 1,
+                    CriticalSpaceSupportVehicle = 1,
+                    CriticalSpaceSmallCraft = 1,
+                    CriticalSpaceFighters = 1,
+                    CriticalSpaceDropShips = 0
+                }); //TM342
+                componentECMs.Add(new ComponentElectronicWarfare
+                {
                     Name = "Guardian ECM Suite",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1.5,
@@ -44,24 +60,54 @@ namespace BattleTechNET.Common
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
                 }); //TM342
-
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Beagle Active Probe",
-                    TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                    TechnologyBase = TECHNOLOGY_BASE.CLAN,
                     Tonnage = 1.5,
                     BaseCost = 500000, //TODO: Lookup this number
-                    TechRating = "D",
+                    TechRating = "E",
                     ECMRange = 0,
-                    ActiveRange = 4,
-                    CriticalSpaceMech = 2,
+                    ActiveRange = 5,
+                    CriticalSpaceMech = 1,
                     CriticalSpaceCombatVehicle = 1,
-                    CriticalSpaceSupportVehicle = 2,
+                    CriticalSpaceSupportVehicle = 1,
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
                 }); //TM342
-
+                componentECMs.Add(new ComponentElectronicWarfare
+                {
+                    Name = "Light Active Probe",
+                    TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                    Tonnage = 0.5,
+                    BaseCost = 500000, //TODO: Lookup this number
+                    TechRating = "F",
+                    ECMRange = 0,
+                    ActiveRange = 3,
+                    CriticalSpaceMech = 1,
+                    CriticalSpaceCombatVehicle = 1,
+                    CriticalSpaceSupportVehicle = 1,
+                    CriticalSpaceSmallCraft = 1,
+                    CriticalSpaceFighters = 1,
+                    CriticalSpaceDropShips = 0
+                }); //TM343
+                componentECMs.Add(new ComponentElectronicWarfare
+                {
+                    Name = "Active Probe",
+                    TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                    Tonnage = 1,
+                    BaseCost = 500000, //TODO: Lookup this number
+                    TechRating = "E",
+                    ECMRange = 0,
+                    ActiveRange = 5,
+                    CriticalSpaceMech = 1,
+                    CriticalSpaceCombatVehicle = 1,
+                    CriticalSpaceSupportVehicle = 1,
+                    CriticalSpaceSmallCraft = 1,
+                    CriticalSpaceFighters = 1,
+                    CriticalSpaceDropShips = 0
+                }); //TM343
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "C3 Computer Master",
