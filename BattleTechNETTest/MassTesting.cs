@@ -92,6 +92,7 @@ namespace BattleTechNETTest
             string[] sFiles = GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             int iClanMechCount = 0;
+            if (sFiles == null) return;
             foreach (string sFile in sFiles)
             {
                 try
