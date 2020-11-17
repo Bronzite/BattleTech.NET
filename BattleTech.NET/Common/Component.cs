@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public class Component:ICloneable
+    public class Component:ICloneable,IAliasable
     {
+        public Component()
+        {
+            AliasList = new List<string>();
+        }
         public string Name { get; set; }
         public double Tonnage { get; set; }
         public double BaseCost { get; set; }
@@ -44,5 +48,20 @@ namespace BattleTechNET.Common
         {
             return new Component();
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+        private List<string> AliasList { get; set; }
+        public IEnumerable<string> Aliases { get { return AliasList; } }
+        public IAliasable AddAlias(string sAliasable) { AliasList.Add(sAliasable); return this; }
+        public IAliasable AddAlias(IEnumerable<string> ieAliasable) 
+        { 
+            foreach(string s in ieAliasable)
+                AliasList.Add(s); 
+            return this; 
+        }
+        public IAliasable ClearAliasList() { AliasList.Clear(); return this; }
     }
 }

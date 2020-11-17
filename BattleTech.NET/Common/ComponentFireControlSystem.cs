@@ -19,15 +19,15 @@ namespace BattleTechNET.Common
                 ClusterHitsModifier = 2,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 TechRating = "E",
-                CriticalSpaceMech=1,
+                CriticalSpaceMech = 1,
                 CriticalSpaceProtomech = null,
-                CriticalSpaceCombatVehicle=0,
-                CriticalSpaceFighters=0,
-                CriticalSpaceDropShips=0,
-                CriticalSpaceSmallCraft=0,
-                CriticalSpaceSupportVehicle =1
-            }
-            ) ;
+                CriticalSpaceCombatVehicle = 0,
+                CriticalSpaceFighters = 0,
+                CriticalSpaceDropShips = 0,
+                CriticalSpaceSmallCraft = 0,
+                CriticalSpaceSupportVehicle = 1
+            }.AddAlias("ISArtemisIV").AddAlias("CLArtemisIV") as ComponentFireControlSystem
+            );
 
             retval.Add(new ComponentFireControlSystem()
             {
@@ -43,8 +43,10 @@ namespace BattleTechNET.Common
                 CriticalSpaceFighters = 0,
                 CriticalSpaceDropShips = 0,
                 CriticalSpaceSmallCraft = 0,
-                CriticalSpaceSupportVehicle = 2
-            }
+                CriticalSpaceSupportVehicle = 2,
+
+
+            }.AddAlias("ClanArtemisV").AddAlias("CLArtemisV") as ComponentFireControlSystem
             );
 
             return retval;
@@ -80,22 +82,24 @@ namespace BattleTechNET.Common
 
                 foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
                 {
+                    string sCriticalSlot = criticalSlot.Label.Replace("(omnipod)","").Trim();
                     foreach (string sKey in dicComponents.Keys)
-                        if (Utilities.IsSynonymFor(criticalSlot.Label, sKey))
+                        if (Utilities.IsSynonymFor(sKey, sCriticalSlot))
                             dicComponents[sKey].Add(criticalSlot);
                 }
 
                 foreach (ComponentFireControlSystem component in fireControlSystems)
                 {
-                    //TODO: Multiple FCSs in one location
-                    if (dicComponents[component.Name].Count == component.CriticalSpaceMech)
+                    int iSlotCount = dicComponents[component.Name].Count;
+                    while (iSlotCount > 0 && component.CriticalSpaceMech.HasValue)
                     {
-                        //Add component to design
+                        iSlotCount -= component.CriticalSpaceMech.Value;
+                        
+                            //Add component to design
                         UnitComponent uc = new UnitComponent(component.Clone() as Component, location);
                         foreach (CriticalSlot criticalSlot in dicComponents[component.Name])
-                        {
                             criticalSlot.AffectedComponent = uc;
-                        }
+                     
                         design.Components.Add(uc);
                     }
                 }

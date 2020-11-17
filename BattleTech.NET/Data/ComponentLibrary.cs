@@ -8,6 +8,374 @@ namespace BattleTechNET.Data
 {
     public class ComponentLibrary
     {
+        static public List<ComponentAmmunition> Ammunitions
+        {
+            get
+            {
+                if (privateAmmunitionList == null)
+                {
+                    privateAmmunitionList = new List<ComponentAmmunition>();
+                    privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias(new string[] {"IS Ammo MG - Full", "Clan Ammo MG - Full", "Clan Machine Gun Ammo - Full" }) as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias(new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half", "Clan Machine Gun Ammo - Half", "Clan Light Machine Gun Ammo - Half" }) as ComponentAmmunition); 
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Heavy Machine Gun Ammo - Full") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Heavy Machine Gun Ammo - Half") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Autocannon/2 Ammo", 45, "C", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS Ammo AC/2")
+                        .AddAlias("ISAC2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Autocannon/5 Ammo", 20, "C", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS Ammo AC/5")
+                        .AddAlias("ISAC5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Autocannon/10 Ammo", 10, "C", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS Ammo AC/10")
+                        .AddAlias("ISAC10 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Autocannon/20 Ammo", 5, "C", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS Ammo AC/20")
+                        .AddAlias("ISAC20 Ammo") as ComponentAmmunition);
+
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 2-X AC Ammo", 45, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 2-X AC Ammo")
+                        .AddAlias("ISLBXAC2 Ammo")
+                        .AddAlias("Clan LB 2-X AC Ammo")
+                        .AddAlias("CLLBXAC2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 5-X AC Ammo", 20, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 5-X AC Ammo")
+                        .AddAlias("ISLBXAC5 Ammo")
+                        .AddAlias("Clan LB 5-X AC Ammo")
+                        .AddAlias("CLLBXAC5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 10-X AC Ammo", 10, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 10-X AC Ammo")
+                        .AddAlias("ISLBXAC10 Ammo")
+                        .AddAlias("Clan LB 10-X AC Ammo")
+                        .AddAlias("CLLBXAC10 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 20-X AC Ammo", 5, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 20-X AC Ammo")
+                        .AddAlias("ISLBXAC20 Ammo")
+                        .AddAlias("Clan LB 20-X AC Ammo")
+                        .AddAlias("CLLBXAC20 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 2-X AC Cluster Ammo", 45, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 2-X AC Cluster Ammo")
+                        .AddAlias("ISLBXAC2 CL Ammo")
+                        .AddAlias("Clan LB 2-X Cluster Ammo")
+                        .AddAlias("CLLBXAC2 CL Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 5-X AC Cluster Ammo", 20, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 5-X AC Cluster Ammo")
+                        .AddAlias("ISLBXAC5 CL Ammo")
+                        .AddAlias("Clan LB 5-X Cluster Ammo")
+                        .AddAlias("CLLBXAC5 CL Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 10-X AC Cluster Ammo", 10, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 10-X AC Cluster Ammo")
+                        .AddAlias("ISLBXAC10 CL Ammo")
+                        .AddAlias("Clan LB 10-X Cluster Ammo")
+                        .AddAlias("CLLBXAC10 CL Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LB 20-X AC Cluster Ammo", 5, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS LB 20-X AC Cluster Ammo")
+                        .AddAlias("ISLBXAC20 CL Ammo")
+                        .AddAlias("Clan LB 20-X Cluster Ammo")
+                        .AddAlias("CLLBXAC20 CL Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Autocannon/2 Ammo", 45, "D", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS LAC2 Ammo").AddAlias("ISLAC2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Autocannon/5 Ammo", 20, "D", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS LAC5 Ammo").AddAlias("ISLAC5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Rotary Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Rotary Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                        
+                    privateAmmunitionList.Add(new ComponentAmmunition("Ultra Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("CLUltraAC2 Ammo").AddAlias("Clan Ultra AC/2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Ultra Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("CLUltraAC5 Ammo").AddAlias("Clan Ultra AC/5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Ultra Autocannon/10 Ammo", 10, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("CLUltraAC10 Ammo").AddAlias("Clan Ultra AC/10 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Ultra Autocannon/20 Ammo", 5, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("CLUltraAC20 Ammo").AddAlias("Clan Ultra AC/20 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Autocannon/10 Ammo", 10, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Autocannon/20 Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Light Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Light Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Autocannon/10 Ammo", 10, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Autocannon/20 Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Light Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Flechette Light Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Autocannon/10 Ammo", 10, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Autocannon/20 Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Light Autocannon/2 Ammo", 45, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Precision Light Autocannon/5 Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("AP Gauss Ammo", 40, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("CLAPGaussRifle Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Gauss Rifle Ammo", 16, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Gauss Rifle Ammo", 8, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Gauss Ammo").AddAlias("IS Gauss Ammo").AddAlias("ISGauss Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Heavy Gauss Rifle Ammo", 4, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("Clan Heavy Gauss Ammo").AddAlias("IS Heavy Gauss Ammo").AddAlias("ISHeavyGauss Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 20 Ammo", 6, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("HAG/20 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 30 Ammo", 4, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("HAG/30 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 40 Ammo", 3, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("HAG/40 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Vehicle Flamer Ammo", 20, "A", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Plasma Cannon Ammo", 10, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("CLPlasmaCannonAmmo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Plasma Rifle Ammo", 10, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("ISPlasmaRifleAmmo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 Ammo", 20, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-3") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 Ammo", 10, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-6") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 Ammo", 7, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-9") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 Ammo", 5, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-12") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-5")
+                        .AddAlias("ISLRM5 Ammo")
+                        .AddAlias("Clan Ammo LRM-5")
+                        .AddAlias("CLLRM5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Ammo", 12, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-10")
+                        .AddAlias("ISLRM10 Ammo")
+                        .AddAlias("Clan Ammo LRM-10")
+                        .AddAlias("CLLRM10 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Ammo", 8, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-15")
+                        .AddAlias("ISLRM15 Ammo")
+                        .AddAlias("Clan Ammo LRM-15")
+                        .AddAlias("CLLRM15 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-20")
+                        .AddAlias("Clan Ammo LRM-20")
+                        .AddAlias("ISLRM20 Ammo")
+                        .AddAlias("CLLRM20 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Ammo", 40, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 SRM Ammo", 33, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Ammo", 20, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 LRM Ammo", 17, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 SRM Ammo", 14, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Ammo", 13, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Ammo", 11, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MRM 10 LRM Ammo", 24, "C", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MRM 20 LRM Ammo", 12, "C", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MRM 30 LRM Ammo", 8, "C", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MRM 40 LRM Ammo", 6, "C", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Ammo", 50, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-2")
+                        .AddAlias("IS Ammo SRM-2")
+                        .AddAlias("CLSRM2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Ammo", 25, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-4")
+                        .AddAlias("IS Ammo SRM-4")
+                        .AddAlias("CLSRM4 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Ammo", 15, "C", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-6")
+                        .AddAlias("IS Ammo SRM-6")
+                        .AddAlias("CLSRM6 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Streak SRM 2 Ammo", 50, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo Streak SRM-2")
+                        .AddAlias("Clan Ammo Streak SRM 2")
+                        .AddAlias("IS Ammo Streak SRM-2")
+                        .AddAlias("Clan Streak SRM 2 Ammo")
+                        .AddAlias("CLStreakSRM2 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Streak SRM 4 Ammo", 25, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo Streak SRM-4")
+                        .AddAlias("Clan Ammo Streak SRM 4")
+                        .AddAlias("IS Ammo Streak SRM-4")
+                        .AddAlias("Clan Streak SRM 4 Ammo")
+                        .AddAlias("CLStreakSRM4 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Streak SRM 6 Ammo", 15, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo Streak SRM-6")
+                        .AddAlias("Clan Ammo Streak SRM 6")
+                        .AddAlias("IS Ammo Streak SRM-6")
+                        .AddAlias("Clan Streak SRM 6 Ammo")
+                        .AddAlias("CLStreakSRM6 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 ER Ammo", 20, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-3 ER") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 ER Ammo", 10, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-6 ER") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 ER Ammo", 7, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-9 ER") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 ER Ammo", 5, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-12 ER") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 HE Ammo", 20, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-3 HE") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 HE Ammo", 10, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-6 HE") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 HE Ammo", 7, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-9 HE") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 HE Ammo", 5, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("Clan Ammo ATM-12 HE") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo Artemis-capable", 24, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-5 Artemis-capable")
+                        .AddAlias("Clan Ammo LRM-5 (Clan) Artemis-capable")
+                        .AddAlias("CLLRM5 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Ammo Artemis-capable", 12, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-10 Artemis-capable")
+                        .AddAlias("Clan Ammo LRM-10 (Clan) Artemis-capable")
+                        .AddAlias("CLLRM10 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Ammo Artemis-capable", 8, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-15 Artemis-capable")
+                        .AddAlias("Clan Ammo LRM-15 (Clan) Artemis-capable")
+                        .AddAlias("CLLRM15 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo Artemis-capable", 6, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo LRM-20 Artemis-capable")
+                        .AddAlias("Clan Ammo LRM-20 (Clan) Artemis-capable")
+                        .AddAlias("CLLRM20 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Ammo Artemis-capable", 50, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo SRM-2 Artemis-capable")
+                        .AddAlias("Clan Ammo SRM-2 (Clan) Artemis-capable")
+                        .AddAlias("CLSRM2 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Ammo Artemis-capable", 25, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo SRM-4 Artemis-capable")
+                        .AddAlias("Clan Ammo SRM-4 (Clan) Artemis-capable")
+                        .AddAlias("CLSRM4 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Ammo Artemis-capable", 15, "F", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("IS Ammo SRM-6 Artemis-capable")
+                        .AddAlias("Clan Ammo SRM-6 (Clan) Artemis-capable")
+                        .AddAlias("CLSRM6 Ammo (Clan) Artemis-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Ammo Artemis-capable", 40, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 SRM Ammo Artemis-capable", 33, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Ammo Artemis-capable", 24, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Ammo Artemis-capable", 20, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 LRM Ammo Artemis-capable", 17, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 SRM Ammo Artemis-capable", 14, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Ammo Artemis-capable", 13, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Ammo Artemis-capable", 11, "F", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Flare Ammo", 24, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Flare Ammo", 12, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Flare Ammo", 8, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Flare Ammo", 6, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Fragmentation Ammo", 24, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Fragmentation Ammo", 12, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Fragmentation Ammo", 8, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Fragmentation Ammo", 6, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Fragmentation Ammo", 50, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Fragmentation Ammo", 25, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Fragmentation Ammo", 15, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Fragmentation Ammo", 40, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 SRM Fragmentation Ammo", 33, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Fragmentation Ammo", 24, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Fragmentation Ammo", 20, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 LRM Fragmentation Ammo", 17, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 SRM Fragmentation Ammo", 14, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Fragmentation Ammo", 13, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Fragmentation Ammo", 11, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Harpoon Ammo", 50, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Harpoon Ammo", 25, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Harpoon Ammo", 15, "D", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Incendiary Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Incendiary Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Incendiary Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Incendiary Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Inferno Ammo", 50, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Inferno Ammo", 25, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Inferno Ammo", 15, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Semi-Guided Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Semi-Guided Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Semi-Guided Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Semi-Guided Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Swarm Ammo", 24, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Swarm Ammo", 12, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Swarm Ammo", 8, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Swarm Ammo", 6, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Swarm-I Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Swarm-I Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Swarm-I Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Swarm-I Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Tear Gas Ammo", 50, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Tear Gas Ammo", 25, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Tear Gas Ammo", 15, "B", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Thunder Ammo", 24, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Thunder Ammo", 12, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Thunder Ammo", 8, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Thunder Ammo", 6, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Thunder-Augmented Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Thunder-Augmented Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Thunder-Augmented Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Thunder-Augmented Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Thunder-Inferno Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Thunder-Inferno Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Thunder-Inferno Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Thunder-Inferno Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Thunder-Vibrobomb Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Thunder-Vibrobomb Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Thunder-Vibrobomb Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Thunder-Vibrobomb Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Thunder-Active Ammo", 24, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Thunder-Active Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Thunder-Active Ammo", 8, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Thunder-Active Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Narc-Capable Ammo", 24, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo LRM-5 (Clan) Narc-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Narc-Capable Ammo", 12, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo LRM-10 (Clan) Narc-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Narc-Capable Ammo", 8, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo LRM-15 (Clan) Narc-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Narc-Capable Ammo", 6, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo LRM-20 (Clan) Narc-capable") as ComponentAmmunition);
+
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Narc-Capable Ammo", 50, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-2 (Clan) Narc-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Narc-Capable Ammo", 25, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-4 (Clan) Narc-capable") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Narc-Capable Ammo", 15, "E", TECHNOLOGY_BASE.BOTH)
+                        .AddAlias("Clan Ammo SRM-6 (Clan) Narc-capable") as ComponentAmmunition);
+
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Narc-Capable Ammo", 40, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 3 SRM Narc-Capable Ammo", 33, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Narc-Capable Ammo", 24, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 5 LRM Narc-Capable Ammo", 20, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 LRM Narc-Capable Ammo", 17, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 7 SRM Narc-Capable Ammo", 14, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Narc-Capable Ammo", 13, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("MML 9 LRM Narc-Capable Ammo", 11, "E", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Torpedo Ammo", 24, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Torpedo Ammo", 12, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Torpedo Ammo", 8, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Torpedo Ammo", 6, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Torpedo Ammo", 50, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Torpedo Ammo", 25, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Torpedo Ammo", 15, "C", TECHNOLOGY_BASE.BOTH));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Multi-Purpose Ammo", 24, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Multi-Purpose Ammo", 12, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Multi-Purpose Ammo", 8, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Multi-Purpose Ammo", 6, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 2 Multi-Purpose Ammo", 50, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Multi-Purpose Ammo", 25, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Multi-Purpose Ammo", 15, "F", TECHNOLOGY_BASE.CLAN));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Anti-Missile System Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("ISAMS Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Anti-Missile System Ammo", 24, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("CLAMS Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Narc Missile Beacon Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("ISNarc Pods") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Narc Missile Beacon Ammo", 6, "E", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("CLNarc Pods") as ComponentAmmunition);  //TODO: NO REFERENCE FOUND FOR THIS, EXISTENCE IMPLICIT
+                    privateAmmunitionList.Add(new ComponentAmmunition("Narc Missile Beacon Explosive Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Improved Narc Launcher Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Improved Narc Launcher ECM Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Improved Narc Launcher Explosive Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Improved Narc Launcher Haywire Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    privateAmmunitionList.Add(new ComponentAmmunition("Improved Narc Launcher Nemesis Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE));
+                    
+                }
+                return privateAmmunitionList;
+            }
+        }
+
+        static private List<ComponentAmmunition> privateAmmunitionList = null;
+
         //TODO: Base Costs are wrong
         static public Dictionary<string, ComponentWeapon> Weapons = new System.Collections.Generic.Dictionary<string, ComponentWeapon>()
         {

@@ -615,18 +615,19 @@ namespace BattleTechNET.Data
                                     {
                                         CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Replace("(omnipod)","").Trim(), Location = selectedLocation, SlotNumber = j ,Omnipod = sLines[i].Contains("(omnipod)")};
                                         if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
-                                        if (criticalSlot.Label.Contains(" Ammo") || criticalSlot.Label.Equals("CLPlasmaCannonAmmo"))
+                                        foreach(ComponentAmmunition componentAmmunition in ComponentLibrary.Ammunitions)
                                         {
-                                            ComponentAmmunition ammunition = new ComponentAmmunition();
-                                            ammunition.Name = criticalSlot.Label;
-                                            ammunition.TechnologyBase = retval.TechnologyBase;
-                                            ammunition.Tonnage = 1;
-                                            ammunition.Rounds = 1;
-                                            ammunition.BaseCost = 1000;
-                                            if (Utilities.IsSynonymFor("IS Machine Gun Ammo - Half", criticalSlot.Label))
-                                                ammunition.Tonnage = 0.5;
-                                            criticalSlot.AffectedComponent = new UnitComponent(ammunition, selectedLocation);
-                                            retval.Components.Add(criticalSlot.AffectedComponent);
+                                            if(Utilities.IsSynonymFor(componentAmmunition, criticalSlot.Label) &&
+                                                (componentAmmunition.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
+                                                retval.TechnologyBase == componentAmmunition.TechnologyBase))
+                                            {
+                                                criticalSlot.AffectedComponent = new UnitComponent(componentAmmunition.Clone() as Component, selectedLocation);
+                                                retval.Components.Add(criticalSlot.AffectedComponent);
+                                            }
+                                        }
+                                        if (criticalSlot.Label.Contains("Ammo") && criticalSlot.AffectedComponent == null)
+                                        {
+                                            System.Diagnostics.Debug.WriteLine($"{criticalSlot.Label}");
                                         }
                                         if (Utilities.IsSynonymFor(criticalSlot.Label, "CASE"))
                                         {

@@ -45,7 +45,7 @@ namespace BattleTechNET.Common
             new string[] {"LRM 10","LRM/10","LRM10","ISLRM10","CLLRM10"},
             new string[] {"LRM 15","LRM/15","LRM15","ISLRM15","CLLRM15"},
             new string[] {"LRM 20","LRM/20","LRM20","ISLRM20","CLLRM20"},
-            new string[] {"Machine Gun","MGun","MG", "ISMachine Gun","ISMG"},
+            
             new string[] {"Endo Steel", "Endo Steel (I.S.)", "Endo Steel (Clan)", "IS Endo Steel", "IS Endo-Steel", "Endo-Steel","Clan Endo Steel","Endo Steel Prototype" },
             new string[] {"TSM","Triple-Strength","Triple-Strength Myomer","Triple Strength Myomer"},
             new string[] {"MASC","ISMASC"},
@@ -76,7 +76,6 @@ namespace BattleTechNET.Common
             new string[] { "Beagle Active Probe","ISBeagleActiveProbe" },
             new string[] { "ISArtemisIV", "Artemis IV","CLArtemisIV"},
             new string[] { "ClanArtemisV","Artemis V" },
-            new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half","Clan Machine Gun Ammo - Half","Clan Light Machine Gun Ammo - Half" },
             new string[] { "LB 2-X AC","ISLBXAC2" },
             new string[] { "LB 5-X AC","ISLBXAC5" },
             new string[] { "LB 10-X AC","ISLBXAC10" },
@@ -131,7 +130,14 @@ namespace BattleTechNET.Common
             new string[] { "CLAntiPersonnelPod","A-Pod","A-Pods","CLAntiPersonnelPod" },
             new string[] {"Active Probe","CLActiveProbe"},
             new string[] {"Light Active Probe","CLLightActiveProbe"},
-
+            new string[] { "CLUltraAC2 Ammo", "Ultra Autocannon/2 Ammo" },
+            new string[] { "CLUltraAC5 Ammo", "Ultra Autocannon/5 Ammo" },
+            new string[] { "CLUltraAC10 Ammo", "Ultra Autocannon/10 Ammo" },
+            new string[] { "CLUltraAC20 Ammo", "Ultra Autocannon/20 Ammo" },
+            new string[] {"Machine Gun","MGun","MG", "ISMachine Gun","ISMG"},
+            new string[] { "IS Ammo MG - Full" , "Machine Gun Ammo","IS Ammo MG - Full" },
+            new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half","Clan Machine Gun Ammo - Half","Clan Light Machine Gun Ammo - Half","Machine Gun Ammo Half" },
+            new string[] { "IS Ammo LRM-10", "LRM 10 Ammo" },
 
         };
 
@@ -151,6 +157,20 @@ namespace BattleTechNET.Common
             {
                 if ((sSynonyms[i].Contains(a)) && (sSynonyms[i].Contains(b)))
                     return true;
+            }
+            return false;
+        }
+
+        static public bool IsSynonymFor(string sAlias, IAliasable oAliasable) { return IsSynonymFor(oAliasable, sAlias); }
+        static public bool IsSynonymFor(IAliasable oAliasable, string sAlias)
+        {
+            if (sAlias.Equals(oAliasable.Name, StringComparison.CurrentCultureIgnoreCase)) return true;
+            foreach(string sA in oAliasable.Aliases)
+            {
+                if(sAlias.Equals(sA,StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
             }
             return false;
         }
