@@ -36,7 +36,7 @@ namespace BattleTechNET.Common
         {
             BattleMechDesign battleMechDesign = design as BattleMechDesign;
 
-            Tonnage = (int)Math.Ceiling(battleMechDesign.Tonnage / 20);
+            Tonnage = Math.Ceiling(2*battleMechDesign.Tonnage / 20)/2D;
             CriticalSpaceMech = (int)Math.Ceiling(battleMechDesign.Tonnage / 15);
             Damage = (int)Math.Ceiling(battleMechDesign.Tonnage / 10) + 1;
         }

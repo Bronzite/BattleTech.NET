@@ -504,7 +504,7 @@ namespace BattleTechNET.Data
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
                             {
-                                if (Utilities.IsSynonymFor(curArmorType.Name,kvp.Value) && (curArmorType.TechnologyBase == TECHNOLOGY_BASE.BOTH || curArmorType.TechnologyBase == retval.TechnologyBase))
+                                if (Utilities.IsSynonymFor(curArmorType,kvp.Value) && (curArmorType.TechnologyBase == TECHNOLOGY_BASE.BOTH || curArmorType.TechnologyBase == retval.TechnologyBase))
                                 {
                                     foreach(BattleMechHitLocation hitLocation in retval.HitLocations)
                                     {
@@ -792,6 +792,9 @@ namespace BattleTechNET.Data
                 //Install any Communications Equipment
                 ComponentCommunicationsEquipment.ResolveComponent(retval);
 
+                //Install any Vibroblades
+                ComponentVibroblade.ResolveComponent(retval);
+
                 //The collapsible command center needs to have all of its
                 //critical hit slots in the same Torso.
                 BattleMechHitLocation leftTorso = retval.GetHitLocationByName("LT") as BattleMechHitLocation;
@@ -857,15 +860,12 @@ namespace BattleTechNET.Data
                     if (leftArm.CriticalSlots == null) throw new Exception("No Left Arm Critical Hit Slots");
                     if (rightArm.CriticalSlots == null) throw new Exception("No Right Arm Critical Hit Slots");
                     bool bLeftArmHatchet = false, bRightArmHatchet = false, bLeftArmSword = false, bRightArmSword = false;
-                    bool bLeftArmVibroblade = false, bRightArmVibroblade = false;
                     foreach (CriticalSlot curCriticalSlot in leftArm.CriticalSlots)
                     {
                         if (curCriticalSlot.Label.Equals("Hatchet"))
                             bLeftArmHatchet = true;
                         if (curCriticalSlot.Label.Equals("Sword"))
                             bLeftArmSword = true;
-                        if (Utilities.IsSynonymFor(new ComponentVibroblade(), curCriticalSlot.Label))
-                            bLeftArmVibroblade = true;
                     }
                     foreach (CriticalSlot curCriticalSlot in rightArm.CriticalSlots)
                     {
@@ -873,18 +873,13 @@ namespace BattleTechNET.Data
                             bRightArmHatchet = true;
                         if (curCriticalSlot.Label.Equals("Sword"))
                             bRightArmSword = true;
-                        if (Utilities.IsSynonymFor(new ComponentVibroblade(), curCriticalSlot.Label))
-                            bRightArmVibroblade = true;
                     }
 
                     bool bExistingLeftArmSword = false;
                     bool bExistingRightArmSword = false;
                     bool bExistingRightArmHatchet = false;
                     bool bExistingLeftArmHatchet = false;
-                    bool bExistingLeftArmVibroblade = false;
-                    bool bExistingRightArmVibroblade = false;
-
-
+                    
                     foreach (UnitComponent curComponent in retval.Components)
                     {
                         if(Utilities.IsSynonymFor(curComponent.HitLocation.Name,"LA"))
@@ -893,8 +888,6 @@ namespace BattleTechNET.Data
                                 bExistingLeftArmSword = true;
                             if (Utilities.IsSynonymFor(curComponent.Component, "Hatchet"))
                                 bExistingLeftArmHatchet = true;
-                            if (Utilities.IsSynonymFor(curComponent.Component, "Vibroblade"))
-                                bExistingLeftArmVibroblade = true;
                         }
                         if (Utilities.IsSynonymFor(curComponent.HitLocation.Name, "RA"))
                         {
@@ -902,8 +895,6 @@ namespace BattleTechNET.Data
                                 bExistingRightArmSword = true;
                             if (Utilities.IsSynonymFor(curComponent.Component, "Hatchet"))
                                 bExistingRightArmHatchet = true;
-                            if (Utilities.IsSynonymFor(curComponent.Component, "Vibroblade"))
-                                bExistingRightArmVibroblade = true;
                         }
                     }
 
@@ -929,17 +920,7 @@ namespace BattleTechNET.Data
                         ComponentSword sword = new ComponentSword(retval);
                         retval.Components.Add(new UnitComponent(sword, rightArm));
                     }
-                    if (bLeftArmVibroblade && !bExistingLeftArmVibroblade)
-                    {
-                        ComponentVibroblade vibroblade = new ComponentVibroblade(retval);
-                        retval.Components.Add(new UnitComponent(vibroblade, leftArm));
-                    }
 
-                    if (bRightArmVibroblade && !bExistingRightArmVibroblade)
-                    {
-                        ComponentVibroblade vibroblade = new ComponentVibroblade(retval);
-                        retval.Components.Add(new UnitComponent(vibroblade, rightArm));
-                    }
                 }
 
                 //A number of MTF files will list the Myomer as Standard for
@@ -970,14 +951,18 @@ namespace BattleTechNET.Data
                     if (bmhl.CriticalSlots != null)
                         foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
                         {
+                            string sSlotName = criticalSlot.Label.Replace("(omnipod)", "").Trim();
                             foreach (Component weapon in ComponentLibrary.Weapons.Values)
                             {
                                 ComponentAntiPersonnelPod antiPersonnelPod = weapon as ComponentAntiPersonnelPod;
+                                
                                 if (antiPersonnelPod != null)
                                 {
-                                    if (Utilities.IsSynonymFor(criticalSlot.Label, antiPersonnelPod.Name) &&
+                                    if (Utilities.IsSynonymFor(antiPersonnelPod, sSlotName) )
+                                        if
                                         (antiPersonnelPod.TechnologyBase == retval.TechnologyBase ||
-                                        antiPersonnelPod.TechnologyBase == TECHNOLOGY_BASE.BOTH))
+                                        antiPersonnelPod.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
+                                        retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
                                     {
                                         UnitComponent unitComponent = new UnitComponent(antiPersonnelPod.Clone() as Component, bmhl);
                                         retval.Components.Add(unitComponent);

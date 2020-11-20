@@ -42,9 +42,9 @@ namespace BattleTechNET.Common
             new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion" },
             new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion" },
             new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)" },
-            new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)","Ferro-Fibrous","Ferro-Fibrous (I.S.)" },
-            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)","Ferro-Fibrous" },
-            new string[] { "Light Ferro-Fibrous(Inner Sphere)", "Light Ferro-Fibrous" },
+//            new string[] { "Ferro-Fibrous(Inner Sphere)", "Ferro-Fibrous (I.S.)","Ferro (I.S.)","Ferro-Fibrous","Ferro-Fibrous (I.S.)" },
+//            new string[] { "Ferro-Fibrous(Clan)", "Ferro-Fibrous (Clan)","Ferro (Clan)","Ferro-Fibrous" },
+            
             new string[] { "CASE","ISCASE","ClanCASE" },
             new string[] { "Collapsible Command Module", "ISCollapsibleCommandModule" },
             

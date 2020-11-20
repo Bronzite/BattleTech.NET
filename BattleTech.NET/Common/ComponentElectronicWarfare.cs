@@ -68,13 +68,13 @@ namespace BattleTechNET.Common
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Beagle Active Probe",
-                    TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                    TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1.5,
                     BaseCost = 500000, //TODO: Lookup this number
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 5,
-                    CriticalSpaceMech = 1,
+                    CriticalSpaceMech = 2,
                     CriticalSpaceCombatVehicle = 1,
                     CriticalSpaceSupportVehicle = 1,
                     CriticalSpaceSmallCraft = 1,
@@ -134,6 +134,7 @@ namespace BattleTechNET.Common
                     CriticalSpaceDropShips = null
                 }
                 .AddAlias("ISC3MasterComputer")
+                .AddAlias("ISC3MasterUnit")
                 .AddAlias("C3 Master with TAG") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
@@ -168,7 +169,10 @@ namespace BattleTechNET.Common
                     CriticalSpaceFighters = null,
                     CriticalSpaceDropShips = null
                 }
+                .AddAlias("ISC3iUnit")
                 .AddAlias("ISImprovedC3CPU") as ComponentElectronicWarfare); //TM342
+
+                
                 return componentECMs;
             }
         }
