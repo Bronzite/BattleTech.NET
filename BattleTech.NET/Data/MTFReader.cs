@@ -694,15 +694,14 @@ namespace BattleTechNET.Data
 
                                     Component c = null;
                                     if (sComponentName.EndsWith("(R)")) sComponentName = sComponentName.Replace("(R)", "").Trim(); ;
-                                    foreach (string sKey in ComponentLibrary.Weapons.Keys)
+                                    foreach (ComponentWeapon weaponComponent in ComponentLibrary.Weapons.Values)
                                     {
-                                        if (Utilities.IsSynonymFor(sComponentName, ComponentLibrary.Weapons[sKey].Name) ||
-                                            Utilities.IsSynonymFor(ComponentLibrary.Weapons[sKey], sComponentName))
+                                        if (Utilities.IsSynonymFor(weaponComponent, sComponentName))
                                         {
-                                            if (ComponentLibrary.Weapons[sKey].TechnologyBase == retval.TechnologyBase ||
-                                                ComponentLibrary.Weapons[sKey].TechnologyBase == TECHNOLOGY_BASE.BOTH ||
+                                            if (weaponComponent.TechnologyBase == retval.TechnologyBase ||
+                                                weaponComponent.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
                                                 retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
-                                                c = ComponentLibrary.Weapons[sKey];
+                                                c = weaponComponent.Clone() as ComponentWeapon;
                                         }
                                     }
                                     HitLocation hitLocation = null;
@@ -721,7 +720,7 @@ namespace BattleTechNET.Data
                                         bool bIsECM = false;
                                         foreach (ComponentElectronicWarfare componentElectronicWarfare in ComponentElectronicWarfare.CanonicalECMs)
                                         {
-                                            if (Utilities.IsSynonymFor(sComponentName, componentElectronicWarfare.Name))
+                                            if (Utilities.IsSynonymFor(componentElectronicWarfare,sComponentName))
                                             {
                                                 bIsECM = true;
                                             }

@@ -451,7 +451,11 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
 
 
-            }.AddAlias("ISLRM5") as ComponentWeapon
+            }
+            .AddAlias("LRM 5")
+            .AddAlias("LRM/5")
+            .AddAlias("LRM5")
+            .AddAlias("ISLRM5") as ComponentWeapon
             },
             {"LRM 10",new ComponentWeapon() //TM341
             {
@@ -479,7 +483,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISLRM10") as ComponentWeapon
+            }.AddAlias("LRM 10")
+            .AddAlias("LRM/10")
+            .AddAlias("LRM10")
+            .AddAlias("ISLRM10") as ComponentWeapon
             },
             {"LRM 15",new ComponentWeapon() //TM341
             {
@@ -507,7 +514,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISLRM15") as ComponentWeapon
+            }.AddAlias("LRM 15")
+            .AddAlias("LRM/15")
+            .AddAlias("LRM15")
+            .AddAlias("ISLRM15") as ComponentWeapon
             },
             {"LRM 20",new ComponentWeapon() //TM341
             {
@@ -535,7 +545,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISLRM20") as ComponentWeapon
+            }.AddAlias("LRM 20")
+            .AddAlias("LRM/20")
+            .AddAlias("LRM20")
+            .AddAlias("ISLRM20") as ComponentWeapon
             },
             {"Clan LRM 5",new ComponentWeapon() //TM343
             {
@@ -563,7 +576,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
-            }.AddAlias("CLLRM5") as ComponentWeapon
+            }.AddAlias("LRM 5")
+            .AddAlias("LRM/5")
+            .AddAlias("LRM5")
+            .AddAlias("CLLRM5") as ComponentWeapon
             },
             {"Clan LRM 10",new ComponentWeapon() //TM343
             {
@@ -591,7 +607,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
-            }.AddAlias("CLLRM10") as ComponentWeapon
+            }.AddAlias("LRM 10")
+            .AddAlias("LRM/10")
+            .AddAlias("LRM10")
+            .AddAlias("ISLRM10") as ComponentWeapon
             },
             {"Clan LRM 15",new ComponentWeapon() //TM343
             {
@@ -619,7 +638,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
-            }.AddAlias("CLLRM15") as ComponentWeapon
+            }.AddAlias("LRM 15")
+            .AddAlias("LRM/15")
+            .AddAlias("LRM15")
+            .AddAlias("CLLRM15") as ComponentWeapon
             },
             {"Clan LRM 20",new ComponentWeapon() //TM341
             {
@@ -647,7 +669,11 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
-            }.AddAlias("CLLRM20") as ComponentWeapon
+            }
+            .AddAlias("LRM 20")
+            .AddAlias("LRM/20")
+            .AddAlias("LRM20")
+            .AddAlias("CLLRM20") as ComponentWeapon
             },
             {"Autocannon 2",new ComponentWeapon() //TM341
             {
@@ -674,7 +700,11 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISAC2") as ComponentWeapon
+            }
+            .AddAlias("AC2")
+            .AddAlias("AC/2")
+            .AddAlias("Autocannon/2")
+            .AddAlias("ISAC2") as ComponentWeapon
             },
             {"Autocannon 5",new ComponentWeapon() //TM341
             {
@@ -701,7 +731,11 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISAC5") as ComponentWeapon
+            }
+            .AddAlias("AC5")
+            .AddAlias("AC/5")
+            .AddAlias("Autocannon/5")
+            .AddAlias("ISAC5") as ComponentWeapon
             },
               {"Autocannon 10",new ComponentWeapon() //TM341
             {
@@ -728,7 +762,11 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISAC10") as ComponentWeapon
+            }
+               .AddAlias("AC10")
+               .AddAlias("AC/10")
+               .AddAlias("Autocannon/10")
+               .AddAlias("ISAC10") as ComponentWeapon
             },
             {"Autocannon 20",new ComponentWeapon() //TM341
             {
@@ -755,7 +793,11 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }.AddAlias("ISAC20") as ComponentWeapon
+            }
+            .AddAlias("AC20")
+            .AddAlias("AC/20")
+            .AddAlias("Autocannon/20")
+            .AddAlias("ISAC20") as ComponentWeapon
             },
             {"Small Laser",new ComponentWeapon() //TM341
             {
@@ -783,6 +825,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("SLaser")
+            .AddAlias("ISSmallLaser") as ComponentWeapon
             },
             {"Medium Laser",new ComponentWeapon() //TM341
             {
@@ -810,6 +854,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                        .AddAlias("MLaser")
+            .AddAlias("ISMediumLaser") as ComponentWeapon
             },
              {"Large Laser",new ComponentWeapon() //TM341
             {
@@ -837,6 +883,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                         .AddAlias("LLaser")
+            .AddAlias("ISLargeLaser") as ComponentWeapon
             },
              {"Heavy Small Laser",new ComponentWeapon() //TM341
             {
@@ -945,6 +993,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("Particle Cannon")
+                .AddAlias("ISPPC") as ComponentWeapon
             },
             {"SRM 2",new ComponentWeaponClustered() //TM341
             {
@@ -975,6 +1025,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("SRM/2")
+                .AddAlias("SRM2")
+                .AddAlias("ISSRM2") as ComponentWeapon
             },
             {"SRM 4",new ComponentWeaponClustered() //TM341
             {
@@ -1005,6 +1058,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("SRM/4")
+                .AddAlias("SRM4")
+                .AddAlias("ISSRM4") as ComponentWeapon
             },
             {"SRM 6",new ComponentWeaponClustered() //TM341
             {
@@ -1034,7 +1090,9 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }
+            }.AddAlias("SRM/6")
+                .AddAlias("SRM6")
+                .AddAlias("ISSRM6") as ComponentWeapon
             },
              {"SRM 2 (OS)",new ComponentWeaponClustered() //TM341
             {
@@ -1065,6 +1123,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISSRM2 (OS)") as ComponentWeapon
             },
             {"SRM 4 (OS)",new ComponentWeaponClustered() //TM341
             {
@@ -1095,6 +1154,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+    .AddAlias("ISSRM4 (OS)") as ComponentWeapon
             },
             {"SRM 6 (OS)",new ComponentWeaponClustered() //TM341
             {
@@ -1125,6 +1185,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISSRM6 (OS)") as ComponentWeapon
             },
              {"Clan SRM 2",new ComponentWeaponClustered() //TM341
             {
@@ -1155,6 +1216,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+             .AddAlias("SRM/2")
+                .AddAlias("SRM2")
+                .AddAlias("CLSRM2") as ComponentWeapon
             },
             {"Clan SRM 4",new ComponentWeaponClustered() //TM341
             {
@@ -1185,6 +1249,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("SRM/4")
+                .AddAlias("SRM4")
+                .AddAlias("CLSRM4") as ComponentWeapon
             },
             {"Clan SRM 6",new ComponentWeaponClustered() //TM341
             {
@@ -1214,7 +1281,9 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
-            }
+            }.AddAlias("SRM/6")
+                .AddAlias("SRM6")
+                .AddAlias("CLSRM6") as ComponentWeapon
             },
              {"Machine Gun",new ComponentWeapon() //TM341
             {
@@ -1242,8 +1311,11 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-
             }
+             .AddAlias("MGun")
+                .AddAlias("MG")
+                .AddAlias("ISMachine Gun")
+                .AddAlias("ISMG") as ComponentWeapon
              },
                {"Clan Machine Gun",new ComponentWeapon() //TM341
             {
@@ -1273,6 +1345,10 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
 
             }
+               .AddAlias("MGun")
+                .AddAlias("MG")
+                .AddAlias("CLMachine Gun")
+                .AddAlias("CLMG") as ComponentWeapon
              },
                {"Clan Light Machine Gun",new ComponentWeapon() //TM341
             {
@@ -1331,6 +1407,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
 
             }
+                    .AddAlias("ISLightMG") as ComponentWeapon
              },
                {"Clan Heavy Machine Gun",new ComponentWeapon() //TM341
             {
@@ -1388,6 +1465,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISFlamer") as ComponentWeapon
             },
              {"Clan Flamer",new ComponentWeapon() //TM341
             {
@@ -1416,6 +1494,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+             .AddAlias("CLFlamer") as ComponentWeapon
             },
                 {"LB 2-X AC",new ComponentWeapon() //TM341
             {
@@ -1442,7 +1521,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.EXTREME,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }
+            }.AddAlias("ISLBXAC2") as ComponentWeapon
             },
                 {"LB 5-X AC",new ComponentWeapon() //TM341
             {
@@ -1470,6 +1549,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                .AddAlias("ISLBXAC5") as ComponentWeapon
             },
                 {"LB 10-X AC",new ComponentWeapon() //TM341
             {
@@ -1497,6 +1577,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                .AddAlias("ISLBXAC10") as ComponentWeapon
             },
                 {"LB 20-X AC",new ComponentWeapon() //TM341
             {
@@ -1524,6 +1605,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                .AddAlias("ISLBXAC20") as ComponentWeapon
             },
             {"Clan LB 2-X AC",new ComponentWeapon() //TM343
             {
@@ -1551,6 +1633,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLLBXAC2") as ComponentWeapon
             },
             {"Clan LB 5-X AC",new ComponentWeapon() //TM343
             {
@@ -1578,6 +1661,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLLBXAC5") as ComponentWeapon
             },
             {"Clan LB 10-X AC",new ComponentWeapon() //TM343
             {
@@ -1605,6 +1689,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLLBXAC10") as ComponentWeapon
             },
             {"Clan LB 20-X AC",new ComponentWeapon() //TM343
             {
@@ -1632,6 +1717,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLLBXAC20") as ComponentWeapon
             },
             {"ER Small Laser",new ComponentWeapon() //TM341
             {
@@ -1659,6 +1745,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISERSmallLaser") as ComponentWeapon
             },
             {"ER Medium Laser",new ComponentWeapon() //TM341
             {
@@ -1686,6 +1773,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISERMediumLaser") as ComponentWeapon
             },
              {"ER Large Laser",new ComponentWeapon() //TM341
             {
@@ -1713,6 +1801,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISERLargeLaser") as ComponentWeapon
             },
               {"ER PPC",new ComponentWeapon() //TM341
             {
@@ -1740,6 +1829,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("ISERPPC")
+              .AddAlias("ER Particle Cannon") as ComponentWeapon
             },
                             {"Clan Micro Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -1822,6 +1913,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("UAC2")
+                .AddAlias("Ultra AC/2")
+                .AddAlias("Ultra Autocannon/2")
+                .AddAlias("ISUltraAC2") as ComponentWeapon
             },
             {"Ultra Autocannon 5",new ComponentWeapon() //TM341
             {
@@ -1849,6 +1944,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("UAC5")
+                .AddAlias("Ultra AC/5")
+                .AddAlias("Ultra Autocannon/5")
+                .AddAlias("ISUltraAC5") as ComponentWeapon
             },
               {"Ultra Autocannon 10",new ComponentWeapon() //TM341
             {
@@ -1876,6 +1975,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("UAC10")
+                .AddAlias("Ultra AC/10")
+                .AddAlias("Ultra Autocannon/10")
+                .AddAlias("ISUltraAC10") as ComponentWeapon
             },
             {"Ultra Autocannon 20",new ComponentWeapon() //TM341
             {
@@ -1903,6 +2006,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("UAC20")
+                .AddAlias("Ultra AC/20")
+                .AddAlias("Ultra Autocannon/20")
+                .AddAlias("ISUltraAC20") as ComponentWeapon
             },
             {"Clan Ultra Autocannon 2",new ComponentWeapon() //TM341
             {
@@ -1930,6 +2037,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("UAC2")
+                .AddAlias("Ultra AC/2")
+                .AddAlias("Ultra Autocannon/2")
+                .AddAlias("CLUltraAC2") as ComponentWeapon
             },
             {"Clan Ultra Autocannon 5",new ComponentWeapon() //TM341
             {
@@ -1957,6 +2068,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("UAC5")
+                .AddAlias("Ultra AC/5")
+                .AddAlias("Ultra Autocannon/5")
+                .AddAlias("CLUltraAC5") as ComponentWeapon
             },
               {"Clan Ultra Autocannon 10",new ComponentWeapon() //TM341
             {
@@ -1984,6 +2099,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+              .AddAlias("UAC10")
+                .AddAlias("Ultra AC/10")
+                .AddAlias("Ultra Autocannon/10")
+                .AddAlias("CLUltraAC10") as ComponentWeapon
             },
             {"Clan Ultra Autocannon 20",new ComponentWeapon() //TM341
             {
@@ -2011,6 +2130,10 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("UAC20")
+                .AddAlias("Ultra AC/20")
+                .AddAlias("Ultra Autocannon/20")
+                .AddAlias("CLUltraAC20") as ComponentWeapon
             },
              {"Hatchet",new ComponentHatchet() //TM341
             {
@@ -2095,6 +2218,8 @@ namespace BattleTechNET.Data
 
 
             }
+             .AddAlias("LRM/5 + Artemis IV")
+                .AddAlias("LRM5 + Artemis IV") as ComponentWeapon
             },
             {"LRM 10 + Artemis IV",new ComponentWeapon() //TM341
             {
@@ -2121,7 +2246,8 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }
+            }.AddAlias("LRM/10 + Artemis IV")
+                .AddAlias("LRM10 + Artemis IV") as ComponentWeapon
             },
             {"LRM 15 + Artemis IV",new ComponentWeapon() //TM341
             {
@@ -2148,7 +2274,8 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }
+            }.AddAlias("LRM/15 + Artemis IV")
+                .AddAlias("LRM15 + Artemis IV") as ComponentWeapon
             },
             {"LRM 20 + Artemis IV",new ComponentWeapon() //TM341
             {
@@ -2175,7 +2302,8 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-            }
+            }.AddAlias("LRM/20 + Artemis IV")
+                .AddAlias("LRM20 + Artemis IV") as ComponentWeapon
             },
                {"Small Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2204,6 +2332,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2
             }
+               .AddAlias("ISSmallPulseLaser") as ComponentWeapon
             },
             {"Medium Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2232,6 +2361,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2
             }
+            .AddAlias("ISMediumPulseLaser") as ComponentWeapon
             },
              {"Large Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2260,6 +2390,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2
             }
+             .AddAlias("ISLargePulseLaser") as ComponentWeapon
             },
              {"Clan Small Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2288,6 +2419,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 ToHitModifier=-2
             }
+             .AddAlias("CLSmallPulseLaser") as ComponentWeapon
             },
             {"Clan Medium Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2316,6 +2448,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 ToHitModifier=-2
             }
+            .AddAlias("CLMediumPulseLaser") as ComponentWeapon
             },
              {"Clan Large Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -2344,6 +2477,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 ToHitModifier=-2
             }
+             .AddAlias("CLLargePulseLaser") as ComponentWeapon
             },
             {"Light Autocannon 2",new ComponentWeapon() //TM341
             {
@@ -2371,6 +2505,11 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("LAC2")
+                .AddAlias("LAC/2")
+                .AddAlias("Light Autocannon/2")
+                .AddAlias("ISLAC2")
+                .AddAlias("Light Auto Cannon/2") as ComponentWeapon
             },
             {"Light Autocannon 5",new ComponentWeapon() //TM341
             {
@@ -2398,6 +2537,11 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("LAC5")
+                .AddAlias("LAC/5")
+                .AddAlias("Light Autocannon/5")
+                .AddAlias("ISLAC5")
+                .AddAlias("Light Auto Cannon/5") as ComponentWeapon
             },
             {"Heavy PPC",new ComponentWeapon() //TM341
             {
@@ -2425,6 +2569,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISHeavyPPC") as ComponentWeapon
             },
             {"Clan ER Small Laser",new ComponentWeapon() //TM341
             {
@@ -2452,6 +2597,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLERSmallLaser") as ComponentWeapon
             },
             {"Clan ER Medium Laser",new ComponentWeapon() //TM341
             {
@@ -2479,6 +2625,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLERMediumLaser") as ComponentWeapon
             },
              {"Clan ER Large Laser",new ComponentWeapon() //TM341
             {
@@ -2506,6 +2653,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+             .AddAlias("CLERLargeLaser") as ComponentWeapon
             },
               {"Clan ER PPC",new ComponentWeapon() //TM341
             {
@@ -2533,6 +2681,8 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+              .AddAlias("ER Particle Cannon")
+              .AddAlias("CLERPPC") as ComponentWeapon
             },
               {"Light PPC",new ComponentWeapon() //TM341
             {
@@ -2560,6 +2710,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("ISLightPPC") as ComponentWeapon
             },
                 {"TAG",new ComponentWeapon() //TM341
             {
@@ -2588,6 +2739,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+                .AddAlias("ISTAG") as ComponentWeapon
             },
                    {"Clan TAG",new ComponentWeapon() //TM341
             {
@@ -2616,10 +2768,11 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+                   .AddAlias("Clan TAG") as ComponentWeapon
             },
                                       {"Clan Light TAG",new ComponentWeapon() //TM341
             {
-                Name = "Light TAG",
+                Name = "Clan Light TAG",
                 BaseCost = 20000,
                 Heat = 0,
                 AeroHeat =0,
@@ -2644,6 +2797,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("Light TAG") as ComponentWeapon
             },
                 {"Small X-Pulse Laser",new ComponentWeapon() //TO408
             {
@@ -2755,6 +2909,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISGaussRifle") as ComponentWeapon
             },
              {"AP Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -2809,6 +2964,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+            .AddAlias("HAG/20") as ComponentWeapon
             },
             {"Hyper-Assault Gauss 30",new ComponentWeapon() //TM341
             {
@@ -2836,6 +2992,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+            .AddAlias("HAG/30") as ComponentWeapon
             },
             {"Hyper-Assault Gauss 40",new ComponentWeapon() //TM341
             {
@@ -2863,6 +3020,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+            .AddAlias("HAG/40") as ComponentWeapon
             },
              {"Clan Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -2890,6 +3048,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+             .AddAlias("CLGaussRifle") as ComponentWeapon
             },
              {"Light Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -2917,6 +3076,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISLightGaussRifle") as ComponentWeapon
             },
              {"Heavy Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -2944,6 +3104,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISHeavyGaussRifle") as ComponentWeapon
             },
               {"Anti-Missile System",new ComponentWeapon() //TM341
             {
@@ -2972,6 +3133,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("AMS")
+              .AddAlias("ISAntiMissileSystem")
+              .AddAlias("ISAMS") as ComponentWeapon
             },
                   {"Clan Anti-Missile System",new ComponentWeapon() //TM343
             {
@@ -3000,6 +3164,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+                  .AddAlias("AMS")
+                  .AddAlias("CLAntiMissileSystem")
+                  .AddAlias("CLAMS") as ComponentWeapon
             },
             {"Streak SRM 2",new ComponentWeapon() //TM341
             {
@@ -3028,6 +3195,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISStreakSRM2") as ComponentWeapon
             },
             {"Streak SRM 4",new ComponentWeapon() //TM341
             {
@@ -3056,6 +3224,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISStreakSRM4") as ComponentWeapon
             },
             {"Streak SRM 6",new ComponentWeapon() //TM341
             {
@@ -3084,6 +3253,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISStreakSRM6") as ComponentWeapon
             },
              {"Clan Streak SRM 2",new ComponentWeaponClustered() //TM341
             {
@@ -3113,6 +3283,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+             .AddAlias("CLStreakSRM2") as ComponentWeapon
             },
             {"Clan Streak SRM 4",new ComponentWeaponClustered() //TM341
             {
@@ -3142,6 +3313,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLStreakSRM4") as ComponentWeapon
             },
             {"Clan Streak SRM 6",new ComponentWeaponClustered() //TM341
             {
@@ -3171,6 +3343,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLStreakSRM6") as ComponentWeapon
             },
             {"Streak SRM 2 (OS)",new ComponentWeapon() //TM341
             {
@@ -3369,6 +3542,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISSNPPC") as ComponentWeapon
             },
             {"ATM 3",new ComponentWeapon() //TM343
             {
@@ -3509,6 +3683,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+            .AddAlias("ISRocketLauncher10") as ComponentWeapon
             },
              {"Rocket Launcher 15",new ComponentWeapon() //TM342
             {
@@ -3537,6 +3712,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+             .AddAlias("ISRocketLauncher15") as ComponentWeapon
             },
             {"Rocket Launcher 20",new ComponentWeapon() //TM342
             {
@@ -3565,6 +3741,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.BOTH
             }
+            .AddAlias("ISRocketLauncher20") as ComponentWeapon
             },
             {"Arrow IV Missile",new ComponentArtillery() //TM342
             {
@@ -3594,6 +3771,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISArrowIVSystem") as ComponentWeapon
             },
             {"Clan Arrow IV Missile",new ComponentArtillery() //TM342
             {
@@ -3623,6 +3801,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLArrowIVSystem") as ComponentWeapon
             },
             {"Machine Gun Array",new ComponentMachineGunArray() //TM342
             {
@@ -3652,6 +3831,10 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMGA")
+                .AddAlias("ISLMGA")
+                .AddAlias("Light Machine Gun Array")
+                .AddAlias("Heavy Machine Gun Array") as ComponentWeapon
             },
             {"Clan Machine Gun Array",new ComponentMachineGunArray() //TM342
             {
@@ -3681,6 +3864,9 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLMGA")
+                .AddAlias("Light Machine Gun Array")
+                .AddAlias("Heavy Machine Gun Array") as ComponentWeapon
             },
             {"MML 3",new ComponentWeaponClustered() //TM342
             {//TODO: We need to build a multi-mode weapon class
@@ -3710,6 +3896,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMML3") as ComponentWeapon
             },
             {"MML 5",new ComponentWeaponClustered() //TM342
             {//TODO: We need to build a multi-mode weapon class
@@ -3739,6 +3926,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMML5") as ComponentWeapon
             },
             {"MML 7",new ComponentWeaponClustered() //TM342
             {//TODO: We need to build a multi-mode weapon class
@@ -3768,6 +3956,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMML7") as ComponentWeapon
             },
             {"MML 9",new ComponentWeaponClustered() //TM342
             {//TODO: We need to build a multi-mode weapon class
@@ -3797,6 +3986,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMML9") as ComponentWeapon
             },
             {"Plasma Rifle",new ComponentWeapon() //TM341
             {
@@ -3827,6 +4017,7 @@ namespace BattleTechNET.Data
 
 
             }
+            .AddAlias("ISPlasmaRifle") as ComponentWeapon
             },
             {"Plasma Cannon",new ComponentWeapon() //TM341
             {
@@ -3854,6 +4045,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("CLPlasmaCannon") as ComponentWeapon
             },
             {"MRM 10",new ComponentWeaponClustered() //TM342
             {
@@ -3883,6 +4075,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMRM10") as ComponentWeapon
             },
             {"MRM 20",new ComponentWeaponClustered() //TM342
             {
@@ -3912,6 +4105,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISMRM20") as ComponentWeapon
             },
              {"MRM 30",new ComponentWeaponClustered() //TM342
             {
@@ -3941,6 +4135,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .AddAlias("ISMRM30") as ComponentWeapon
             },
               {"MRM 40",new ComponentWeaponClustered() //TM342
             {
@@ -3970,6 +4165,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("ISMRM40") as ComponentWeapon
             },
             {"Rotary AC/2",new ComponentWeaponClustered() //TM342
             {
@@ -3998,6 +4194,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISRotaryAC2") as ComponentWeapon
             },
             {"Rotary AC/5",new ComponentWeaponClustered() //TM342
             {
@@ -4026,6 +4223,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISRotaryAC5") as ComponentWeapon
             },
             {"Narc Missile Beacon",new ComponentWeapon() //TM341
             {
@@ -4054,6 +4252,8 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
             }
+            .AddAlias("Narc")
+            .AddAlias("ISNarcBeacon") as ComponentWeapon
             },
                         {"Clan Narc Missile Beacon",new ComponentWeapon() //TM341
             {
@@ -4082,6 +4282,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
             }
+                        .AddAlias("Narc") as ComponentWeapon
             },
             {"Improved Narc Launcher",new ComponentWeapon() //TM341
             {
@@ -4110,6 +4311,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
             }
+            .AddAlias("ISImprovedNarc") as ComponentWeapon
             },
             {"Clan A-Pods",new ComponentAntiPersonnelPod() //TM341
             {

@@ -27,7 +27,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips =0
-                }); //TO407
+                }
+                .AddAlias("ISElectronicWarfareEquipment") as ComponentElectronicWarfare); //TO407
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "ECM Suite",
@@ -43,7 +44,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
-                }); //TM342
+                }
+                .AddAlias("CLECMSuite") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Guardian ECM Suite",
@@ -59,7 +61,10 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
-                }); //TM342
+                }
+                .AddAlias("ISGuardianECM")
+                .AddAlias("Guardian ECM")
+                .AddAlias("ISGuardianECMSuite") as ComponentElectronicWarfare);//TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Beagle Active Probe",
@@ -75,7 +80,9 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
-                }); //TM342
+                }
+                .AddAlias("BeagleActiveProbe")
+                .AddAlias("ISBeagleActiveProbe") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Light Active Probe",
@@ -91,7 +98,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
-                }); //TM343
+                }
+                .AddAlias("CLLightActiveProbe") as ComponentElectronicWarfare); //TM343
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Active Probe",
@@ -107,7 +115,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
                     CriticalSpaceDropShips = 0
-                }); //TM343
+                }
+                .AddAlias("CLActiveProbe") as ComponentElectronicWarfare); //TM343
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "C3 Computer Master",
@@ -123,7 +132,9 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = null,
                     CriticalSpaceFighters = null,
                     CriticalSpaceDropShips = null
-                }); //TM342
+                }
+                .AddAlias("ISC3MasterComputer")
+                .AddAlias("C3 Master with TAG") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "C3 Computer Slave",
@@ -139,7 +150,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = null,
                     CriticalSpaceFighters = null,
                     CriticalSpaceDropShips = null
-                }); //TM342
+                }
+                .AddAlias("ISC3SlaveUnit") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Improved C3 Computer",
@@ -155,7 +167,8 @@ namespace BattleTechNET.Common
                     CriticalSpaceSmallCraft = null,
                     CriticalSpaceFighters = null,
                     CriticalSpaceDropShips = null
-                }); //TM342
+                }
+                .AddAlias("ISImprovedC3CPU") as ComponentElectronicWarfare); //TM342
                 return componentECMs;
             }
         }
@@ -166,26 +179,26 @@ namespace BattleTechNET.Common
             foreach(HitLocation location in design.HitLocations)
             {
                 BattleMechHitLocation bmhl = location as BattleMechHitLocation;
-                Dictionary<string, List<CriticalSlot>> dicComponents = new Dictionary<string, List<CriticalSlot>>();
+                Dictionary<ComponentElectronicWarfare, List<CriticalSlot>> dicComponents = new Dictionary<ComponentElectronicWarfare, List<CriticalSlot>>();
                 foreach(ComponentElectronicWarfare component in ewComponents)
                 {
-                    dicComponents.Add(component.Name, new List<CriticalSlot>());
+                    dicComponents.Add(component, new List<CriticalSlot>());
                 }
 
                 foreach(CriticalSlot criticalSlot in bmhl.CriticalSlots)
                 {
-                    foreach (string sKey in dicComponents.Keys)
-                        if (Utilities.IsSynonymFor(criticalSlot.Label, sKey))
+                    foreach (ComponentElectronicWarfare sKey in dicComponents.Keys)
+                        if (Utilities.IsSynonymFor(sKey,criticalSlot.Label))
                             dicComponents[sKey].Add(criticalSlot);
                 }
 
-                foreach(ComponentElectronicWarfare component in ewComponents)
+                foreach(ComponentElectronicWarfare component in dicComponents.Keys)
                 {
-                    if(dicComponents[component.Name].Count == component.CriticalSpaceMech)
+                    if(dicComponents[component].Count == component.CriticalSpaceMech)
                     {
                         //Add component to design
                         UnitComponent uc = new UnitComponent(component.Clone() as Component, location);
-                        foreach(CriticalSlot criticalSlot in dicComponents[component.Name])
+                        foreach(CriticalSlot criticalSlot in dicComponents[component])
                         {
                             criticalSlot.AffectedComponent = uc;
                         }
