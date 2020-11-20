@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleTechNET.TotalWarfare
 {
-    public class MyomerType
+    public class MyomerType:ITechBase
     {
         public MyomerType() {
             Name = "Standard";

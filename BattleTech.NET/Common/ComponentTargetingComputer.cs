@@ -7,6 +7,18 @@ namespace BattleTechNET.Common
 {
     class ComponentTargetingComputer:Component,IDesignConfigured
     {
+        static public List<ComponentTargetingComputer> GetCanonicalTargetingComputers()
+        {
+            List<ComponentTargetingComputer> retval = new List<ComponentTargetingComputer>();
+
+            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.CLAN }.
+                AddAlias("CLTargeting Computer") as ComponentTargetingComputer);
+            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE }.
+                AddAlias("ISTargeting Computer") as ComponentTargetingComputer);
+
+            return retval;
+        }
+
         public ComponentTargetingComputer()
         {
             Name = "Targeting Computer";
@@ -20,24 +32,27 @@ namespace BattleTechNET.Common
                 BattleMechHitLocation bmhl = location as BattleMechHitLocation;
                 List<CriticalSlot> slots = new List<CriticalSlot>();
 
-                ComponentTargetingComputer componentTargetingComputer = new ComponentTargetingComputer();
-
-                componentTargetingComputer.Configure(design);
-
-                foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                List<ComponentTargetingComputer> computers = ComponentTargetingComputer.GetCanonicalTargetingComputers();
+                foreach (ComponentTargetingComputer componentTargetingComputer in computers)
                 {
-                        if (Utilities.IsSynonymFor(criticalSlot.Label, "Targeting Computer"))
-                            slots.Add(criticalSlot);
+                    if(design.IsCompatible(componentTargetingComputer))
+                            {
+                        componentTargetingComputer.Configure(design);
+
+                        foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                        {
+                            if (Utilities.IsSynonymFor(componentTargetingComputer, criticalSlot.Label))
+                                slots.Add(criticalSlot);
+                        }
+
+
+                        if (slots.Count == (int)(Math.Ceiling(componentTargetingComputer.Tonnage)))
+                        {
+                            UnitComponent uc = new UnitComponent(componentTargetingComputer, bmhl);
+                            design.Components.Add(uc);
+                        }
+                    }
                 }
-
-
-                if (slots.Count == (int)(Math.Ceiling(componentTargetingComputer.Tonnage)))
-                {
-                    UnitComponent uc = new UnitComponent(componentTargetingComputer, bmhl);
-                    design.Components.Add(uc);
-                }
-
-                
 
             }
         }
@@ -47,7 +62,7 @@ namespace BattleTechNET.Common
             //TM238: The weight of a targeting computer is based on the weight
             //of all direct-fire, non-missile heavy weaspons, not counting
             //machine guns, flamers, or TAG systems.
-            TechnologyBase = design.TechnologyBase;
+            
             double dWeaponsMass = 0;
             foreach(UnitComponent component in design.Components)
             {

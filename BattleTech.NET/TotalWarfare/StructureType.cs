@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleTechNET.TotalWarfare
 {
-    public class StructureType:ICloneable
+    public class StructureType:ICloneable,ITechBase
     {
         public StructureType() : this("Standard", TECHNOLOGY_BASE.BOTH , 0.1, 0, 1, false) { }
         

@@ -1,10 +1,29 @@
 ﻿using BattleTechNET.AlphaStrike;
+using BattleTechNET.TotalWarfare;
 using System;
+using System.Collections.Generic;
 
 namespace BattleTechNETTest
 {
     public static class Utilities
     {
+
+        static public List<KeyValuePair<string, string>> UndertonnageMechs = new List<KeyValuePair<string, string>>()
+        {
+            new KeyValuePair<string, string>("Atlas","C"),
+            new KeyValuePair<string, string>("Victor","C")
+        };
+
+        static public bool IsUndertonnageDesign(Design design)
+        {
+            foreach(KeyValuePair<string,string> kvp in UndertonnageMechs)
+            {
+                if (kvp.Key == design.Model && kvp.Value == design.Variant)
+                    return true;
+            }
+            return false;
+        }
+
 
         static public Element GenerateASBattleMech(string sName, int iSize, int iWalk, int iJump, int iArmor, int iStructure, int iShort, int iMedium, int iLong)
         {

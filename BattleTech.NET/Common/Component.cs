@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public class Component:ICloneable,IAliasable
+    public class Component:ICloneable,IAliasable,ITechBase
     {
         public Component()
         {

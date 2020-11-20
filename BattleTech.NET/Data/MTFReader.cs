@@ -405,12 +405,14 @@ namespace BattleTechNET.Data
                             }
                             if (Utilities.IsSynonymFor(kvp.Value, "Mixed (IS Chassis)"))
                             {
-                                retval.TechnologyBase = TECHNOLOGY_BASE.BOTH;
+                                retval.TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;
+                                retval.MixedTechBase = true;
                                 bValidTechBase = true;
                             }
                             if (Utilities.IsSynonymFor(kvp.Value, "Mixed (Clan Chassis)"))
                             {
-                                retval.TechnologyBase = TECHNOLOGY_BASE.BOTH;
+                                retval.TechnologyBase = TECHNOLOGY_BASE.CLAN;
+                                retval.MixedTechBase = true;
                                 bValidTechBase = true;
                             }
                             if (!bValidTechBase) throw new Exception($"Could not identify Tech Base {kvp.Value}");
@@ -465,9 +467,7 @@ namespace BattleTechNET.Data
                             {
                                 if((curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase) ||
                                    Utilities.IsSynonymFor (curStructureType.Name,kvp.Value)) &&
-                                   (curStructureType.TechnologyBase == retval.TechnologyBase || 
-                                   curStructureType.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
-                                   retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                   retval.IsCompatible(curStructureType)
                                    )
                                 {
                                     retval.StructureType = curStructureType;
@@ -491,8 +491,7 @@ namespace BattleTechNET.Data
                             {
                                 if ((curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase) ||
                                     Utilities.IsSynonymFor(curMyomerType.Name, kvp.Value)) &&
-                                    (curMyomerType.TechnologyBase == retval.TechnologyBase || 
-                                    curMyomerType.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                    retval.IsCompatible(curMyomerType)
                                     )
                                 {
                                     retval.MyomerType = curMyomerType;
@@ -504,7 +503,9 @@ namespace BattleTechNET.Data
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
                             {
-                                if (Utilities.IsSynonymFor(curArmorType,kvp.Value) && (curArmorType.TechnologyBase == TECHNOLOGY_BASE.BOTH || curArmorType.TechnologyBase == retval.TechnologyBase))
+                                if (Utilities.IsSynonymFor(curArmorType,kvp.Value) && 
+                                    retval.IsCompatible(curArmorType)
+                                    )
                                 {
                                     foreach(BattleMechHitLocation hitLocation in retval.HitLocations)
                                     {
@@ -614,8 +615,7 @@ namespace BattleTechNET.Data
                                         foreach(ComponentAmmunition componentAmmunition in ComponentLibrary.Ammunitions)
                                         {
                                             if(Utilities.IsSynonymFor(componentAmmunition, criticalSlot.Label) &&
-                                                (componentAmmunition.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
-                                                retval.TechnologyBase == componentAmmunition.TechnologyBase))
+                                                retval.IsCompatible(componentAmmunition))
                                             {
                                                 criticalSlot.AffectedComponent = new UnitComponent(componentAmmunition.Clone() as Component, selectedLocation);
                                                 retval.Components.Add(criticalSlot.AffectedComponent);
@@ -698,9 +698,7 @@ namespace BattleTechNET.Data
                                     {
                                         if (Utilities.IsSynonymFor(weaponComponent, sComponentName))
                                         {
-                                            if (weaponComponent.TechnologyBase == retval.TechnologyBase ||
-                                                weaponComponent.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
-                                                retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                            if (retval.IsCompatible(weaponComponent))
                                                 c = weaponComponent.Clone() as ComponentWeapon;
                                         }
                                     }
@@ -934,8 +932,7 @@ namespace BattleTechNET.Data
                             foreach (MyomerType myomerType in MyomerType.GetCanonicalMyomerTypes())
                             {
                                 if (Utilities.IsSynonymFor(criticalSlot.Label, myomerType.Name) && 
-                                    (myomerType.TechnologyBase == retval.TechnologyBase || 
-                                    myomerType.TechnologyBase == TECHNOLOGY_BASE.BOTH))
+                                    retval.IsCompatible(myomerType))
                                     {
                                     retval.MyomerType = myomerType;
                                     }
@@ -960,9 +957,7 @@ namespace BattleTechNET.Data
                                 {
                                     if (Utilities.IsSynonymFor(antiPersonnelPod, sSlotName) )
                                         if
-                                        (antiPersonnelPod.TechnologyBase == retval.TechnologyBase ||
-                                        antiPersonnelPod.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
-                                        retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                        (retval.IsCompatible(antiPersonnelPod))
                                     {
                                         UnitComponent unitComponent = new UnitComponent(antiPersonnelPod.Clone() as Component, bmhl);
                                         retval.Components.Add(unitComponent);

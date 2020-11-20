@@ -69,7 +69,7 @@ namespace BattleTechNETTest
                 {
                     BattleMechDesign bmd = MTFReader.ReadBattleMechDesignFile(sFile);
                     double dComputedTonnage = bmd.ComputedTonnage;
-                    if (bmd.Tonnage < dComputedTonnage || bmd.Tonnage - dComputedTonnage > 0.5  )
+                    if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd))  )
                     {
                         _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
                         _outputHelper.WriteLine(bmd.TonnageLedger);
@@ -101,7 +101,7 @@ namespace BattleTechNETTest
                     if (bmd.TechnologyBase == BattleTechNET.Common.TECHNOLOGY_BASE.CLAN)
                     {
                         double dComputedTonnage = bmd.ComputedTonnage;
-                        if ((dComputedTonnage - bmd.Tonnage) > 0.00005 || bmd.Tonnage - dComputedTonnage > 0.5)
+                        if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
@@ -137,7 +137,7 @@ namespace BattleTechNETTest
                     if (bmd.TechnologyBase == BattleTechNET.Common.TECHNOLOGY_BASE.INNERSPHERE)
                     {
                         double dComputedTonnage = bmd.ComputedTonnage;
-                        if ((dComputedTonnage - bmd.Tonnage) > 0.00005 || bmd.Tonnage - dComputedTonnage > 0.5)
+                        if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
@@ -173,7 +173,7 @@ namespace BattleTechNETTest
                     if (bmd.TechnologyBase == BattleTechNET.Common.TECHNOLOGY_BASE.BOTH)
                     {
                         double dComputedTonnage = bmd.ComputedTonnage;
-                        if ((dComputedTonnage - bmd.Tonnage) > 0.00005 || bmd.Tonnage - dComputedTonnage > 0.5)
+                        if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");

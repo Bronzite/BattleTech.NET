@@ -11,7 +11,7 @@ namespace BattleTechNET.TotalWarfare
     /// slots.  We need to expand this class to cover them, and possible make
     /// derived classes for some subtypes.
     /// </summary>
-    public class ArmorType:IAliasable
+    public class ArmorType:IAliasable, ITechBase
     {
         public ArmorType():this("Standard",TECHNOLOGY_BASE.BOTH, 16,0) { }
         public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons) : this(sName, tb, dPointsPerTons, 0) { }

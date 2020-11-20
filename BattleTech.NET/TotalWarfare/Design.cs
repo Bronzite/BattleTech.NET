@@ -22,6 +22,15 @@ namespace BattleTechNET.TotalWarfare
 
         public double BV {get;}
         public BattleTechNET.Common.TECHNOLOGY_BASE TechnologyBase { get; set; }
+        public bool MixedTechBase { get; set; }
+        public bool IsCompatible(ITechBase techbased)
+        {
+            if (MixedTechBase) return true;
+            if (TechnologyBase == techbased.TechnologyBase) return true;
+            if (techbased.TechnologyBase == TECHNOLOGY_BASE.BOTH) return true;
+            return false;
+
+        }
         public virtual double ComputedTonnage
         {
             get
