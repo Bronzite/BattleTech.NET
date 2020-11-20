@@ -405,12 +405,12 @@ namespace BattleTechNET.Data
                             }
                             if (Utilities.IsSynonymFor(kvp.Value, "Mixed (IS Chassis)"))
                             {
-                                retval.TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;
+                                retval.TechnologyBase = TECHNOLOGY_BASE.BOTH;
                                 bValidTechBase = true;
                             }
                             if (Utilities.IsSynonymFor(kvp.Value, "Mixed (Clan Chassis)"))
                             {
-                                retval.TechnologyBase = TECHNOLOGY_BASE.CLAN;
+                                retval.TechnologyBase = TECHNOLOGY_BASE.BOTH;
                                 bValidTechBase = true;
                             }
                             if (!bValidTechBase) throw new Exception($"Could not identify Tech Base {kvp.Value}");
@@ -465,7 +465,9 @@ namespace BattleTechNET.Data
                             {
                                 if((curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase) ||
                                    Utilities.IsSynonymFor (curStructureType.Name,kvp.Value)) &&
-                                   (curStructureType.TechnologyBase == retval.TechnologyBase || curStructureType.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                   (curStructureType.TechnologyBase == retval.TechnologyBase || 
+                                   curStructureType.TechnologyBase == TECHNOLOGY_BASE.BOTH ||
+                                   retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
                                    )
                                 {
                                     retval.StructureType = curStructureType;
@@ -580,14 +582,8 @@ namespace BattleTechNET.Data
                         }
                         if(kvp.Key == "Jump MP")
                         {
+                            //Is this needed?  Do we care?
                             int iJumpMP = int.Parse(kvp.Value);
-                            for(int iJump = 0; iJump< iJumpMP; iJump++)
-                            {
-                                //TODO: How does MTF store Improved Jump jets?
-                                ComponentJumpJet jumpJet = new ComponentJumpJet((int)retval.Tonnage, false);
-                                //TODO: We need to associate these with the correct location.
-                                retval.Components.Add(new UnitComponent(jumpJet,retval.GetHitLocationByName("CT")));
-                            }
                         }
 
                         //This is where we load the slot for critical hit locations.
@@ -666,14 +662,16 @@ namespace BattleTechNET.Data
                         }
                         if (kvp.Key.Equals("Weapons"))
                         {
+                            //This is just unreliable.  (Caesar CES-4R has wrong value,
+                            //FS9-B has too high a value.)
                             int iWeaponsCount = int.Parse(kvp.Value);
-
-                            for(int j=0;j<iWeaponsCount;j++)
+                            bool bCountWeapons = true;
+                            while(bCountWeapons)
                             {
                                 if (sLines[++i].Trim() == "")
                                     //Added because the 3050U FS9-B lies about
                                     //its weapon count.
-                                    j = iWeaponsCount;
+                                    bCountWeapons = false;
                                 else
                                 {
                                     string[] sTerms = sLines[i].Trim().Split(',');
@@ -695,11 +693,15 @@ namespace BattleTechNET.Data
                                     }
 
                                     Component c = null;
+                                    if (sComponentName.EndsWith("(R)")) sComponentName = sComponentName.Replace("(R)", "").Trim(); ;
                                     foreach (string sKey in ComponentLibrary.Weapons.Keys)
                                     {
-                                        if (Utilities.IsSynonymFor(sComponentName, ComponentLibrary.Weapons[sKey].Name))
+                                        if (Utilities.IsSynonymFor(sComponentName, ComponentLibrary.Weapons[sKey].Name) ||
+                                            Utilities.IsSynonymFor(ComponentLibrary.Weapons[sKey], sComponentName))
                                         {
-                                            if (ComponentLibrary.Weapons[sKey].TechnologyBase == retval.TechnologyBase || ComponentLibrary.Weapons[sKey].TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                                            if (ComponentLibrary.Weapons[sKey].TechnologyBase == retval.TechnologyBase ||
+                                                ComponentLibrary.Weapons[sKey].TechnologyBase == TECHNOLOGY_BASE.BOTH ||
+                                                retval.TechnologyBase == TECHNOLOGY_BASE.BOTH)
                                                 c = ComponentLibrary.Weapons[sKey];
                                         }
                                     }
@@ -776,6 +778,9 @@ namespace BattleTechNET.Data
                     bCockpit = true;
                 }
 
+                //Install Jump Jets 
+                ComponentJumpJet.ResolveComponent(retval);
+
                 //Install any Electronic Warfare components
                 ComponentElectronicWarfare.ResolveComponent(retval);
 
@@ -784,6 +789,9 @@ namespace BattleTechNET.Data
 
                 //Install any Targeting Computer
                 ComponentTargetingComputer.ResolveComponent(retval);
+
+                //Install any Communications Equipment
+                ComponentCommunicationsEquipment.ResolveComponent(retval);
 
                 //The collapsible command center needs to have all of its
                 //critical hit slots in the same Torso.
@@ -838,9 +846,9 @@ namespace BattleTechNET.Data
                 
 
 
-                //There's an issue with Hatchets because they don't appear on
-                //the Weapons list in MTF files.  We need to check if there's
-                //one on either arm.
+                //There's an issue with Hatchets because they don't always 
+                //appear on the Weapons list in MTF files.  We need to check if
+                //there's one on either arm.
                 if (sConfig == "Biped")
                 {
                     BattleMechHitLocation leftArm = retval.GetHitLocationByName("LA") as BattleMechHitLocation;
@@ -850,12 +858,15 @@ namespace BattleTechNET.Data
                     if (leftArm.CriticalSlots == null) throw new Exception("No Left Arm Critical Hit Slots");
                     if (rightArm.CriticalSlots == null) throw new Exception("No Right Arm Critical Hit Slots");
                     bool bLeftArmHatchet = false, bRightArmHatchet = false, bLeftArmSword = false, bRightArmSword = false;
+                    bool bLeftArmVibroblade = false, bRightArmVibroblade = false;
                     foreach (CriticalSlot curCriticalSlot in leftArm.CriticalSlots)
                     {
                         if (curCriticalSlot.Label.Equals("Hatchet"))
                             bLeftArmHatchet = true;
                         if (curCriticalSlot.Label.Equals("Sword"))
                             bLeftArmSword = true;
+                        if (Utilities.IsSynonymFor(new ComponentVibroblade(), curCriticalSlot.Label))
+                            bLeftArmVibroblade = true;
                     }
                     foreach (CriticalSlot curCriticalSlot in rightArm.CriticalSlots)
                     {
@@ -863,31 +874,72 @@ namespace BattleTechNET.Data
                             bRightArmHatchet = true;
                         if (curCriticalSlot.Label.Equals("Sword"))
                             bRightArmSword = true;
+                        if (Utilities.IsSynonymFor(new ComponentVibroblade(), curCriticalSlot.Label))
+                            bRightArmVibroblade = true;
                     }
-                    //TODO: Sometimes, we do have the Sword in the Weapons list.
-                    //If so, we need to replace the entry that was put in here.
-                    //rather than adding a new one.
-                    if (bLeftArmHatchet)
+
+                    bool bExistingLeftArmSword = false;
+                    bool bExistingRightArmSword = false;
+                    bool bExistingRightArmHatchet = false;
+                    bool bExistingLeftArmHatchet = false;
+                    bool bExistingLeftArmVibroblade = false;
+                    bool bExistingRightArmVibroblade = false;
+
+
+                    foreach (UnitComponent curComponent in retval.Components)
+                    {
+                        if(Utilities.IsSynonymFor(curComponent.HitLocation.Name,"LA"))
+                        {
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Sword"))
+                                bExistingLeftArmSword = true;
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Hatchet"))
+                                bExistingLeftArmHatchet = true;
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Vibroblade"))
+                                bExistingLeftArmVibroblade = true;
+                        }
+                        if (Utilities.IsSynonymFor(curComponent.HitLocation.Name, "RA"))
+                        {
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Sword"))
+                                bExistingRightArmSword = true;
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Hatchet"))
+                                bExistingRightArmHatchet = true;
+                            if (Utilities.IsSynonymFor(curComponent.Component, "Vibroblade"))
+                                bExistingRightArmVibroblade = true;
+                        }
+                    }
+
+                    if (bLeftArmHatchet && !bExistingLeftArmHatchet)
                     {
                         ComponentHatchet hatchet = new ComponentHatchet(retval);
                         retval.Components.Add(new UnitComponent(hatchet, leftArm));
                     }
 
-                    if (bRightArmHatchet)
+                    if (bRightArmHatchet && !bExistingRightArmHatchet)
                     {
                         ComponentHatchet hatchet = new ComponentHatchet(retval);
                         retval.Components.Add(new UnitComponent(hatchet, rightArm));
                     }
-                    if (bLeftArmSword)
+                    if (bLeftArmSword && !bExistingLeftArmSword)
                     {
                         ComponentSword sword = new ComponentSword(retval);
                         retval.Components.Add(new UnitComponent(sword, leftArm));
                     }
 
-                    if (bRightArmSword)
+                    if (bRightArmSword && !bExistingRightArmSword)
                     {
                         ComponentSword sword = new ComponentSword(retval);
                         retval.Components.Add(new UnitComponent(sword, rightArm));
+                    }
+                    if (bLeftArmVibroblade && !bExistingLeftArmVibroblade)
+                    {
+                        ComponentVibroblade vibroblade = new ComponentVibroblade(retval);
+                        retval.Components.Add(new UnitComponent(vibroblade, leftArm));
+                    }
+
+                    if (bRightArmVibroblade && !bExistingRightArmVibroblade)
+                    {
+                        ComponentVibroblade vibroblade = new ComponentVibroblade(retval);
+                        retval.Components.Add(new UnitComponent(vibroblade, rightArm));
                     }
                 }
 

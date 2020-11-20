@@ -104,8 +104,9 @@ namespace BattleTechNET.TotalWarfare
                         sArmorType = armorFacing.ArmorType.Name;
                     }
                 }
-                //ArmorTonnage = Math.Ceiling(2D * ArmorTonnage) / 2D; //Round to nearest half-ton
                 retval += ArmorTonnage;
+                ArmorTonnage = Math.Ceiling(2D * ArmorTonnage) / 2D; //Round to nearest half-ton
+                
                 sb.AppendLine($"{sArmorType} Armor Tonnage: {ArmorTonnage.ToString()}");
                 foreach(UnitComponent comp in Components)
                 {
@@ -124,14 +125,15 @@ namespace BattleTechNET.TotalWarfare
                 retval += Engine.Tonnage;
                 retval += StructureType.TonnageMultipler * Tonnage;
                 retval += Math.Ceiling(MyomerType.MassFraction * Tonnage);
-                
+                double totalArmorTonnage = 0;
                 foreach(BattleMechHitLocation bmhl in HitLocations )
                 {
                     foreach(ArmorFacing armorFacing in bmhl.ArmorFacings.Values)
                     {
-                        retval += armorFacing.Tonnage;
+                       totalArmorTonnage += armorFacing.Tonnage;
                     }
                 }
+                retval += Math.Ceiling(2D * totalArmorTonnage) / 2D;
                 return retval;
             }
         }
