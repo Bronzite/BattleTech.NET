@@ -367,21 +367,21 @@ namespace BattleTechNETTest
             foreach(UnitComponent componentWeapon in battleMechDesign.Components)
             {
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Center Torso") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "Medium Laser") &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Medium Laser") &&
                     bMLaserCT1 == true) bMLaserCT2 = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Center Torso") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "Medium Laser") &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Medium Laser") &&
                     bMLaserCT1 == false) bMLaserCT1 = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Right Torso") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "AC/20")) bAC20RT = true;
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "AC/20")) bAC20RT = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Left Torso") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "LRM20")) bLRM20LT = true;
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "LRM20")) bLRM20LT = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Left Torso") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "SRM6")) bSRM6LT = true;
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "SRM6")) bSRM6LT = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Right Arm") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "MLaser")) bMLaserRA1 = true;
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Medium Laser")) bMLaserRA1 = true;
                 if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Left Arm") &&
-                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component.Name, "MLaser")) bMLaserLA1 = true;
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Medium Laser")) bMLaserLA1 = true;
             }
 
 

@@ -32,6 +32,7 @@ namespace BattleTechNET.Common
             retval.CriticalSpaceFighters = CriticalSpaceFighters;
             retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
             retval.CriticalSpaceDropShips = CriticalSpaceDropShips;
+            foreach (string s in Aliases) retval.AddAlias(s);
             return retval;
         }
 

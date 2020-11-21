@@ -16,5 +16,10 @@ namespace BattleTechNET.TotalWarfare
         public Component Component { get; set; }
         public HitLocation HitLocation { get; set; }
         public bool RearFacing { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Component} [{HitLocation}]";
+        }
     }
 }
