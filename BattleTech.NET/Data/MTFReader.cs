@@ -550,7 +550,7 @@ namespace BattleTechNET.Data
                             
                             foreach(ComponentCockpit cockpit in cockpits)
                             {
-                                if(cockpit.Name.Equals(sCockpitType) || Utilities.IsSynonymFor(sCockpitType, cockpit.Name))
+                                if(Utilities.IsSynonymFor(cockpit,sCockpitType))
                                 {
                                     selectedCockpit = cockpit;
                                 }

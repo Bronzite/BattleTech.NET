@@ -49,7 +49,7 @@ namespace BattleTechNET.Common
                 Name = "Small Cockpit",
                 PilotingRollModifier = 1
             };
-            standardCockpit.CriticalSlots = new CriticalSlot[]
+            smallCockpit.CriticalSlots = new CriticalSlot[]
             {
                 new CriticalSlot() {Label = "Life Support",SlotNumber = 1, RollAgain = false },
                 new CriticalSlot() {Label = "Cockpit",SlotNumber = 3, RollAgain = false},
@@ -57,9 +57,24 @@ namespace BattleTechNET.Common
                 new CriticalSlot() {Label = "Sensor",SlotNumber = 4, RollAgain = false}
             };
 
+            ComponentCockpit torsoCockpit = new ComponentCockpit()
+            {
+                Tonnage = 4,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                Name = "Torso Cockpit",
+                PilotingRollModifier = 1
+            }.AddAlias("Torso-Mounted Cockpit") as ComponentCockpit;
+            torsoCockpit.CriticalSlots = new CriticalSlot[]
+            {
+                
+                new CriticalSlot() {Label = "Cockpit",SlotNumber = 10, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 11, RollAgain = false},
+                
+            };
+
             retval.Add(standardCockpit);
             retval.Add(smallCockpit);
-
+            retval.Add(torsoCockpit);
             return retval;
         }
 

@@ -479,8 +479,16 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("Arrow IV Homing Ammo", 5, "E", TECHNOLOGY_BASE.CLAN)
                         .AddAlias("CLArrowIV Homing Ammo") as ComponentAmmunition
                         );
-
-
+                    privateAmmunitionList.Add(new ComponentAmmunition("Taser Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 5 Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 10 Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 15 Ammo", 4, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 20 Ammo", 3, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        as ComponentAmmunition);
                 }
                 return privateAmmunitionList;
             }
@@ -3839,6 +3847,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("Arrow IV")
             .AddAlias("ISArrowIVSystem") as ComponentWeapon
             },
             {"Clan Arrow IV Missile",new ComponentArtillery() //TM342
@@ -3869,6 +3878,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
+            .AddAlias("Arrow IV")
             .AddAlias("CLArrowIVSystem") as ComponentWeapon
             },
             {"Machine Gun Array",new ComponentMachineGunArray() //TM342
@@ -3879,7 +3889,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 0,
                 Damage = 0,
                 AeroDamage = 0,
-                
+
                 MinimumRange = 0,
                 ShortRange = 0,
                 MediumRange = 0,
@@ -4435,6 +4445,240 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
+             {"Taser",new ComponentWeapon() //TO410
+            {
+                Name = "Taser",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                AeroDamage = 1,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 5,
+                Tonnage = 4,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=1
+
+            }
+              .AddAlias("ISTaser")
+              .AddAlias("Mech Taser") as ComponentWeapon
+            },
+              {"Thunderbolt 5",new ComponentWeapon() //TO410
+            {
+                Name = "Thunderbolt 5",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 5,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 12,
+                Tonnage = 3,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("ISThunderbolt5")
+              .AddAlias("Thunderbolt5") as ComponentWeapon
+            },
+                {"Thunderbolt 10",new ComponentWeapon() //TO410
+            {
+                Name = "Thunderbolt 10",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 5,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 6,
+                Tonnage = 7,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("ISThunderbolt10")
+              .AddAlias("Thunderbolt10") as ComponentWeapon
+            },
+                  {"Thunderbolt 15",new ComponentWeapon() //TO410
+            {
+                Name = "Thunderbolt 15",
+                BaseCost = 20000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 15,
+                AeroDamage = 15,
+                MinimumRange = 5,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 4,
+                Tonnage = 11,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("ISThunderbolt15")
+              .AddAlias("Thunderbolt15") as ComponentWeapon
+            },
+                    {"Thunderbolt 20",new ComponentWeapon() //TO410
+            {
+                Name = "Thunderbolt 20",
+                BaseCost = 20000,
+                Heat = 8,
+                AeroHeat = 8,
+                Damage = 20,
+                AeroDamage = 20,
+                MinimumRange = 5,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 3,
+                Tonnage = 15,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("ISThunderbolt20")
+              .AddAlias("Thunderbolt20") as ComponentWeapon
+            },
+                        {"M-Pod",new ComponentWeapon() //TO408
+            {
+                Name = "M-Pod",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 15, //TODO: Need Range damage
+                AeroDamage = 15,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                ToHitModifier = -1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("MPod") as ComponentWeapon
+            },
+            {"Magshot",new ComponentWeapon() //TO407
+            {
+                Name = "Magshot",
+                BaseCost = 20000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 50,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+            }
+              .AddAlias("ISMagshot")
+              .AddAlias("ISGaussMagshot") as ComponentWeapon
+            },
+             {"Fluid Gun",new ComponentWeapon() //TO407
+            {
+                Name = "Fluid Gun",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 20,
+                Tonnage = 2,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1, //TODO: Seems like this should be 2.
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+            }
+              .AddAlias("ISFluid Gun")
+              .AddAlias("CLFluid Gun") as ComponentWeapon
+            }
         };
     }
 }
