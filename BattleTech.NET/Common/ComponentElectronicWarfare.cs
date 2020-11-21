@@ -64,7 +64,26 @@ namespace BattleTechNET.Common
                 }
                 .AddAlias("ISGuardianECM")
                 .AddAlias("Guardian ECM")
-                .AddAlias("ISGuardianECMSuite") as ComponentElectronicWarfare);//TM342
+                .AddAlias("ISGuardianECMSuite") as ComponentElectronicWarfare);//TM342+
+                componentECMs.Add(new ComponentElectronicWarfare
+                {
+                    Name = "Angel ECM Suite",
+                    TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                    Tonnage = 2,
+                    BaseCost = 750000, //TO405
+                    TechRating = "F",
+                    ECMRange = 6,
+                    ActiveRange = 0,
+                    CriticalSpaceMech = 2,
+                    CriticalSpaceCombatVehicle = 1,
+                    CriticalSpaceSupportVehicle = 2,
+                    CriticalSpaceSmallCraft = 1,
+                    CriticalSpaceFighters = 1,
+                    CriticalSpaceDropShips = 0
+                }
+                .AddAlias("ISAngelECM")
+                .AddAlias("Angel ECM")
+                .AddAlias("ISAngelECMSuite") as ComponentElectronicWarfare);//TO405
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Beagle Active Probe",

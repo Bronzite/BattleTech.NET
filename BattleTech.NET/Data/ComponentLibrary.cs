@@ -3,17 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 
 namespace BattleTechNET.Data
 {
     public class ComponentLibrary
     {
+        //This stops the Ammunition list from getting loaded multiple
+        //times if we're using many threaded calls (such as in the
+        //testing suite.)
+        static private SemaphoreSlim semaphoreAmmunitionLoad = new SemaphoreSlim(1);
         static public List<ComponentAmmunition> Ammunitions
         {
             get
             {
+                semaphoreAmmunitionLoad.Wait(1);
                 if (privateAmmunitionList == null)
                 {
+                    
                     privateAmmunitionList = new List<ComponentAmmunition>();
                     privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH)
                         .AddAlias(new string[] {"IS Ammo MG - Full", "Clan Ammo MG - Full", "Clan Machine Gun Ammo - Full","ISMG Ammo (200)" }) as ComponentAmmunition);
@@ -143,6 +150,7 @@ namespace BattleTechNET.Data
                         .AddAlias("ISLightGauss Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Gauss Rifle Ammo", 8, "E", TECHNOLOGY_BASE.BOTH)
                         .AddAlias("Clan Gauss Ammo")
+                        .AddAlias("CLGauss Ammo")
                         .AddAlias("IS Gauss Ammo")
                         .AddAlias("ISGauss Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Heavy Gauss Rifle Ammo", 4, "E", TECHNOLOGY_BASE.INNERSPHERE)
@@ -452,8 +460,10 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("SRM 4 Multi-Purpose Ammo", 25, "F", TECHNOLOGY_BASE.CLAN));
                     privateAmmunitionList.Add(new ComponentAmmunition("SRM 6 Multi-Purpose Ammo", 15, "F", TECHNOLOGY_BASE.CLAN));
                     privateAmmunitionList.Add(new ComponentAmmunition("Anti-Missile System Ammo", 12, "E", TECHNOLOGY_BASE.INNERSPHERE)
+                        .AddAlias("IS AMS Ammo")
                         .AddAlias("ISAMS Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Anti-Missile System Ammo", 24, "F", TECHNOLOGY_BASE.CLAN)
+                        .AddAlias("CL AMS Ammo")
                         .AddAlias("CLAMS Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Narc Missile Beacon Ammo", 6, "E", TECHNOLOGY_BASE.INNERSPHERE)
                         .AddAlias("ISNarc Pods") as ComponentAmmunition);
@@ -490,6 +500,7 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 20 Ammo", 3, "E", TECHNOLOGY_BASE.INNERSPHERE)
                         as ComponentAmmunition);
                 }
+                semaphoreAmmunitionLoad.Release();
                 return privateAmmunitionList;
             }
         }
@@ -2645,6 +2656,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .AddAlias("ISHPPC")
             .AddAlias("ISHeavyPPC") as ComponentWeapon
             },
             {"Clan ER Small Laser",new ComponentWeapon() //TM341
@@ -2786,6 +2798,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+              .AddAlias("ISLPPC")
               .AddAlias("ISLightPPC") as ComponentWeapon
             },
                 {"TAG",new ComponentWeapon() //TM341
@@ -4476,6 +4489,37 @@ namespace BattleTechNET.Data
               .AddAlias("ISTaser")
               .AddAlias("Mech Taser") as ComponentWeapon
             },
+              {"Dual Saw",new ComponentWeapon() //TO410
+            {
+                Name = "Dual Saw",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 7,
+                AeroDamage = 7,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 1,
+                LongRange = 1,
+                AmmoPerTon = 0,
+                Tonnage = 7,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = null,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = null,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=1
+
+            }
+              .AddAlias("ISDualSaw")
+               as ComponentWeapon
+            },
               {"Thunderbolt 5",new ComponentWeapon() //TO410
             {
                 Name = "Thunderbolt 5",
@@ -4678,7 +4722,94 @@ namespace BattleTechNET.Data
             }
               .AddAlias("ISFluid Gun")
               .AddAlias("CLFluid Gun") as ComponentWeapon
+            },
+             {"Small Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Small Variable-Speed Pulse Laser",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 5, //TODO: Range-dependent damage
+                AeroDamage = 5,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-2 //TODO: VSP To-Hit Modifier
             }
+               .AddAlias("ISSmallVSPLaser") as ComponentWeapon
+            },
+            {"Medium Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Medium Variable-Speed Pulse Laser",
+                BaseCost = 20000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 9,
+                AeroDamage = 9,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 0,
+                Tonnage = 4,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-2
+            }
+            .AddAlias("ISMediumVSPLaser") as ComponentWeapon
+            },
+             {"Large Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Large Variable-Speed Pulse Laser",
+                BaseCost = 20000,
+                Heat = 10,
+                AeroHeat = 10,
+                Damage = 11,
+                AeroDamage = 11,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 9,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot = true,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-2
+            }
+             .AddAlias("ISLargeVSPLaser") as ComponentWeapon
+            },
         };
     }
 }

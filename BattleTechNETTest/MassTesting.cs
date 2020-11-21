@@ -57,6 +57,31 @@ namespace BattleTechNETTest
             Assert.Equal(sFiles.Length, iLoadCount);
         }
 
+        [Fact(DisplayName = "Count Loadable MTF Files")]
+        public void TestCount()
+        {
+            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+
+            int iLoadCount = 0;
+            int iFileCount = 0;
+            foreach (string sFile in sFiles)
+            {
+                try
+                {
+                    iFileCount++;
+                    BattleMechDesign bmd = MTFReader.ReadBattleMechDesignFile(sFile);
+
+                    iLoadCount++;
+                }
+                catch (Exception ex)
+                {
+                    _outputHelper.WriteLine($"{sFile}: {ex.Message}");
+                }
+            }
+
+            Assert.Equal(sFiles.Length, iLoadCount);
+        }
+
         [Fact(DisplayName = "Mass Check MegaMek Files")]
         public void MassCheckMegaMekFiles()
         {
@@ -140,6 +165,7 @@ namespace BattleTechNETTest
                         if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
+                            _outputHelper.WriteLine($"Located at {sFile}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
                             if (bmd.Tonnage - dComputedTonnage > 0.5) _outputHelper.WriteLine("Computed tonnage more than 0.5 tons below nominal tonnage.");
                             _outputHelper.WriteLine(bmd.TonnageLedger);

@@ -2306,6 +2306,9 @@
     <None Update="TestFiles\MassTesting\3050U\Zeus ZEU-9T.mtf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="TestFiles\MassTesting\RS Unique\Hercules Julius.mtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
