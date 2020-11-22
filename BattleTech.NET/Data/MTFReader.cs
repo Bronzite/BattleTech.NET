@@ -832,6 +832,7 @@ namespace BattleTechNET.Data
                 ComponentSupercharger.ResolveComponents(retval);
                 ComponentPPCCapacitor.ResolveComponents(retval);
                 ComponentCASE.ResolveComponent(retval);
+                ComponentRetractableBlade.ResolveComponents(retval);
 
                 //The collapsible command center needs to have all of its
                 //critical hit slots in the same Torso.

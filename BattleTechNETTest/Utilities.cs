@@ -11,8 +11,10 @@ namespace BattleTechNETTest
         static public List<KeyValuePair<string, string>> UndertonnageMechs = new List<KeyValuePair<string, string>>()
         {
             new KeyValuePair<string, string>("Atlas","C"),
+            new KeyValuePair<string, string>("Atlas","AS7-D(C)"),
             new KeyValuePair<string, string>("Victor","C"),
-            new KeyValuePair<string, string>("Victor","VTR-9B (Shoji)")
+            new KeyValuePair<string, string>("Victor","VTR-9B (Shoji)"),
+            new KeyValuePair<string,string>("Sun Spider","Manul")
         };
 
         static public bool IsUndertonnageDesign(Design design)
