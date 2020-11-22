@@ -13,6 +13,18 @@ namespace BattleTechNET.AlphaStrike
             SpecialAbilities = new List<SpecialAbility>();
         }
 
+        public MovementMode GetMovementMode(string sMovementMode)
+        {
+            foreach(MovementMode movementMode in MovementModes)
+            {
+                if(movementMode.Code.Equals(sMovementMode,StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return movementMode;
+                }
+            }
+            return null;
+        }
+
         public Guid Id { get; set; }
 
         public int PV { get; set; }

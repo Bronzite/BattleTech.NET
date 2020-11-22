@@ -137,5 +137,52 @@ namespace BattleTechNET.TotalWarfare
                 return retval;
             }
         }
+
+        public int WalkMP
+        {
+            get
+            {
+                int iBaseWalk = (int)Math.Floor((double)Engine.EngineRating / (double)Tonnage);
+                return iBaseWalk;
+            }
+        }
+
+        public int RunMP
+        {
+            get
+            {
+                int iBaseRun = (int)Math.Floor((double)WalkMP * 1.5D);
+                return iBaseRun;
+            }
+        }
+
+        public int JumpMP
+        {
+            get
+            {
+                int iBaseJumpMP = 0;
+                bool bImproved = false;
+                foreach(UnitComponent component in Components)
+                {
+                    ComponentJumpJet componentJumpJet = component.Component as ComponentJumpJet;
+                    if(componentJumpJet != null)
+                    {
+                        if (componentJumpJet.Improved) bImproved = true;
+                        iBaseJumpMP++;
+                    }
+                }
+                if(bImproved)
+                {
+                    if (iBaseJumpMP > RunMP) iBaseJumpMP = RunMP;
+                }
+                else
+                {
+                    if (iBaseJumpMP > WalkMP) iBaseJumpMP = WalkMP;
+                }
+
+                return iBaseJumpMP;
+            }
+
+        }
     }
 }
