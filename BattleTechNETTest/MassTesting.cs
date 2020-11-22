@@ -129,6 +129,7 @@ namespace BattleTechNETTest
                         if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
+                            _outputHelper.WriteLine($"Located at {sFile}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
                             if (bmd.Tonnage - dComputedTonnage > 0.5) _outputHelper.WriteLine("Computed tonnage more than 0.5 tons below nominal tonnage.");
                             _outputHelper.WriteLine(bmd.TonnageLedger);
@@ -202,6 +203,7 @@ namespace BattleTechNETTest
                         if (bmd.Tonnage < dComputedTonnage || (bmd.Tonnage - dComputedTonnage > 0.5 && !Utilities.IsUndertonnageDesign(bmd)))
                         {
                             _outputHelper.WriteLine($"{bmd.Variant} {bmd.Model} rated at {bmd.Tonnage}, computed as {bmd.ComputedTonnage}");
+                            _outputHelper.WriteLine($"Located at {sFile}");
                             if (bmd.Tonnage < dComputedTonnage) _outputHelper.WriteLine("Computed tonnage exceeds nominal tonnage.");
                             if (bmd.Tonnage - dComputedTonnage > 0.5) _outputHelper.WriteLine("Computed tonnage more than 0.5 tons below nominal tonnage.");
                             _outputHelper.WriteLine(bmd.TonnageLedger);

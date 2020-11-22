@@ -83,6 +83,7 @@ namespace BattleTechNET.Common
                 }
                 .AddAlias("ISAngelECM")
                 .AddAlias("Angel ECM")
+                .AddAlias("CLAngelECMSuite")
                 .AddAlias("ISAngelECMSuite") as ComponentElectronicWarfare);//TO405
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
