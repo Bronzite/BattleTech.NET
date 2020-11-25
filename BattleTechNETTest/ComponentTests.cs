@@ -15,7 +15,7 @@ namespace BattleTechNETTest
         /// engine that the ComponentEngine returns.
         /// </summary>
         [Fact(DisplayName = "Test Engine Tonnages")]
-        [Trait("Category", "Engine")]
+        [Trait("Category", "Engines")]
         public void TestEngineTonnage()
         {
             List<string> lstEngineTypes = new List<string>(ComponentEngine.GetEngineTypes());
@@ -69,7 +69,7 @@ namespace BattleTechNETTest
         /// Confirm that each engine size has a increasing tonnage from Rating 
         /// 5 to Rating 400.
         /// </summary>
-        [Trait("Category","Engine")]
+        [Trait("Category","Engines")]
         [Fact(DisplayName = "Test Engine Size Verification")]
         public void TestEngineSizeAttributes()
         {

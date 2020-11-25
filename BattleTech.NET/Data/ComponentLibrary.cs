@@ -535,6 +535,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
                 ContributesToTargetingComputerMass=false,
 
 
@@ -569,6 +570,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }.AddAlias("LRM 10")
             .AddAlias("LRM/10")
@@ -600,6 +602,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }.AddAlias("LRM 15")
             .AddAlias("LRM/15")
@@ -631,6 +634,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }.AddAlias("LRM 20")
             .AddAlias("LRM/20")
@@ -662,6 +666,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }.AddAlias("LRM 5")
             .AddAlias("LRM/5")
@@ -693,6 +698,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }.AddAlias("LRM 10")
             .AddAlias("LRM/10")
@@ -724,6 +730,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }.AddAlias("LRM 15")
             .AddAlias("LRM/15")
@@ -755,6 +762,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             .AddAlias("LRM 20")
@@ -786,6 +794,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.LONG,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("AC2")
@@ -817,6 +826,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("AC5")
@@ -848,6 +858,7 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
                .AddAlias("AC10")
@@ -879,7 +890,10 @@ namespace BattleTechNET.Data
                 TechRating="C",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
+                
+
             }
             .AddAlias("AC20")
             .AddAlias("AC/20")
@@ -1110,6 +1124,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("SRM/2")
@@ -1143,6 +1158,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("SRM/4")
@@ -1176,6 +1192,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }.AddAlias("SRM/6")
                 .AddAlias("SRM6")
@@ -1300,6 +1317,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "SRM",
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
@@ -1333,6 +1351,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "SRM",
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
@@ -1366,6 +1385,7 @@ namespace BattleTechNET.Data
                 TechRating="F",
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "SRM",
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }.AddAlias("SRM/6")
@@ -2590,6 +2610,7 @@ namespace BattleTechNET.Data
                 TechRating="D",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
+                AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("LAC2")
@@ -2621,6 +2642,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceDropShips = 1,
                 TechRating="D",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
+                AlphaStrikeAbility = "AC",
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }

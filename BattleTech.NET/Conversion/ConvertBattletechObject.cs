@@ -25,7 +25,8 @@ namespace BattleTechNET.Conversion
             retval.CurrentArmor = retval.MaxArmor;
             retval.MaxStructure = BattleMechStructureConverter.GetStructure(battleMechDesign.Engine, (int)battleMechDesign.Tonnage);
             retval.CurrentStructure = retval.MaxStructure;
-
+            if (PossessesENEAbility(battleMechDesign)) retval.SpecialAbilities.Add(SpecialAbilityFactory.CreateSpecialAbility("ENE"));
+            
 
             return retval;
         }
@@ -94,5 +95,21 @@ namespace BattleTechNET.Conversion
             return retval;
         }
 
+
+
+        static private bool PossessesENEAbility(Design design)
+        {
+            //TODO: Technically, SO348 says this should be checking for
+            //weapons that use ammunition, rather than the ammunition itself.
+            //This would only be different if there's a mech that carries
+            //an ammunition-based weapon but no ammo for it in it design.
+            foreach(UnitComponent component in design.Components)
+            {
+                ComponentAmmunition munitions = component.Component as ComponentAmmunition;
+                if (munitions != null)
+                    return false;
+            }
+            return true;
+        }
     }
 }

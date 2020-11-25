@@ -33,6 +33,8 @@ namespace BattleTechNETTest
             retval.AddRange(Directory.GetFiles(sDirectory, sPattern));
             return retval.ToArray();
         }
+
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName="Load MegaMek Files")]
         public void TestMegaMekFiles()
         {
@@ -57,6 +59,7 @@ namespace BattleTechNETTest
             Assert.Equal(sFiles.Length, iLoadCount);
         }
 
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName = "Count Loadable MTF Files")]
         public void TestCount()
         {
@@ -82,6 +85,7 @@ namespace BattleTechNETTest
             Assert.Equal(sFiles.Length, iLoadCount);
         }
 
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName = "Mass Check MegaMek Files")]
         public void MassCheckMegaMekFiles()
         {
@@ -111,6 +115,7 @@ namespace BattleTechNETTest
             Assert.Equal(sFiles.Length, iLoadCount);
         }
 
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName = "Clan Mass Check MegaMek Files")]
         public void MassCheckClanMegaMekFiles()
         {
@@ -147,7 +152,8 @@ namespace BattleTechNETTest
             _outputHelper.WriteLine($"Checked {sFiles.Length} MTF files.");
             Assert.Equal(iClanMechCount, iLoadCount);
         }
-
+        
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName = "Inner Sphere Mass Check MegaMek Files")]
         public void MassCheckISMegaMekFiles()
         {
@@ -185,6 +191,7 @@ namespace BattleTechNETTest
             Assert.Equal(iInnerSphereMechCount, iLoadCount);
         }
 
+        [Trait("Category", "MTF Reader")]
         [Fact(DisplayName = "Mixed Techbase Mass Check MegaMek Files")]
         public void MassCheckMixedTechbaseMegaMekFiles()
         {

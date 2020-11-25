@@ -27,7 +27,7 @@ namespace BattleTechNET.Common
         public string LauncherType { get; set; }
         public int ToHitModifier { get; set; }
         public bool ContributesToTargetingComputerMass { get; set; }
-
+        public string AlphaStrikeAbility { get; set; }
 
         public void CopyComponents(ComponentWeapon weapon)
         {

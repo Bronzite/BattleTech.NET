@@ -43,7 +43,7 @@ namespace BattleTechNETTest
             Assert.Equal(10, element.MaxArmor);
         }
 
-        [Trait("Category", "Total Warfare to Alpha Strike Structure")]
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "AS7-D Structure Amount Check")]
         public void CheckAS7DStructure()
         {
@@ -54,7 +54,7 @@ namespace BattleTechNETTest
             Assert.Equal(8, element.MaxStructure);
         }
 
-        [Trait("Category", "Total Warfare to Alpha Strike Structure")]
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "AS7-D Walk MP Check")]
         public void CheckAS7DMovement()
         {
@@ -86,7 +86,7 @@ namespace BattleTechNETTest
             Assert.Equal(8, element.MaxArmor);
         }
 
-        [Trait("Category", "Total Warfare to Alpha Strike Structure")]
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "GOL-1H Structure Amount Check")]
         public void CheckGOL1HStructure()
         {
@@ -97,7 +97,7 @@ namespace BattleTechNETTest
             Assert.Equal(6, element.MaxStructure);
         }
 
-        [Trait("Category", "Total Warfare to Alpha Strike Structure")]
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "GOL-1H Walk MP Check")]
         public void CheckGOL1HMovement()
         {
@@ -108,5 +108,22 @@ namespace BattleTechNETTest
 
             Assert.Equal(4, m.Points);
         }
+
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "AS7-D AC Ability")]
+        public void CheckAS7DACAbility()
+        {
+            BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            
+        }
+
     }
 }

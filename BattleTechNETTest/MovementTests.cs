@@ -9,6 +9,7 @@ namespace BattleTechNETTest
 {
     public class MovementTests
     {
+        [Trait("Category", "Strategic Battleforce Movement")]
         [Fact(DisplayName ="Aggregate Movement For Lance of Identical BattleMechs")]
         public void BattleForceUnitMovementAggregateLikeBattlemechs()
         {
@@ -34,7 +35,7 @@ namespace BattleTechNETTest
             }
 
         }
-
+        [Trait("Category","Strategic Battleforce Movement")]
         [Fact(DisplayName = "Aggregate Movement For Lance of Different BattleMechs")]
         public void BattleForceUnitMovementAggregateDifferentBattlemechs()
         {
@@ -60,7 +61,7 @@ namespace BattleTechNETTest
             }
 
         }
-
+        [Trait("Category", "Strategic Battleforce Movement")]
         [Fact(DisplayName = "Aggregate Movement For Lance of Mixed Jump-Capability BattleMechs")]
         public void BattleForceUnitMovementAggregateMixedJumpCapableBattlemechs()
         {
