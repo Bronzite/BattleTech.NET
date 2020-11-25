@@ -12,7 +12,7 @@ namespace BattleTechNETTest
 {
     public class MassTesting
     {
-        string sDirectory = @".\TestFiles\";
+        string sDirectory = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}";
         
 
         private readonly ITestOutputHelper _outputHelper;
