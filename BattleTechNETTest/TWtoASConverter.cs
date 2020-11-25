@@ -6,6 +6,7 @@ using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -200,6 +201,61 @@ namespace BattleTechNETTest
             Assert.NotNull(abilityAC);
 
             Assert.Equal("LRM1/1/1", abilityAC.ToString());
+        }
+
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Theory(DisplayName="Total Warfare Weapon Damage Value Conversion Theory")]
+        [MemberData(nameof(GetWeaponConversionTestCases))]
+        public void CheckWeaponDamageValues(ComponentWeapon weapon, double expectedShortRangeValue, double expectedMediumRangeValue, double expectedLongRangeValue, double expectedExtremeRangeValue)
+        {
+            AlphaStrikeWeapon asw = WeaponConverter.ConvertTotalWarfareWeapon(weapon);
+            Assert.Equal(expectedShortRangeValue, asw.ShortRangeDamage);
+            Assert.Equal(expectedMediumRangeValue, asw.MediumRangeDamage);
+            Assert.Equal(expectedLongRangeValue, asw.LongRangeDamage);
+            Assert.Equal(expectedExtremeRangeValue, asw.ExtremeRangeDamage);
+
+        }
+
+        public static IEnumerable<object[]> GetWeaponConversionTestCases()
+        {
+            string sTestCaseFileName = $".{System.IO.Path.DirectorySeparatorChar}TestFiles{System.IO.Path.DirectorySeparatorChar}TWtoASWeaponConversionTestCases.json";
+            string sJSONFile = System.IO.File.ReadAllText(sTestCaseFileName);
+            CheckWeaponDamageValuesTestSet testSet = JsonSerializer.Deserialize<CheckWeaponDamageValuesTestSet>(sJSONFile);
+            List<object[]> retval = new List<object[]>();
+            foreach(CheckWeaponDamageValuesTestSet.CheckWeaponDamageValuesTestCase testCase in testSet.testCases)
+            {
+                foreach (ComponentWeapon weapon in ComponentLibrary.Weapons.Values)
+                {
+                    if (BattleTechNET.Common.Utilities.IsSynonymFor(weapon, testCase.weaponName))
+                    {
+                        if ((testCase.techBase.Equals("Inner Sphere") && weapon.TechnologyBase == TECHNOLOGY_BASE.INNERSPHERE)
+                            || weapon.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                        {
+                            object[] objs = new object[5] { weapon, testCase.expectedShortRangeValue, testCase.expectedMediumRangeValue, testCase.expectedLongRangeValue, testCase.expectedExtremeRangeValue };
+                            retval.Add(objs);
+                        }
+                    }
+                }
+            }
+
+            return retval;
+        }
+    }
+
+    public class CheckWeaponDamageValuesTestSet
+    {
+        public ICollection<CheckWeaponDamageValuesTestCase> testCases { get; set; } 
+        
+
+        public class CheckWeaponDamageValuesTestCase
+        {
+            public string weaponName { get; set; }
+            public double heat { get; set; }
+            public string techBase { get; set; }
+            public double expectedShortRangeValue { get;set; }
+            public double expectedMediumRangeValue { get; set; }
+            public double expectedLongRangeValue { get; set; }
+            public double expectedExtremeRangeValue { get; set; }
         }
     }
 }

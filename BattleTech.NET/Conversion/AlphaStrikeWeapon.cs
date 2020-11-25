@@ -14,6 +14,7 @@ namespace BattleTechNET.Conversion
         public double ShortRangeDamage { get; set; }
         public double MediumRangeDamage { get; set; }
         public double LongRangeDamage {get;set;}
+        public double ExtremeRangeDamage { get; set; }
         public bool HeatWeapon { get; set; }
         public bool FlakWeapon { get; set; }
         public bool PointDefenseWeapon { get; set; }

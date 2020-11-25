@@ -1,0 +1,177 @@
+{
+  "testCases": [
+    {
+      "weaponName": "Autocannon/2",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 1.32,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 2,
+      "expectedExtremeRangeValue": 2
+    },
+    {
+      "weaponName": "Autocannon/5",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 3.75,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Autocannon/10",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Autocannon/20",
+      "techBase": "Inner Sphere",
+      "heat": 7,
+      "expectedShortRangeValue": 20,
+      "expectedMediumRangeValue": 20,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Light Gauss Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 6,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 8,
+      "expectedExtremeRangeValue": 8
+    },
+    {
+      "weaponName": "Gauss Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 12.45,
+      "expectedMediumRangeValue": 15,
+      "expectedLongRangeValue": 15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Heavy Gauss Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 16.5,
+      "expectedMediumRangeValue": 20,
+      "expectedLongRangeValue": 10,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 2-X AC",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 0.69,
+      "expectedMediumRangeValue": 1.05,
+      "expectedLongRangeValue": 1.05,
+      "expectedExtremeRangeValue": 1.05
+    },
+    {
+      "weaponName": "LB 5-X AC",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 2.36,
+      "expectedMediumRangeValue": 3.15,
+      "expectedLongRangeValue": 3.15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 10-X AC",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 6.3,
+      "expectedMediumRangeValue": 6.3,
+      "expectedLongRangeValue": 6.3,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 20-X AC",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 12.6,
+      "expectedMediumRangeValue": 12.6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Light AC/2",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 2,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Light AC/5",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 5,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Light Machine Gun",
+      "techBase": "Inner Sphere",
+      "heat": 0,
+      "expectedShortRangeValue": 1,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Machine Gun",
+      "techBase": "Inner Sphere",
+      "heat": 0,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Heavy Machine Gun",
+      "techBase": "Inner Sphere",
+      "heat": 0,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rotary AC/2",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 8,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rotary AC/5",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 20,
+      "expectedMediumRangeValue": 20,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rotary AC/2",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 6,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 8,
+      "expectedExtremeRangeValue": 8
+    }
+
+  ]
+
+} 
