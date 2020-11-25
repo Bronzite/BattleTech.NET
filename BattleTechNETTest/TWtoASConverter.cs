@@ -122,8 +122,84 @@ namespace BattleTechNETTest
 
             Assert.NotNull(abilityAC);
 
-            
+            Assert.Equal("AC2/2",abilityAC.ToString());
         }
 
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "AS7-D IF Ability")]
+        public void CheckAS7DIFAbility()
+        {
+            BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            Assert.Equal("IF1", abilityAC.ToString());
+        }
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "AS7-D LRM Ability")]
+        public void CheckAS7DLRMAbility()
+        {
+            BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            Assert.Equal("LRM1/1/1", abilityAC.ToString());
+        }
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "AS7-D REAR Ability")]
+        public void CheckAS7DREARAbility()
+        {
+            BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            Assert.Equal("REAR1/1", abilityAC.ToString());
+        }
+
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "GOL-1H IF Ability")]
+        public void CheckGOL1HIFAbility()
+        {
+            BattleMechDesign designGoliath = MTFReader.ReadBattleMechDesignFile(GoliathTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            Assert.Equal("IF1", abilityAC.ToString());
+        }
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "GOL-1H LRM Ability")]
+        public void CheckGOL1HLRMAbility()
+        {
+            BattleMechDesign designGoliath = MTFReader.ReadBattleMechDesignFile(GoliathTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
+            SpecialAbility abilityAC = null;
+            foreach (SpecialAbility ability in element.SpecialAbilities)
+                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+
+            Assert.NotNull(abilityAC);
+
+            Assert.Equal("LRM1/1/1", abilityAC.ToString());
+        }
     }
 }

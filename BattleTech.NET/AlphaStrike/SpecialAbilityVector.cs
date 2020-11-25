@@ -21,7 +21,7 @@ namespace BattleTechNET.AlphaStrike
             StringBuilder sb = new StringBuilder();
 
             sb.Append(Code);
-            sb.Append(" ");
+            
             for(int i=0;i<mValues.Length;i++)
             {
                 sb.Append(i.ToString());
