@@ -122,7 +122,7 @@
       "techBase": "Inner Sphere",
       "heat": 0,
       "expectedShortRangeValue": 1,
-      "expectedMediumRangeValue": 0,
+      "expectedMediumRangeValue": 1,
       "expectedLongRangeValue": 0,
       "expectedExtremeRangeValue": 0
     },
@@ -161,15 +161,6 @@
       "expectedMediumRangeValue": 20,
       "expectedLongRangeValue": 0,
       "expectedExtremeRangeValue": 0
-    },
-    {
-      "weaponName": "Rotary AC/2",
-      "techBase": "Inner Sphere",
-      "heat": 6,
-      "expectedShortRangeValue": 6,
-      "expectedMediumRangeValue": 8,
-      "expectedLongRangeValue": 8,
-      "expectedExtremeRangeValue": 8
     },
     {
       "weaponName": "Ultra AC/2",
