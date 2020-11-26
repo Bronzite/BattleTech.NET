@@ -58,15 +58,27 @@ namespace BattleTechNET.Common
 
         public ComponentEngine(int iEngineRating, string sEngineType) { EngineRating = iEngineRating; EngineType = sEngineType; }
 
-        public int EngineRating { get; set; }
+        private int mEngineRating = 100;
 
-        public string EngineType { get; set; }
-
-        public double Tonnage {
+        public int EngineRating {
             get
             {
-                return ComponentEngine.EngineTonnages[EngineType][((EngineRating-10) / 5)];
+                return mEngineRating;
             }
+            set
+            {
+                mEngineRating = value;
+                Tonnage = ComponentEngine.EngineTonnages[mEngineType][((mEngineRating - 10) / 5)];
+            }
+        }
+
+        private string mEngineType = "Standard";
+        public string EngineType { get { return mEngineType; } set
+            {
+                mEngineType = value;
+                Tonnage = ComponentEngine.EngineTonnages[mEngineType][((mEngineRating - 10) / 5)];
+            }
+
         }
 
         public static IEnumerable<string> GetEngineTypes()

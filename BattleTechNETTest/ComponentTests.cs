@@ -43,7 +43,7 @@ namespace BattleTechNETTest
 
 
 
-        public void TestEngineHasAllTonnages(string sName)
+        private void TestEngineHasAllTonnages(string sName)
         {
             for (int i = 10; i <= 400; i += 5)
             {
@@ -52,7 +52,7 @@ namespace BattleTechNETTest
         }
 
 
-        public void TestEngineTonnagesAreProgressive(string sName)
+        private void TestEngineTonnagesAreProgressive(string sName)
         {
             double dLastTonnage = 0;
             for (int i = 10; i <= 400; i += 5)
