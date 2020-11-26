@@ -14,19 +14,26 @@ namespace BattleTechNET.AlphaStrike
         }
 
         private int[] mValues { get; set; }
-        public int[] Values { get; set; }
+        public int[] Values { get { return mValues; } set { mValues = value; } }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.Append(Code);
-            
+
+            int iHighestNumber = 0;
             for(int i=0;i<mValues.Length;i++)
             {
-                sb.Append(i.ToString());
-                if (i < mValues.Length - 1) sb.Append("/");
+                if (mValues[i] > 0) iHighestNumber = i;
             }
+
+            for(int i=0;i<iHighestNumber+1;i++)
+            {
+                sb.Append(mValues[i].ToString());
+                if (i < iHighestNumber) sb.Append("/");
+            }
+            
             return sb.ToString().Trim();
         }
 

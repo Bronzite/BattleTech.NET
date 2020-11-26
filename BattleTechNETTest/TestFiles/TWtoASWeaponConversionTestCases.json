@@ -170,7 +170,704 @@
       "expectedMediumRangeValue": 8,
       "expectedLongRangeValue": 8,
       "expectedExtremeRangeValue": 8
+    },
+    {
+      "weaponName": "Ultra AC/2",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 2.25,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 3,
+      "expectedExtremeRangeValue": 3
+    },
+    {
+      "weaponName": "Ultra AC/5",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 6.23,
+      "expectedMediumRangeValue": 7.5,
+      "expectedLongRangeValue": 7.5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Ultra AC/10",
+      "techBase": "Inner Sphere",
+      "heat": 8,
+      "expectedShortRangeValue": 15,
+      "expectedMediumRangeValue": 15,
+      "expectedLongRangeValue": 15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Ultra AC/20",
+      "techBase": "Inner Sphere",
+      "heat": 16,
+      "expectedShortRangeValue": 30,
+      "expectedMediumRangeValue": 30,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "ER Large Laser",
+      "techBase": "Inner Sphere",
+      "heat": 12,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 8,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "ER Medium Laser",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 5,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "ER Small Laser",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Flamer",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Large Laser",
+      "techBase": "Inner Sphere",
+      "heat": 8,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Medium Laser",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 5,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Small Laser",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Plasma Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+
+    {
+      "weaponName": "Light PPC",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 3.75,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "PPC",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 7.5,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 10,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Heavy PPC",
+      "techBase": "Inner Sphere",
+      "heat": 15,
+      "expectedShortRangeValue": 11.25,
+      "expectedMediumRangeValue": 15,
+      "expectedLongRangeValue": 15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "ER PPC",
+      "techBase": "Inner Sphere",
+      "heat": 15,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 10,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Snub-Nose PPC",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 6.5,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Large Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 9.9,
+      "expectedMediumRangeValue": 9.9,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Medium Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 6.6,
+      "expectedMediumRangeValue": 6.6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Small Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 3.3,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LRM 5",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 1.5,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 3,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LRM 10",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 6,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LRM 15",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 4.5,
+      "expectedMediumRangeValue": 9,
+      "expectedLongRangeValue": 9,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LRM 20",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 6,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 12,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MML 3",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 4,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 2,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MML 5",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 6,
+      "expectedMediumRangeValue": 4.5,
+      "expectedLongRangeValue": 3,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MML 7",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 4,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MML 9",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 7.5,
+      "expectedLongRangeValue": 5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MRM 10",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 5.7,
+      "expectedMediumRangeValue": 5.7,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MRM 20",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 11.4,
+      "expectedMediumRangeValue": 11.4,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MRM 30",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 17.1,
+      "expectedMediumRangeValue": 17.1,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "MRM 40",
+      "techBase": "Inner Sphere",
+      "heat": 12,
+      "expectedShortRangeValue": 22.8,
+      "expectedMediumRangeValue": 22.8,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rocket Launcher 10",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 0.6,
+      "expectedMediumRangeValue": 0.6,
+      "expectedLongRangeValue": 0.6,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rocket Launcher 15",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 0.9,
+      "expectedMediumRangeValue": 0.9,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Rocket Launcher 20",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 1.2,
+      "expectedMediumRangeValue": 1.2,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "SRM 2",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "SRM 4",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 6,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "SRM 6",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Streak SRM 2",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 4,
+      "expectedMediumRangeValue": 4,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Streak SRM 4",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 8,
+      "expectedMediumRangeValue": 8,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Streak SRM 6",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 12,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Heavy Flamer",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 4,
+      "expectedMediumRangeValue": 4,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+
+    {
+      "weaponName": "ER Flamer",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Fluid Gun",
+      "techBase": "Inner Sphere",
+      "heat": 0,
+      "expectedShortRangeValue": 4,
+      "expectedMediumRangeValue": 0,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Improved Heavy Gauss Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 16.5,
+      "expectedMediumRangeValue": 22,
+      "expectedLongRangeValue": 22,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Magshot Gauss",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 2,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Silver Bullet Gauss",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 7.84,
+      "expectedMediumRangeValue": 9.45,
+      "expectedLongRangeValue": 9.45,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Light Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Medium Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 5.52,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Heavy Rifle",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 7.47,
+      "expectedMediumRangeValue": 9,
+      "expectedLongRangeValue": 9,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Hyper-Velocity AC/2",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 1.5,
+      "expectedMediumRangeValue": 2,
+      "expectedLongRangeValue": 2,
+      "expectedExtremeRangeValue": 2
+    },
+    {
+      "weaponName": "Hyper-Velocity AC/5",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 5,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 5,
+      "expectedExtremeRangeValue": 5
+    },
+    {
+      "weaponName": "Hyper-Velocity AC/10",
+      "techBase": "Inner Sphere",
+      "heat": 7,
+      "expectedShortRangeValue": 10,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 10,
+      "expectedExtremeRangeValue": 10
+    },
+    {
+      "weaponName": "Binary Laser Cannon",
+      "techBase": "Inner Sphere",
+      "heat": 16,
+      "expectedShortRangeValue": 12,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Bombast Laser",
+      "techBase": "Inner Sphere",
+      "heat": 12,
+      "expectedShortRangeValue": 10.2,
+      "expectedMediumRangeValue": 10.2,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Small Variable Speed Laser",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 5.75,
+      "expectedMediumRangeValue": 3.78,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Medium Variable Speed Laser",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 10.35,
+      "expectedMediumRangeValue": 6.48,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Small Variable Speed Laser",
+      "techBase": "Inner Sphere",
+      "heat": 14,
+      "expectedShortRangeValue": 12.65,
+      "expectedMediumRangeValue": 8.63,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Small X-Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 3.3,
+      "expectedMediumRangeValue": 3.3,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Medium X-Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 6.6,
+      "expectedMediumRangeValue": 6.6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Large X-Pulse Laser",
+      "techBase": "Inner Sphere",
+      "heat": 9,
+      "expectedShortRangeValue": 9.9,
+      "expectedMediumRangeValue": 9.9,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Enhanced LRM 5",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 2.25,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 3,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Enhanced LRM 10",
+      "techBase": "Inner Sphere",
+      "heat": 4,
+      "expectedShortRangeValue": 4.5,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 6,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Enhanced LRM 15",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 6.75,
+      "expectedMediumRangeValue": 9,
+      "expectedLongRangeValue": 9,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Enhanced LRM 20",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 9,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 12,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Extended LRM 5",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 1,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 3,
+      "expectedExtremeRangeValue": 3
+    },
+    {
+      "weaponName": "Extended LRM 10",
+      "techBase": "Inner Sphere",
+      "heat": 6,
+      "expectedShortRangeValue": 1.5,
+      "expectedMediumRangeValue": 6,
+      "expectedLongRangeValue": 6,
+      "expectedExtremeRangeValue": 6
+    },
+    {
+      "weaponName": "Extended LRM 15",
+      "techBase": "Inner Sphere",
+      "heat": 8,
+      "expectedShortRangeValue": 2.5,
+      "expectedMediumRangeValue": 9,
+      "expectedLongRangeValue": 9,
+      "expectedExtremeRangeValue": 9
+    },
+    {
+      "weaponName": "Extended LRM 20",
+      "techBase": "Inner Sphere",
+      "heat": 12,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 12,
+      "expectedExtremeRangeValue": 12
+    },
+    {
+      "weaponName": "Mech Mortar-1",
+      "techBase": "Inner Sphere",
+      "heat": 1,
+      "expectedShortRangeValue": 0.85,
+      "expectedMediumRangeValue": 1.7,
+      "expectedLongRangeValue": 1.7,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Mech Mortar-2",
+      "techBase": "Inner Sphere",
+      "heat": 2,
+      "expectedShortRangeValue": 0.85,
+      "expectedMediumRangeValue": 1.7,
+      "expectedLongRangeValue": 1.7,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Mech Mortar-4",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 2.55,
+      "expectedMediumRangeValue": 5.1,
+      "expectedLongRangeValue": 5.1,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Mech Mortar-8",
+      "techBase": "Inner Sphere",
+      "heat": 10,
+      "expectedShortRangeValue": 4.25,
+      "expectedMediumRangeValue": 8.5,
+      "expectedLongRangeValue": 8.5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Thunderbolt-5",
+      "techBase": "Inner Sphere",
+      "heat": 3,
+      "expectedShortRangeValue": 2.9,
+      "expectedMediumRangeValue": 5,
+      "expectedLongRangeValue": 5,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Thunderbolt-10",
+      "techBase": "Inner Sphere",
+      "heat": 5,
+      "expectedShortRangeValue": 5.8,
+      "expectedMediumRangeValue": 10,
+      "expectedLongRangeValue": 10,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Thunderbolt-15",
+      "techBase": "Inner Sphere",
+      "heat": 7,
+      "expectedShortRangeValue": 8.7,
+      "expectedMediumRangeValue": 15,
+      "expectedLongRangeValue": 15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Thunderbolt-20",
+      "techBase": "Inner Sphere",
+      "heat": 8,
+      "expectedShortRangeValue": 11.6,
+      "expectedMediumRangeValue": 20,
+      "expectedLongRangeValue": 20,
+      "expectedExtremeRangeValue": 0
     }
+
+
 
   ]
 

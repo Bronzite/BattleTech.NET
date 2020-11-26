@@ -25,8 +25,47 @@ namespace BattleTechNET.Conversion
             retval.CurrentArmor = retval.MaxArmor;
             retval.MaxStructure = BattleMechStructureConverter.GetStructure(battleMechDesign.Engine, (int)battleMechDesign.Tonnage);
             retval.CurrentStructure = retval.MaxStructure;
+            
+            //Apply ENE ability if appropriate
             if (PossessesENEAbility(battleMechDesign)) retval.SpecialAbilities.Add(SpecialAbilityFactory.CreateSpecialAbility("ENE"));
             
+            //Compile Attack Values
+            Dictionary<string, AttackValue> dicAbilities = new Dictionary<string, AttackValue>();
+            AttackValue indirectFire = new AttackValue() { Name = "IF" };
+            foreach(UnitComponent unitComponent in battleMechDesign.Components)
+            {
+                ComponentWeapon componentWeapon = unitComponent.Component as ComponentWeapon;
+                if(componentWeapon != null)
+                {
+                    string sAlphaStrikeAbility = componentWeapon.AlphaStrikeAbility;
+                    if (sAlphaStrikeAbility == null) sAlphaStrikeAbility = ""; //Empty string represent base attack
+                    if (unitComponent.RearFacing) sAlphaStrikeAbility = "REAR";
+                    if (!dicAbilities.ContainsKey(sAlphaStrikeAbility)) dicAbilities.Add(sAlphaStrikeAbility, new AttackValue { Name = sAlphaStrikeAbility });
+                    dicAbilities[sAlphaStrikeAbility] = dicAbilities[sAlphaStrikeAbility] + new AttackValue(WeaponConverter.ConvertTotalWarfareWeapon(componentWeapon));
+                    if(componentWeapon.IndirectFire) indirectFire = indirectFire + new AttackValue(WeaponConverter.ConvertTotalWarfareWeapon(componentWeapon));
+                }
+            }
+
+            AttackValue baseAttackValue = new AttackValue();
+            if (dicAbilities.ContainsKey("")) baseAttackValue = dicAbilities[""];
+
+            foreach(string sKey in dicAbilities.Keys)
+            {
+                if(sKey!= "")
+                {
+                    if (dicAbilities[sKey].MediumRangeDamage >= 10)
+                        retval.SpecialAbilities.Add(new SpecialAbilityVector(sKey, dicAbilities[sKey].ToFinalDamageValueIntArray()));
+                    else
+                        baseAttackValue = baseAttackValue + dicAbilities[sKey];
+                }
+            }
+            
+            retval.Arcs.Add(baseAttackValue.ToFinalDamageValueArc());
+
+            if(indirectFire.ToFinalDamageValueIntArray()[2] > 0)
+            {
+                retval.SpecialAbilities.Add(new SpecialAbilityScalar("IF") { Value = indirectFire.ToFinalDamageValueIntArray()[2] });
+            }
 
             return retval;
         }

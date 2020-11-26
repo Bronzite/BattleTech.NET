@@ -30,7 +30,7 @@ namespace BattleTechNET.Common
             if (iActualRollIndex > 12) iActualRollIndex = 12;
             iActualRollIndex -= 2;
             if (iActualClusterIndex == 40) iActualClusterIndex = 31;
-            iActualClusterIndex -= iClusterSize;
+            iActualClusterIndex -= 2;
 
             return ClusterHitsTable[iActualRollIndex, iActualClusterIndex];
         }

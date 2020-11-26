@@ -510,13 +510,15 @@ namespace BattleTechNET.Data
         //TODO: Base Costs are wrong
         static public Dictionary<string, ComponentWeapon> Weapons = new System.Collections.Generic.Dictionary<string, ComponentWeapon>()
         {
-            {"LRM 5",new ComponentWeapon() //TM341
+            {"LRM 5",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 5",
                 BaseCost = 20000,
                 Heat = 2,
                 AeroHeat = 2,
                 Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
                 AeroDamage = 3,
                 MinimumRange = 6,
                 ShortRange = 7,
@@ -545,7 +547,7 @@ namespace BattleTechNET.Data
             .AddAlias("LRM5")
             .AddAlias("ISLRM5") as ComponentWeapon
             },
-            {"LRM 10",new ComponentWeapon() //TM341
+            {"LRM 10",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 10",
                 BaseCost = 20000,
@@ -553,6 +555,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 1,
                 AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,
@@ -577,7 +581,7 @@ namespace BattleTechNET.Data
             .AddAlias("LRM10")
             .AddAlias("ISLRM10") as ComponentWeapon
             },
-            {"LRM 15",new ComponentWeapon() //TM341
+            {"LRM 15",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 15",
                 BaseCost = 20000,
@@ -585,6 +589,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 5,
                 Damage = 1,
                 AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,
@@ -609,13 +615,15 @@ namespace BattleTechNET.Data
             .AddAlias("LRM15")
             .AddAlias("ISLRM15") as ComponentWeapon
             },
-            {"LRM 20",new ComponentWeapon() //TM341
+            {"LRM 20",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 20",
                 BaseCost = 20000,
                 Heat = 6,
                 AeroHeat = 6,
                 Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
                 AeroDamage = 12,
                 MinimumRange = 6,
                 ShortRange = 7,
@@ -641,13 +649,15 @@ namespace BattleTechNET.Data
             .AddAlias("LRM20")
             .AddAlias("ISLRM20") as ComponentWeapon
             },
-            {"Clan LRM 5",new ComponentWeapon() //TM343
+            {"Clan LRM 5",new ComponentWeaponClustered() //TM343
             {
                 Name = "LRM 5",
                 BaseCost = 20000,
                 Heat = 2,
                 AeroHeat = 2,
                 Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
                 AeroDamage = 3,
                 MinimumRange = 0,
                 ShortRange = 7,
@@ -673,13 +683,15 @@ namespace BattleTechNET.Data
             .AddAlias("LRM5")
             .AddAlias("CLLRM5") as ComponentWeapon
             },
-            {"Clan LRM 10",new ComponentWeapon() //TM343
+            {"Clan LRM 10",new ComponentWeaponClustered() //TM343
             {
                 Name = "LRM 10",
                 BaseCost = 20000,
                 Heat = 4,
                 AeroHeat = 4,
                 Damage = 1,
+                SalvoSize=10,
+                IndirectFire=true,
                 AeroDamage = 6,
                 MinimumRange = 0,
                 ShortRange = 7,
@@ -705,13 +717,15 @@ namespace BattleTechNET.Data
             .AddAlias("LRM10")
             .AddAlias("ISLRM10") as ComponentWeapon
             },
-            {"Clan LRM 15",new ComponentWeapon() //TM343
+            {"Clan LRM 15",new ComponentWeaponClustered() //TM343
             {
                 Name = "LRM 15",
                 BaseCost = 20000,
                 Heat = 5,
                 AeroHeat = 5,
                 Damage = 1,
+                SalvoSize=15,
+                IndirectFire=true,
                 AeroDamage = 9,
                 MinimumRange = 0,
                 ShortRange = 7,
@@ -737,13 +751,15 @@ namespace BattleTechNET.Data
             .AddAlias("LRM15")
             .AddAlias("CLLRM15") as ComponentWeapon
             },
-            {"Clan LRM 20",new ComponentWeapon() //TM341
+            {"Clan LRM 20",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 20",
                 BaseCost = 20000,
                 Heat = 6,
                 AeroHeat = 6,
                 Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
                 AeroDamage = 12,
                 MinimumRange = 0,
                 ShortRange = 7,
@@ -2296,7 +2312,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-             {"LRM 5 + Artemis IV",new ComponentWeapon() //TM341
+             {"LRM 5 + Artemis IV",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 5 + Artemis IV",
                 BaseCost = 20000,
@@ -2304,6 +2320,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 1,
                 AeroDamage = 4,
+                SalvoSize=5,
+                IndirectFire=true,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,
@@ -2328,7 +2346,7 @@ namespace BattleTechNET.Data
              .AddAlias("LRM/5 + Artemis IV")
                 .AddAlias("LRM5 + Artemis IV") as ComponentWeapon
             },
-            {"LRM 10 + Artemis IV",new ComponentWeapon() //TM341
+            {"LRM 10 + Artemis IV",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 10 + Artemis IV",
                 BaseCost = 20000,
@@ -2336,6 +2354,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 1,
                 AeroDamage = 8,
+                SalvoSize=10,
+                IndirectFire=true,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,
@@ -2356,7 +2376,7 @@ namespace BattleTechNET.Data
             }.AddAlias("LRM/10 + Artemis IV")
                 .AddAlias("LRM10 + Artemis IV") as ComponentWeapon
             },
-            {"LRM 15 + Artemis IV",new ComponentWeapon() //TM341
+            {"LRM 15 + Artemis IV",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 15 + Artemis IV",
                 BaseCost = 20000,
@@ -2364,6 +2384,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 5,
                 Damage = 1,
                 AeroDamage = 12,
+                SalvoSize=15,
+                IndirectFire=true,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,
@@ -2384,7 +2406,7 @@ namespace BattleTechNET.Data
             }.AddAlias("LRM/15 + Artemis IV")
                 .AddAlias("LRM15 + Artemis IV") as ComponentWeapon
             },
-            {"LRM 20 + Artemis IV",new ComponentWeapon() //TM341
+            {"LRM 20 + Artemis IV",new ComponentWeaponClustered() //TM341
             {
                 Name = "LRM 20 + Artemis IV",
                 BaseCost = 20000,
@@ -2392,6 +2414,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 6,
                 Damage = 1,
                 AeroDamage = 16,
+                SalvoSize=20,
+                IndirectFire=true,
                 MinimumRange = 6,
                 ShortRange = 7,
                 MediumRange = 14,

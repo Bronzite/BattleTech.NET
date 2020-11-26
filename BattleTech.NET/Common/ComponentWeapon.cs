@@ -28,7 +28,7 @@ namespace BattleTechNET.Common
         public int ToHitModifier { get; set; }
         public bool ContributesToTargetingComputerMass { get; set; }
         public string AlphaStrikeAbility { get; set; }
-
+        public bool IndirectFire { get; set; }
         public void CopyComponents(ComponentWeapon weapon)
         {
             Name = weapon.Name;
@@ -57,6 +57,8 @@ namespace BattleTechNET.Common
             TechRating = weapon.TechRating;
             LauncherType = weapon.LauncherType;
             ContributesToTargetingComputerMass = weapon.ContributesToTargetingComputerMass;
+            AlphaStrikeAbility = weapon.AlphaStrikeAbility;
+            IndirectFire = weapon.IndirectFire;
 
         }
         public override object Clone()
@@ -76,6 +78,8 @@ namespace BattleTechNET.Common
             retval.ToHitModifier = ToHitModifier;
             retval.LauncherType = LauncherType;
             retval.ContributesToTargetingComputerMass = ContributesToTargetingComputerMass;
+            retval.AlphaStrikeAbility = AlphaStrikeAbility;
+            retval.IndirectFire = IndirectFire;
             return retval;
         }
         public override Component CreateInstance()

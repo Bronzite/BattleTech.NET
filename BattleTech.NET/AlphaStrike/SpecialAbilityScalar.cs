@@ -7,6 +7,7 @@ namespace BattleTechNET.AlphaStrike
     public class SpecialAbilityScalar: SpecialAbilityVector
     {
         public SpecialAbilityScalar(string sCode) : base(sCode) { }
+        public SpecialAbilityScalar(string sCode, int iValue) : base(sCode) { Value = iValue; }
 
         public int Value { 
             get

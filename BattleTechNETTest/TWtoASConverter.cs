@@ -119,7 +119,7 @@ namespace BattleTechNETTest
             Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
             SpecialAbility abilityAC = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("AC")) abilityAC = ability;
 
             Assert.NotNull(abilityAC);
 
@@ -135,7 +135,7 @@ namespace BattleTechNETTest
             Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
             SpecialAbility abilityAC = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("IF")) abilityAC = ability;
 
             Assert.NotNull(abilityAC);
 
@@ -148,13 +148,13 @@ namespace BattleTechNETTest
             BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
 
             Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
-            SpecialAbility abilityAC = null;
+            SpecialAbility abilityLRM = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("LRM")) abilityLRM = ability;
 
-            Assert.NotNull(abilityAC);
+            Assert.NotNull(abilityLRM);
 
-            Assert.Equal("LRM1/1/1", abilityAC.ToString());
+            Assert.Equal("LRM1/1/1", abilityLRM.ToString());
         }
         [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "AS7-D REAR Ability")]
@@ -165,7 +165,7 @@ namespace BattleTechNETTest
             Element element = ConvertBattletechObject.ToAlphaStrike(designAtlas);
             SpecialAbility abilityAC = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("REAR")) abilityAC = ability;
 
             Assert.NotNull(abilityAC);
 
@@ -181,7 +181,7 @@ namespace BattleTechNETTest
             Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
             SpecialAbility abilityAC = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("IF")) abilityAC = ability;
 
             Assert.NotNull(abilityAC);
 
@@ -196,7 +196,7 @@ namespace BattleTechNETTest
             Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
             SpecialAbility abilityAC = null;
             foreach (SpecialAbility ability in element.SpecialAbilities)
-                if (abilityAC.Code.Equals("AC")) abilityAC = ability;
+                if (ability.Code.Equals("LRM")) abilityAC = ability;
 
             Assert.NotNull(abilityAC);
 
