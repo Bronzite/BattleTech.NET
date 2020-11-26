@@ -37,6 +37,7 @@ namespace BattleTechNET.Common
 
         public int SalvoSize { get; set; }
         public int DamagePerMissile { get { return Damage; } set { Damage = value; } }
+        public bool Streak { get; set; }
         public ComponentFireControlSystem FireControlSystem { get; set; }
 
         public override object Clone()
@@ -46,6 +47,7 @@ namespace BattleTechNET.Common
             (retval as ComponentWeapon).CopyComponents(this);
             retval.SalvoSize = SalvoSize;
             retval.DamagePerMissile = DamagePerMissile;
+            retval.Streak = Streak;
             if(FireControlSystem != null)
             retval.FireControlSystem = (ComponentFireControlSystem)FireControlSystem.Clone();
             return retval;

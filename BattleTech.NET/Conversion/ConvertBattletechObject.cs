@@ -59,8 +59,10 @@ namespace BattleTechNET.Conversion
                         baseAttackValue = baseAttackValue + dicAbilities[sKey];
                 }
             }
-            
+
             retval.Arcs.Add(baseAttackValue.ToFinalDamageValueArc());
+
+            
 
             if(indirectFire.ToFinalDamageValueIntArray()[2] > 0)
             {

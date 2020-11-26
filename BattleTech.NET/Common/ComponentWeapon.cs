@@ -16,7 +16,20 @@ namespace BattleTechNET.Common
         public int Heat { get; set; }
         public int AeroHeat { get; set; }
         public bool HeatIsPerShot { get; set; }
-        public int Damage { get; set; }
+        private int mDamage = 0;
+        public int Damage { get
+            {
+                return mDamage;
+            }
+
+            set 
+            {
+                mDamage = value;
+                ShortRangeDamage = mDamage;
+                MediumRangeDamage = mDamage;
+                LongRangeDamage = mDamage;
+            } 
+        }
         public int AeroDamage { get; set; }
         public int MinimumRange { get; set; }
         public int ShortRange { get; set; }
@@ -29,6 +42,10 @@ namespace BattleTechNET.Common
         public bool ContributesToTargetingComputerMass { get; set; }
         public string AlphaStrikeAbility { get; set; }
         public bool IndirectFire { get; set; }
+        public int ShortRangeDamage { get; set; }
+        public int MediumRangeDamage { get; set; }
+        public int LongRangeDamage { get; set; }
+
         public void CopyComponents(ComponentWeapon weapon)
         {
             Name = weapon.Name;
@@ -58,6 +75,9 @@ namespace BattleTechNET.Common
             LauncherType = weapon.LauncherType;
             ContributesToTargetingComputerMass = weapon.ContributesToTargetingComputerMass;
             AlphaStrikeAbility = weapon.AlphaStrikeAbility;
+            ShortRangeDamage = weapon.ShortRangeDamage;
+            MediumRangeDamage = weapon.MediumRangeDamage;
+            LongRangeDamage = weapon.LongRangeDamage;
             IndirectFire = weapon.IndirectFire;
 
         }
@@ -80,7 +100,17 @@ namespace BattleTechNET.Common
             retval.ContributesToTargetingComputerMass = ContributesToTargetingComputerMass;
             retval.AlphaStrikeAbility = AlphaStrikeAbility;
             retval.IndirectFire = IndirectFire;
+            retval.ShortRangeDamage = ShortRangeDamage;
+            retval.MediumRangeDamage = MediumRangeDamage;
+            retval.LongRangeDamage = LongRangeDamage;
             return retval;
+        }
+        public ComponentWeapon SetRangeDamage(int iShort, int iMedium, int iLong)
+        {
+            ShortRangeDamage = iShort;
+            MediumRangeDamage = iMedium;
+            LongRangeDamage = iLong;
+            return this;
         }
         public override Component CreateInstance()
         {

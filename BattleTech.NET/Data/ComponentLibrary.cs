@@ -908,7 +908,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 AlphaStrikeAbility = "AC",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
-                
+
 
             }
             .AddAlias("AC20")
@@ -1619,14 +1619,15 @@ namespace BattleTechNET.Data
             }
              .AddAlias("CLFlamer") as ComponentWeapon
             },
-                {"LB 2-X AC",new ComponentWeapon() //TM341
+                {"LB 2-X AC",new ComponentWeaponClustered() //TM341
             {
                 Name = "LB 2-X AC",
                 BaseCost = 20000,
                 Heat = 1,
                 AeroHeat = 1,
-                Damage = 2,
+                Damage = 1,
                 AeroDamage = 2,
+                SalvoSize =2,
                 MinimumRange = 4,
                 ShortRange = 9,
                 MediumRange = 18,
@@ -1646,13 +1647,14 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }.AddAlias("ISLBXAC2") as ComponentWeapon
             },
-                {"LB 5-X AC",new ComponentWeapon() //TM341
+                {"LB 5-X AC",new ComponentWeaponClustered() //TM341
             {
                 Name = "LB 5-X AC",
                 BaseCost = 20000,
                 Heat = 1,
                 AeroHeat = 1,
-                Damage = 5,
+                SalvoSize =5,
+                Damage = 1,
                 AeroDamage = 3,
                 MinimumRange = 3,
                 ShortRange = 7,
@@ -1674,13 +1676,14 @@ namespace BattleTechNET.Data
             }
                 .AddAlias("ISLBXAC5") as ComponentWeapon
             },
-                {"LB 10-X AC",new ComponentWeapon() //TM341
+                {"LB 10-X AC",new ComponentWeaponClustered() //TM341
             {
                 Name = "LB 10-X AC",
                 BaseCost = 20000,
                 Heat = 2,
                 AeroHeat = 2,
-                Damage = 10,
+                Damage = 1,
+                SalvoSize =10,
                 AeroDamage = 6,
                 MinimumRange = 0,
                 ShortRange = 6,
@@ -1702,13 +1705,14 @@ namespace BattleTechNET.Data
             }
                 .AddAlias("ISLBXAC10") as ComponentWeapon
             },
-                {"LB 20-X AC",new ComponentWeapon() //TM341
+                {"LB 20-X AC",new ComponentWeaponClustered() //TM341
             {
                 Name = "LB 20-X AC",
                 BaseCost = 20000,
                 Heat = 6,
                 AeroHeat = 6,
-                Damage = 20,
+                SalvoSize =20,
+                Damage = 1,
                 AeroDamage = 12,
                 MinimumRange = 0,
                 ShortRange = 4,
@@ -1730,15 +1734,16 @@ namespace BattleTechNET.Data
             }
                 .AddAlias("ISLBXAC20") as ComponentWeapon
             },
-            {"Clan LB 2-X AC",new ComponentWeapon() //TM343
+            {"Clan LB 2-X AC",new ComponentWeaponClustered() //TM343
             {
                 Name = "LB 2-X AC",
                 BaseCost = 20000,
                 Heat = 1,
                 AeroHeat = 1,
-                Damage = 2,
+                Damage = 1,
                 AeroDamage = 2,
                 MinimumRange = 4,
+                SalvoSize =2,
                 ShortRange = 10,
                 MediumRange = 20,
                 LongRange = 30,
@@ -1758,15 +1763,16 @@ namespace BattleTechNET.Data
             }
             .AddAlias("CLLBXAC2") as ComponentWeapon
             },
-            {"Clan LB 5-X AC",new ComponentWeapon() //TM343
+            {"Clan LB 5-X AC",new ComponentWeaponClustered() //TM343
             {
                 Name = "LB 5-X AC",
                 BaseCost = 20000,
                 Heat = 1,
                 AeroHeat = 1,
-                Damage = 5,
+                Damage = 1,
                 AeroDamage = 3,
                 MinimumRange = 3,
+                SalvoSize =5,
                 ShortRange = 8,
                 MediumRange = 15,
                 LongRange = 24,
@@ -1786,15 +1792,16 @@ namespace BattleTechNET.Data
             }
             .AddAlias("CLLBXAC5") as ComponentWeapon
             },
-            {"Clan LB 10-X AC",new ComponentWeapon() //TM343
+            {"Clan LB 10-X AC",new ComponentWeaponClustered() //TM343
             {
                 Name = "LB 10-X AC",
                 BaseCost = 20000,
                 Heat = 2,
                 AeroHeat = 2,
-                Damage = 10,
+                Damage = 1,
                 AeroDamage = 6,
                 MinimumRange = 0,
+                SalvoSize =10,
                 ShortRange = 6,
                 MediumRange = 12,
                 LongRange = 18,
@@ -1814,14 +1821,15 @@ namespace BattleTechNET.Data
             }
             .AddAlias("CLLBXAC10") as ComponentWeapon
             },
-            {"Clan LB 20-X AC",new ComponentWeapon() //TM343
+            {"Clan LB 20-X AC",new ComponentWeaponClustered() //TM343
             {
                 Name = "LB 20-X AC",
                 BaseCost = 20000,
                 Heat = 6,
                 AeroHeat = 6,
-                Damage = 20,
+                Damage = 1,
                 AeroDamage = 12,
+                SalvoSize =10,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 8,
@@ -1849,6 +1857,7 @@ namespace BattleTechNET.Data
                 Heat = 2,
                 AeroHeat = 2,
                 Damage = 3,
+
                 AeroDamage = 3,
                 MinimumRange = 0,
                 ShortRange = 2,
@@ -3073,13 +3082,14 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
-            {"Hyper-Assault Gauss 20",new ComponentWeapon() //TM341
+            {"Hyper-Assault Gauss 20",new ComponentWeaponClustered () //TM341
             {
                 Name = "Hyper-Assault Gauss 20",
                 BaseCost = 20000,
                 Heat = 4,
                 AeroHeat = 4,
-                Damage = 20,
+                Damage = 1,
+                SalvoSize=20,
                 AeroDamage = 16, //TODO: Range-based damage
                 MinimumRange = 2,
                 ShortRange = 8,
@@ -3101,7 +3111,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("HAG/20") as ComponentWeapon
             },
-            {"Hyper-Assault Gauss 30",new ComponentWeapon() //TM341
+            {"Hyper-Assault Gauss 30",new ComponentWeaponClustered() //TM341
             {
                 Name = "Hyper-Assault Gauss 30",
                 BaseCost = 20000,
@@ -3109,6 +3119,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 6,
                 Damage = 30,
                 AeroDamage = 24, //TODO: Range-based damage
+                SalvoSize=30,
                 MinimumRange = 2,
                 ShortRange = 8,
                 MediumRange = 16,
@@ -3129,7 +3140,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("HAG/30") as ComponentWeapon
             },
-            {"Hyper-Assault Gauss 40",new ComponentWeapon() //TM341
+            {"Hyper-Assault Gauss 40",new ComponentWeaponClustered() //TM341
             {
                 Name = "Hyper-Assault Gauss 40",
                 BaseCost = 20000,
@@ -3137,6 +3148,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 8,
                 Damage = 40,
                 AeroDamage = 32, //TODO: Range-based damage
+                SalvoSize=40,
                 MinimumRange = 2,
                 ShortRange = 8,
                 MediumRange = 16,
@@ -3239,6 +3251,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+             .SetRangeDamage(25,20,10)
              .AddAlias("ISHeavyGaussRifle") as ComponentWeapon
             },
               {"Anti-Missile System",new ComponentWeapon() //TM341
@@ -3303,7 +3316,7 @@ namespace BattleTechNET.Data
                   .AddAlias("CLAntiMissileSystem")
                   .AddAlias("CLAMS") as ComponentWeapon
             },
-            {"Streak SRM 2",new ComponentWeapon() //TM341
+            {"Streak SRM 2",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 2",
                 BaseCost = 20000,
@@ -3311,6 +3324,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 2,
                 AeroDamage = 4,
+                Streak = true,
+                SalvoSize=2,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3332,7 +3347,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("ISStreakSRM2") as ComponentWeapon
             },
-            {"Streak SRM 4",new ComponentWeapon() //TM341
+            {"Streak SRM 4",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 4",
                 BaseCost = 20000,
@@ -3340,6 +3355,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 2,
                 AeroDamage = 8,
+                Streak = true,
+                SalvoSize=4,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3361,7 +3378,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("ISStreakSRM4") as ComponentWeapon
             },
-            {"Streak SRM 6",new ComponentWeapon() //TM341
+            {"Streak SRM 6",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 6",
                 BaseCost = 20000,
@@ -3369,6 +3386,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 2,
                 AeroDamage = 12,
+                Streak = true,
+                SalvoSize=6,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3398,6 +3417,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 2,
                 SalvoSize = 2,
+                Streak= true,
                 AeroDamage = 4,
                 MinimumRange = 0,
                 ShortRange = 4,
@@ -3429,6 +3449,7 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 8,
                 SalvoSize = 4,
+                Streak=true,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 8,
@@ -3459,6 +3480,7 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 12,
                 SalvoSize = 6,
+                Streak=true,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 8,
@@ -3480,7 +3502,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("CLStreakSRM6") as ComponentWeapon
             },
-            {"Streak SRM 2 (OS)",new ComponentWeapon() //TM341
+            {"Streak SRM 2 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 2 (OS)",
                 BaseCost = 20000,
@@ -3488,6 +3510,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 2,
                 AeroDamage = 4,
+                Streak = true,
+                SalvoSize=2,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3508,7 +3532,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Streak SRM 4 (OS)",new ComponentWeapon() //TM341
+            {"Streak SRM 4 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 4 (OS)",
                 BaseCost = 20000,
@@ -3516,6 +3540,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 2,
                 AeroDamage = 8,
+                Streak = true,
+                SalvoSize=4,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3536,7 +3562,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             },
-            {"Streak SRM 6 (OS)",new ComponentWeapon() //TM341
+            {"Streak SRM 6 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak SRM 6 (OS)",
                 BaseCost = 20000,
@@ -3544,6 +3570,8 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 2,
                 AeroDamage = 12,
+                Streak = true,
+                SalvoSize=6,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 6,
@@ -3572,6 +3600,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 2,
                 SalvoSize = 2,
+                Streak = true,
                 AeroDamage = 4,
                 MinimumRange = 0,
                 ShortRange = 4,
@@ -3602,6 +3631,7 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 8,
                 SalvoSize = 4,
+                Streak = true,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 8,
@@ -3631,6 +3661,7 @@ namespace BattleTechNET.Data
                 Damage = 2,
                 AeroDamage = 12,
                 SalvoSize = 6,
+                Streak = true,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 8,
@@ -3677,6 +3708,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot = true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
+            .SetRangeDamage(10,8,5)
             .AddAlias("ISSNPPC") as ComponentWeapon
             },
             {"ATM 3",new ComponentWeapon() //TM343
@@ -3791,7 +3823,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
             }
             },
-            {"Rocket Launcher 10",new ComponentWeapon() //TM342
+            {"Rocket Launcher 10",new ComponentWeaponClustered() //TM342
             {
                 Name = "Rocket Launcher 10",
                 BaseCost = 20000,
@@ -3799,6 +3831,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 3,
                 Damage = 1,
                 AeroDamage = 6,
+                SalvoSize=10,
                 MinimumRange = 0,
                 ShortRange = 5,
                 MediumRange = 11,
@@ -3820,7 +3853,7 @@ namespace BattleTechNET.Data
             }
             .AddAlias("ISRocketLauncher10") as ComponentWeapon
             },
-             {"Rocket Launcher 15",new ComponentWeapon() //TM342
+             {"Rocket Launcher 15",new ComponentWeaponClustered() //TM342
             {
                 Name = "Rocket Launcher 15",
                 BaseCost = 20000,
@@ -3828,6 +3861,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 4,
                 Damage = 1,
                 AeroDamage = 9,
+                SalvoSize=15,
                 MinimumRange = 0,
                 ShortRange = 4,
                 MediumRange = 9,
@@ -3849,7 +3883,7 @@ namespace BattleTechNET.Data
             }
              .AddAlias("ISRocketLauncher15") as ComponentWeapon
             },
-            {"Rocket Launcher 20",new ComponentWeapon() //TM342
+            {"Rocket Launcher 20",new ComponentWeaponClustered() //TM342
             {
                 Name = "Rocket Launcher 20",
                 BaseCost = 20000,
@@ -3857,6 +3891,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 5,
                 Damage = 1,
                 AeroDamage = 12,
+                SalvoSize=20,
                 MinimumRange = 0,
                 ShortRange = 3,
                 MediumRange = 7,
@@ -4210,6 +4245,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                ToHitModifier=1,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("ISMRM10") as ComponentWeapon
@@ -4240,6 +4276,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                ToHitModifier=1,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
             .AddAlias("ISMRM20") as ComponentWeapon
@@ -4270,6 +4307,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                ToHitModifier=1,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
              .AddAlias("ISMRM30") as ComponentWeapon
@@ -4300,6 +4338,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
+                ToHitModifier=1,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
             }
               .AddAlias("ISMRM40") as ComponentWeapon
@@ -4796,6 +4835,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2 //TODO: VSP To-Hit Modifier
             }
+             .SetRangeDamage(5,4,3)
                .AddAlias("ISSmallVSPLaser") as ComponentWeapon
             },
             {"Medium Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -4825,6 +4865,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2
             }
+            .SetRangeDamage(9,7,5)
             .AddAlias("ISMediumVSPLaser") as ComponentWeapon
             },
              {"Large Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -4854,6 +4895,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 ToHitModifier=-2
             }
+             .SetRangeDamage(11,9,7)
              .AddAlias("ISLargeVSPLaser") as ComponentWeapon
             },
         };

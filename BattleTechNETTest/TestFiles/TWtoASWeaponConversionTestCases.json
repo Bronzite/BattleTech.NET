@@ -175,7 +175,7 @@
       "weaponName": "Ultra AC/5",
       "techBase": "Inner Sphere",
       "heat": 2,
-      "expectedShortRangeValue": 6.23,
+      "expectedShortRangeValue": 6.22,
       "expectedMediumRangeValue": 7.5,
       "expectedLongRangeValue": 7.5,
       "expectedExtremeRangeValue": 0
@@ -552,15 +552,6 @@
       "expectedExtremeRangeValue": 0
     },
     {
-      "weaponName": "Fluid Gun",
-      "techBase": "Inner Sphere",
-      "heat": 0,
-      "expectedShortRangeValue": 4,
-      "expectedMediumRangeValue": 0,
-      "expectedLongRangeValue": 0,
-      "expectedExtremeRangeValue": 0
-    },
-    {
       "weaponName": "Improved Heavy Gauss Rifle",
       "techBase": "Inner Sphere",
       "heat": 2,
@@ -570,7 +561,7 @@
       "expectedExtremeRangeValue": 0
     },
     {
-      "weaponName": "Magshot Gauss",
+      "weaponName": "Magshot",
       "techBase": "Inner Sphere",
       "heat": 1,
       "expectedShortRangeValue": 2,
