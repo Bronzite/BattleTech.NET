@@ -34,7 +34,7 @@ namespace BattleTechNET.Common
                     Name = "ECM Suite",
                     TechnologyBase = TECHNOLOGY_BASE.CLAN,
                     Tonnage = 1,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 200000, //TM292
                     TechRating = "F",
                     ECMRange = 6,
                     ActiveRange = 0,
@@ -51,7 +51,7 @@ namespace BattleTechNET.Common
                     Name = "Guardian ECM Suite",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1.5,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 250000, //TM292
                     TechRating = "E",
                     ECMRange = 6,
                     ActiveRange = 0,
@@ -90,7 +90,7 @@ namespace BattleTechNET.Common
                     Name = "Beagle Active Probe",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1.5,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 200000 //TM291
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 5,
@@ -142,7 +142,7 @@ namespace BattleTechNET.Common
                     Name = "C3 Computer Master",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 5,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 1500000, //TM292
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 0,
@@ -161,7 +161,7 @@ namespace BattleTechNET.Common
                     Name = "C3 Computer Slave",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 250000, //TM292
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 0,
@@ -178,7 +178,7 @@ namespace BattleTechNET.Common
                     Name = "Improved C3 Computer",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 2.5,
-                    BaseCost = 500000, //TODO: Lookup this number
+                    BaseCost = 750000, //TM292
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 0,
