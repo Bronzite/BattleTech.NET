@@ -40,6 +40,12 @@ namespace BattleTechNET.Conversion
                 retval.ShortRangeDamage = ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 9);
                 retval.MediumRangeDamage = ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
                 retval.LongRangeDamage = ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 5);
+                //NOTE: This is an interpretation.  I can't find what cluster
+                //table role that should be used for Extreme Range.
+                //TODO: Figure out how this is calculated in products.
+                //To do so, I'll need to find an aerospace unit that carries
+                //a HAG.
+                retval.ExtremeRangeDamage = ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 5);
             }
 
             if (componentWeapon.Name.StartsWith("Rocket Launcher"))
@@ -56,10 +62,11 @@ namespace BattleTechNET.Conversion
                 retval.MediumRangeDamage = 1.5 * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
                 retval.LongRangeDamage = 1 * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
             }
-                //Variable-Damage Weapons
-                //TODO: This doesn't handle cluster-based variable damage weapons,
-                //but I don't think there are canonical examples of that.
-                if (componentWeapon.ShortRangeDamage != componentWeapon.MediumRangeDamage || componentWeapon.MediumRangeDamage != componentWeapon.LongRangeDamage)
+            
+            //Variable-Damage Weapons
+            //TODO: This doesn't handle cluster-based variable damage weapons,
+            //but I don't think there are canonical examples of that.
+            if (componentWeapon.ShortRangeDamage != componentWeapon.MediumRangeDamage || componentWeapon.MediumRangeDamage != componentWeapon.LongRangeDamage)
             {
                 retval.ShortRangeDamage = componentWeapon.ShortRangeDamage;
                 retval.MediumRangeDamage = componentWeapon.MediumRangeDamage;

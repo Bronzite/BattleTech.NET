@@ -847,7 +847,89 @@
       "expectedMediumRangeValue": 20,
       "expectedLongRangeValue": 20,
       "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 2-X AC",
+      "techBase": "Clan",
+      "heat": 1,
+      "expectedShortRangeValue": 0.69,
+      "expectedMediumRangeValue": 1.05,
+      "expectedLongRangeValue": 1.05,
+      "expectedExtremeRangeValue": 1.05
+    },
+    {
+      "weaponName": "LB 5-X AC",
+      "techBase": "Clan",
+      "heat": 1,
+      "expectedShortRangeValue": 2.36,
+      "expectedMediumRangeValue": 3.15,
+      "expectedLongRangeValue": 3.15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 10-X AC",
+      "techBase": "Clan",
+      "heat": 2,
+      "expectedShortRangeValue": 6.3,
+      "expectedMediumRangeValue": 6.3,
+      "expectedLongRangeValue": 6.3,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "LB 20-X AC",
+      "techBase": "Clan",
+      "heat": 6,
+      "expectedShortRangeValue": 12.6,
+      "expectedMediumRangeValue": 12.6,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "AP Gauss Rifle",
+      "techBase": "Clan",
+      "heat": 1,
+      "expectedShortRangeValue": 3,
+      "expectedMediumRangeValue": 3,
+      "expectedLongRangeValue": 0,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "Gauss Rifle",
+      "techBase": "Clan",
+      "heat": 1,
+      "expectedShortRangeValue": 12.45,
+      "expectedMediumRangeValue": 15,
+      "expectedLongRangeValue": 15,
+      "expectedExtremeRangeValue": 0
+    },
+    {
+      "weaponName": "HAG/20",
+      "techBase": "Clan",
+      "heat": 4,
+      "expectedShortRangeValue": 13.28,
+      "expectedMediumRangeValue": 12,
+      "expectedLongRangeValue": 12,
+      "expectedExtremeRangeValue": 12
+    },
+    {
+      "weaponName": "HAG/30",
+      "techBase": "Clan",
+      "heat": 6,
+      "expectedShortRangeValue": 19.92,
+      "expectedMediumRangeValue": 18,
+      "expectedLongRangeValue": 18,
+      "expectedExtremeRangeValue": 18
+    },
+    {
+      "weaponName": "HAG/40",
+      "techBase": "Clan",
+      "heat": 8,
+      "expectedShortRangeValue": 26.56,
+      "expectedMediumRangeValue": 24,
+      "expectedLongRangeValue": 24,
+      "expectedExtremeRangeValue": 24
     }
+
 
 
 

@@ -209,7 +209,7 @@ namespace BattleTechNETTest
         [MemberData(nameof(GetWeaponConversionTestCases))]
         public void CheckWeaponDamageValues(ComponentWeapon weapon, double expectedShortRangeValue, double expectedMediumRangeValue, double expectedLongRangeValue, double expectedExtremeRangeValue)
         {
-            if (weapon.Name == "MML 7") weapon.Clone();
+            if (weapon.Name == "Hyper-Assault Gauss 30") weapon.Clone();
             AlphaStrikeWeapon asw = WeaponConverter.ConvertTotalWarfareWeapon(weapon);
             Assert.Equal(expectedShortRangeValue, asw.ShortRangeDamage);
             Assert.Equal(expectedMediumRangeValue, asw.MediumRangeDamage);
