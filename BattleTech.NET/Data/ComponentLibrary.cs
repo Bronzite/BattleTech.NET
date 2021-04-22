@@ -2878,7 +2878,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
                 TechRating="E",
-                AeroRange = AerospaceWeaponRanges.MEDIUM, //TODO: Need NA Aerospace Range
+                AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE
@@ -2907,7 +2907,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
                 TechRating="E",
-                AeroRange = AerospaceWeaponRanges.MEDIUM, //TODO: Need NA Aerospace Range
+                AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN
@@ -2936,7 +2936,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
                 TechRating="F",
-                AeroRange = AerospaceWeaponRanges.NA, //TODO: Need NA Aerospace Range
+                AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot = true,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN

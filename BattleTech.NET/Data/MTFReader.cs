@@ -705,38 +705,6 @@ namespace BattleTechNET.Data
                                         }
                                     }
                                     
-                                    //c = candidateWeapons[0];
-
-                                    //We need to do this ridiculous dance
-                                    //because some MTF files (such at the
-                                    //Bounty Hunter PXH-4L Sante) are mixed
-                                    //tech base but contain unspecified weapons
-                                    //that are either IS or Clan, but have 
-                                    //different stats depending on which they
-                                    //are.
-
-                                    //TODO: Some of these are so bad that they
-                                    //do not specify which type they are in the
-                                    //Weapons block, so you need to resolve it
-                                    //by looking at the crit slots.
-
-                                    /*if (candidateWeapons.Count == 1)
-                                        c = candidateWeapons[0];
-                                    else
-                                    {
-                                        foreach(ComponentWeapon curWeapon in candidateWeapons)
-                                        {
-                                            if (c == null) 
-                                                c = curWeapon;
-                                            else
-                                            {
-                                                if (curWeapon.TechnologyBase == retval.TechnologyBase &&
-                                                    c.TechnologyBase != retval.TechnologyBase)
-                                                    c = curWeapon;
-                                            }
-                                        }
-                                    }*/
-
                                     HitLocation hitLocation = null;
                                     foreach (BattleMechHitLocation bmhl in retval.HitLocations)
                                     {
@@ -862,7 +830,7 @@ namespace BattleTechNET.Data
                     Component CollapsibleCommandModule = new Component()
                     {
                         Name = "Collapsible Command Module",
-                        BaseCost = 1000, //TODO: CCM Base Cost
+                        BaseCost = 500000,
                         TechnologyBase = retval.TechnologyBase,
                         Tonnage = 16
                     };
@@ -875,7 +843,7 @@ namespace BattleTechNET.Data
                     Component CollapsibleCommandModule = new Component()
                     {
                         Name = "Collapsible Command Module",
-                        BaseCost = 1000, //TODO: CCM Base Cost
+                        BaseCost = 500000,
                         TechnologyBase = retval.TechnologyBase,
                         Tonnage = 16
                     };

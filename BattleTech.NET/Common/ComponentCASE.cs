@@ -31,7 +31,7 @@ namespace BattleTechNET.Common
             TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;
             Tonnage = 0.5;
             CriticalSpaceMech = 1;
-            //TODO: Add CASE Cost
+            BaseCost = 50000; //TM292
 
         }
         public ComponentCASE(Design design):this()
