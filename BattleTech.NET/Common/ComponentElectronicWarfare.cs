@@ -90,7 +90,7 @@ namespace BattleTechNET.Common
                     Name = "Beagle Active Probe",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                     Tonnage = 1.5,
-                    BaseCost = 200000 //TM291
+                    BaseCost = 200000, //TM291
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 5,
