@@ -13,18 +13,18 @@ namespace BattleTechNET.Common
 
         }
 
-        public ComponentGyro(string sGyroTime,int iEngineRating)
+        public ComponentGyro(string sGyroType,int iEngineRating)
         {
             ComponentGyro selectedGyro = null;
             foreach(ComponentGyro componentGyro in GetCanonicalGyros())
             {
-                if(componentGyro.Name.Equals(sGyroTime) || Utilities.IsSynonymFor(componentGyro.Name,sGyroTime))
+                if(componentGyro.Name.Equals(sGyroType) || Utilities.IsSynonymFor(componentGyro.Name,sGyroType))
                 {
                     selectedGyro = componentGyro;
                 }
             }
 
-            if (selectedGyro == null) throw new Exception($"Could not locate Gyro type {sGyroTime}");
+            if (selectedGyro == null) throw new Exception($"Could not locate Gyro type {sGyroType}");
 
             Name = selectedGyro.Name;
             WeightMultiplier = selectedGyro.WeightMultiplier;
