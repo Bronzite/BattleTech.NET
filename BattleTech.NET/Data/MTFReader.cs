@@ -429,7 +429,7 @@ namespace BattleTechNET.Data
                         }
                         if(kvp.Key == "Gyro" && kvp.Value.Trim() != "")
                         {
-                            ComponentGyro gyro = new ComponentGyro(kvp.Value, retval.Engine.EngineRating);
+                            ComponentGyro gyro = new ComponentGyro(retval.Engine.EngineRating, kvp.Value);
                             HitLocation hit = retval.GetHitLocationByName("CT");
 
                             retval.Components.Add( new UnitComponent(gyro,hit));
@@ -752,7 +752,7 @@ namespace BattleTechNET.Data
 
                 if(!bGyroscope)
                 {
-                    ComponentGyro gyro = new ComponentGyro("Standard Gyro", retval.Engine.EngineRating);
+                    ComponentGyro gyro = new ComponentGyro(retval.Engine.EngineRating, "Standard Gyro");
                     HitLocation hit = retval.GetHitLocationByName("CT");
 
                     retval.Components.Add(new UnitComponent(gyro, hit));

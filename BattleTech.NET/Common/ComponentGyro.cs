@@ -13,7 +13,7 @@ namespace BattleTechNET.Common
 
         }
 
-        public ComponentGyro(string sGyroType,int iEngineRating)
+        public ComponentGyro(int iEngineRating, string sGyroType)
         {
             ComponentGyro selectedGyro = null;
             foreach(ComponentGyro componentGyro in GetCanonicalGyros())
