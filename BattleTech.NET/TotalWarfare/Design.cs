@@ -20,7 +20,7 @@ namespace BattleTechNET.TotalWarfare
             return null;
         }
 
-        public double BV {get;}
+        public virtual double BV { get { return 0; } }
         public BattleTechNET.Common.TECHNOLOGY_BASE TechnologyBase { get; set; }
         public bool MixedTechBase { get; set; }
         public bool IsCompatible(ITechBase techbased)
@@ -30,6 +30,24 @@ namespace BattleTechNET.TotalWarfare
             if (techbased.TechnologyBase == TECHNOLOGY_BASE.BOTH) return true;
             return false;
 
+        }
+
+        public int ArmorFactor
+        {
+            get
+            {
+                int retval = 0;
+
+                foreach(ArmorHitLocation hl in HitLocations)
+                {
+                    foreach(ArmorFacing facing in hl.ArmorFacings.Values)
+                    {
+                        retval += facing.ArmorPoints;
+                    }
+                }
+
+                return retval;
+            }
         }
         public virtual double ComputedTonnage
         {
@@ -44,7 +62,6 @@ namespace BattleTechNET.TotalWarfare
             }
 
         }
-
 
     }
 }

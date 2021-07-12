@@ -15,7 +15,8 @@ namespace BattleTechNET.TotalWarfare
     {
         public ArmorType():this("Standard",TECHNOLOGY_BASE.BOTH, 16,0) { }
         public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons) : this(sName, tb, dPointsPerTons, 0) { }
-        public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons, int iCriticalSlotsRequired) { Name = sName; PointsPerTon = dPointsPerTons; CriticalSlotsRequired = iCriticalSlotsRequired; TechnologyBase = tb; AliasList = new List<string>(); }
+        public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons, int iCriticalSlotsRequired) : this(sName, tb, dPointsPerTons, iCriticalSlotsRequired, 1) { }
+        public ArmorType(string sName, TECHNOLOGY_BASE tb, double dPointsPerTons, int iCriticalSlotsRequired,double dBattleValueModifier) { Name = sName; PointsPerTon = dPointsPerTons; CriticalSlotsRequired = iCriticalSlotsRequired; TechnologyBase = tb; AliasList = new List<string>(); BattleValueModifier = dBattleValueModifier; }
         public string Name { get; set; }
         public TECHNOLOGY_BASE TechnologyBase { get; set; }
         public double PointsPerTon { get; set; }
@@ -65,6 +66,7 @@ namespace BattleTechNET.TotalWarfare
 
             return retval;
         }
+        public double BattleValueModifier { get; set; }
         private List<string> AliasList { get; set; }
         public IEnumerable<string> Aliases { get { return AliasList; } }
         public IAliasable AddAlias(string sAliasable) { AliasList.Add(sAliasable); return this; }

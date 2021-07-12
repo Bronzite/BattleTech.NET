@@ -55,8 +55,8 @@ namespace BattleTechNET.Common
 
         
         }
-
-        public ComponentEngine(int iEngineRating, string sEngineType) { EngineRating = iEngineRating; EngineType = sEngineType; }
+        public ComponentEngine(int iEngineRating, string sEngineType) : this(iEngineRating, sEngineType, 1) { }
+        public ComponentEngine(int iEngineRating, string sEngineType,double dBattleValueModifier) { EngineRating = iEngineRating; EngineType = sEngineType; BattleValueModifier = dBattleValueModifier; }
 
         private int mEngineRating = 100;
 
@@ -95,7 +95,7 @@ namespace BattleTechNET.Common
         {
             return new ComponentEngine(EngineRating, EngineType);
         }
-
+        public double BattleValueModifier { get; set; }
         public override object Clone()
         {
             ComponentEngine retval = base.Clone() as ComponentEngine;

@@ -4,6 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>BattleTechNET</RootNamespace>
     <AssemblyName>BattleTechNET</AssemblyName>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.2</Version>
+    <Authors>John Brewer</Authors>
+    <Company>Personal</Company>
+    <PackageProjectUrl>https://github.com/Bronzite/BattleTech.NET/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Bronzite/BattleTech.NET/</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
 </Project>

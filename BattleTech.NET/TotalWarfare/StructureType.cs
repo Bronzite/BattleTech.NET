@@ -7,9 +7,9 @@ namespace BattleTechNET.TotalWarfare
 {
     public class StructureType:ICloneable,ITechBase
     {
-        public StructureType() : this("Standard", TECHNOLOGY_BASE.BOTH , 0.1, 0, 1, false) { }
-        
-        public StructureType (string sName, TECHNOLOGY_BASE eTechnologyBase, double dTonnageMultipler, int iCriticalHitSlots, double dDamageMultiplier, bool bCriticalLocationsTreatedAsRollAgain)
+        public StructureType() : this("Standard", TECHNOLOGY_BASE.BOTH , 0.1, 0, 1, false,1) { }
+        public StructureType(string sName, TECHNOLOGY_BASE eTechnologyBase, double dTonnageMultipler, int iCriticalHitSlots, double dDamageMultiplier, bool bCriticalLocationsTreatedAsRollAgain) : this(sName, eTechnologyBase, dTonnageMultipler, iCriticalHitSlots, dDamageMultiplier, bCriticalLocationsTreatedAsRollAgain, 1.0) { }
+        public StructureType(string sName, TECHNOLOGY_BASE eTechnologyBase, double dTonnageMultipler, int iCriticalHitSlots, double dDamageMultiplier, bool bCriticalLocationsTreatedAsRollAgain, double dBattleValueModifier)
         {
             Name = sName;
             TechnologyBase = eTechnologyBase;
@@ -17,6 +17,7 @@ namespace BattleTechNET.TotalWarfare
             CriticalHitSlots = iCriticalHitSlots;
             DamageMultiplier = dDamageMultiplier;
             CriticalLocationsTreatedAsRollAgain = bCriticalLocationsTreatedAsRollAgain;
+            BattleValueModifier = dBattleValueModifier;
         }
 
         public string Name { get; set; }
@@ -39,7 +40,11 @@ namespace BattleTechNET.TotalWarfare
         /// of structure are treated as Roll Again results.  (TO342)
         /// </summary>
         public bool CriticalLocationsTreatedAsRollAgain { get; set; }
-
+        /// <summary>
+        /// The modifier applied to the Structure component of the BV2
+        /// calculation.
+        /// </summary>
+        public double BattleValueModifier { get; set; }
         public TECHNOLOGY_BASE TechnologyBase { get; set; }
         public static List<StructureType> GetCanonicalStructureTypes()
         {
