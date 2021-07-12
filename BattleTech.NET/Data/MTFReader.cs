@@ -704,14 +704,16 @@ namespace BattleTechNET.Data
                                                 c = weaponComponent.Clone() as ComponentWeapon;
                                         }
                                     }
-                                    
-                                    HitLocation hitLocation = null;
+
+                                    BattleMechHitLocation hitLocation = null;
                                     foreach (BattleMechHitLocation bmhl in retval.HitLocations)
                                     {
                                         if (Utilities.IsSynonymFor(bmhl.Name, sHitLocation) || bmhl.Name.Equals(sHitLocation))
                                             hitLocation = bmhl;
                                     }
                                     if (hitLocation == null) throw new Exception($"Could not find location {sHitLocation} for {sLines[i]}");
+
+                                    
 
                                     if (c == null)
                                     {
@@ -737,10 +739,18 @@ namespace BattleTechNET.Data
                                     else
                                     {
                                         c = (Component)c.Clone();
+                                        int iCriticalSlots = c.CriticalSpaceMech??0;
+                                        
+                                        //TODO: There's a side case here where
+                                        //we have Rear Mounted Weapons with the
+                                        //same component name as front-facing
+                                        //components in the same location.
+                                        UnitComponent comp = new UnitComponent() { Component = c, HitLocation = hitLocation, RearFacing = bRearMounted };
+                                        
                                         IDesignConfigured designConfigured = c as IDesignConfigured;
                                         if (designConfigured != null) designConfigured.Configure(retval);
                                         for (int iRepeats = 0; iRepeats < iNumberOfEntries; iRepeats++)
-                                            retval.Components.Add(new UnitComponent() { Component = c, HitLocation = hitLocation, RearFacing = bRearMounted });
+                                            retval.Components.Add(comp);
                                     }
                                 }
                             }
@@ -950,6 +960,32 @@ namespace BattleTechNET.Data
                         }
                 }
 
+
+
+                foreach (UnitComponent unitComponent in retval.Components)
+                {
+                    ComponentWeapon weapon = unitComponent.Component as ComponentWeapon;
+                    if (weapon != null)
+                    {
+                        int iCriticalSlots = weapon.CriticalSpaceMech??0;
+                        BattleMechHitLocation bmhl = unitComponent.HitLocation as BattleMechHitLocation;
+                        foreach (CriticalSlot slot in bmhl.CriticalSlots)
+                        {
+                            if (iCriticalSlots > 0)
+                                if (slot.AffectedComponent == null)
+                                {
+                                    string sLabel = slot.Label;
+                                    if (sLabel.Contains("(R)")) { sLabel = sLabel.Replace("(R)", "").Trim(); unitComponent.RearFacing = true; }
+                                    if (Utilities.IsSynonymFor(weapon, sLabel))
+                                    {
+                                        iCriticalSlots--;
+                                        slot.AffectedComponent = unitComponent;
+
+                                    }
+                                }
+                        }
+                    }
+                }
                 //A-Pods and B-Pods don't show up on the weapons list is most
                 //MTF files that contain them.
                 foreach (BattleMechHitLocation bmhl in retval.HitLocations)

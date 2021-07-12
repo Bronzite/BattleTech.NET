@@ -158,7 +158,8 @@ namespace BattleTechNETTest
         }
         
         [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
-        [Fact(DisplayName = "AS7-D REAR Ability",Skip="Fixing MTF Load")]
+        //[Fact(DisplayName = "AS7-D REAR Ability",Skip="Fixing MTF Load")]
+        [Fact(DisplayName = "AS7-D REAR Ability")]
         public void CheckAS7DREARAbility()
         {
             BattleMechDesign designAtlas = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);

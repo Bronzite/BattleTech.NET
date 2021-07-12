@@ -17,6 +17,28 @@ namespace BattleTechNET.TotalWarfare
         {
             return string.Format("{0} {1}", this.Model, this.Variant);
         }
+        public override double BV
+        {
+            get
+            {
+                int iAccumulator = 0;
+
+                //Defensive Battle Rating
+                double dArmorFactor = 0;
+                
+                foreach(ArmorHitLocation armorHitLocation in HitLocations)
+                {
+                    foreach(ArmorFacing facing in armorHitLocation.ArmorFacings.Values)
+                    {
+                        dArmorFactor += (double)facing.ArmorPoints * facing.ArmorType.BattleValueModifier * 2.5D;
+                    }
+                }
+
+
+
+                return iAccumulator;
+            }
+        }
 
         public static int InternalStructureByLocation(string sLocation, int Tonnage)
         {
