@@ -8,7 +8,7 @@ namespace BattleTechNET.Common
 {
     public class ComponentAmmunition:Component
     {
-        public ComponentAmmunition() : base() { Tonnage = 1; }
+        public ComponentAmmunition() : base() { Tonnage = 1; Volatile = true; }
         public ComponentAmmunition(string sName):this() { Name = sName; }
         public ComponentAmmunition(string sName, int iRounds): this(sName) { Rounds = iRounds; }
         public ComponentAmmunition(string sName, int iRounds, string sTechRating) : this(sName, iRounds) { TechRating = sTechRating; }
@@ -17,7 +17,8 @@ namespace BattleTechNET.Common
         public ComponentAmmunition(string sName, int iRounds, double dTonnage, string sTechRating) : this(sName, iRounds, dTonnage) { TechRating = sTechRating; }
         public ComponentAmmunition(string sName, int iRounds, double dTonnage, string sTechRating, TECHNOLOGY_BASE techBase) : this(sName, iRounds, dTonnage,sTechRating) { TechnologyBase = techBase; }
 
-
+        //Used to calculate Explosive Ammo for Defensive BV (TM302)
+        public bool Volatile { get; set; }
 
 
         public int Rounds { get; set; }
@@ -33,7 +34,6 @@ namespace BattleTechNET.Common
             retval.Rounds = Rounds;
             return retval;
         }
-
 
     }
 

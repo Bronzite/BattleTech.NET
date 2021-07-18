@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public class Component:ICloneable,IAliasable,ITechBase
+    public class Component:ICloneable,IAliasable,ITechBase,IBattleValue
     {
         public Component()
         {
@@ -32,6 +32,8 @@ namespace BattleTechNET.Common
             retval.CriticalSpaceFighters = CriticalSpaceFighters;
             retval.CriticalSpaceSmallCraft = CriticalSpaceSmallCraft;
             retval.CriticalSpaceDropShips = CriticalSpaceDropShips;
+            retval.BV = BV;
+            retval.DefensiveBV = DefensiveBV;
             foreach (string s in Aliases) retval.AddAlias(s);
             return retval;
         }
@@ -64,5 +66,8 @@ namespace BattleTechNET.Common
             return this; 
         }
         public IAliasable ClearAliasList() { AliasList.Clear(); return this; }
+
+        public virtual double BV { get; set; }
+        public bool DefensiveBV { get; set; }
     }
 }

@@ -30,6 +30,7 @@ namespace BattleTechNET.Common
             WeightMultiplier = selectedGyro.WeightMultiplier;
             CriticalSpaceMech = selectedGyro.CriticalSpaceMech;
             TechnologyBase = selectedGyro.TechnologyBase;
+            BattleValueModifier = selectedGyro.BattleValueModifier;
 
             double adjustedEngineRating = iEngineRating / 100D;
             double adjustedTonnage = Math.Ceiling(adjustedEngineRating);
@@ -45,10 +46,10 @@ namespace BattleTechNET.Common
         {
             List<ComponentGyro> retval = new List<ComponentGyro>();
 
-            ComponentGyro standardGyro = new ComponentGyro() { Name = "Standard Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 4, WeightMultiplier = 1 };
-            ComponentGyro compactGyro = new ComponentGyro() { Name = "Compact Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 2, WeightMultiplier = 1.5 };
-            ComponentGyro heavyDutyGyro = new ComponentGyro() { Name = "Heavy-Duty Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 4, WeightMultiplier = 2.0 };
-            ComponentGyro extraLightGyro = new ComponentGyro() { Name = "Extra-Light Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 6, WeightMultiplier = 0.5 };
+            ComponentGyro standardGyro = new ComponentGyro() { Name = "Standard Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 4, WeightMultiplier = 1,BattleValueModifier = 0.5 };
+            ComponentGyro compactGyro = new ComponentGyro() { Name = "Compact Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 2, WeightMultiplier = 1.5, BattleValueModifier = 0.5 };
+            ComponentGyro heavyDutyGyro = new ComponentGyro() { Name = "Heavy-Duty Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 4, WeightMultiplier = 2.0, BattleValueModifier = 1.0 };
+            ComponentGyro extraLightGyro = new ComponentGyro() { Name = "Extra-Light Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 6, WeightMultiplier = 0.5, BattleValueModifier = 0.5 };
 
             retval.Add(standardGyro);
             retval.Add(compactGyro);
@@ -67,8 +68,10 @@ namespace BattleTechNET.Common
         {
             ComponentGyro retval = base.Clone() as ComponentGyro;
             retval.WeightMultiplier = WeightMultiplier;
+            retval.BattleValueModifier = BattleValueModifier;
             return retval;
         }
+        public double BattleValueModifier { get; set; }
     }
 }
 

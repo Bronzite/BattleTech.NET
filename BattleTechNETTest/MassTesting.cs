@@ -21,24 +21,13 @@ namespace BattleTechNETTest
         {
             _outputHelper = testOutputHelper;
         }
-        //Recursive file get
-        private string[] GetFiles(string sDirectory,string sPattern)
-        {
-            List<string> retval = new List<string>();
-            string[] sDirectories = Directory.GetDirectories(sDirectory);
-            foreach(string sSubdirectory in sDirectories)
-            {
-                retval.AddRange(GetFiles(sSubdirectory, sPattern));
-            }
-            retval.AddRange(Directory.GetFiles(sDirectory, sPattern));
-            return retval.ToArray();
-        }
+
 
         [Trait("Category", "MTF Reader")]
         [Fact(DisplayName="Load MegaMek Files")]
         public void TestMegaMekFiles()
         {
-            string[] sFiles = GetFiles(sDirectory,"*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory,"*.mtf");
 
             int iLoadCount = 0;
 
@@ -63,7 +52,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Count Loadable MTF Files")]
         public void TestCount()
         {
-            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
 
             int iLoadCount = 0;
             int iFileCount = 0;
@@ -89,7 +78,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Mass Check MegaMek Files")]
         public void MassCheckMegaMekFiles()
         {
-            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             
             foreach (string sFile in sFiles)
@@ -119,7 +108,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Clan Mass Check MegaMek Files")]
         public void MassCheckClanMegaMekFiles()
         {
-            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             int iClanMechCount = 0;
             if (sFiles == null) return;
@@ -157,7 +146,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Inner Sphere Mass Check MegaMek Files")]
         public void MassCheckISMegaMekFiles()
         {
-            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             int iInnerSphereMechCount = 0;
             if (sFiles == null) return;
@@ -195,7 +184,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Mixed Techbase Mass Check MegaMek Files")]
         public void MassCheckMixedTechbaseMegaMekFiles()
         {
-            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
             int iLoadCount = 0;
             int iMixedTechBaseMechCount = 0;
             if (sFiles == null) return;

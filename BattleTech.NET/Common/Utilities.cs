@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BattleTechNET.TotalWarfare;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -93,6 +94,32 @@ namespace BattleTechNET.Common
                 }
             }
             return false;
+        }
+
+        static public bool LocationHasCASE(BattleMechHitLocation hitLocation)
+        {
+            foreach (CriticalSlot slot in hitLocation.CriticalSlots)
+            {
+                if (slot.AffectedComponent != null)
+                {
+                    ComponentCASE caseComponent = slot.AffectedComponent.Component as ComponentCASE;
+                    if (caseComponent != null) return true;
+                }
+            }
+            return false;
+        }
+
+        public static int MaxmiumDefensiveModifier(BattleMechDesign design)
+        {
+            //TODO: Need to add calculations for MASC, TSM, and Stealth
+            //Armor TM315
+            double WalkDistance = Math.Truncate(design.Engine.EngineRating / design.Tonnage);
+            double RunDistance = Math.Round(WalkDistance * 1.5D, 0);
+            int iRunModifier = BattleTechNET.TotalWarfare.CombatRules.TargetMovementModifier(RunDistance);
+            int iJumpModifier = BattleTechNET.TotalWarfare.CombatRules.TargetMovementModifier((double)design.JumpMP) + 1;
+
+
+            return (Math.Max(iRunModifier, iJumpModifier));
         }
     }
 }

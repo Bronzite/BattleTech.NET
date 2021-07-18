@@ -1,0 +1,55 @@
+{
+  "testCases": [
+    {
+      "variant": "LCT-1M",
+      "model": "Locust",
+      "bV": 424
+    },
+    {
+      "variant": "MON-66",
+      "model": "Mongoose",
+      "bV": 758
+    },
+    {
+      "variant": "LCT-1E",
+      "model": "Locust",
+      "bV": 553
+    },
+    {
+      "variant": "LCT-1L",
+      "model": "Locust",
+      "bV": 474
+    },
+
+    {
+      "variant": "LCT-1S",
+      "model": "Locust",
+      "bV": 440
+    },
+    {
+      "variant": "LCT-1V",
+      "model": "Locust",
+      "bV": 432
+    },
+    {
+      "variant": "LCT-3V",
+      "model": "Locust",
+      "bV": 490
+    },
+    {
+      "variant": "AS7-D",
+      "model": "Atlas",
+      "bV": 1897
+    },
+    {
+      "variant": "AS7-D-DC",
+      "model": "Atlas",
+      "bV": 1858
+    },
+    {
+      "variant": "AS7-RS",
+      "model": "Atlas",
+      "bV": 1849
+    }
+  ]
+}

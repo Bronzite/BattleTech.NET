@@ -53,6 +53,8 @@ namespace BattleTechNET.Common
             ComponentHatchet retval = base.Clone() as ComponentHatchet;
             return retval;
         }
+
+        public override double BV { get => (int)(Damage * 1.5); set => base.BV = value; }
     }
 }
 

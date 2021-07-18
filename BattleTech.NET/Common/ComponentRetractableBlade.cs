@@ -83,6 +83,8 @@ namespace BattleTechNET.Common
             ComponentRetractableBlade retval = base.Clone() as ComponentRetractableBlade;
             return retval;
         }
+
+        public override double BV { get => (int)((double)(Damage) * 1.725); set => base.BV = value; }
     }
 }
 

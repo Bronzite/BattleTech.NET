@@ -101,6 +101,20 @@ namespace BattleTechNET.Common
             ComponentEngine retval = base.Clone() as ComponentEngine;
             return retval;
         }
+        
+        /// <summary>
+        /// The number of Heat Sinks that don't require critical slots, and
+        /// are considered integral to this engine. (TM53)
+        /// </summary>
+        public int CriticalFreeHeatSinks
+        {
+            get
+            {
+                double criticalFreeHeatSinks = Math.Truncate((double)EngineRating / 25D);
+                return (int)criticalFreeHeatSinks;
+            }
+        }
+
     }
 }
 

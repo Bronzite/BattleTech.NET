@@ -58,5 +58,14 @@ namespace BattleTechNET.Common
             return new ComponentWeaponClustered();
         }
 
+        public override double BVHeatPoints
+        {
+            get {
+                if (Name.EndsWith("(OS)")) return (double)Heat / 4;
+                if (Streak) return (double)Heat / 2;
+                return (double)Heat;
+            }
+        }
+
     }
 }

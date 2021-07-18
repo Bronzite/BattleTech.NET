@@ -45,7 +45,9 @@ namespace BattleTechNET.Common
         public int ShortRangeDamage { get; set; }
         public int MediumRangeDamage { get; set; }
         public int LongRangeDamage { get; set; }
-
+        //Damage done when weapon is critted.  Used for Gauss Rifles.
+        //Also used to calculate defensive BV (TM302).
+        public int VolatileDamage { get; set; }
         public void CopyComponents(ComponentWeapon weapon)
         {
             Name = weapon.Name;
@@ -103,6 +105,7 @@ namespace BattleTechNET.Common
             retval.ShortRangeDamage = ShortRangeDamage;
             retval.MediumRangeDamage = MediumRangeDamage;
             retval.LongRangeDamage = LongRangeDamage;
+            retval.BV = BV;
             return retval;
         }
         public ComponentWeapon SetRangeDamage(int iShort, int iMedium, int iLong)
@@ -115,6 +118,13 @@ namespace BattleTechNET.Common
         public override Component CreateInstance()
         {
             return new ComponentWeapon();
+        }
+
+        public virtual double BVHeatPoints { 
+            get 
+            { 
+                return Heat;
+            } 
         }
     }
 }

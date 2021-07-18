@@ -478,6 +478,7 @@ namespace BattleTechNET.Data
                                 int iStructureAmount = BattleMechDesign.InternalStructureByLocation(bmhl.Name, (int)retval.Tonnage);
                                 bmhl.Structure.MaxStructurePoints = iStructureAmount;
                                 bmhl.Structure.StructurePoints = iStructureAmount;
+                                bmhl.Structure.StructureType = retval.StructureType;
                             }
                             if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }

@@ -99,10 +99,12 @@ namespace BattleTechNET.Common
                     CriticalSpaceSupportVehicle = 1,
                     CriticalSpaceSmallCraft = 1,
                     CriticalSpaceFighters = 1,
-                    CriticalSpaceDropShips = 0
+                    CriticalSpaceDropShips = 0,
+                    BV = 10,
+                    DefensiveBV = true
                 }
                 .AddAlias("BeagleActiveProbe")
-                .AddAlias("ISBeagleActiveProbe") as ComponentElectronicWarfare); //TM342
+                .AddAlias("ISBeagleActiveProbe") as ComponentElectronicWarfare) ; //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "Light Active Probe",

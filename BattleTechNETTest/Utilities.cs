@@ -2,6 +2,7 @@
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace BattleTechNETTest
 {
@@ -27,6 +28,18 @@ namespace BattleTechNETTest
             return false;
         }
 
+        //Recursive file get
+        static public string[] GetFiles(string sDirectory, string sPattern)
+        {
+            List<string> retval = new List<string>();
+            string[] sDirectories = Directory.GetDirectories(sDirectory);
+            foreach (string sSubdirectory in sDirectories)
+            {
+                retval.AddRange(GetFiles(sSubdirectory, sPattern));
+            }
+            retval.AddRange(Directory.GetFiles(sDirectory, sPattern));
+            return retval.ToArray();
+        }
 
         static public Element GenerateASBattleMech(string sName, int iSize, int iWalk, int iJump, int iArmor, int iStructure, int iShort, int iMedium, int iLong)
         {

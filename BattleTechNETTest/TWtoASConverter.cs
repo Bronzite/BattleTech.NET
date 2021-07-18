@@ -158,7 +158,6 @@ namespace BattleTechNETTest
         }
         
         [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
-        //[Fact(DisplayName = "AS7-D REAR Ability",Skip="Fixing MTF Load")]
         [Fact(DisplayName = "AS7-D REAR Ability")]
         public void CheckAS7DREARAbility()
         {
@@ -210,7 +209,6 @@ namespace BattleTechNETTest
         [MemberData(nameof(GetWeaponConversionTestCases))]
         public void CheckWeaponDamageValues(ComponentWeapon weapon, double expectedShortRangeValue, double expectedMediumRangeValue, double expectedLongRangeValue, double expectedExtremeRangeValue)
         {
-            if (weapon.Name == "Hyper-Assault Gauss 30") weapon.Clone();
             AlphaStrikeWeapon asw = WeaponConverter.ConvertTotalWarfareWeapon(weapon);
             Assert.Equal(expectedShortRangeValue, asw.ShortRangeDamage);
             Assert.Equal(expectedMediumRangeValue, asw.MediumRangeDamage);
