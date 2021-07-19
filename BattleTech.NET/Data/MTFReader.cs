@@ -77,13 +77,17 @@ namespace BattleTechNET.Data
                 if (sLines[2].Trim() != "") retval.Variant = sLines[2];
                 retval.HitLocations = new List<HitLocation>();
                 retval.Components = new List<UnitComponent>();
+                bool bTextMode = false;
+                int iLoadedHitLocations = 0;
                 string sConfig = "";
                 for (int i = 3;i < sLines.Length;i ++)
                 {
-                    if(sLines[i] != "")
+                    if(sLines[i] != "" && !bTextMode)
                     {
+                        
                         KeyValuePair<string, string> kvp = GetKVP(sLines[i]);
-                        if (kvp.Key == "Config")
+                        //if (kvp.Key.Equals("Overview", StringComparison.CurrentCultureIgnoreCase)) bTextMode = true;
+                        if (kvp.Key.Equals("Config",StringComparison.CurrentCultureIgnoreCase))
                         {
                             sConfig = kvp.Value;
                             if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
@@ -390,7 +394,7 @@ namespace BattleTechNET.Data
                                 retval.HitLocations.Add(mhlRearRightLeg);
                             }
                         }
-                        if(kvp.Key == "TechBase")
+                        if (kvp.Key.Equals("TechBase", StringComparison.CurrentCultureIgnoreCase))
                         {
                             bool bValidTechBase = false;
                             if(Utilities.IsSynonymFor(kvp.Value,"Inner Sphere"))
@@ -418,7 +422,7 @@ namespace BattleTechNET.Data
                             if (!bValidTechBase) throw new Exception($"Could not identify Tech Base {kvp.Value}");
 
                         }
-                        if (kvp.Key == "Mass")
+                        if (kvp.Key.Equals("Mass", StringComparison.CurrentCultureIgnoreCase))
                         {
                             int iMass = 0;
                             if(!int.TryParse(kvp.Value, out iMass))
@@ -427,7 +431,7 @@ namespace BattleTechNET.Data
                             }
                             retval.Tonnage = iMass;
                         }
-                        if(kvp.Key == "Gyro" && kvp.Value.Trim() != "")
+                        if(kvp.Key.Equals("Gyro",StringComparison.CurrentCultureIgnoreCase) && kvp.Value.Trim() != "")
                         {
                             ComponentGyro gyro = new ComponentGyro(retval.Engine.EngineRating, kvp.Value);
                             HitLocation hit = retval.GetHitLocationByName("CT");
@@ -435,7 +439,7 @@ namespace BattleTechNET.Data
                             retval.Components.Add( new UnitComponent(gyro,hit));
                             bGyroscope = true;
                         }
-                        if(kvp.Key == "Engine")
+                        if(kvp.Key.Equals("Engine",StringComparison.CurrentCultureIgnoreCase))
                         {
                             int iSpaceIndex = kvp.Value.IndexOf(' ');
                             if(iSpaceIndex==-1)
@@ -461,7 +465,7 @@ namespace BattleTechNET.Data
                             
 
                         }
-                        if(kvp.Key == "Structure")
+                        if (kvp.Key.Equals("Structure", StringComparison.CurrentCultureIgnoreCase))
                         {
                             foreach(StructureType curStructureType in StructureType.GetCanonicalStructureTypes())
                             {
@@ -482,7 +486,7 @@ namespace BattleTechNET.Data
                             }
                             if (retval.StructureType == null) throw new Exception(string.Format("Cannot find structure type: {0}", kvp.Value));
                         }
-                        if (kvp.Key == "Myomer")
+                        if (kvp.Key.Equals("Myomer", StringComparison.CurrentCultureIgnoreCase))
                         {
                             //Note: MTF Files frequently list Standard Myomer, 
                             //but subsequently have MASC critical hit locations
@@ -500,7 +504,7 @@ namespace BattleTechNET.Data
                             }
                             if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
                         }
-                        if (kvp.Key == "Armor")
+                        if (kvp.Key.Equals("Armor", StringComparison.CurrentCultureIgnoreCase))
                         {
                             foreach (ArmorType curArmorType in ArmorType.CanonicalArmorTypes())
                             {
@@ -519,12 +523,12 @@ namespace BattleTechNET.Data
                             }
                             if (retval.MyomerType == null) throw new Exception(string.Format("Cannot find Myomer type: {0}", kvp.Value));
                         }
-                        if (kvp.Key.Contains(" Armor"))
+                        if (kvp.Key.Contains(" Armor") || kvp.Key.Contains(" armor"))
                         {
                             int iArmorAmount = 0;
                             if (!int.TryParse(kvp.Value, out iArmorAmount))
                                 throw new Exception($"Unable to get value from {kvp.Key}:{kvp.Value} at line {i+1}.");
-                            string sArmorLocationKey = kvp.Key.Replace(" Armor", "").Trim();
+                            string sArmorLocationKey = kvp.Key.Replace(" Armor", "").Replace(" armor","").Trim();
                             foreach(BattleMechHitLocation bmhl in retval.HitLocations)
                             {
                                 if (bmhl.ArmorFacings.ContainsKey(sArmorLocationKey))
@@ -534,7 +538,7 @@ namespace BattleTechNET.Data
                             }
 
                         }
-                        if(kvp.Key.Equals("Cockpit") && kvp.Value != "")
+                        if(kvp.Key.Equals("Cockpit",StringComparison.CurrentCultureIgnoreCase) && kvp.Value != "")
                         {
                             string sCockpitType = kvp.Value.Trim();
                             bool bIncludeCommandConsole = false;
@@ -582,7 +586,7 @@ namespace BattleTechNET.Data
                             }
                             bCockpit = true;
                         }
-                        if(kvp.Key == "Jump MP")
+                        if(kvp.Key.Equals("Jump MP", StringComparison.CurrentCultureIgnoreCase))
                         {
                             //Is this needed?  Do we care?
                             int iJumpMP = int.Parse(kvp.Value);
@@ -601,6 +605,7 @@ namespace BattleTechNET.Data
                                         selectedLocation = bmhl;
                                     }
                                 }
+                                iLoadedHitLocations++;
                                 for (int j = 0; j<CriticalHitSlotCount[sKey];j++)
                                 {
                                     i++;
@@ -611,7 +616,7 @@ namespace BattleTechNET.Data
                                         j = CriticalHitSlotCount[sKey];
                                     else
                                     {
-                                        CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Replace("(omnipod)","").Trim(), Location = selectedLocation, SlotNumber = j ,Omnipod = sLines[i].Contains("(omnipod)")};
+                                        CriticalSlot criticalSlot = new CriticalSlot() { Label = sLines[i].Replace("(omnipod)","").Replace("(OMNIPOD)","").Trim(), Location = selectedLocation, SlotNumber = j ,Omnipod = sLines[i].Contains("(omnipod)")};
                                         if (Utilities.IsSynonymFor(criticalSlot.Label, "-Empty-")) criticalSlot.RollAgain = true;
                                         foreach(ComponentAmmunition componentAmmunition in ComponentLibrary.Ammunitions)
                                         {
@@ -638,8 +643,10 @@ namespace BattleTechNET.Data
                                 }
 
                             }
+                            if (iLoadedHitLocations == retval.HitLocations.Count) bTextMode = true;
+                            
                         }
-                        if (kvp.Key.Equals("Heat Sinks"))
+                        if (kvp.Key.Equals("Heat Sinks",StringComparison.CurrentCultureIgnoreCase))
                         {
                             string[] sFields = kvp.Value.Split(' ');
                             int iHeatSinkCount = int.Parse(sFields[0]);
@@ -662,7 +669,7 @@ namespace BattleTechNET.Data
                             }
                             
                         }
-                        if (kvp.Key.Equals("Weapons"))
+                        if (kvp.Key.Equals("Weapons",StringComparison.CurrentCultureIgnoreCase))
                         {
                             //This is just unreliable.  (Caesar CES-4R has wrong value,
                             //FS9-B has too high a value.)
@@ -759,6 +766,7 @@ namespace BattleTechNET.Data
                         }
 
                     }
+                    
                 }
 
                 if(!bGyroscope)
@@ -994,7 +1002,7 @@ namespace BattleTechNET.Data
                     if (bmhl.CriticalSlots != null)
                         foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
                         {
-                            string sSlotName = criticalSlot.Label.Replace("(omnipod)", "").Trim();
+                            string sSlotName = criticalSlot.Label.Replace("(omnipod)", "").Replace("(OMNIPOD)", "").Trim();
                             foreach (Component weapon in ComponentLibrary.Weapons.Values)
                             {
                                 ComponentAntiPersonnelPod antiPersonnelPod = weapon as ComponentAntiPersonnelPod;
@@ -1016,7 +1024,7 @@ namespace BattleTechNET.Data
             }
             catch (Exception ex)
             {
-                throw new Exception("Exception reading Battlemech Design",ex);
+                throw new Exception($"Exception reading Battlemech Design",ex);
             }
 
             return retval;

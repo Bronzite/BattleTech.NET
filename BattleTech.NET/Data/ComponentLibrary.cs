@@ -27,8 +27,10 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
                         .AddAlias(new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half", "Clan Machine Gun Ammo - Half", "Clan Light Machine Gun Ammo - Half" }) as ComponentAmmunition); 
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
-                        .AddAlias("ISLightMG Ammo (200)") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }); 
+                    .AddAlias("IS Light Machine Gun Ammo - Full")
+                    .AddAlias("ISLightMG Ammo (200)") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
+                        .AddAlias("IS Light Machine Gun Ammo - Half") as ComponentAmmunition); 
                     privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
                         .AddAlias("Clan Heavy Machine Gun Ammo - Full") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
@@ -158,11 +160,14 @@ namespace BattleTechNET.Data
                         .AddAlias("IS Heavy Gauss Ammo")
                         .AddAlias("ISHeavyGauss Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 20 Ammo", 6, "F", TECHNOLOGY_BASE.CLAN) { Volatile=false,BV = 33}
+                    .AddAlias("Hyper-Assault Gauss Rifle/20 Ammo")
                         .AddAlias("HAG/20 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 30 Ammo", 4, "F", TECHNOLOGY_BASE.CLAN) { Volatile = false,BV=50 }
-                        .AddAlias("HAG/30 Ammo") as ComponentAmmunition);
+                    .AddAlias("Hyper-Assault Gauss Rifle/30 Ammo")
+                    .AddAlias("HAG/30 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 40 Ammo", 3, "F", TECHNOLOGY_BASE.CLAN) { Volatile = false,BV=67 }
-                        .AddAlias("HAG/40 Ammo") as ComponentAmmunition);
+                    .AddAlias("Hyper-Assault Gauss Rifle/40 Ammo")
+                    .AddAlias("HAG/40 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Vehicle Flamer Ammo", 20, "A", TECHNOLOGY_BASE.BOTH)); //TODO: Does this have no BV?
                     privateAmmunitionList.Add(new ComponentAmmunition("Plasma Cannon Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 21 }
                         .AddAlias("CLPlasmaCannonAmmo") as ComponentAmmunition);
@@ -1044,6 +1049,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=15
             }
+             .AddAlias("CLHeavySmallLaser") as ComponentWeapon
             },
             {"Heavy Medium Laser",new ComponentWeapon() //TM341
             {
@@ -1072,6 +1078,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=76
             }
+            .AddAlias("CLHeavyMediumLaser") as ComponentWeapon
             },
              {"Heavy Large Laser",new ComponentWeapon() //TM341
             {
@@ -1100,6 +1107,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=244
             }
+             .AddAlias("CLHeavyLargeLaser") as ComponentWeapon
             },
               {"PPC",new ComponentWeapon() //TM341
             {
@@ -2716,6 +2724,7 @@ namespace BattleTechNET.Data
             .AddAlias("LAC2")
                 .AddAlias("LAC/2")
                 .AddAlias("Light Autocannon/2")
+                .AddAlias("Light AC/2")
                 .AddAlias("ISLAC2")
                 .AddAlias("Light Auto Cannon/2") as ComponentWeapon
             },
@@ -2750,6 +2759,7 @@ namespace BattleTechNET.Data
             .AddAlias("LAC5")
                 .AddAlias("LAC/5")
                 .AddAlias("Light Autocannon/5")
+                .AddAlias("Light AC/5")
                 .AddAlias("ISLAC5")
                 .AddAlias("Light Auto Cannon/5") as ComponentWeapon
             },
@@ -3195,6 +3205,7 @@ namespace BattleTechNET.Data
                 VolatileDamage = 10,
                 BV = 267
             }
+            .AddAlias("CLHAG20")
             .AddAlias("HAG/20") as ComponentWeapon
             },
             {"Hyper-Assault Gauss 30",new ComponentWeaponClustered() //TM341
@@ -3226,6 +3237,7 @@ namespace BattleTechNET.Data
                 VolatileDamage = 15,
                 BV = 401
             }
+            .AddAlias("CLHAG30")
             .AddAlias("HAG/30") as ComponentWeapon
             },
             {"Hyper-Assault Gauss 40",new ComponentWeaponClustered() //TM341
@@ -3257,6 +3269,7 @@ namespace BattleTechNET.Data
                 VolatileDamage = 20,
                 BV = 535
             }
+            .AddAlias("CLHAG40")
             .AddAlias("HAG/40") as ComponentWeapon
             },
              {"Clan Gauss Rifle",new ComponentWeapon() //TM341
@@ -3852,6 +3865,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 53
             }
+            .AddAlias("CLATM3") as ComponentWeapon
             },
             {"ATM 6",new ComponentWeapon() //TM343
             {
@@ -3880,7 +3894,7 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 105
-            }
+            }.AddAlias("CLATM6") as ComponentWeapon
             },
             {"ATM 9",new ComponentWeapon() //TM343
             {
@@ -3910,6 +3924,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 147
             }
+            .AddAlias("CLATM9") as ComponentWeapon
             },
             {"ATM 12",new ComponentWeapon() //TM343
             {
@@ -3939,6 +3954,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 212
             }
+            .AddAlias("CLATM12") as ComponentWeapon
             },
             {"Rocket Launcher 10",new ComponentWeaponClustered() //TM342
             {
@@ -4653,7 +4669,9 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 1 //Defensive
-            }.AddAlias("CLAntiPersonnelPod") as ComponentWeapon
+            }
+            .AddAlias("ISAntiPersonnelPod")
+            .AddAlias("CLAntiPersonnelPod") as ComponentWeapon
             },
             {"Clan B-Pod",new ComponentAntiPersonnelPod() //TM341
             {
@@ -4682,6 +4700,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 2 //Defensive
             }
+            .AddAlias("Anti-BattleArmor Pods (B-Pods)") as ComponentWeapon
             },
              {"Taser",new ComponentWeapon() //TO410
             {
