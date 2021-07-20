@@ -31,11 +31,13 @@ namespace BattleTechNET.Common
                     Name = "Double Heat Sink";
                     CriticalSpaceMech = 3;
                 }
+                HeatDissipation = 2;
             }
             else
             {
                 Name = "Heat Sink";
                 CriticalSpaceMech = 1;
+                HeatDissipation = 1;
             }
             Integral = bIntegral;
             if (Integral)

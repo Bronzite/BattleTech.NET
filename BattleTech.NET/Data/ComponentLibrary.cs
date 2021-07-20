@@ -182,24 +182,28 @@ namespace BattleTechNET.Data
                         .AddAlias("Clan Ammo ATM-9") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 Ammo", 5, "F", TECHNOLOGY_BASE.CLAN) { BV = 52 }
                         .AddAlias("Clan Ammo ATM-12") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.BOTH) { BV = 7 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 6 }
                         .AddAlias("IS Ammo LRM-5")
-                        .AddAlias("ISLRM5 Ammo")
+                        .AddAlias("ISLRM5 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.CLAN) { BV = 7 }
                         .AddAlias("Clan Ammo LRM-5")
                         .AddAlias("CLLRM5 Ammo") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Ammo", 12, "C", TECHNOLOGY_BASE.BOTH) { BV = 14 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Ammo", 12, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 11 }
                         .AddAlias("IS Ammo LRM-10")
-                        .AddAlias("ISLRM10 Ammo")
+                        .AddAlias("ISLRM10 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 10 Ammo", 12, "C", TECHNOLOGY_BASE.CLAN) { BV = 14 }
                         .AddAlias("Clan Ammo LRM-10")
                         .AddAlias("CLLRM10 Ammo") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Ammo", 8, "C", TECHNOLOGY_BASE.BOTH) { BV = 21 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Ammo", 8, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 17 }
                         .AddAlias("IS Ammo LRM-15")
-                        .AddAlias("ISLRM15 Ammo")
+                        .AddAlias("ISLRM15 Ammo") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 15 Ammo", 8, "C", TECHNOLOGY_BASE.CLAN) { BV = 21 }
                         .AddAlias("Clan Ammo LRM-15")
                         .AddAlias("CLLRM15 Ammo") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.BOTH) { BV = 27 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 23 }
                         .AddAlias("IS Ammo LRM-20")
-                        .AddAlias("Clan Ammo LRM-20")
+                        .AddAlias("Clan Ammo LRM-20") as ComponentAmmunition);
+                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.CLAN) { BV = 27 }
                         .AddAlias("ISLRM20 Ammo")
                         .AddAlias("CLLRM20 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Ammo", 40, "E", TECHNOLOGY_BASE.INNERSPHERE) { BV = 4 }

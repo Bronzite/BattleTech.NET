@@ -114,9 +114,9 @@ namespace BattleTechNET.Common
             //TODO: Need to add calculations for MASC, TSM, and Stealth
             //Armor TM315
             double WalkDistance = Math.Truncate(design.Engine.EngineRating / design.Tonnage);
-            double RunDistance = Math.Round(WalkDistance * 1.5D, 0);
+            double RunDistance = Math.Round(WalkDistance * 1.5D, 0,MidpointRounding.AwayFromZero);
             int iRunModifier = BattleTechNET.TotalWarfare.CombatRules.TargetMovementModifier(RunDistance);
-            int iJumpModifier = BattleTechNET.TotalWarfare.CombatRules.TargetMovementModifier((double)design.JumpMP) + 1;
+            int iJumpModifier = BattleTechNET.TotalWarfare.CombatRules.TargetMovementModifier((double)design.JumpMP);// + 1;
 
 
             return (Math.Max(iRunModifier, iJumpModifier));

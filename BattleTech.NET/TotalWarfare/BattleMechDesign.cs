@@ -57,7 +57,7 @@ namespace BattleTechNET.TotalWarfare
                 bvDefensiveEquipment.Parent = bvDefensive;
                 BattleValueNode bvWeapons = new BattleValueNode() { Name = "Weapons" };
                 bvWeapons.Parent = bvOffensive;
-                List<ComponentWeapon> lstWeapons = new List<ComponentWeapon>();
+                List<UnitComponent> lstWeapons = new List<UnitComponent>();
                 List<ComponentAmmunition> lstAmmunition = new List<ComponentAmmunition>();
                 ComponentGyro gyro = null;
                 double dMaximumHeat = 0;
@@ -71,7 +71,7 @@ namespace BattleTechNET.TotalWarfare
                     ComponentWeapon curWeapon = curUnitComponent.Component as ComponentWeapon;
                     if (curWeapon != null)
                     {
-                        lstWeapons.Add(curWeapon);
+                        lstWeapons.Add(curUnitComponent);
                         if (curWeapon.VolatileDamage > 0)
                         {
                             double dExplosiveAmmoFactor = 0;
@@ -105,12 +105,6 @@ namespace BattleTechNET.TotalWarfare
                         if (curWeapon.Name.Contains("Streak")) iHeat /= 2; //TM303
                         if (curWeapon.Name.Contains("(OS)")) iHeat /= 4; //TM303
                         dMaximumHeat += (double)iHeat;
-                        //dWeaponBV += curWeapon.BV;
-                        if (curWeapon.BV > 0)
-                        {
-                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{curUnitComponent.Component.Name} {curUnitComponent.HitLocation}", Summand = curWeapon.BV };
-                            bvWeapon.Parent = bvWeapons;
-                        }
                     }
 
 
@@ -173,12 +167,12 @@ namespace BattleTechNET.TotalWarfare
 
                 double dDefensiveFactor = 1D + ((double)Utilities.MaxmiumDefensiveModifier(this) / 10D);
 
-                //double dDefensiveBV = (dGyro + dExplosiveAmmoFactor + dArmorFactor + dStructureFactor + dDefensiveEquipment) * dDefensiveFactor;
                 bvDefensive.Factor = dDefensiveFactor;
 
                 //Offensive BV (TM303)
                 double dOffensiveBV = 0;
-                double dMechHeatEfficiency = 6 + HeatDissipation - Math.Max(3, JumpMP);
+                double dMechHeatEfficiency = 6 + HeatDissipation - 2;
+                if (JumpMP > 0) dMechHeatEfficiency = 6 + HeatDissipation - Math.Max(3, JumpMP);
                 double dOffensiveWeaponBV = 0;
                 double dOffensiveAmmoBV = 0;
                 double dOffensiveOtherBV = 0;
@@ -186,52 +180,74 @@ namespace BattleTechNET.TotalWarfare
 
                 //TODO: ICE-powered Mechs should have a Movment Heat of zero.
 
-                foreach (ComponentWeapon weapon in lstWeapons)
+                foreach (UnitComponent unitWeapon in lstWeapons)
                 {
+                    ComponentWeapon weapon = unitWeapon.Component as ComponentWeapon;
                     dTotalHeat += weapon.BVHeatPoints;
                     dOffensiveWeaponBV += weapon.BV;
                 }
 
 
 
-                if (dTotalHeat > dMechHeatEfficiency)
-                {
 
                     lstWeapons.Sort((a, b) =>
                     {
-                        if (a.BV != b.BV)
-                            return a.BV.CompareTo(b.BV);
+                        if (a.Component.BV != b.Component.BV)
+                            return b.Component.BV.CompareTo(a.Component.BV);
                         else
-                            return a.BVHeatPoints.CompareTo(b.BVHeatPoints);
+                        {
+                            if (a.RearFacing != b.RearFacing) return a.RearFacing.CompareTo(b.RearFacing);
+                            ComponentWeapon weapona = a.Component as ComponentWeapon;
+                            ComponentWeapon weaponb = b.Component as ComponentWeapon;
+                            return weapona.BVHeatPoints.CompareTo(weaponb.BVHeatPoints);
+                        }
                     });
                     double dSubtotalBV = 0;
                     double dSubtotalHeat = 0;
-                    Queue<ComponentWeapon> queueReductionSet = new Queue<ComponentWeapon>(lstWeapons);
+                    
+                    Queue<UnitComponent> queueReductionSet = new Queue<UnitComponent>(lstWeapons);
                     bool bAddAtHalfValue = false;
                     while (queueReductionSet.Count > 0)
                     {
 
-                        ComponentWeapon NextWeapon = queueReductionSet.Dequeue();
-                        dSubtotalHeat = NextWeapon.BVHeatPoints;
-                        if (dSubtotalHeat > dMechHeatEfficiency || NextWeapon.BVHeatPoints == 0)
+                        UnitComponent NextComponent = queueReductionSet.Dequeue();
+                    ComponentWeapon NextWeapon = NextComponent.Component as ComponentWeapon;
+                    
+                    //TODO: Technically we need to determine if RearFacing weapons out-BV forward-firing weapons in this location.
+                    if (dSubtotalHeat >= dMechHeatEfficiency && NextWeapon.BVHeatPoints > 0)
                         {
-                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name}", Summand = NextWeapon.BV / 2 };
-                            bvWeapon.Parent = bvWeapons;
+                            if (NextComponent.RearFacing)
+                            {
+                                BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name} ({NextComponent.HitLocationString} Quarter BV)", Summand = NextWeapon.BV / 4 };
+                                bvWeapon.Parent = bvWeapons;
+                            }
+                            else 
+                            {
+                                BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name} ({NextComponent.HitLocationString} Halved BV)", Summand = NextWeapon.BV / 2 };
+                                bvWeapon.Parent = bvWeapons;
+                            }
                         }
                         else
                         {
-                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name}", Summand = NextWeapon.BV };
-                            bvWeapon.Parent = bvWeapons;
+                            if (NextComponent.RearFacing)
+                            {
+                                BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name} ({NextComponent.HitLocationString} Halved BV)", Summand = NextWeapon.BV / 2 };
+                                bvWeapon.Parent = bvWeapons;
+                            }
+                            else
+                            {
+                                BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name} ({NextComponent.HitLocationString} Full BV)", Summand = NextWeapon.BV };
+                                bvWeapon.Parent = bvWeapons;
+                            }
                         }
+                    dSubtotalHeat += NextWeapon.BVHeatPoints;
 
-                    }
                 }
                 BattleValueNode bvAmmunition = new BattleValueNode() { Name = "Ammunition" };
                 bvAmmunition.Parent = bvOffensive;
                 foreach (ComponentAmmunition ammo in lstAmmunition)
                 {
                     //TODO: Excessive Ammo rule on TM303.
-                    //dOffensiveAmmoBV += ammo.BV;
                     BattleValueNode bvAmmo = new BattleValueNode() { Name = $"{ammo.Name}", Summand = ammo.BV };
                     bvAmmo.Parent = bvAmmunition;
                 }
@@ -264,29 +280,24 @@ namespace BattleTechNET.TotalWarfare
                 bvTonnage.Parent = bvOffensive;
                 if (MyomerType.Name.Contains("TSM")) bvTonnage.Factor = 1.5;
 
-                //dOffensiveBV = dOffensiveWeaponBV + dOffensiveAmmoBV + dOffensiveOtherBV + Tonnage;
-
-                int iSpeedFactorResult = RunMP + (int)Math.Round(((double)JumpMP / 2D) + 0.5);
-                //if (MyomerType.Name.Contains("MASC") || MyomerType.Name.Contains("TSM")) iSpeedFactorResult += 1;
+                int iSpeedFactorResult = RunMP + (int)Math.Round(((double)JumpMP / 2D),0,MidpointRounding.AwayFromZero);
 
                 //TechManual Errata 4.1
-                if (MyomerType.Name.Contains("MASC")) iSpeedFactorResult = (int)(WalkMP *2) + (int)Math.Round(((double)JumpMP / 2D) + 0.5);
+                if (MyomerType.Name.Contains("MASC")) iSpeedFactorResult = (int)(WalkMP *2) + (int)Math.Round(((double)JumpMP / 2D),0,MidpointRounding.AwayFromZero);
                 
                 //NOTE: We recalculate at 1, because TSM grants +2 Walk MP, but Heat Level 9 takes 1 MP.
-                if (MyomerType.Name.Contains("TSM")) iSpeedFactorResult = (int)Math.Round((WalkMP + 1) * 1.5 + 0.5) + (int)Math.Round(((double)JumpMP / 2D) + 0.5);
+                if (MyomerType.Name.Contains("TSM")) iSpeedFactorResult = (int)Math.Round((WalkMP + 1) * 1.5,0,MidpointRounding.AwayFromZero) + (int)Math.Round(((double)JumpMP / 2D),0,MidpointRounding.AwayFromZero);
 
 
                 double[] SpeedFactorTable = { 0.44, 0.54, 0.65, 0.77, 0.88, 1, 1.12, 1.24, 1.37, 1.50, 1.63, 1.76, 1.89, 2.02, 2.16, 2.3, 2.44, 2.58, 2.72, 2.86, 3, 3.15, 3.29, 3.44, 3.59, 3.75 };
 
-                //TODO: Adjust this speed factor for MASC/TSM
+                //TODO: If we're offscale high, ajust this speed factor for MASC/TSM
                 //double SpeedFactor = 1D + Math.Pow(((double)RunMP + ((double)JumpMP / 2D) - 5D) / 10D, 1.2); //TM315
 
                 double SpeedFactor = SpeedFactorTable[iSpeedFactorResult];
 
                 bvOffensive.Factor = SpeedFactor;
 
-
-                //iAccumulator = (int)Math.Round(dDefensiveBV + dOffensiveBV);
 
                 return ledger;
             
@@ -435,7 +446,7 @@ namespace BattleTechNET.TotalWarfare
         {
             get
             {
-                int iBaseRun = (int)Math.Floor((double)WalkMP * 1.5D);
+                int iBaseRun = (int)Math.Floor((double)WalkMP * 1.5D +0.5);
                 return iBaseRun;
             }
         }
@@ -473,7 +484,7 @@ namespace BattleTechNET.TotalWarfare
         {
             get
             {
-                int retval = Engine.CriticalFreeHeatSinks;
+                int retval = 0;// Engine.CriticalFreeHeatSinks;
                 foreach (UnitComponent unitComponent in Components)
                 {
                     ComponentHeatSink hs = unitComponent.Component as ComponentHeatSink;

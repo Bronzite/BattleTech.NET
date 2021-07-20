@@ -1,6 +1,21 @@
 {
   "testCases": [
     {
+      "variant": "STG-3G",
+      "model": "Stinger",
+      "bV": 497
+    },
+    {
+      "variant": "AS7-RS",
+      "model": "Atlas",
+      "bV": 1849
+    },
+    {
+      "variant": "AS7-D",
+      "model": "Atlas",
+      "bV": 1897
+    },
+    {
       "variant": "LCT-1M",
       "model": "Locust",
       "bV": 424
@@ -37,19 +52,293 @@
       "bV": 490
     },
     {
-      "variant": "AS7-D",
-      "model": "Atlas",
-      "bV": 1897
-    },
-    {
       "variant": "AS7-D-DC",
       "model": "Atlas",
       "bV": 1858
     },
+
     {
-      "variant": "AS7-RS",
-      "model": "Atlas",
-      "bV": 1849
+      "variant": "STG-3R",
+      "model": "Stinger",
+      "bV": 359
+    },
+    {
+      "variant": "WSP-1A",
+      "model": "Wasp",
+      "bV": 384
+    },
+    {
+      "variant": "WSP-1D",
+      "model": "Wasp",
+      "bV": 403
+    },
+    {
+      "variant": "WSP-1K",
+      "model": "Wasp",
+      "bV": 376
+    },
+    {
+      "variant": "WSP-1L",
+      "model": "Wasp",
+      "bV": 335
+    },
+    {
+      "variant": "WSP-1W",
+      "model": "Wasp",
+      "bV": 373
+    },
+    {
+      "variant": "VLK-QA",
+      "model": "Valkyrie",
+      "bV": 723
+    },
+    {
+      "variant": "VLK-QF",
+      "model": "Valkyrie",
+      "bV": 653
+    },
+    {
+      "variant": "OTT-7J",
+      "model": "Ostscout",
+      "bV": 596
+    },
+    {
+      "variant": "PXH-1",
+      "model": "Phoenix Hawk",
+      "bV": 1041
+    },
+    {
+      "variant": "PXH-1D",
+      "model": "Phoenix Hawk",
+      "bV": 1083
+    },
+    {
+      "variant": "PXH-1K",
+      "model": "Phoenix Hawk",
+      "bV": 1073
+    },
+    {
+      "variant": "GRF-1N",
+      "model": "Griffin",
+      "bV": 1272
+    },
+    {
+      "variant": "GRF-1S",
+      "model": "Griffin",
+      "bV": 1253
+    },
+    {
+      "variant": "SCP-1N",
+      "model": "Scorpion",
+      "bV": 1019
+    },
+    {
+      "variant": "SHD-2D",
+      "model": "Shadow Hawk",
+      "bV": 899
+    },
+    {
+      "variant": "SHD-2H",
+      "model": "Shadow Hawk",
+      "bV": 1064
+    },
+    {
+      "variant": "SHD-2K",
+      "model": "Shadow Hawk",
+      "bV": 1147
+    },
+    {
+      "variant": "WVR-6K",
+      "model": "Wolverine",
+      "bV": 1248
+    },
+    {
+      "variant": "WVR-6M",
+      "model": "Wolverine",
+      "bV": 1291
+    },
+    {
+      "variant": "WVR-6R",
+      "model": "Wolverine",
+      "bV": 1101
+    },
+    {
+      "variant": "OSR-2C",
+      "model": "Ostroc",
+      "bV": 1228
+    },
+    {
+      "variant": "OSR-2L",
+      "model": "Ostroc",
+      "bV": 1233
+    },
+    {
+      "variant": "OSR-2M",
+      "model": "Ostroc",
+      "bV": 1239
+    },
+    {
+      "variant": "OSR-3C",
+      "model": "Ostroc",
+      "bV": 1288
+    },
+    {
+      "variant": "OTL-4D",
+      "model": "Ostsol",
+      "bV": 1277
+    },
+    {
+      "variant": "OTL-4F",
+      "model": "Ostsol",
+      "bV": 1264
+    },
+    {
+      "variant": "RFL-3C",
+      "model": "Rifleman",
+      "bV": 1066
+    },
+    {
+      "variant": "RFL-3N",
+      "model": "Rifleman",
+      "bV": 1039
+    },
+    {
+      "variant": "RFL-4D",
+      "model": "Rifleman",
+      "bV": 1173
+    },
+    {
+      "variant": "CRD-3D",
+      "model": "Crusader",
+      "bV": 1338
+    },
+    {
+      "variant": "CRD-3K",
+      "model": "Crusader",
+      "bV": 1290
+    },
+    {
+      "variant": "CRD-3L",
+      "model": "Crusader",
+      "bV": 1297
+    },
+    {
+      "variant": "CRD-3R",
+      "model": "Crusader",
+      "bV": 1317
+    },
+    {
+      "variant": "TDR-5S",
+      "model": "Thunderbolt",
+      "bV": 1335
+    },
+    {
+      "variant": "TDR-5SE",
+      "model": "Thunderbolt",
+      "bV": 1414
+    },
+    {
+      "variant": "TDR-5SS",
+      "model": "Thunderbolt",
+      "bV": 1337
+    },
+    {
+      "variant": "ARC-2K",
+      "model": "Archer",
+      "bV": 1356
+    },
+    {
+      "variant": "ARC-2R",
+      "model": "Archer",
+      "bV": 1477
+    },
+    {
+      "variant": "ARC-2S",
+      "model": "Archer",
+      "bV": 1393
+    },
+    {
+      "variant": "ARC-2W",
+      "model": "Archer",
+      "bV": 1338
+    },
+    {
+      "variant": "WHM-6D",
+      "model": "Warhammer",
+      "bV": 1471
+    },
+    {
+      "variant": "WHM-6K",
+      "model": "Warhammer",
+      "bV": 1305
+    },
+
+    {
+      "variant": "WHM-6L",
+      "model": "Warhammer",
+      "bV": 1311
+    },
+    {
+      "variant": "WHM-6R",
+      "model": "Warhammer",
+      "bV": 1299
+    },
+    {
+      "variant": "MAD-3D",
+      "model": "Marauder",
+      "bV": 1470
+    },
+    {
+      "variant": "MAD-3L",
+      "model": "Marauder",
+      "bV": 1369
+    },
+    {
+      "variant": "MAD-3M",
+      "model": "Marauder",
+      "bV": 1335
+    },
+    {
+      "variant": "MAD-3R",
+      "model": "Marauder",
+      "bV": 1363
+    },
+    {
+      "variant": "GOL-1H",
+      "model": "Goliath",
+      "bV": 1449
+    },
+    {
+      "variant": "BLR-1D",
+      "model": "BattleMaster",
+      "bV": 1522
+    },
+    {
+      "variant": "BLR-1G",
+      "model": "BattleMaster",
+      "bV": 1519
+    },
+    {
+      "variant": "BLR-1G-DC",
+      "model": "BattleMaster",
+      "bV": 1494
+    },
+    {
+      "variant": "BLR-1S",
+      "model": "BattleMaster",
+      "bV": 1507
+    },
+    {
+      "variant": "LGB-0W",
+      "model": "Longbow",
+      "bV": 1337
+    },
+    {
+      "variant": "MAD-4A",
+      "model": "Marauder II",
+      "bV": 2073
     }
+
+
   ]
 }
