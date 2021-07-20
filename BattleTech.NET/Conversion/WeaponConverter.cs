@@ -26,10 +26,14 @@ namespace BattleTechNET.Conversion
                 else
                     DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
             }
+            //Here because we stopped counting Rotary AC's as Cluster weapons
+            //due to BV calculation code.
+            if (componentWeapon.Name.StartsWith("Rotary ")) DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(6, 7);
+
             //Ugly hack until we have multi-mode weapons set up
             //Per SO360
-            if (componentWeapon.Name.StartsWith("Ultra ")) DamageRating*=1.5;
 
+            if (componentWeapon.Name.StartsWith("Ultra ")) DamageRating *= 1.5;
             if (componentWeapon.LongRange >= 24) retval.ExtremeRangeDamage += DamageRating;
             if (componentWeapon.LongRange >= 16) retval.LongRangeDamage += DamageRating;
             if (componentWeapon.LongRange >= 4) retval.MediumRangeDamage += DamageRating;

@@ -2740,7 +2740,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 1,
                 Damage = 5,
                 AeroDamage = 5,
-                MinimumRange = 3,
+                MinimumRange = 0,
                 ShortRange = 5,
                 MediumRange = 10,
                 LongRange = 15,
