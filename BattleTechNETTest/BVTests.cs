@@ -7,24 +7,37 @@ using System.IO;
 using System.Text;
 using System.Text.Json;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BattleTechNETTest
 {
     public class BVTests
     {
+        private readonly ITestOutputHelper _outputHelper;
+
+        public BVTests(ITestOutputHelper testOutputHelper)
+        {
+            _outputHelper = testOutputHelper;
+        }
+
         [Trait("Battle Value", "BV Test")]
         [Theory(DisplayName = "BV BattleMech Theory")]
         [MemberData(nameof(GetBVTestCases))]
-        public void CheckWeaponDamageValues(BattleMechDesign battlemechDesign, BVDataPoint dataPoint)
+        public void BattletechValueConfirmation(BattleMechDesign battlemechDesign, BVDataPoint dataPoint)
         {
             int battlemechDesignBV = (int)battlemechDesign.BV;
             int datapointBV = (int)dataPoint.bV;
+
+            if(battlemechDesignBV != datapointBV)
+            {
+                _outputHelper.WriteLine(battlemechDesign.Ledger.RootNode.GetTree(0));
+            }
 
             Assert.Equal(datapointBV, battlemechDesignBV);
 
         }
 
-        static public IEnumerable<object[]> GetBVTestCases()
+        public static IEnumerable<object[]> GetBVTestCases()
         {
             //Load Variants
             string sDirectory = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}MassTesting{Path.DirectorySeparatorChar}";
@@ -32,8 +45,17 @@ namespace BattleTechNETTest
             Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign> designs = new Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign>();
             foreach(string mtfFile in mtfFiles)
             {
-                BattleMechDesign design = MTFReader.ReadBattleMechDesignFile(File.OpenRead(mtfFile));
-                designs.Add($"{design.Model} {design.Variant}", design);
+                try
+                {
+                    BattleMechDesign design = MTFReader.ReadBattleMechDesignFile(File.OpenRead(mtfFile));
+
+
+                    designs.Add($"{design.Model} {design.Variant}", design);
+                }
+                catch (Exception ex)
+                {
+                    
+                }
             }
             
 

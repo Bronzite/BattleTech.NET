@@ -17,10 +17,281 @@ namespace BattleTechNET.TotalWarfare
         {
             return string.Format("{0} {1}", this.Model, this.Variant);
         }
+
+        public BattleValueLedger Ledger
+        {
+            get
+            {
+                BattleValueLedger ledger = new BattleValueLedger();
+                ledger.RootNode.Name = $"{Model} {Variant} BV";
+                BattleValueNode bvOffensive = new BattleValueNode() { Name = "Offensive BV" };
+                bvOffensive.Parent = ledger.RootNode;
+                BattleValueNode bvDefensive = new BattleValueNode() { Name = "Defensive BV" };
+                bvDefensive.Parent = ledger.RootNode;
+                BattleValueNode bvArmorFactor = new BattleValueNode() { Name = "Armor BV" };
+                bvArmorFactor.Parent = bvDefensive;
+
+
+                //Armor Factor and Structure Factor
+                double dStructureFactor = 0;
+                foreach (ArmorHitLocation armorHitLocation in HitLocations)
+                {
+                    foreach (ArmorFacing facing in armorHitLocation.ArmorFacings.Values)
+                    {
+
+                        BattleValueNode bvnArmor = new BattleValueNode() { Name = $"{armorHitLocation.Name} {facing.Name} Armor", Summand = (double)facing.ArmorPoints * facing.ArmorType.BattleValueModifier, Factor = 2.5D };
+                        bvnArmor.Parent = bvArmorFactor;
+                    }
+                    dStructureFactor += 1.5D * (double)armorHitLocation.Structure.StructurePoints * Engine.BattleValueModifier * armorHitLocation.Structure.StructureType.BattleValueModifier;
+                }
+                BattleValueNode bvStructureFactor = new BattleValueNode() { Name = "Structure Value", Summand = dStructureFactor };
+                bvStructureFactor.Parent = bvDefensive;
+
+                //TODO: We need to calculate all the defensive equipment BV,
+                //which means being able to identify which equipment is
+                //defensive (TM302)
+
+                BattleValueNode bvExplosiveAmmo = new BattleValueNode() { Name = "Explosive Ammunition" };
+                bvExplosiveAmmo.Parent = bvDefensive;
+                BattleValueNode bvDefensiveEquipment = new BattleValueNode() { Name = "Defensive Equipment" };
+                bvDefensiveEquipment.Parent = bvDefensive;
+                BattleValueNode bvWeapons = new BattleValueNode() { Name = "Weapons" };
+                bvWeapons.Parent = bvOffensive;
+                List<ComponentWeapon> lstWeapons = new List<ComponentWeapon>();
+                List<ComponentAmmunition> lstAmmunition = new List<ComponentAmmunition>();
+                ComponentGyro gyro = null;
+                double dMaximumHeat = 0;
+                foreach (UnitComponent curUnitComponent in Components)
+                {
+                    //Gyro Factor
+                    ComponentGyro curGyro = curUnitComponent.Component as ComponentGyro;
+                    if (curGyro != null) gyro = curGyro;
+
+                    //Subtract Volatile Weapons (Gauss Rifles)
+                    ComponentWeapon curWeapon = curUnitComponent.Component as ComponentWeapon;
+                    if (curWeapon != null)
+                    {
+                        lstWeapons.Add(curWeapon);
+                        if (curWeapon.VolatileDamage > 0)
+                        {
+                            double dExplosiveAmmoFactor = 0;
+                            if (TechnologyBase == TECHNOLOGY_BASE.CLAN &&
+                                (Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "CT") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "LL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "RL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "HD")))
+                                dExplosiveAmmoFactor -= curWeapon.CriticalSpaceMech ?? 0;
+                            if (TechnologyBase == TECHNOLOGY_BASE.INNERSPHERE &&
+                                Engine.EngineType == "XL")
+                                dExplosiveAmmoFactor -= curWeapon.CriticalSpaceMech ?? 0;
+                            if (TechnologyBase == TECHNOLOGY_BASE.INNERSPHERE &&
+                                (Engine.EngineType == "Standard" || Engine.EngineType == "Light") &&
+                                (Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "CT") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "LL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "RL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "HD") ||
+                                !Utilities.LocationHasCASE(curUnitComponent.HitLocation as BattleMechHitLocation)))
+                                dExplosiveAmmoFactor -= curWeapon.CriticalSpaceMech ?? 0;
+                            if (dExplosiveAmmoFactor != 0)
+                            {
+                                BattleValueNode bvExplosiveReduction = new BattleValueNode() { Name = $"{curUnitComponent.Component.Name} {curUnitComponent.HitLocation}", Summand = dExplosiveAmmoFactor };
+                                bvExplosiveReduction.Parent = bvExplosiveAmmo;
+                            }
+                        }
+                        int iHeat = curWeapon.Heat;
+                        ComponentWeaponClustered clustered = curWeapon as ComponentWeaponClustered;
+                        if (clustered != null)
+                            if (clustered.HeatIsPerShot) iHeat *= clustered.SalvoSize;
+                        if (curWeapon.Name.Contains("Streak")) iHeat /= 2; //TM303
+                        if (curWeapon.Name.Contains("(OS)")) iHeat /= 4; //TM303
+                        dMaximumHeat += (double)iHeat;
+                        //dWeaponBV += curWeapon.BV;
+                        if (curWeapon.BV > 0)
+                        {
+                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{curUnitComponent.Component.Name} {curUnitComponent.HitLocation}", Summand = curWeapon.BV };
+                            bvWeapon.Parent = bvWeapons;
+                        }
+                    }
+
+
+                    //Subtract Ammunition
+                    ComponentAmmunition curAmmo = curUnitComponent.Component as ComponentAmmunition;
+                    if (curAmmo != null)
+                    {
+                        lstAmmunition.Add(curAmmo);
+                        //iAmmoBV += curAmmo.BV;
+                        if (curAmmo.Volatile)
+                        {
+                            double dExplosiveAmmoFactor = 0;
+                            if ((Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "CT") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "LL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "RL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "HD")) && TechnologyBase == TECHNOLOGY_BASE.CLAN)
+                            {
+                                dExplosiveAmmoFactor -= 15;
+                            }
+                            if (Engine.EngineType == "XL" &&
+                                TechnologyBase == TECHNOLOGY_BASE.INNERSPHERE)
+
+                            {
+                                dExplosiveAmmoFactor -= 15;
+                            }
+                            //TODO: I think this covers the Explosive Ammo elements
+                            //on TM303.  It is strangely worded.
+                            if ((Engine.EngineType == "Standard" || Engine.EngineType == "Light") &&
+                                TechnologyBase == TECHNOLOGY_BASE.INNERSPHERE &&
+                                (!Utilities.LocationHasCASE(curUnitComponent.HitLocation as BattleMechHitLocation) ||
+                                (Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "CT") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "LL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "RL") ||
+                                Utilities.IsSynonymFor(curUnitComponent.HitLocation.Name, "HD"))))
+                            {
+                                dExplosiveAmmoFactor -= 15;
+                            }
+                            if (dExplosiveAmmoFactor != 0)
+                            {
+                                BattleValueNode bvExplosiveReduction = new BattleValueNode() { Name = $"{curUnitComponent.Component.Name} {curUnitComponent.HitLocation}", Summand = dExplosiveAmmoFactor };
+                                bvExplosiveReduction.Parent = bvExplosiveAmmo;
+                            }
+
+
+                        }
+                    }
+                    if (curUnitComponent.Component.DefensiveBV)
+                    {
+                        if (curUnitComponent.Component.BV != 0)
+                        {
+                            BattleValueNode defensiveEquipment = new BattleValueNode() { Name = $"{curUnitComponent.Component.Name} {curUnitComponent.HitLocation}", Summand = curUnitComponent.Component.BV };
+                            defensiveEquipment.Parent = bvDefensiveEquipment;
+                        }
+                    }
+                }
+                if (gyro == null) throw new Exception("Cannot calculate BV for a 'Mech with no Gyro");
+
+                BattleValueNode bvGyro = new BattleValueNode() { Name = $"{gyro.Name}", Summand = Tonnage, Factor = gyro.BattleValueModifier };
+                bvGyro.Parent = bvDefensive;
+
+                double dDefensiveFactor = 1D + ((double)Utilities.MaxmiumDefensiveModifier(this) / 10D);
+
+                //double dDefensiveBV = (dGyro + dExplosiveAmmoFactor + dArmorFactor + dStructureFactor + dDefensiveEquipment) * dDefensiveFactor;
+                bvDefensive.Factor = dDefensiveFactor;
+
+                //Offensive BV (TM303)
+                double dOffensiveBV = 0;
+                double dMechHeatEfficiency = 6 + HeatDissipation - Math.Max(3, JumpMP);
+                double dOffensiveWeaponBV = 0;
+                double dOffensiveAmmoBV = 0;
+                double dOffensiveOtherBV = 0;
+                double dTotalHeat = 0;
+
+                //TODO: ICE-powered Mechs should have a Movment Heat of zero.
+
+                foreach (ComponentWeapon weapon in lstWeapons)
+                {
+                    dTotalHeat += weapon.BVHeatPoints;
+                    dOffensiveWeaponBV += weapon.BV;
+                }
+
+
+
+                if (dTotalHeat > dMechHeatEfficiency)
+                {
+
+                    lstWeapons.Sort((a, b) =>
+                    {
+                        if (a.BV != b.BV)
+                            return a.BV.CompareTo(b.BV);
+                        else
+                            return a.BVHeatPoints.CompareTo(b.BVHeatPoints);
+                    });
+                    double dSubtotalBV = 0;
+                    double dSubtotalHeat = 0;
+                    Queue<ComponentWeapon> queueReductionSet = new Queue<ComponentWeapon>(lstWeapons);
+                    bool bAddAtHalfValue = false;
+                    while (queueReductionSet.Count > 0)
+                    {
+
+                        ComponentWeapon NextWeapon = queueReductionSet.Dequeue();
+                        dSubtotalHeat = NextWeapon.BVHeatPoints;
+                        if (dSubtotalHeat > dMechHeatEfficiency || NextWeapon.BVHeatPoints == 0)
+                        {
+                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name}", Summand = NextWeapon.BV / 2 };
+                            bvWeapon.Parent = bvWeapons;
+                        }
+                        else
+                        {
+                            BattleValueNode bvWeapon = new BattleValueNode() { Name = $"{NextWeapon.Name}", Summand = NextWeapon.BV };
+                            bvWeapon.Parent = bvWeapons;
+                        }
+
+                    }
+                }
+                BattleValueNode bvAmmunition = new BattleValueNode() { Name = "Ammunition" };
+                bvAmmunition.Parent = bvOffensive;
+                foreach (ComponentAmmunition ammo in lstAmmunition)
+                {
+                    //TODO: Excessive Ammo rule on TM303.
+                    //dOffensiveAmmoBV += ammo.BV;
+                    BattleValueNode bvAmmo = new BattleValueNode() { Name = $"{ammo.Name}", Summand = ammo.BV };
+                    bvAmmo.Parent = bvAmmunition;
+                }
+                bool bMASC = false;
+                bool bTSM = false;
+
+                BattleValueNode bvOffensiveEquipment = new BattleValueNode() { Name = "Offensive Equipment" };
+                bvOffensiveEquipment.Parent = bvOffensive;
+                //Offensive equipment that isn't weapons
+                foreach (UnitComponent comp in Components)
+                {
+                    ComponentWeapon weap = comp.Component as ComponentWeapon;
+                    ComponentAmmunition ammo = comp.Component as ComponentAmmunition;
+
+                    if (weap == null)
+                    {
+                        if (ammo == null) if (!comp.Component.DefensiveBV)
+                            {
+                                //dOffensiveOtherBV += comp.Component.BV;
+                                if (comp.Component.BV > 0)
+                                {
+                                    BattleValueNode bvOffensiveComponent = new BattleValueNode() { Name = $"{comp.Component.Name} {comp.HitLocation}", Summand = comp.Component.BV };
+                                    bvOffensiveComponent.Parent = bvOffensiveEquipment;
+                                }
+                            }
+                    }
+
+                }
+                BattleValueNode bvTonnage = new BattleValueNode() { Name = "Tonnage", Summand = Tonnage };
+                bvTonnage.Parent = bvOffensive;
+                if (MyomerType.Name.Contains("TSM")) bvTonnage.Factor = 1.5;
+
+                //dOffensiveBV = dOffensiveWeaponBV + dOffensiveAmmoBV + dOffensiveOtherBV + Tonnage;
+
+                int iSpeedFactorResult = RunMP + (int)Math.Round(((double)JumpMP / 2D) + 0.5);
+                if (MyomerType.Name.Contains("MASC") || MyomerType.Name.Contains("TSM")) iSpeedFactorResult += 1;
+
+
+                double[] SpeedFactorTable = { 0.44, 0.54, 0.65, 0.77, 0.88, 1, 1.12, 1.24, 1.37, 1.50, 1.63, 1.76, 1.89, 2.02, 2.16, 2.3, 2.44, 2.58, 2.72, 2.86, 3, 3.15, 3.29, 3.44, 3.59, 3.75 };
+
+                //TODO: Adjust this speed factor for MASC/TSM
+                //double SpeedFactor = 1D + Math.Pow(((double)RunMP + ((double)JumpMP / 2D) - 5D) / 10D, 1.2); //TM315
+
+                double SpeedFactor = SpeedFactorTable[iSpeedFactorResult];
+
+                bvOffensive.Factor = SpeedFactor;
+
+
+                //iAccumulator = (int)Math.Round(dDefensiveBV + dOffensiveBV);
+
+                return ledger;
+            
+            }
+        }
+        
         public override double BV
         {
             get
             {
+                /*
                 int iAccumulator = 0;
                 List<ComponentWeapon> lstWeapons = new List<ComponentWeapon>();
                 List<ComponentAmmunition> lstAmmunition = new List<ComponentAmmunition>();
@@ -226,6 +497,9 @@ namespace BattleTechNET.TotalWarfare
                 iAccumulator = (int)Math.Round(dDefensiveBV + dOffensiveBV);
 
                 return iAccumulator;
+                */
+
+                return Ledger.RootNode.Value;
             }
         }
 
