@@ -24,16 +24,16 @@ namespace BattleTechNET.Data
                     privateAmmunitionList = new List<ComponentAmmunition>();
                     privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1}
                         .AddAlias(new string[] {"IS Ammo MG - Full", "Clan Ammo MG - Full", "Clan Machine Gun Ammo - Full","ISMG Ammo (200)" }) as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias(new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half", "Clan Machine Gun Ammo - Half", "Clan Light Machine Gun Ammo - Half" }) as ComponentAmmunition); 
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
                     .AddAlias("IS Light Machine Gun Ammo - Full")
                     .AddAlias("ISLightMG Ammo (200)") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias("IS Light Machine Gun Ammo - Half") as ComponentAmmunition); 
                     privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
                         .AddAlias("Clan Heavy Machine Gun Ammo - Full") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
+                    privateAmmunitionList.Add(new ComponentAmmunition("Heavy Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias("Clan Heavy Machine Gun Ammo - Half") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Autocannon/2 Ammo", 45, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 5 }
                         .AddAlias("IS Ammo AC/2")
