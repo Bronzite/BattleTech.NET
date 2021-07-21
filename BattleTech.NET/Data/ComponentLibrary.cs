@@ -202,9 +202,9 @@ namespace BattleTechNET.Data
                         .AddAlias("CLLRM15 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 23 }
                         .AddAlias("IS Ammo LRM-20")
-                        .AddAlias("Clan Ammo LRM-20") as ComponentAmmunition);
+                        .AddAlias("ISLRM20 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("LRM 20 Ammo", 6, "C", TECHNOLOGY_BASE.CLAN) { BV = 27 }
-                        .AddAlias("ISLRM20 Ammo")
+                        .AddAlias("Clan Ammo LRM-20") 
                         .AddAlias("CLLRM20 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("MML 3 LRM Ammo", 40, "E", TECHNOLOGY_BASE.INNERSPHERE) { BV = 4 }
                         .AddAlias("ISMML3 LRM Ammo")
