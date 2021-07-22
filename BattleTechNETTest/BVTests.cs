@@ -39,41 +39,44 @@ namespace BattleTechNETTest
 
         public static IEnumerable<object[]> GetBVTestCases()
         {
+            List<object[]> retval = new List<object[]>();
             //Load Variants
             string sDirectory = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}MassTesting{Path.DirectorySeparatorChar}";
-            string[] mtfFiles = Utilities.GetFiles(sDirectory, "*.mtf");
-            Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign> designs = new Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign>();
-            foreach(string mtfFile in mtfFiles)
+            if (Directory.Exists(sDirectory))
             {
-                try
+                string[] mtfFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+                Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign> designs = new Dictionary<string, BattleTechNET.TotalWarfare.BattleMechDesign>();
+                foreach (string mtfFile in mtfFiles)
                 {
-                    BattleMechDesign design = MTFReader.ReadBattleMechDesignFile(File.OpenRead(mtfFile));
+                    try
+                    {
+                        BattleMechDesign design = MTFReader.ReadBattleMechDesignFile(File.OpenRead(mtfFile));
 
 
-                    designs.Add($"{design.Model} {design.Variant}", design);
+                        designs.Add($"{design.Model} {design.Variant}", design);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
-                catch (Exception ex)
+
+
+                //Load Test Data Points
+                string sTestCaseFileName = $".{System.IO.Path.DirectorySeparatorChar}TestFiles{System.IO.Path.DirectorySeparatorChar}BVTestCases.json";
+                string sJSONFile = System.IO.File.ReadAllText(sTestCaseFileName);
+                BVTestSet testSet = JsonSerializer.Deserialize<BVTestSet>(sJSONFile);
+                
+
+                foreach (BVDataPoint dataPoint in testSet.testCases)
                 {
-                    
+                    if (designs.ContainsKey(dataPoint.ToString()))
+                        retval.Add(new object[] { designs[dataPoint.ToString()], dataPoint });
+                    else
+                        throw new Exception($"Could not find variant {dataPoint.ToString()}");
                 }
+
             }
-            
-
-            //Load Test Data Points
-            string sTestCaseFileName = $".{System.IO.Path.DirectorySeparatorChar}TestFiles{System.IO.Path.DirectorySeparatorChar}BVTestCases.json";
-            string sJSONFile = System.IO.File.ReadAllText(sTestCaseFileName);
-            BVTestSet testSet = JsonSerializer.Deserialize<BVTestSet>(sJSONFile);
-            List<object[]> retval = new List<object[]>();
-
-            foreach(BVDataPoint dataPoint in testSet.testCases)
-            {
-                if (designs.ContainsKey(dataPoint.ToString()))
-                    retval.Add(new object[] { designs[dataPoint.ToString()], dataPoint });
-                else
-                    throw new Exception($"Could not find variant {dataPoint.ToString()}");
-            }
-
-
             return retval;
         }
 
