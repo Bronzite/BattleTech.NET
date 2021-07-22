@@ -5,6 +5,7 @@ using BattleTechNET.Data;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Text.Json;
 using Xunit;
@@ -14,8 +15,8 @@ namespace BattleTechNETTest
 {
     public class TWtoASConverter
     {
-        public static string AtlasTestFile = "./TestFiles/AtlasAS7-D.mtf";
-        public static string GoliathTestFile = "./TestFiles/GoliathGOL-1H.mtf";
+        public static string AtlasTestFile = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}AtlasAS7-D.mtf";
+        public static string GoliathTestFile = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}GoliathGOL-1H.mtf";
 
         private readonly ITestOutputHelper _outputHelper;
 
