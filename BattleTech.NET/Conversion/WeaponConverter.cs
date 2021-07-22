@@ -15,7 +15,6 @@ namespace BattleTechNET.Conversion
             AlphaStrikeWeapon retval = new AlphaStrikeWeapon();
             retval.Name = componentWeapon.Name;
             if (componentWeapon.AlphaStrikeAbility != "" && componentWeapon.AlphaStrikeAbility != null) retval.SpecialAbilityCode = componentWeapon.AlphaStrikeAbility;
-            //TODO:Write this function per SO360.
             double DamageRating = (double)componentWeapon.Damage;
             //Cluster Weapons on SO360
             ComponentWeaponClustered clusterWeapon = componentWeapon as ComponentWeaponClustered;
@@ -68,7 +67,7 @@ namespace BattleTechNET.Conversion
             }
             
             //Variable-Damage Weapons
-            //TODO: This doesn't handle cluster-based variable damage weapons,
+            //This doesn't handle cluster-based variable damage weapons,
             //but I don't think there are canonical examples of that.
             if (componentWeapon.ShortRangeDamage != componentWeapon.MediumRangeDamage || componentWeapon.MediumRangeDamage != componentWeapon.LongRangeDamage)
             {

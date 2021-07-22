@@ -33,8 +33,6 @@ namespace BattleTechNET.Common
             return retval;
         }
 
-        //TODO: Vibroblades come in 3 distinct sizes.  We probably
-        //need to create an IMelee Weapon interface.
         public ComponentVibroblade()
         {
             TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE;

@@ -178,7 +178,9 @@ namespace BattleTechNET.TotalWarfare
                 double dOffensiveOtherBV = 0;
                 double dTotalHeat = 0;
 
-                //TODO: ICE-powered Mechs should have a Movment Heat of zero.
+                //ICE-powered Mechs should have a Movment Heat of zero (TM303)
+                if (Engine.EngineType.Equals("ICE")) dMechHeatEfficiency = 6 + HeatDissipation;
+                
 
                 foreach (UnitComponent unitWeapon in lstWeapons)
                 {
@@ -202,11 +204,9 @@ namespace BattleTechNET.TotalWarfare
                             return weapona.BVHeatPoints.CompareTo(weaponb.BVHeatPoints);
                         }
                     });
-                    double dSubtotalBV = 0;
                     double dSubtotalHeat = 0;
                     
                     Queue<UnitComponent> queueReductionSet = new Queue<UnitComponent>(lstWeapons);
-                    bool bAddAtHalfValue = false;
                     while (queueReductionSet.Count > 0)
                     {
 
@@ -291,10 +291,16 @@ namespace BattleTechNET.TotalWarfare
 
                 double[] SpeedFactorTable = { 0.44, 0.54, 0.65, 0.77, 0.88, 1, 1.12, 1.24, 1.37, 1.50, 1.63, 1.76, 1.89, 2.02, 2.16, 2.3, 2.44, 2.58, 2.72, 2.86, 3, 3.15, 3.29, 3.44, 3.59, 3.75 };
 
-                //TODO: If we're offscale high, ajust this speed factor for MASC/TSM
-                //double SpeedFactor = 1D + Math.Pow(((double)RunMP + ((double)JumpMP / 2D) - 5D) / 10D, 1.2); //TM315
+                
 
-                double SpeedFactor = SpeedFactorTable[iSpeedFactorResult];
+
+                double SpeedFactor = 0;
+
+                if(iSpeedFactorResult > SpeedFactorTable.Length -1)
+                    //If we're offscale high, adjust this speed factor for MASC/TSM
+                    SpeedFactor = 1D + Math.Pow(((double)RunMP + ((double)JumpMP / 2D) - 5D) / 10D, 1.2); //TM315
+                else
+                    SpeedFactor = SpeedFactorTable[iSpeedFactorResult];
 
                 bvOffensive.Factor = SpeedFactor;
 

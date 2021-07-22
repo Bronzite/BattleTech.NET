@@ -4144,7 +4144,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
-                BV = 0 //TODO: Double-Check we're calaculating this right.
+                BV = 0 
             }
             .AddAlias("ISMGA")
                 .AddAlias("ISLMGA")

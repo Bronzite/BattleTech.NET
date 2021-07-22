@@ -110,7 +110,7 @@ namespace BattleTechNET.Common
                     Name = "Light Active Probe",
                     TechnologyBase = TECHNOLOGY_BASE.CLAN,
                     Tonnage = 0.5,
-                    BaseCost = 500000, //TODO: No apparent canonical base cost
+                    BaseCost = 50000, //TM297
                     TechRating = "F",
                     ECMRange = 0,
                     ActiveRange = 3,
@@ -127,7 +127,7 @@ namespace BattleTechNET.Common
                     Name = "Active Probe",
                     TechnologyBase = TECHNOLOGY_BASE.CLAN,
                     Tonnage = 1,
-                    BaseCost = 500000, //TODO: No apparent canonical base cost
+                    BaseCost = 200000, //TM291
                     TechRating = "E",
                     ECMRange = 0,
                     ActiveRange = 5,
