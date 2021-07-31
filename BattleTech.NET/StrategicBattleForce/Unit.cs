@@ -24,9 +24,13 @@ namespace BattleTechNET.StrategicBattleForce
         {
             double dSize = 0;
             List<MovementMode> lstMovementModes = new List<MovementMode>();
-            foreach(Element curElement in Elements)
+            Dictionary<string, int> dicTypes = new Dictionary<string, int>();
+            
+            foreach (Element curElement in Elements)
             {
                 dSize += (double)curElement.Size;
+                if (!dicTypes.ContainsKey(curElement.UnitType.Code)) dicTypes.Add(curElement.UnitType.Code, 0);               
+                
                 foreach (MovementMode curMode in curElement.MovementModes)
                 {
                     bool bModeAlreadyInList = false;
@@ -81,12 +85,23 @@ namespace BattleTechNET.StrategicBattleForce
                 if (bMovementModeIsValid) MovementModes.Add(UnitMovementMode.Clone() as MovementMode);
             }
 
+            int iAerospace = 0;
+            int iGround = 0;
+            foreach(string sCode in dicTypes.Keys)
+            {
+                SBFType sbfType = SBFType.GetCanonicalTypeByCode(sCode);
+                if (sbfType.AeroType) iAerospace += dicTypes[sCode];
+                else iGround += dicTypes[sCode];
+            }
 
+            if (iAerospace > 0 && iGround > 0) throw new Exception("Unit cannot contain both Aerospace and Ground Elements");
+            UnitType = SBFType.GetAggregateUnitType(dicTypes);
             Size = (int)Math.Round(dSize / (double)Elements.Count);
             
 
         }
 
+        public SBFType UnitType { get; set; }
         public int Size { get; set; }
 
         public IList<MovementMode> MovementModes { get; set; }
