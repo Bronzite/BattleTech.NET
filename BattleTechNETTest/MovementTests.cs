@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 using BattleTechNET;
-using BattleTechNET.AlphaStrike;
+using BattleTechNET.Common;
 using BattleTechNET.StrategicBattleForce;
 using BattleTechNET.Common;
 

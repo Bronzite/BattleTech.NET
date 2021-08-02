@@ -1,4 +1,4 @@
-﻿using BattleTechNET.AlphaStrike;
+﻿using BattleTechNET.Common;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;

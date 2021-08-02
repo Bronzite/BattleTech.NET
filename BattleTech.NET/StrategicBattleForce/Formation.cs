@@ -113,6 +113,6 @@ namespace BattleTechNET.StrategicBattleForce
         public string Morale { get; set; }
         public string Skill { get; set; }
         public int PointValue { get; set; }
-        public List<AlphaStrike.SpecialAbility> SpecialAbilities { get; set; }
+        public List<Common.SpecialAbility> SpecialAbilities { get; set; }
     }
 }
