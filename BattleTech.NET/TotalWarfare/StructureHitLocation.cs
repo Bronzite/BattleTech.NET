@@ -8,6 +8,7 @@ namespace BattleTechNET.TotalWarfare
 {
     public class StructureHitLocation: HitLocation
     {
+        public StructureHitLocation() : base() { }
         public string Type { get { return "Standard"; } }
 
         public StructureLocation Structure { get; set; }

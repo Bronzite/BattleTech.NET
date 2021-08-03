@@ -662,6 +662,274 @@ namespace BattleTechNET.Data
             .AddAlias("LRM20")
             .AddAlias("ISLRM20") as ComponentWeapon
             },
+            {"Enhanced LRM 5",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 5",
+                BaseCost = 37500,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 3,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 3,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=52
+
+            }
+
+            .AddAlias("ISEnhancedLRM5") as ComponentWeapon
+            },
+            {"Enhanced LRM 10",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 10",
+                BaseCost = 125000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 3,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 6,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=104
+            }
+            .AddAlias("ISEnhancedLRM10") as ComponentWeapon
+            },
+            {"Enhanced LRM 15",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 15",
+                BaseCost = 218750,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 3,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 9,
+                CriticalSpaceMech = 6,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 6,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=157
+            }
+            .AddAlias("ISEnhancedLRM15") as ComponentWeapon
+            },
+            {"Enchanced LRM 20",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 20",
+                BaseCost = 312500,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 12,
+                CriticalSpaceMech = 9,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 9,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=181
+            }
+            .AddAlias("ISEnhancedLRM20") as ComponentWeapon
+            },
+            {"Extended LRM 5",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Extended LRM 5",
+                BaseCost = 37500,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 10,
+                ShortRange = 12,
+                MediumRange = 22,
+                LongRange = 38,
+                AmmoPerTon = 18,
+                Tonnage = 6,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=67
+
+            }
+
+            .AddAlias("ISExtendedLRM5") as ComponentWeapon
+            },
+            {"Extended LRM 10",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 10",
+                BaseCost = 125000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 10,
+                ShortRange = 12,
+                MediumRange = 22,
+                LongRange = 38,
+                AmmoPerTon = 9,
+                Tonnage = 8,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=104
+            }
+            .AddAlias("ISExtendedLRM10") as ComponentWeapon
+            },
+            {"Extended LRM 15",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Extended LRM 15",
+                BaseCost = 218750,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 3,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 12,
+                CriticalSpaceMech = 6,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 6,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=200
+            }
+            .AddAlias("ISExtendededLRM15") as ComponentWeapon
+            },
+            {"Extended LRM 20",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Enhanced LRM 20",
+                BaseCost = 312500,
+                Heat = 12,
+                AeroHeat = 12,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 10,
+                ShortRange = 12,
+                MediumRange = 22,
+                LongRange = 38,
+                AmmoPerTon = 4,
+                Tonnage = 18,
+                CriticalSpaceMech = 8,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 8,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=268
+            }
+            .AddAlias("ISExtendedLRM20") as ComponentWeapon
+            },
             {"Clan LRM 5",new ComponentWeaponClustered() //TM343
             {
                 Name = "LRM 5",
@@ -730,7 +998,7 @@ namespace BattleTechNET.Data
             }.AddAlias("LRM 10")
             .AddAlias("LRM/10")
             .AddAlias("LRM10")
-            .AddAlias("ISLRM10") as ComponentWeapon
+            .AddAlias("CLLRM10") as ComponentWeapon
             },
             {"Clan LRM 15",new ComponentWeaponClustered() //TM343
             {
@@ -1114,6 +1382,93 @@ namespace BattleTechNET.Data
             }
              .AddAlias("CLHeavyLargeLaser") as ComponentWeapon
             },
+             {"Improved Heavy Small Laser",new ComponentWeapon() //TO406
+            {
+                Name = "Improved Heavy Small Laser",
+                BaseCost = 30000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 6,
+                AeroDamage = 6,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=19
+            }
+             .AddAlias("CLImprovedHeavySmallLaser") as ComponentWeapon
+            },
+            {"Improved Heavy Medium Laser",new ComponentWeapon() //TM406
+            {
+                Name = "Improved Heavy Medium Laser",
+                BaseCost = 150000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=93
+            }
+            .AddAlias("CLHeavyMediumLaser") as ComponentWeapon
+            },
+             {"Improved Heavy Large Laser",new ComponentWeapon() //TM406
+            {
+                Name = "ImprovedHeavy Large Laser",
+                BaseCost = 350000,
+                Heat = 18,
+                AeroHeat = 18,
+                Damage = 16,
+                AeroDamage = 16,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 4,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=296
+            }
+             .AddAlias("CLHeavyLargeLaser") as ComponentWeapon
+            },
               {"PPC",new ComponentWeapon() //TM341
             {
                 Name = "PPC",
@@ -1140,6 +1495,36 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV=176
+            }
+              .AddAlias("Particle Cannon")
+                .AddAlias("ISPPC") as ComponentWeapon
+            },
+                 {"Bombast Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Bombast Laser",
+                BaseCost = 200000,
+                Heat = 0,
+                AeroHeat = 12,
+                Damage = 0,
+                AeroDamage = 12,
+                MinimumRange = 5,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=137
             }
               .AddAlias("Particle Cannon")
                 .AddAlias("ISPPC") as ComponentWeapon
@@ -1602,6 +1987,131 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=6
+
+            }
+             },
+
+                      {"ProtoMech AC/2",new ComponentWeapon() //TM341
+            {
+                Name = "ProtoMech AC/2",
+                BaseCost = 95000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 40,
+                Tonnage = 3.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = 1,
+                CriticalSpaceCombatVehicle = 2,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=34
+
+            }
+                    .AddAlias("ProtoMech Autocannon/2") as ComponentWeapon
+             },
+                          {"ProtoMech AC/4",new ComponentWeapon() //TM341
+            {
+                Name = "ProtoMech AC/4",
+                BaseCost = 133000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 4,
+                AeroDamage = 4,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 20,
+                Tonnage = 4.5,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = 1,
+                CriticalSpaceCombatVehicle = 3,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=49
+
+            }
+                    .AddAlias("ProtoMech Autocannon/4") as ComponentWeapon
+             },
+                                     {"ProtoMech AC/8",new ComponentWeapon() //TM341
+            {
+                Name = "ProtoMech AC/8",
+                BaseCost = 175000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 8,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 10,
+                AmmoPerTon = 10,
+                Tonnage = 5.5,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = 1,
+                CriticalSpaceCombatVehicle = 4,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=66
+
+            }
+                    .AddAlias("ProtoMech Autocannon/8") as ComponentWeapon
+             },
+
+               {"IS Heavy Machine Gun",new ComponentWeapon() //TM341
+            {
+                Name = "Heavy Machine Gun",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 3,
+                AeroDamage = 3,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 2,
+                AmmoPerTon = 100,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV=6
 
             }
@@ -2399,7 +2909,7 @@ namespace BattleTechNET.Data
             },
               {"Spike",new ComponentSpike() //TM341
             {
-                
+
             }.AddAlias("Spike") as ComponentWeapon
             },
              {"LRM 5 + Artemis IV",new ComponentWeaponClustered() //TM341
@@ -2619,6 +3129,96 @@ namespace BattleTechNET.Data
                 BV = 119
             }
              .AddAlias("ISLargePulseLaser") as ComponentWeapon
+            },
+               {"ER Small Pulse Laser",new ComponentWeapon() //TO406
+            {
+                Name = "ER Small Pulse Laser",
+                BaseCost = 30000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 1.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                ToHitModifier=-2,
+                BV = 36
+            }
+               .AddAlias("ERSmallPulseLaser") as ComponentWeapon
+            },
+            {"ER Medium Pulse Laser",new ComponentWeapon() //TO406
+            {
+                Name = "ER Medium Pulse Laser",
+                BaseCost = 150000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 7,
+                AeroDamage = 7,
+                MinimumRange = 0,
+                ShortRange = 2,
+                MediumRange = 4,
+                LongRange = 6,
+                AmmoPerTon = 0,
+                Tonnage = 2,
+                CriticalSpaceMech =2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle =2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                ToHitModifier=-2,
+                BV = 117
+            }
+            .AddAlias("ERMediumPulseLaser") as ComponentWeapon
+            },
+             {"ER Large Pulse Laser",new ComponentWeapon() //TO406
+            {
+                Name = "ER Large Pulse Laser",
+                BaseCost = 400000,
+                Heat = 13,
+                AeroHeat = 13,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 6,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                ToHitModifier=-2,
+                BV = 272
+            }
+             .AddAlias("ERLargePulseLaser") as ComponentWeapon
             },
              {"Clan Small Pulse Laser",new ComponentWeapon() //TM341
             {
@@ -3015,6 +3615,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 0
             }
+                   .AddAlias("TAG (Clan)")
                    .AddAlias("Clan TAG") as ComponentWeapon
             },
                                       {"Clan Light TAG",new ComponentWeapon() //TM341
@@ -3407,7 +4008,8 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 VolatileDamage = 25,
-                BV = 32 //Defensive
+                BV = 32,
+                DefensiveBV=true
             }
               .AddAlias("AMS")
               .AddAlias("ISAntiMissileSystem")
@@ -3416,9 +4018,74 @@ namespace BattleTechNET.Data
                   {"Clan Anti-Missile System",new ComponentWeapon() //TM343
             {
                 Name = "Anti-Missile System",
-                BaseCost = 20000,
+                BaseCost = 225000,
                 Heat = 1,
                 AeroHeat = 1,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 0,
+                MediumRange = 0,
+                LongRange = 0,
+                AmmoPerTon = 24,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.POINTDEFENSE,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 32,
+                DefensiveBV = true
+            }
+                  .AddAlias("AMS")
+                  .AddAlias("CLAntiMissileSystem")
+                  .AddAlias("CLAMS") as ComponentWeapon
+            },
+                   {"Laser Anti-Missile System",new ComponentWeapon() //TM343
+            {
+                Name = "Laser Anti-Missile System",
+                BaseCost = 225000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 0,
+                MediumRange = 0,
+                LongRange = 0,
+                AmmoPerTon = 0,
+                Tonnage = 1.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.POINTDEFENSE,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 45,
+                DefensiveBV=true
+            }
+                  .AddAlias("Laser AMS")
+                  .AddAlias("LAMS") as ComponentWeapon
+            },
+                    {"Clan Laser Anti-Missile System",new ComponentWeapon() //TM343
+            {
+                Name = "Laser Anti-Missile System",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
                 Damage = 0,
                 AeroDamage = 0,
                 MinimumRange = 0,
@@ -3438,13 +4105,263 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.POINTDEFENSE,
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
-                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 VolatileDamage = 25,
-                BV = 32 //Defensive
+                BV = 45,
+                DefensiveBV=true
             }
-                  .AddAlias("AMS")
-                  .AddAlias("CLAntiMissileSystem")
-                  .AddAlias("CLAMS") as ComponentWeapon
+                  .AddAlias("Laser AMS")
+                  .AddAlias("LAMS") as ComponentWeapon
+            },
+
+                     {"IS 'Mech Mortar 1",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 1",
+                BaseCost = 7000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 10,
+                ToHitModifier=3
+            }
+                  .AddAlias("ISMechMortar1") as ComponentWeapon
+            },
+                      {"Clan 'Mech Mortar 1",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 1",
+                BaseCost = 7000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 10,
+                ToHitModifier=3
+            }
+                  .AddAlias("CLMechMortar1") as ComponentWeapon
+            },
+
+                     {"IS 'Mech Mortar 2",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 2",
+                BaseCost = 15000,
+                Heat = 2,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 14,
+                ToHitModifier=3
+            }
+                  .AddAlias("ISMechMortar2") as ComponentWeapon
+            },
+                      {"Clan 'Mech Mortar 2",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 2",
+                BaseCost = 15000,
+                Heat = 2,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 2.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 10,
+                ToHitModifier=3
+            }
+                  .AddAlias("CLMechMortar2") as ComponentWeapon
+            },
+                               {"IS 'Mech Mortar 4",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 4",
+                BaseCost = 32000,
+                Heat = 5,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 26,
+                ToHitModifier=3
+            }
+                  .AddAlias("ISMechMortar4") as ComponentWeapon
+            },
+                      {"Clan 'Mech Mortar 4",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 4",
+                BaseCost = 32000,
+                Heat = 5,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 3.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 26,
+                ToHitModifier=3
+            }
+                  .AddAlias("CLMechMortar4") as ComponentWeapon
+            },
+                                         {"IS 'Mech Mortar 8",new ComponentWeapon() //TO408
+            {
+                Name = "'Mech Mortar 8",
+                BaseCost = 70000,
+                Heat = 10,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 4,
+                Tonnage = 10,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 50,
+                ToHitModifier=3
+            }
+                  .AddAlias("ISMechMortar4") as ComponentWeapon
+            },
+                      {"Clan 'Mech Mortar 8",new ComponentWeapon() //TO408
+            {
+               Name = "'Mech Mortar 8",
+                BaseCost = 70000,
+                Heat = 10,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 4,
+                Tonnage = 5,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 50,
+                ToHitModifier=3
+            }
+                  .AddAlias("CLMechMortar8") as ComponentWeapon
             },
             {"Streak SRM 2",new ComponentWeaponClustered() //TM341
             {
@@ -4146,7 +5063,7 @@ namespace BattleTechNET.Data
                 AmmoPerTon = 0,
                 Tonnage = 0.5,
                 CriticalSpaceMech =1,
-                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceProtomech = 1,
                 CriticalSpaceCombatVehicle = 1,
                 CriticalSpaceSupportVehicle = 1,
                 CriticalSpaceFighters = 1,
@@ -4163,6 +5080,68 @@ namespace BattleTechNET.Data
                 .AddAlias("ISLMGA")
                 .AddAlias("Light Machine Gun Array")
                 .AddAlias("Heavy Machine Gun Array") as ComponentWeapon
+            },
+             {"Heavy Flamer",new ComponentWeapon() //TO400
+            {
+                Name = "Heavy Flamer",
+                BaseCost = 11250,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 4,
+                AeroDamage = 4,
+
+                MinimumRange = 0,
+                ShortRange = 2,
+                MediumRange = 3,
+                LongRange = 4,
+                AmmoPerTon = 10,
+                Tonnage = 1.5,
+                CriticalSpaceMech =1,
+                CriticalSpaceProtomech = 1,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="D",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 15 
+            }
+                .AddAlias("HFlamer") as ComponentWeapon
+            },
+              {"ER Flamer",new ComponentWeapon() //TO400
+            {
+                Name = "ER Flamer",
+                BaseCost = 15000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 2,
+                AeroDamage = 2,
+
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 5,
+                LongRange = 7,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech =1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 16 
+            }
+                .AddAlias("ERFlamer") as ComponentWeapon
             },
             {"Clan Machine Gun Array",new ComponentMachineGunArray() //TM342
             {
@@ -4533,7 +5512,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceDropShips = 1,
                 TechRating="E",
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
-                HeatIsPerShot= false,
+                HeatIsPerShot= true,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 118
             }
@@ -4567,6 +5546,64 @@ namespace BattleTechNET.Data
                 BV = 247
             }
             .AddAlias("ISRotaryAC5") as ComponentWeapon
+            },
+            {"Clan Rotary AC/2",new ComponentWeaponRotaryAutocannon() //TM342
+            {
+                Name = "Rotary AC/2",
+                BaseCost = 175000,
+                Heat = 1,
+                AeroHeat = 6,
+                Damage = 2,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 8,
+                MediumRange = 17,
+                LongRange = 25,
+                AmmoPerTon = 45,
+                Tonnage = 8,
+                CriticalSpaceMech =4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.EXTREME,
+                HeatIsPerShot= true,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 161
+            }
+            .AddAlias("CLRotaryAC2") as ComponentWeapon
+            },
+            {"Clan Rotary AC/5",new ComponentWeaponRotaryAutocannon() //TM342
+            {
+                Name = "Rotary AC/5",
+                BaseCost = 275000,
+                Heat = 1,
+                AeroHeat = 6,
+                Damage = 5,
+                AeroDamage = 20,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 20,
+                Tonnage = 10,
+                CriticalSpaceMech =8,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 8,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= true,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV = 345
+            }
+            .AddAlias("CLRotaryAC5") as ComponentWeapon
             },
             {"Narc Missile Beacon",new ComponentWeapon() //TM341
             {
@@ -4658,6 +5695,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 75
             }
+            .AddAlias("iNarc")
             .AddAlias("ISImprovedNarc") as ComponentWeapon
             },
             {"Clan A-Pods",new ComponentAntiPersonnelPod() //TM341
@@ -4685,7 +5723,8 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
-                BV = 1 //Defensive
+                BV = 1,
+                DefensiveBV=true
             }
             .AddAlias("ISAntiPersonnelPod")
             .AddAlias("CLAntiPersonnelPod") as ComponentWeapon
@@ -4715,10 +5754,75 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.NA,
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
-                BV = 2 //Defensive
+                BV = 2,
+                DefensiveBV=true
             }
+            .AddAlias("B-Pod")
             .AddAlias("Anti-BattleArmor Pods (B-Pods)") as ComponentWeapon
             },
+            {"IS A-Pods",new ComponentAntiPersonnelPod() //TM341
+            {
+                Name = "A-Pod",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 0,
+                MediumRange = 0,
+                LongRange = 0,
+                AmmoPerTon = 0,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = int.MaxValue,
+                CriticalSpaceSupportVehicle = int.MaxValue,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 1,
+                DefensiveBV=true
+            }
+            .AddAlias("ISAntiPersonnelPod")
+            .AddAlias("CLAntiPersonnelPod") as ComponentWeapon
+            },
+            {"IS B-Pod",new ComponentAntiPersonnelPod() //TM341
+            {
+                Name = "B-Pod",
+                BaseCost = 20000,
+                Heat = 0,
+                AeroHeat = 0,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 0,
+                MediumRange = 0,
+                LongRange = 0,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 2,
+                DefensiveBV=true
+            }
+            .AddAlias("B-Pod")
+            .AddAlias("Anti-BattleArmor Pods (B-Pods)") as ComponentWeapon
+            },
+
              {"Taser",new ComponentWeapon() //TO410
             {
                 Name = "Taser",
@@ -5024,6 +6128,7 @@ namespace BattleTechNET.Data
                 BV=22
             }
              .SetRangeDamage(5,4,3)
+                .AddAlias("Small VSP")
                .AddAlias("ISSmallVSPLaser") as ComponentWeapon
             },
             {"Medium Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -5055,6 +6160,7 @@ namespace BattleTechNET.Data
                 BV = 56
             }
             .SetRangeDamage(9,7,5)
+                .AddAlias("Medium VSP") 
             .AddAlias("ISMediumVSPLaser") as ComponentWeapon
             },
              {"Large Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -5086,6 +6192,7 @@ namespace BattleTechNET.Data
                 BV = 123
             }
              .SetRangeDamage(11,9,7)
+                .AddAlias("Large VSP") 
              .AddAlias("ISLargeVSPLaser") as ComponentWeapon
             },
         };

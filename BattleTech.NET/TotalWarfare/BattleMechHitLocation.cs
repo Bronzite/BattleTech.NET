@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ namespace BattleTechNET.TotalWarfare
 {
     public class BattleMechHitLocation:ArmorHitLocation
     {
-        public BattleMechHitLocation()
+        public BattleMechHitLocation() : base() 
         {
             CriticalSlots = new List<CriticalSlot>();
         }

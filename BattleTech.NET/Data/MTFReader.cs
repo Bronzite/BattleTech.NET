@@ -278,7 +278,7 @@ namespace BattleTechNET.Data
                                         MaxStructurePoints = 3,
                                         StructurePoints = 3
                                     },
-                                };
+                                }.AddAlias("Left Arm") as BattleMechHitLocation;
                                 BattleMechHitLocation mhlLeftTorso = new BattleMechHitLocation()
                                 {
                                     Name = "LT",
@@ -313,7 +313,7 @@ namespace BattleTechNET.Data
                                         MaxStructurePoints = 3,
                                         StructurePoints = 3
                                     },
-                                };
+                                }.AddAlias("Right Arm") as BattleMechHitLocation;
                                 BattleMechHitLocation mhlRightTorso = new BattleMechHitLocation()
                                 {
                                     Name = "RT",
@@ -366,7 +366,7 @@ namespace BattleTechNET.Data
                                         MaxStructurePoints = 3,
                                         StructurePoints = 3
                                     },
-                                };
+                                }.AddAlias("Left Leg") as BattleMechHitLocation; ;
                                 BattleMechHitLocation mhlRearRightLeg = new BattleMechHitLocation()
                                 {
                                     Name = "RRL",
@@ -383,7 +383,7 @@ namespace BattleTechNET.Data
                                         MaxStructurePoints = 3,
                                         StructurePoints = 3
                                     },
-                                };
+                                }.AddAlias("Right Leg") as BattleMechHitLocation; ;
                                 retval.HitLocations.Add(mhlHead);
                                 retval.HitLocations.Add(mhlFrontLeftLeg);
                                 retval.HitLocations.Add(mhlLeftTorso);
@@ -453,10 +453,14 @@ namespace BattleTechNET.Data
                             {
                                 throw new Exception(string.Format("Unable to parse engine rating: {0}", sRating));
                             }
-                            //Remove the work Engine from Engine Type
+                            //Remove the word Engine from Engine Type
                             sType = sType.Replace("Engine", "").Trim();
+                            //Remove (Inner Sphere) from Engine Type
+                            sType = sType.Replace("(Inner Sphere)", "").Trim();
+                            //Remove Large from Engine Type
+                            sType = sType.Replace("Large", "").Trim();
                             //Normalize the Engine Type
-                            foreach(string sEngineType in ComponentEngine.GetEngineTypes())
+                            foreach (string sEngineType in ComponentEngine.GetEngineTypes())
                             {
                                 if (Utilities.IsSynonymFor(sEngineType, sType)) sType = sEngineType;
                             }
@@ -495,7 +499,7 @@ namespace BattleTechNET.Data
                             foreach (MyomerType curMyomerType in MyomerType.GetCanonicalMyomerTypes())
                             {
                                 if ((curMyomerType.Name.Equals(kvp.Value, StringComparison.CurrentCultureIgnoreCase) ||
-                                    Utilities.IsSynonymFor(curMyomerType.Name, kvp.Value)) &&
+                                    Utilities.IsSynonymFor(curMyomerType, kvp.Value)) &&
                                     retval.IsCompatible(curMyomerType)
                                     )
                                 {
@@ -600,7 +604,7 @@ namespace BattleTechNET.Data
                                 BattleMechHitLocation selectedLocation = null;
                                 foreach (BattleMechHitLocation bmhl in retval.HitLocations)
                                 {
-                                    if (Utilities.IsSynonymFor(bmhl.Name, sKey))
+                                    if (Utilities.IsSynonymFor(bmhl, sKey)|| Utilities.IsSynonymFor(bmhl.Name, sKey))
                                     {
                                         selectedLocation = bmhl;
                                     }
@@ -638,6 +642,7 @@ namespace BattleTechNET.Data
                                             criticalSlot.AffectedComponent = new UnitComponent(caseComponent, selectedLocation);
                                             retval.Components.Add(criticalSlot.AffectedComponent);
                                         }*/
+                                        if (selectedLocation == null) Console.WriteLine("Test");
                                         selectedLocation.AddCriticalSlot(criticalSlot);
                                     }
                                 }
