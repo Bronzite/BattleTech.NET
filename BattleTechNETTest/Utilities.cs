@@ -8,6 +8,7 @@ namespace BattleTechNETTest
 {
     public static class Utilities
     {
+        public static string DataDirectory = "";
 
         static public List<KeyValuePair<string, string>> UndertonnageMechs = new List<KeyValuePair<string, string>>()
         {
@@ -27,7 +28,7 @@ namespace BattleTechNETTest
             }
             return false;
         }
-
+        
         //Recursive file get
         static public string[] GetFiles(string sDirectory, string sPattern)
         {

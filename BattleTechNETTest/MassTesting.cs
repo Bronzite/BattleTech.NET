@@ -10,14 +10,14 @@ using Xunit.Abstractions;
 
 namespace BattleTechNETTest
 {
-    public class MassTesting
+    public class MassTesting:DataTest
     {
         string sDirectory = $".{Path.DirectorySeparatorChar}TestFiles{Path.DirectorySeparatorChar}";
         
 
         private readonly ITestOutputHelper _outputHelper;
 
-        public MassTesting(ITestOutputHelper testOutputHelper)
+        public MassTesting(ITestOutputHelper testOutputHelper):base()
         {
             _outputHelper = testOutputHelper;
         }
@@ -27,7 +27,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName="Load MegaMek Files")]
         public void TestMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory,"*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs","*.mtf");
 
             int iLoadCount = 0;
 
@@ -52,7 +52,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Count Loadable MTF Files")]
         public void TestCount()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
 
             int iLoadCount = 0;
             int iFileCount = 0;
@@ -78,7 +78,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Mass Check MegaMek Files")]
         public void MassCheckMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
             int iLoadCount = 0;
             
             foreach (string sFile in sFiles)
@@ -108,7 +108,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Clan Mass Check MegaMek Files")]
         public void MassCheckClanMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
             int iLoadCount = 0;
             int iClanMechCount = 0;
             if (sFiles == null) return;
@@ -146,7 +146,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Inner Sphere Mass Check MegaMek Files")]
         public void MassCheckISMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
             int iLoadCount = 0;
             int iInnerSphereMechCount = 0;
             if (sFiles == null) return;
@@ -184,7 +184,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Mixed Techbase Mass Check MegaMek Files")]
         public void MassCheckMixedTechbaseMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles(sDirectory, "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mechfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
             int iLoadCount = 0;
             int iMixedTechBaseMechCount = 0;
             if (sFiles == null) return;
