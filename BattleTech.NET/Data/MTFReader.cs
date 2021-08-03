@@ -815,6 +815,12 @@ namespace BattleTechNET.Data
                 //Install any Vibroblades
                 ComponentVibroblade.ResolveComponent(retval);
 
+                //Install Mace
+                ComponentMace.ResolveComponent(retval);
+
+                //Install Spikes
+                ComponentSpike.ResolveComponent(retval);
+
                 ComponentCoolantPod.ResolveComponents(retval);
                 ComponentSupercharger.ResolveComponents(retval);
                 ComponentPPCCapacitor.ResolveComponents(retval);
