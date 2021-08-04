@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleTechNET.Common
 {
-    public class ComponentEngine:Component
+    public class ComponentEngine:Component,IAliasable
     {
         private static Dictionary<string, double[]> mEngineTonnageDictionary = null;
         private static Dictionary<string, double[]> EngineTonnages
@@ -65,7 +65,7 @@ namespace BattleTechNET.Common
         
         }
         public ComponentEngine(int iEngineRating, string sEngineType) : this(iEngineRating, sEngineType, 1) { }
-        public ComponentEngine(int iEngineRating, string sEngineType,double dBattleValueModifier) { EngineRating = iEngineRating; EngineType = sEngineType; BattleValueModifier = dBattleValueModifier; }
+        public ComponentEngine(int iEngineRating, string sEngineType,double dBattleValueModifier) { EngineRating = iEngineRating; EngineType = sEngineType; BattleValueModifier = dBattleValueModifier; AliasList = new List<string>(); }
 
         private int mEngineRating = 100;
 
@@ -123,7 +123,16 @@ namespace BattleTechNET.Common
                 return (int)criticalFreeHeatSinks;
             }
         }
-
+        private List<string> AliasList { get; set; }
+        public IEnumerable<string> Aliases { get { return AliasList; } }
+        public IAliasable AddAlias(string sAliasable) { AliasList.Add(sAliasable); return this; }
+        public IAliasable AddAlias(IEnumerable<string> ieAliasable)
+        {
+            foreach (string s in ieAliasable)
+                AliasList.Add(s);
+            return this;
+        }
+        public IAliasable ClearAliasList() { AliasList.Clear(); return this; }
     }
 }
 

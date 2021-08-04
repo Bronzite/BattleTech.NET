@@ -899,7 +899,7 @@ namespace BattleTechNET.Data
             },
             {"Extended LRM 20",new ComponentWeaponClustered() //TM341
             {
-                Name = "Enhanced LRM 20",
+                Name = "Extended LRM 20",
                 BaseCost = 312500,
                 Heat = 12,
                 AeroHeat = 12,
@@ -1442,7 +1442,7 @@ namespace BattleTechNET.Data
             },
              {"Improved Heavy Large Laser",new ComponentWeapon() //TM406
             {
-                Name = "ImprovedHeavy Large Laser",
+                Name = "Improved Heavy Large Laser",
                 BaseCost = 350000,
                 Heat = 18,
                 AeroHeat = 18,
@@ -1526,8 +1526,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV=137
             }
-              .AddAlias("Particle Cannon")
-                .AddAlias("ISPPC") as ComponentWeapon
+              .AddAlias("ISBombastLaser") as ComponentWeapon
             },
             {"SRM 2",new ComponentWeaponClustered() //TM341
             {
@@ -2560,7 +2559,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 ToHitModifier=-2,
                 BV=12
-            }
+            }.AddAlias("CLMicroPulseLaser") as ComponentWeapon
             },
               {"Clan ER Micro Laser",new ComponentWeapon() //TM341
             {
@@ -3646,6 +3645,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV = 0
             }
+            .AddAlias("Light TAG [Clan]")
             .AddAlias("Light TAG") as ComponentWeapon
             },
                 {"Small X-Pulse Laser",new ComponentWeapon() //TO408
@@ -3676,6 +3676,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 21
             }
+                .AddAlias("ISSmallXPulseLaser") as ComponentWeapon
             },
             {"Medium X-Pulse Laser",new ComponentWeapon() //TO408
             {
@@ -3705,6 +3706,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 71
             }
+            .AddAlias("ISMediumXPulseLaser") as ComponentWeapon
             },
              {"Large X-Pulse Laser",new ComponentWeapon() //TO408
             {
@@ -3734,6 +3736,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 178
             }
+             .AddAlias("ISLargeXPulseLaser") as ComponentWeapon
             },
              {"Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -3793,6 +3796,7 @@ namespace BattleTechNET.Data
                 VolatileDamage = 3,
                 BV = 21
             }
+             .AddAlias("CLAPGaussRifle") as ComponentWeapon
             },
             {"Hyper-Assault Gauss 20",new ComponentWeaponClustered () //TM341
             {
@@ -4078,6 +4082,7 @@ namespace BattleTechNET.Data
                 DefensiveBV=true
             }
                   .AddAlias("Laser AMS")
+                .AddAlias("CLLaserAntiMissileSystem")
                   .AddAlias("LAMS") as ComponentWeapon
             },
                     {"Clan Laser Anti-Missile System",new ComponentWeapon() //TM343
@@ -4111,6 +4116,7 @@ namespace BattleTechNET.Data
                 DefensiveBV=true
             }
                   .AddAlias("Laser AMS")
+                .AddAlias("ISLaserAntiMissileSystem")
                   .AddAlias("LAMS") as ComponentWeapon
             },
 
@@ -4143,6 +4149,7 @@ namespace BattleTechNET.Data
                 BV = 10,
                 ToHitModifier=3
             }
+                     .AddAlias("Mortar 1")
                   .AddAlias("ISMechMortar1") as ComponentWeapon
             },
                       {"Clan 'Mech Mortar 1",new ComponentWeapon() //TO408
@@ -4174,6 +4181,7 @@ namespace BattleTechNET.Data
                 BV = 10,
                 ToHitModifier=3
             }
+                      .AddAlias("Mortar 1")
                   .AddAlias("CLMechMortar1") as ComponentWeapon
             },
 
@@ -4206,6 +4214,7 @@ namespace BattleTechNET.Data
                 BV = 14,
                 ToHitModifier=3
             }
+                     .AddAlias("Mortar 2")
                   .AddAlias("ISMechMortar2") as ComponentWeapon
             },
                       {"Clan 'Mech Mortar 2",new ComponentWeapon() //TO408
@@ -4237,6 +4246,7 @@ namespace BattleTechNET.Data
                 BV = 10,
                 ToHitModifier=3
             }
+                      .AddAlias("Mortar 2")
                   .AddAlias("CLMechMortar2") as ComponentWeapon
             },
                                {"IS 'Mech Mortar 4",new ComponentWeapon() //TO408
@@ -4268,6 +4278,7 @@ namespace BattleTechNET.Data
                 BV = 26,
                 ToHitModifier=3
             }
+                               .AddAlias("Mortar 4")
                   .AddAlias("ISMechMortar4") as ComponentWeapon
             },
                       {"Clan 'Mech Mortar 4",new ComponentWeapon() //TO408
@@ -4299,6 +4310,7 @@ namespace BattleTechNET.Data
                 BV = 26,
                 ToHitModifier=3
             }
+                      .AddAlias("Mortar 4")
                   .AddAlias("CLMechMortar4") as ComponentWeapon
             },
                                          {"IS 'Mech Mortar 8",new ComponentWeapon() //TO408
@@ -4330,6 +4342,7 @@ namespace BattleTechNET.Data
                 BV = 50,
                 ToHitModifier=3
             }
+                .AddAlias("Mortar 8")
                   .AddAlias("ISMechMortar4") as ComponentWeapon
             },
                       {"Clan 'Mech Mortar 8",new ComponentWeapon() //TO408
@@ -4361,6 +4374,7 @@ namespace BattleTechNET.Data
                 BV = 50,
                 ToHitModifier=3
             }
+                      .AddAlias("Mortar 8")
                   .AddAlias("CLMechMortar8") as ComponentWeapon
             },
             {"Streak SRM 2",new ComponentWeaponClustered() //TM341
@@ -4919,6 +4933,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 18
             }
+            .AddAlias("Rocket Launcher 10 (PP)")
             .AddAlias("ISRocketLauncher10") as ComponentWeapon
             },
              {"Rocket Launcher 15",new ComponentWeaponClustered() //TM342
@@ -4950,6 +4965,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 23
             }
+             .AddAlias("Rocket Launcher 15 (PP)")
              .AddAlias("ISRocketLauncher15") as ComponentWeapon
             },
             {"Rocket Launcher 20",new ComponentWeaponClustered() //TM342
@@ -4981,6 +4997,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 24
             }
+            .AddAlias("Rocket Launcher 20 (PP)")
             .AddAlias("ISRocketLauncher20") as ComponentWeapon
             },
             {"Arrow IV Missile",new ComponentArtillery() //TM342
@@ -5110,7 +5127,9 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 15 
             }
-                .AddAlias("HFlamer") as ComponentWeapon
+             .AddAlias("ISHeavyFlamer")
+                .AddAlias("CLHeavyFlamer") as ComponentWeapon
+                
             },
               {"ER Flamer",new ComponentWeapon() //TO400
             {
@@ -5141,6 +5160,8 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 16 
             }
+              .AddAlias("CLERFlamer")
+                .AddAlias("ISERFlamer")
                 .AddAlias("ERFlamer") as ComponentWeapon
             },
             {"Clan Machine Gun Array",new ComponentMachineGunArray() //TM342
@@ -5758,6 +5779,7 @@ namespace BattleTechNET.Data
                 DefensiveBV=true
             }
             .AddAlias("B-Pod")
+            .AddAlias("CLBPod")
             .AddAlias("Anti-BattleArmor Pods (B-Pods)") as ComponentWeapon
             },
             {"IS A-Pods",new ComponentAntiPersonnelPod() //TM341
@@ -5820,6 +5842,7 @@ namespace BattleTechNET.Data
                 DefensiveBV=true
             }
             .AddAlias("B-Pod")
+            .AddAlias("ISBPod")
             .AddAlias("Anti-BattleArmor Pods (B-Pods)") as ComponentWeapon
             },
 
@@ -5855,6 +5878,8 @@ namespace BattleTechNET.Data
 
             }
               .AddAlias("ISTaser")
+                .AddAlias("ISMekTaser")
+                .AddAlias("BattleMech Taser")
               .AddAlias("Mech Taser") as ComponentWeapon
             },
               {"Dual Saw",new ComponentWeapon() //TO410
@@ -6037,6 +6062,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 BV = 5
             }
+               .AddAlias("ISMPod")
               .AddAlias("MPod") as ComponentWeapon
             },
             {"Magshot",new ComponentWeapon() //TO407
@@ -6097,6 +6123,8 @@ namespace BattleTechNET.Data
                 BV = 6
             }
               .AddAlias("ISFluid Gun")
+                .AddAlias("ISFluidGun")
+                .AddAlias("CLFluidGun")
               .AddAlias("CLFluid Gun") as ComponentWeapon
             },
              {"Small Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -6129,6 +6157,7 @@ namespace BattleTechNET.Data
             }
              .SetRangeDamage(5,4,3)
                 .AddAlias("Small VSP")
+                .AddAlias("Small VSP Laser")
                .AddAlias("ISSmallVSPLaser") as ComponentWeapon
             },
             {"Medium Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -6160,7 +6189,8 @@ namespace BattleTechNET.Data
                 BV = 56
             }
             .SetRangeDamage(9,7,5)
-                .AddAlias("Medium VSP") 
+                .AddAlias("Medium VSP")
+                .AddAlias("Medium VSP Laser")
             .AddAlias("ISMediumVSPLaser") as ComponentWeapon
             },
              {"Large Variable-Speed Pulse Laser",new ComponentWeapon() //TM341
@@ -6192,7 +6222,8 @@ namespace BattleTechNET.Data
                 BV = 123
             }
              .SetRangeDamage(11,9,7)
-                .AddAlias("Large VSP") 
+                .AddAlias("Large VSP")
+                .AddAlias("Large VSP Laser")
              .AddAlias("ISLargeVSPLaser") as ComponentWeapon
             },
         };

@@ -39,13 +39,16 @@ namespace BattleTechNET.Common
 
 
 
-            new string[] {"ICE","I.C.E","I.C.E." },
+            new string[] {"ICE","I.C.E","I.C.E.","ICE (IS)" },
             new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)", "Fusion  (Clan)","Fusion (Clan) (IS)" },
-            new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion","XL  (Inner Sphere)" },
+            new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion","XL  (Inner Sphere)", "XL Fusion  (Clan)" },
+            new string[] {"XXL", "XXL (IS)", "XXL (Clan)", "XXL (Clan) (IS)","XXL Fusion" },
             new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion" },
             new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)" },
+            new string[] {"Fuel Cell","Fuel Cell (IS)","Cell","Fuel-Cell" },
+            new string[] {"Fission", "Fission (IS)", "Fission (Clan)"},
 
-            
+
             new string[] { "CASE","ISCASE","ClanCASE" },
             new string[] { "Collapsible Command Module", "ISCollapsibleCommandModule" },
             

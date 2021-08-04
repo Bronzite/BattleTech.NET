@@ -48,7 +48,9 @@ namespace BattleTechNET.TotalWarfare
             .AddAlias("Triple-Strength Myomer")
             .AddAlias("Triple Strength Myomer")
             .AddAlias("Triple-Strength") as MyomerType); //TM52, TW143
-            retval.Add(new MyomerType("Industrial TSM", TECHNOLOGY_BASE.INNERSPHERE, 0, 0, 6) { BattleMechPilotingRollModifier = 1, BattleMechPhysicalAttackToHitModifier = 2 }); //TM240, TW143
+            retval.Add(new MyomerType("Industrial TSM", TECHNOLOGY_BASE.INNERSPHERE, 0, 0, 6) { BattleMechPilotingRollModifier = 1, BattleMechPhysicalAttackToHitModifier = 2 }
+            .AddAlias("Industrial Triple-Strength") as MyomerType
+            ); //TM240, TW143
             
 
             return retval;

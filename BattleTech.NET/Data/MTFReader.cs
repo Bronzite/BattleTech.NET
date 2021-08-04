@@ -474,7 +474,7 @@ namespace BattleTechNET.Data
                             foreach(StructureType curStructureType in StructureType.GetCanonicalStructureTypes())
                             {
                                 if((curStructureType.Name.Equals(kvp.Value,StringComparison.CurrentCultureIgnoreCase) ||
-                                   Utilities.IsSynonymFor (curStructureType.Name,kvp.Value)) &&
+                                   Utilities.IsSynonymFor (curStructureType,kvp.Value)) &&
                                    retval.IsCompatible(curStructureType)
                                    )
                                 {

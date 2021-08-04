@@ -42,6 +42,22 @@ namespace BattleTechNET.Common
                 new CriticalSlot() {Label = "Sensor",SlotNumber = 5, RollAgain = false}
             };
 
+            ComponentCockpit primitiveCockpit = new ComponentCockpit()
+            {
+                Tonnage = 3,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                Name = "Primitive Cockpit",
+                PilotingRollModifier = 0
+            };
+            primitiveCockpit.CriticalSlots = new CriticalSlot[]
+            {
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 1, RollAgain = false },
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 6, RollAgain = false },
+                new CriticalSlot() {Label = "Primitive Cockpit",SlotNumber = 3, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 2, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 5, RollAgain = false}
+            };
+
             ComponentCockpit smallCockpit = new ComponentCockpit()
             {
                 Tonnage = 2,
@@ -72,9 +88,51 @@ namespace BattleTechNET.Common
                 
             };
 
+            ComponentCockpit industrialCockpit = new ComponentCockpit()
+            {
+                Tonnage = 3,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                Name = "Industrial Cockpit",
+                PilotingRollModifier = 1
+            }
+            .AddAlias("Industrial Cockpit (AFC)")
+            .AddAlias("Primitive Industrial Cockpit") as ComponentCockpit;
+            industrialCockpit.CriticalSlots = new CriticalSlot[]
+            {
+
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 1, RollAgain = false },
+                new CriticalSlot() {Label = "Cockpit",SlotNumber = 3, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 2, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 4, RollAgain = false},
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 6, RollAgain = false },
+
+            };
+
+            ComponentCockpit interfaceCockpit = new ComponentCockpit()
+            {
+                Tonnage = 4,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                Name = "Interface Cockpit",
+                PilotingRollModifier = 1
+            };
+
+            interfaceCockpit.CriticalSlots = new CriticalSlot[]
+            {
+
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 1, RollAgain = false },
+                new CriticalSlot() {Label = "Life Support",SlotNumber = 6, RollAgain = false },
+                new CriticalSlot() {Label = "Interface Cockpit",SlotNumber = 3, RollAgain = false},
+                new CriticalSlot() {Label = "Interface Cockpit",SlotNumber = 4, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 2, RollAgain = false},
+                new CriticalSlot() {Label = "Sensor",SlotNumber = 5, RollAgain = false}
+
+        };
             retval.Add(standardCockpit);
             retval.Add(smallCockpit);
             retval.Add(torsoCockpit);
+            retval.Add(primitiveCockpit);
+            retval.Add(industrialCockpit);
+            retval.Add(interfaceCockpit);
             return retval;
         }
 

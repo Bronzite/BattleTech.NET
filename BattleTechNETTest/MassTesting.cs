@@ -41,7 +41,15 @@ namespace BattleTechNETTest
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception($"Error loading {sFile}", ex);
+                    string sText = "";
+                    while(ex != null)
+                    {
+                        sText += ex.Message;
+                        sText += "/";
+                        ex = ex.InnerException;
+                    }
+                    sText += Path.GetFileNameWithoutExtension(sFile);
+                    _outputHelper.WriteLine(sText);
                 }
             }
 
