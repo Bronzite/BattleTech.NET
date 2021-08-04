@@ -662,6 +662,282 @@ namespace BattleTechNET.Data
             .AddAlias("LRM20")
             .AddAlias("ISLRM20") as ComponentWeapon
             },
+            {"Streak LRM 5",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Streak LRM 5",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=45
+
+            }
+
+            .AddAlias("ISSLRM5") as ComponentWeapon
+            },
+            {"Streak LRM 10",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Streak LRM 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=90
+            }
+            .AddAlias("ISSLRM10") as ComponentWeapon
+            },
+            {"Streak LRM 15",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Streak LRM 15",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=136
+            }
+            .AddAlias("ISSLRM15") as ComponentWeapon
+            },
+            {"Streak LRM 20",new ComponentWeaponClustered() //TM341
+            {
+                Name = "Streak LRM 20",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 10,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=181
+            }
+            .AddAlias("ISSLRM20") as ComponentWeapon
+            },
+            {"LRT 5",new ComponentWeaponClustered() //TM341
+            {
+                Name = "LRT 5",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=45
+
+            }
+            .AddAlias("LRT 5")
+            .AddAlias("LRT/5")
+            .AddAlias("LRT5")
+            .AddAlias("ISLRT5") as ComponentWeapon
+            },
+            {"LRT 10",new ComponentWeaponClustered() //TM341
+            {
+                Name = "LRT 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=90
+            }.AddAlias("LRT 10")
+            .AddAlias("LRT/10")
+            .AddAlias("LRT10")
+            .AddAlias("ISLRT10") as ComponentWeapon
+            },
+            {"LRT 15",new ComponentWeaponClustered() //TM341
+            {
+                Name = "LRT 15",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=136
+            }.AddAlias("LRT 15")
+            .AddAlias("LRT/15")
+            .AddAlias("LRT15")
+            .AddAlias("ISLRT15") as ComponentWeapon
+            },
+            {"LRT 20",new ComponentWeaponClustered() //TM341
+            {
+                Name = "LRT 20",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 10,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=181
+            }.AddAlias("LRT 20")
+            .AddAlias("LRT/20")
+            .AddAlias("LRT20")
+            .AddAlias("ISLRT20") as ComponentWeapon
+            },
             {"Enhanced LRM 5",new ComponentWeaponClustered() //TM341
             {
                 Name = "Enhanced LRM 5",
@@ -833,7 +1109,7 @@ namespace BattleTechNET.Data
             },
             {"Extended LRM 10",new ComponentWeaponClustered() //TM341
             {
-                Name = "Enhanced LRM 10",
+                Name = "Extended LRM 10",
                 BaseCost = 125000,
                 Heat = 6,
                 AeroHeat = 6,
@@ -1070,6 +1346,147 @@ namespace BattleTechNET.Data
             .AddAlias("LRM/20")
             .AddAlias("LRM20")
             .AddAlias("CLLRM20") as ComponentWeapon
+            },
+            {"Clan LRT 5",new ComponentWeaponClustered() //TM343
+            {
+                Name = "LRT 5",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=55
+            }.AddAlias("LRT 5")
+            .AddAlias("LRT/5")
+            .AddAlias("LRT5")
+            .AddAlias("CLLRT5") as ComponentWeapon
+            },
+            {"Clan LRT 10",new ComponentWeaponClustered() //TM343
+            {
+                Name = "LRT 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                SalvoSize=10,
+                IndirectFire=true,
+                AeroDamage = 6,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 2.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=109
+            }.AddAlias("LRT 10")
+            .AddAlias("LRT/10")
+            .AddAlias("LRT10")
+            .AddAlias("CLLRT10") as ComponentWeapon
+            },
+            {"Clan LRT 15",new ComponentWeaponClustered() //TM343
+            {
+                Name = "LRT 15",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                SalvoSize=15,
+                IndirectFire=true,
+                AeroDamage = 9,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 3.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=164
+            }.AddAlias("LRT 15")
+            .AddAlias("LRT/15")
+            .AddAlias("LRT15")
+            .AddAlias("CLLRT15") as ComponentWeapon
+            },
+            {"Clan LRT 20",new ComponentWeaponClustered() //TM341
+            {
+                Name = "LRT 20",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 0,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 5,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRT",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=220
+            }
+            .AddAlias("LRT 20")
+            .AddAlias("LRT/20")
+            .AddAlias("LRT20")
+            .AddAlias("CLLRT20") as ComponentWeapon
             },
             {"Autocannon 2",new ComponentWeapon() //TM341
             {
@@ -1632,6 +2049,110 @@ namespace BattleTechNET.Data
                 .AddAlias("SRM6")
                 .AddAlias("ISSRM6") as ComponentWeapon
             },
+            {"SRT 2",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 2",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 50,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=21
+            }
+            .AddAlias("SRT/2")
+                .AddAlias("SRT2")
+                .AddAlias("ISSRT2") as ComponentWeapon
+            },
+            {"SRT 4",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 4",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 2,
+                AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 25,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=39
+            }
+            .AddAlias("SRT/4")
+                .AddAlias("SRT4")
+                .AddAlias("ISSRT4") as ComponentWeapon
+            },
+            {"SRT 6",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 6",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 2,
+                AeroDamage = 8,
+                DamagePerMissile=2,
+                SalvoSize=6,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 15,
+                Tonnage = 3,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRT",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=59
+            }.AddAlias("SRT/6")
+                .AddAlias("SRT6")
+                .AddAlias("ISSRT6") as ComponentWeapon
+            },
              {"SRM 2 (OS)",new ComponentWeaponClustered() //TM341
             {
                 Name = "SRM 2 (OS)",
@@ -1822,6 +2343,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
                 TechRating="F",
+
                 AeroRange = AerospaceWeaponRanges.SHORT,
                 HeatIsPerShot= false,
                 AlphaStrikeAbility = "SRM",
@@ -1831,6 +2353,110 @@ namespace BattleTechNET.Data
             }.AddAlias("SRM/6")
                 .AddAlias("SRM6")
                 .AddAlias("CLSRM6") as ComponentWeapon
+            },
+            {"Clan SRT 2",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 2",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                DamagePerMissile=2,
+                SalvoSize=2,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 50,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "SRT",
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=21
+            }
+             .AddAlias("SRT/2")
+                .AddAlias("SRT2")
+                .AddAlias("CLSRT2") as ComponentWeapon
+            },
+            {"Clan SRT 4",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 4",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 2,
+                AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 25,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "SRT",
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=39
+            }
+            .AddAlias("SRT/4")
+                .AddAlias("SRT4")
+                .AddAlias("CLSRT4") as ComponentWeapon
+            },
+            {"Clan SRT 6",new ComponentWeaponClustered() //TM341
+            {
+                Name = "SRT 6",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=6,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 15,
+                Tonnage = 1.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="F",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "SRT",
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=59
+            }.AddAlias("SRT/6")
+                .AddAlias("SRT6")
+                .AddAlias("CLSRT6") as ComponentWeapon
             },
              {"Machine Gun",new ComponentWeapon() //TM341
             {
@@ -3798,6 +4424,38 @@ namespace BattleTechNET.Data
             }
              .AddAlias("CLAPGaussRifle") as ComponentWeapon
             },
+              {"Silver Bullet Gauss Rifle",new ComponentWeapon() //TM341
+            {
+                Name = "Silver Bullet Gauss Rifle",
+                BaseCost = 350000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 1,
+                AeroDamage = 1,
+                MinimumRange = 2,
+                ShortRange = 7,
+                MediumRange = 15,
+                LongRange = 22,
+                AmmoPerTon = 8,
+                Tonnage = 15,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                VolatileDamage = 20,
+                ContributesToTargetingComputerMass = false,
+                ToHitModifier=-1,
+                BV = 320
+            }
+             .AddAlias("ISSBGaussRifle") as ComponentWeapon
+            },
             {"Hyper-Assault Gauss 20",new ComponentWeaponClustered () //TM341
             {
                 Name = "Hyper-Assault Gauss 20",
@@ -5064,6 +5722,108 @@ namespace BattleTechNET.Data
             .AddAlias("Arrow IV")
             .AddAlias("CLArrowIVSystem") as ComponentWeapon
             },
+            {"Sniper",new ComponentArtillery() //TM342
+            {
+                Name = "Sniper",
+                BaseCost = 300000,
+                Heat = 10,
+                AeroHeat = 10,
+                Damage = 20,
+                AeroDamage = 0,
+                ArtilleryRange = 18,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 12,
+                AmmoPerTon = 10,
+                Tonnage = 20,
+                CriticalSpaceMech =20,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 20,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 240
+            }
+            .AddAlias("Sniper Cannon")
+            .AddAlias("ISSniperArtCannon")
+            .AddAlias("ISSniper")
+            .AddAlias("CLSniper") as ComponentWeapon
+            },
+            {"Thumper",new ComponentArtillery() //TM342
+            {
+                Name = "Thumper",
+                BaseCost = 187500,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 15,
+                AeroDamage = 0,
+                ArtilleryRange = 21,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 12,
+                AmmoPerTon = 20,
+                Tonnage = 12,
+                CriticalSpaceMech =12,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 12,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 240
+            }
+            .AddAlias("Thumper Cannon")
+                .AddAlias("ISThumperArtCannon")
+            .AddAlias("ISThumper")
+            .AddAlias("CLThumper") as ComponentWeapon
+            },
+            {"Long Tom",new ComponentArtillery() //TM342
+            {
+                Name = "Long Tom",
+                BaseCost = 450000,
+                Heat = 20,
+                AeroHeat = 20,
+                Damage = 25,
+                AeroDamage = 0,
+                ArtilleryRange = 30,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 12,
+                AmmoPerTon = 5,
+                Tonnage = 20,
+                CriticalSpaceMech =20,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 20,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 240
+            }
+            .AddAlias("Long Tom Cannon")
+            .AddAlias("ISLongTom")
+                .AddAlias("ISLongTomArtCannon")
+            .AddAlias("CLLongTom") as ComponentWeapon
+            },
             {"Machine Gun Array",new ComponentMachineGunArray() //TM342
             {
                 Name = "Machine Gun Array",
@@ -6225,6 +6985,130 @@ namespace BattleTechNET.Data
                 .AddAlias("Large VSP")
                 .AddAlias("Large VSP Laser")
              .AddAlias("ISLargeVSPLaser") as ComponentWeapon
+            },
+             {"Small Re-Engineered Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Small Re-Engineered Laser",
+                BaseCost = 25000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 4,
+                AeroDamage = 4,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 1.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 123
+            }
+
+             .AddAlias("SmallReengineeredLaser") as ComponentWeapon
+            },
+              {"Medium Re-Engineered Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Medium Re-Engineered Laser",
+                BaseCost = 100000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 6,
+                AeroDamage = 6,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 0,
+                Tonnage = 2.5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 123
+            }
+
+             .AddAlias("MediumReengineeredLaser") as ComponentWeapon
+            },
+                 {"Large Re-Engineered Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Large Re-Engineered Laser",
+                BaseCost = 250000,
+                Heat = 9,
+                AeroHeat = 9,
+                Damage = 9,
+                AeroDamage = 9,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 8,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 123
+            }
+
+             .AddAlias("LargeReengineeredLaser") as ComponentWeapon
+            },
+                     {"TSEMP Cannon",new ComponentWeapon() //TM341
+            {
+                Name = "TSEMP Cannon",
+                BaseCost = 800000,
+                Heat = 10,
+                AeroHeat = 10,
+                Damage = 0,
+                AeroDamage = 0,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 6,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                
+                BV = 123
+            }
+
+             .AddAlias("TSEMP") as ComponentWeapon
             },
         };
     }

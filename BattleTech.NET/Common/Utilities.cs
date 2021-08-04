@@ -45,7 +45,7 @@ namespace BattleTechNET.Common
             new string[] {"XXL", "XXL (IS)", "XXL (Clan)", "XXL (Clan) (IS)","XXL Fusion" },
             new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion" },
             new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)" },
-            new string[] {"Fuel Cell","Fuel Cell (IS)","Cell","Fuel-Cell" },
+            new string[] {"Fuel Cell","Fuel Cell (IS)","Cell","Fuel-Cell","Fuel Cell (Clan) (IS)" },
             new string[] {"Fission", "Fission (IS)", "Fission (Clan)"},
 
 
