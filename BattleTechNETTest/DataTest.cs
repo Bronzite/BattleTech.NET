@@ -15,7 +15,10 @@ namespace BattleTechNETTest
 
             string sTempPath = $".{Path.DirectorySeparatorChar}temp";
             string sTempEnv = Environment.GetEnvironmentVariable("TEMP") ?? "";
-            if (sTempEnv != "") sTempPath = sTempEnv;
+            if (sTempEnv != "")
+                sTempPath = sTempEnv;
+            else
+                if (!Directory.Exists(sTempPath)) Directory.CreateDirectory(sTempPath);
 
 
             if (Utilities.DataDirectory == "")
