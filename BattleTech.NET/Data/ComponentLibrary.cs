@@ -662,6 +662,290 @@ namespace BattleTechNET.Data
             .AddAlias("LRM20")
             .AddAlias("ISLRM20") as ComponentWeapon
             },
+             {"Primitive LRM 5",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive LRM 5",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 18,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=45
+
+            }
+            .AddAlias("Primitive LRM 5")
+            .AddAlias("Primitive LRM/5")
+            .AddAlias("Primitive LRM5")
+            .AddAlias("Primitive ISLRM5") as ComponentWeapon
+            },
+            {"Primitive LRM 10",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive LRM 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 9,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=90
+            }.AddAlias("Primitive LRM 10")
+            .AddAlias("Primitive LRM/10")
+            .AddAlias("Primitive LRM10")
+            .AddAlias("Primitive ISLRM10") as ComponentWeapon
+            },
+            {"Primitive LRM 15",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive LRM 15",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=136
+            }.AddAlias("Primitive LRM 15")
+            .AddAlias("Primitive LRM/15")
+            .AddAlias("Primitive LRM15")
+            .AddAlias("Primitive ISLRM15") as ComponentWeapon
+            },
+            {"Primitive LRM 20",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive LRM 20",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 4,
+                Tonnage = 10,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=181
+            }.AddAlias("Primitive LRM 20")
+            .AddAlias("Primitive LRM/20")
+            .AddAlias("Primitive LRM20")
+            .AddAlias("Primitive ISLRM20") as ComponentWeapon
+            },
+                         {"Improved LRM 5",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Improved LRM 5",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 1,
+                SalvoSize=5,
+                IndirectFire=true,
+                AeroDamage = 3,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 24,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                AlphaStrikeAbility = "LRM",
+                ContributesToTargetingComputerMass=false,
+                BV=45
+
+            }
+            .AddAlias("Improved LRM 5")
+            .AddAlias("Improved LRM/5")
+            .AddAlias("Improved LRM5")
+            .AddAlias("Improved ISLRM5") as ComponentWeapon
+            },
+            {"Improved LRM 10",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Improved LRM 10",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                IndirectFire=true,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 12,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=90
+            }.AddAlias("Improved LRM 10")
+            .AddAlias("Improved LRM/10")
+            .AddAlias("Improved LRM10")
+            .AddAlias("Improved ISLRM10") as ComponentWeapon
+            },
+            {"Improved LRM 15",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Improved LRM 15",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 9,
+                IndirectFire=true,
+                SalvoSize=15,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 8,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=136
+            }.AddAlias("Improved LRM 15")
+            .AddAlias("Improved LRM/15")
+            .AddAlias("Improved LRM15")
+            .AddAlias("Improved ISLRM15") as ComponentWeapon
+            },
+            {"Improved LRM 20",new ComponentWeaponClustered() //IO217
+            {
+                Name = "Improved LRM 20",
+                BaseCost = 20000,
+                Heat = 6,
+                AeroHeat = 6,
+                Damage = 1,
+                SalvoSize=20,
+                IndirectFire=true,
+                AeroDamage = 12,
+                MinimumRange = 6,
+                ShortRange = 7,
+                MediumRange = 14,
+                LongRange = 21,
+                AmmoPerTon = 6,
+                Tonnage = 10,
+                CriticalSpaceMech = 5,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "LRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=181
+            }.AddAlias("Improved LRM 20")
+            .AddAlias("Improved LRM/20")
+            .AddAlias("Improved LRM20")
+            .AddAlias("Improved ISLRM20") as ComponentWeapon
+            },
             {"Streak LRM 5",new ComponentWeaponClustered() //TM341
             {
                 Name = "Streak LRM 5",
@@ -1622,6 +1906,274 @@ namespace BattleTechNET.Data
             .AddAlias("Autocannon/20")
             .AddAlias("ISAC20") as ComponentWeapon
             },
+            {"Primitive Autocannon 2",new ComponentWeapon() //IO216
+            {
+                Name = "Primitive Autocannon 2",
+                BaseCost = 75000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 4,
+                ShortRange = 8,
+                MediumRange = 16,
+                LongRange = 24,
+                AmmoPerTon = 34,
+                Tonnage = 6,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=37
+            }
+            .AddAlias("Primitive AC2")
+            .AddAlias("Primitive AC/2")
+            .AddAlias("Primitive Autocannon/2")
+            .AddAlias("ISPrimitiveAC2") as ComponentWeapon
+            },
+            {"Primitive Autocannon 5",new ComponentWeapon() //IO216
+            {
+                Name = "Primitive Autocannon 5",
+                BaseCost = 125000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 3,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 15,
+                Tonnage = 8,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4, 
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=70
+            }
+            .AddAlias("Primitive AC5")
+            .AddAlias("Primitive AC/5")
+            .AddAlias("Primitive Autocannon/5")
+            .AddAlias("PrimitiveISAC5") as ComponentWeapon
+            },
+              {"Primitive Autocannon 10",new ComponentWeapon() //IO216
+            {
+                Name = "Primitive Autocannon 10",
+                BaseCost = 200000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 8,
+                Tonnage = 12,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=123
+            }
+               .AddAlias("Primitive AC10")
+               .AddAlias("Primitive AC/10")
+               .AddAlias("Primitive Autocannon/10")
+               .AddAlias("PrimitiveISAC10") as ComponentWeapon
+            },
+            {"Primitive Autocannon 20",new ComponentWeapon() //IO216
+            {
+                Name = "Primitive Autocannon 20",
+                BaseCost = 300000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 20,
+                AeroDamage = 20,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 4,
+                Tonnage = 14,
+                CriticalSpaceMech = 10,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 10,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=178
+
+
+            }
+            .AddAlias("Primitive AC20")
+            .AddAlias("Primitive AC/20")
+            .AddAlias("Primitive Autocannon/20")
+            .AddAlias("Primitive ISAC20") as ComponentWeapon
+            },
+            {"Improved Autocannon 2",new ComponentWeapon() //IO216
+            {
+                Name = "Improved Autocannon 2",
+                BaseCost = 75000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 4,
+                ShortRange = 8,
+                MediumRange = 16,
+                LongRange = 24,
+                AmmoPerTon = 45,
+                Tonnage = 6,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=37
+            }
+            .AddAlias("Improved AC2")
+            .AddAlias("Improved AC/2")
+            .AddAlias("Improved Autocannon/2")
+            .AddAlias("ISImprovedAC2") as ComponentWeapon
+            },
+            {"Improved Autocannon 5",new ComponentWeapon() //IO216
+            {
+                Name = "Improved Autocannon 5",
+                BaseCost = 125000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 3,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 20,
+                Tonnage = 8,
+                CriticalSpaceMech = 4,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 4,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=70
+            }
+            .AddAlias("Improved AC5")
+            .AddAlias("Improved AC/5")
+            .AddAlias("Improved Autocannon/5")
+            .AddAlias("ImprovedISAC5") as ComponentWeapon
+            },
+              {"Improved Autocannon 10",new ComponentWeapon() //IO216
+            {
+                Name = "Improved Autocannon 10",
+                BaseCost = 200000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 10,
+                Tonnage = 12,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=123
+            }
+               .AddAlias("Improved AC10")
+               .AddAlias("Improved AC/10")
+               .AddAlias("Improved Autocannon/10")
+               .AddAlias("ImprovedISAC10") as ComponentWeapon
+            },
+            {"Improved Autocannon 20",new ComponentWeapon() //IO216
+            {
+                Name = "Improved Autocannon 20",
+                BaseCost = 300000,
+                Heat = 7,
+                AeroHeat = 7,
+                Damage = 20,
+                AeroDamage = 20,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 5,
+                Tonnage = 14,
+                CriticalSpaceMech = 10,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 10,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=178
+
+
+            }
+            .AddAlias("Improved AC20")
+            .AddAlias("Improved AC/20")
+            .AddAlias("Improved Autocannon/20")
+            .AddAlias("Improved ISAC20") as ComponentWeapon
+            },
             {"Small Laser",new ComponentWeapon() //TM341
             {
                 Name = "Small Laser",
@@ -1711,6 +2263,127 @@ namespace BattleTechNET.Data
             }
                          .AddAlias("LLaser")
             .AddAlias("ISLargeLaser") as ComponentWeapon
+            },
+              {"Primitive Small Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Primitive Small Laser",
+                BaseCost = 11250,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 3,
+                AeroDamage = 3,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=9
+            }
+            .AddAlias("Primitive SLaser")
+            .AddAlias("ISPrimitive SmallLaser") as ComponentWeapon
+            },
+            {"Primitive Medium Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Primitive Medium Laser",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 5,
+                AeroDamage = 5,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=46
+            }
+                        .AddAlias("Primitive MLaser")
+            .AddAlias("Primitive ISMediumLaser") as ComponentWeapon
+            },
+             {"Primitive Large Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Primitive Large Laser",
+                BaseCost = 20000,
+                Heat = 12,
+                AeroHeat = 12,
+                Damage = 8,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2, //TODO: Seems like this should be 2.
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=123
+            }
+                         .AddAlias("Primitive LLaser")
+            .AddAlias("Primitive ISLargeLaser") as ComponentWeapon
+            },
+            
+             {"Improved Large Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Improved Large Laser",
+                BaseCost = 20000,
+                Heat = 12,
+                AeroHeat = 12,
+                Damage = 8,
+                AeroDamage = 8,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 5,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2, //TODO: Seems like this should be 2.
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
+                BV=123
+            }
+                         .AddAlias("Improved LLaser")
+            .AddAlias("Improved ISLargeLaser") as ComponentWeapon
             },
              {"Heavy Small Laser",new ComponentWeapon() //TM341
             {
@@ -2048,6 +2721,214 @@ namespace BattleTechNET.Data
             }.AddAlias("SRM/6")
                 .AddAlias("SRM6")
                 .AddAlias("ISSRM6") as ComponentWeapon
+            },
+            {"Primitive SRM 2",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive SRM 2",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 37,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=21
+            }
+            .AddAlias("Primitive SRM/2")
+                .AddAlias("Primitive SRM2")
+                .AddAlias("Primitive ISSRM2") as ComponentWeapon
+            },
+            {"Primitive SRM 4",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive SRM 4",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 2,
+                AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 18,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=39
+            }
+            .AddAlias("Primitive SRM/4")
+                .AddAlias("Primitive SRM4")
+                .AddAlias("Primitive ISSRM4") as ComponentWeapon
+            },
+            {"Primitive SRM 6",new ComponentWeaponClustered() //IO216
+            {
+                Name = "Primitive SRM 6",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 2,
+                AeroDamage = 8,
+                DamagePerMissile=2,
+                SalvoSize=6,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 11,
+                Tonnage = 3,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=59
+            }.AddAlias("Primitive SRM/6")
+                .AddAlias("Primitive SRM6")
+                .AddAlias("Primitive ISSRM6") as ComponentWeapon
+            },
+            {"Improved SRM 2",new ComponentWeaponClustered() //IO217
+            {
+                Name = "Improved SRM 2",
+                BaseCost = 20000,
+                Heat = 2,
+                AeroHeat = 2,
+                Damage = 2,
+                DamagePerMissile=2,
+                SalvoSize=2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 50,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=21
+            }
+            .AddAlias("Improved SRM/2")
+                .AddAlias("Improved SRM2")
+                .AddAlias("Improved ISSRM2") as ComponentWeapon
+            },
+            {"Improved SRM 4",new ComponentWeaponClustered() //IO217
+            {
+                Name = "Improved SRM 4",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 2,
+                AeroDamage = 2,
+                DamagePerMissile=2,
+                SalvoSize=4,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 25,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=39
+            }
+            .AddAlias("Improved SRM/4")
+                .AddAlias("Improved SRM4")
+                .AddAlias("Improved ISSRM4") as ComponentWeapon
+            },
+            {"Improved SRM 6",new ComponentWeaponClustered() //IO217
+            {
+                Name = "Improved SRM 6",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 2,
+                AeroDamage = 8,
+                DamagePerMissile=2,
+                SalvoSize=6,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 6,
+                LongRange = 9,
+                AmmoPerTon = 15,
+                Tonnage = 3,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                AlphaStrikeAbility = "SRM",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=59
+            }.AddAlias("Improved SRM/6")
+                .AddAlias("Improved SRM6")
+                .AddAlias("Improved ISSRM6") as ComponentWeapon
             },
             {"SRT 2",new ComponentWeaponClustered() //TM341
             {
