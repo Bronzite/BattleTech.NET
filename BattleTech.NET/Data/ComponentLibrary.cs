@@ -1772,6 +1772,39 @@ namespace BattleTechNET.Data
             .AddAlias("LRT20")
             .AddAlias("CLLRT20") as ComponentWeapon
             },
+            {"Nail/Rivet Gun",new ComponentWeapon() //TM341
+            {
+                Name = "Nail/Rivet Gun",
+                BaseCost = 7000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 2,
+                AeroDamage = 2,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 1,
+                LongRange = 1,
+                AmmoPerTon = 300,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = int.MaxValue,
+                CriticalSpaceSmallCraft = int.MaxValue,
+                CriticalSpaceDropShips = int.MaxValue,
+                TechRating="C",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                //AlphaStrikeAbility = "AC",
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=37
+            }
+            .AddAlias("Nail Gun")
+            .AddAlias("Rivet Gun")
+            .AddAlias("Nail Rivet Gun")
+            .AddAlias("ISNailGun") as ComponentWeapon
+            },
             {"Autocannon 2",new ComponentWeapon() //TM341
             {
                 Name = "Autocannon 2",
