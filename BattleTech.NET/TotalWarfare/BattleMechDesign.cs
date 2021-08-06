@@ -323,6 +323,8 @@ namespace BattleTechNET.TotalWarfare
         {
             int[,] iTable = new int[,]
             {
+                {3,4,3,1,2}, //TM66
+                {3,5,4,2,3}, //TM66
                 {3,6,5,3,4},
                 {3,8,6,4,6},
                 {3,10,7,5,7},
@@ -342,7 +344,7 @@ namespace BattleTechNET.TotalWarfare
                 {3,31,21,17,21 }
             }; //TM47
 
-            int iTonnage = Tonnage / 5 - 4;
+            int iTonnage = Tonnage / 5 - 2;
             int iLocation = 0;
             if (sLocation.Equals("Head") || sLocation.Equals("HD")) iLocation = 0;
             if (sLocation.Equals("Left Arm") || 
