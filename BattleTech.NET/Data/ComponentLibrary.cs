@@ -2622,6 +2622,36 @@ namespace BattleTechNET.Data
               .AddAlias("Particle Cannon")
                 .AddAlias("ISPPC") as ComponentWeapon
             },
+              {"Primitive PPC",new ComponentWeapon() //IO216
+            {
+                Name = "Primitive PPC",
+                BaseCost = 20000,
+                Heat = 15,
+                AeroHeat = 15,
+                Damage = 10,
+                AeroDamage = 10,
+                MinimumRange = 3,
+                ShortRange = 6,
+                MediumRange = 12,
+                LongRange = 18,
+                AmmoPerTon = 0,
+                Tonnage = 7,
+                CriticalSpaceMech = 3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="D",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV=176
+            }
+              .AddAlias("Primitive Particle Cannon")
+                .AddAlias("Primitive ISPPC") as ComponentWeapon
+            },
                  {"Bombast Laser",new ComponentWeapon() //TM341
             {
                 Name = "Bombast Laser",
@@ -2887,7 +2917,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "SRM",
-                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=21
             }
             .AddAlias("Improved SRM/2")
@@ -2922,7 +2952,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "SRM",
-                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=39
             }
             .AddAlias("Improved SRM/4")
@@ -2957,7 +2987,7 @@ namespace BattleTechNET.Data
                 HeatIsPerShot= false,
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "SRM",
-                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                TechnologyBase = TECHNOLOGY_BASE.CLAN,
                 BV=59
             }.AddAlias("Improved SRM/6")
                 .AddAlias("Improved SRM6")
@@ -4669,6 +4699,96 @@ namespace BattleTechNET.Data
             }
              .AddAlias("ISLargePulseLaser") as ComponentWeapon
             },
+             {"Prototype Small Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Prototype Small Pulse Laser",
+                BaseCost = 20000,
+                Heat = 5,//TODO: Generates 10+1D3 Heat
+                AeroHeat = 5,
+                Damage = 3,
+                AeroDamage = 3,
+                MinimumRange = 0,
+                ShortRange = 1,
+                MediumRange = 2,
+                LongRange = 3,
+                AmmoPerTon = 0,
+                Tonnage = 1,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 12
+            }
+               .AddAlias("ISPrototypeSmallPulseLaser") as ComponentWeapon
+            },
+            {"Prototype Medium Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Prototype Medium Pulse Laser",
+                BaseCost = 20000,
+                Heat = 10, //TODO: Generates 4+1D6 Heat
+                AeroHeat = 10,
+                Damage = 6,
+                AeroDamage = 6,
+                MinimumRange = 0,
+                ShortRange = 2,
+                MediumRange = 4,
+                LongRange = 6,
+                AmmoPerTon = 0,
+                Tonnage = 2,
+                CriticalSpaceMech = 1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.SHORT,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 48
+            }
+            .AddAlias("ISPrototypeMediumPulseLaser") as ComponentWeapon
+            },
+             {"Prototype Large Pulse Laser",new ComponentWeapon() //TM341
+            {
+                Name = "Prototype Large Pulse Laser",
+                BaseCost = 20000,
+                Heat = 16, //TODO: Generates 10+1D6 Heat
+                AeroHeat = 16,
+                Damage = 9,
+                AeroDamage = 9,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 10,
+                LongRange = 15,
+                AmmoPerTon = 0,
+                Tonnage = 7,
+                CriticalSpaceMech = 2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 5, //TODO: Seems like this should be 2.
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                ToHitModifier=-1,
+                BV = 119
+            }
+             .AddAlias("ISLargePulseLaser") as ComponentWeapon
+            },
                {"ER Small Pulse Laser",new ComponentWeapon() //TO406
             {
                 Name = "ER Small Pulse Laser",
@@ -5307,6 +5427,36 @@ namespace BattleTechNET.Data
                 BV = 320
             }
              .AddAlias("ISGaussRifle") as ComponentWeapon
+            },
+              {"Prototype Gauss Rifle",new ComponentWeapon() //IO216
+            {
+                Name = "Prototype Gauss Rifle",
+                BaseCost = 20000,
+                Heat = 1,
+                AeroHeat = 1,
+                Damage = 15,
+                AeroDamage = 15,
+                MinimumRange = 2,
+                ShortRange = 7,
+                MediumRange = 15,
+                LongRange = 22,
+                AmmoPerTon = 8, //Pretty sure there's a typo in IO, but it isn't in the errata
+                Tonnage = 15,
+                CriticalSpaceMech = 7,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.LONG,
+                HeatIsPerShot= false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                VolatileDamage = 20,
+                BV = 320
+            }
+             .AddAlias("ISPrototypeGaussRifle") as ComponentWeapon
             },
              {"AP Gauss Rifle",new ComponentWeapon() //TM341
             {
@@ -6505,7 +6655,7 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 18
             }
-            .AddAlias("Rocket Launcher 10 (PP)")
+            .AddAlias("Rocket Launcher 10")
             .AddAlias("ISRocketLauncher10") as ComponentWeapon
             },
              {"Rocket Launcher 15",new ComponentWeaponClustered() //TM342
@@ -6537,7 +6687,6 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 23
             }
-             .AddAlias("Rocket Launcher 15 (PP)")
              .AddAlias("ISRocketLauncher15") as ComponentWeapon
             },
             {"Rocket Launcher 20",new ComponentWeaponClustered() //TM342
@@ -6569,8 +6718,132 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.BOTH,
                 BV = 24
             }
-            .AddAlias("Rocket Launcher 20 (PP)")
             .AddAlias("ISRocketLauncher20") as ComponentWeapon
+            },
+            {"Prototype Rocket Launcher 10",new ComponentWeaponClustered() //TM342
+            {
+                Name = "Prototype Rocket Launcher 10",
+                BaseCost = 20000,
+                Heat = 3,
+                AeroHeat = 3,
+                Damage = 1,
+                AeroDamage = 6,
+                SalvoSize=10,
+                MinimumRange = 0,
+                ShortRange = 5,
+                MediumRange = 11,
+                LongRange = 18,
+                LauncherType="OS",
+                Tonnage = 0.5,
+                CriticalSpaceMech =1,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 18
+            }
+            .AddAlias("Rocket Launcher 10 (PP)") as ComponentWeapon
+            },
+             {"Prototype Rocket Launcher 15",new ComponentWeaponClustered() //TM342
+            {
+                Name = "Prototype Rocket Launcher 15",
+                BaseCost = 20000,
+                Heat = 4,
+                AeroHeat = 4,
+                Damage = 1,
+                AeroDamage = 9,
+                SalvoSize=15,
+                MinimumRange = 0,
+                ShortRange = 4,
+                MediumRange = 9,
+                LongRange = 15,
+                LauncherType="OS",
+                Tonnage = 1,
+                CriticalSpaceMech =2,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 23
+            }
+             .AddAlias("Prototype Rocket Launcher 15 (PP)") as ComponentWeapon
+            },
+            {"Prototype Rocket Launcher 20",new ComponentWeaponClustered() //TM342
+            {
+                Name = "Prototype Rocket Launcher 20",
+                BaseCost = 20000,
+                Heat = 5,
+                AeroHeat = 5,
+                Damage = 1,
+                AeroDamage = 12,
+                SalvoSize=20,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 12,
+                LauncherType="OS",
+                Tonnage = 1.5,
+                CriticalSpaceMech =3,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 3,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="B",
+                AeroRange = AerospaceWeaponRanges.MEDIUM,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.BOTH,
+                BV = 24
+            }
+            .AddAlias("Rocket Launcher 20 (PP)") as ComponentWeapon
+            },
+            {"Prototype Arrow IV",new ComponentArtillery() //TM342
+            {
+                Name = "Prototype Arrow IV",
+                BaseCost = 20000,
+                Heat = 10,
+                AeroHeat = 10,
+                Damage = 20,
+                AeroDamage = 0,
+                ArtilleryRange = 8,
+                MinimumRange = 0,
+                ShortRange = 3,
+                MediumRange = 7,
+                LongRange = 12,
+                AmmoPerTon = 3,
+                Tonnage = 15,
+                CriticalSpaceMech =15,
+                CriticalSpaceProtomech = int.MaxValue,
+                CriticalSpaceCombatVehicle = 1,
+                CriticalSpaceSupportVehicle = 15,
+                CriticalSpaceFighters = 1,
+                CriticalSpaceSmallCraft = 1,
+                CriticalSpaceDropShips = 1,
+                TechRating="E",
+                AeroRange = AerospaceWeaponRanges.NA,
+                HeatIsPerShot= false,
+                ContributesToTargetingComputerMass=false,
+                TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+                BV = 240
+            }
+            .AddAlias("Prototype Arrow IV")
+            .AddAlias("ISPrototypeArrowIVSystem") as ComponentWeapon
             },
             {"Arrow IV Missile",new ComponentArtillery() //TM342
             {
