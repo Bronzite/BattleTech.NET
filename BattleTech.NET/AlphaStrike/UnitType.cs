@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BattleTechNET.AlphaStrike
+namespace BattleTechNET.Common
 {
     public abstract class UnitType
     {

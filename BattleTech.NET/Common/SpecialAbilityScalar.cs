@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BattleTechNET.AlphaStrike
+namespace BattleTechNET.Common
 {
     public class SpecialAbilityScalar: SpecialAbilityVector
     {

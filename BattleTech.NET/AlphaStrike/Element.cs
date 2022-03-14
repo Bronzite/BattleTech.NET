@@ -2,15 +2,77 @@
 using System.Collections.Generic;
 using BattleTechNET.Common;
 
-namespace BattleTechNET.AlphaStrike
+namespace BattleTechNET.Common
 {
-    public class Element:IGameObject 
+    public class Element:IGameObject,ISpecialAbilities
     {
         public Element()
         {
             MovementModes = new List<MovementMode>();
             Arcs = new List<Arc>();
             SpecialAbilities = new List<SpecialAbility>();
+        }
+
+        public SpecialAbility GetSpecialAbility(string sCode)
+        {
+            foreach (SpecialAbility ability in SpecialAbilities)
+            {
+                if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return ability;
+                }
+            }
+            return null;
+        }
+
+        public List<SpecialAbility> GetSpecialAbilities(string sCode)
+        {
+            List<SpecialAbility> retval = new List<SpecialAbility>();
+            foreach (SpecialAbility ability in SpecialAbilities)
+            {
+                if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    retval.Add(ability);
+                }
+            }
+
+                foreach (Arc arc in Arcs)
+                {
+                    retval.AddRange (arc.GetSpecialAbilities(sCode));
+                }
+
+            return retval;
+        }
+
+        public bool HasSpecialAbility(string sCode)
+        {
+            foreach (SpecialAbility ability in SpecialAbilities)
+            {
+                if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool HasSpecialAbility(string sCode, bool bIncludeChildren)
+        {
+            foreach(SpecialAbility ability in SpecialAbilities)
+            {
+                if(ability.Code.Equals(sCode,StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            if(bIncludeChildren)
+            {
+                foreach(Arc arc in Arcs)
+                {
+                    if (arc.HasSpecialAbility(sCode)) return true;
+                }
+            }
+            return false;
         }
 
         public MovementMode GetMovementMode(string sMovementMode)
@@ -57,7 +119,7 @@ namespace BattleTechNET.AlphaStrike
         public IList<SpecialAbility> SpecialAbilities { get; set; }
         
             
-        public class Arc
+        public class Arc: ISpecialAbilities
         {
             public Arc(string sName, int iShort, int iMedium, int iLong, IEnumerable<SpecialAbility> eSpecialAbilities) : this(sName, iShort, iMedium, iLong, 0, eSpecialAbilities) { }
             public Arc(string sName,int iShort,int iMedium, int iLong, int iExtreme, IEnumerable<SpecialAbility> eSpecialAbilities)
@@ -75,6 +137,55 @@ namespace BattleTechNET.AlphaStrike
                 }
             }
 
+            public bool HasSpecialAbility(string sCode)
+            {
+                foreach (SpecialAbility ability in SpecialAbilities)
+                {
+                    if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            public bool HasSpecialAbility(string sCode, bool bIncludeChildren)
+            {
+                foreach (SpecialAbility ability in SpecialAbilities)
+                {
+                    if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            public SpecialAbility GetSpecialAbility(string sCode)
+            {
+                foreach (SpecialAbility ability in SpecialAbilities)
+                {
+                    if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        return ability;
+                    }
+                }
+                return null;
+            }
+
+            public List<SpecialAbility> GetSpecialAbilities(string sCode)
+            {
+                List<SpecialAbility> retval = new List<SpecialAbility>();
+                foreach (SpecialAbility ability in SpecialAbilities)
+                {
+                    if (ability.Code.Equals(sCode, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        retval.Add(ability);
+                    }
+                }
+
+                return retval;
+            }
+
             public string Name { get; set; }
 
             public int Short { get; set; }
@@ -84,7 +195,7 @@ namespace BattleTechNET.AlphaStrike
             public int Long { get; set; }
             public int Extreme { get; set; }
 
-            public List<SpecialAbility> SpecialAbilities { get; set; }
+            public IList<SpecialAbility> SpecialAbilities { get; set; }
 
         }
     }

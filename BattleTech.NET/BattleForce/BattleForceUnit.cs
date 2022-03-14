@@ -1,48 +1,37 @@
 ﻿using BattleTechNET.Common;
+using BattleTechNET.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace BattleTechNET.StrategicBattleForce
+namespace BattleTechNET.BattleForce
 {
-    public class Formation : IGameObject
+    public class BattleForceUnit : IGameObject
     {
-        public Formation()
+        public BattleForceUnit()
         {
-            mUnits = new List<Unit>();
-            MovementModes = new List<MovementMode>();
+            Elements = new List<Element>();
+
         }
 
         public Guid Id { get; set; }
 
-        private string mName;
-        public string Name { get { return mName; } set { mName = value; } }
+        public string Name { get; set; }
 
-        private List<Unit> mUnits { get; set; }
-        public List<Unit> Units { 
-            get { return mUnits; }
-            set
-            {
-                if (value.Count <= 4) mUnits = value;
-                throw new Exception("Formation May Not Contain More Than 4 Units.");
-            } 
-        }
 
-        public void CalculatedValues()
+        public List<Element> Elements { get; set; }
+
+        public void CalculateStats()
         {
-            //Calculate Values for a Formation (IO329)
             double dSize = 0;
-            int iPV = 0;
             List<MovementMode> lstMovementModes = new List<MovementMode>();
             Dictionary<string, int> dicTypes = new Dictionary<string, int>();
 
-            foreach (Unit curElement in mUnits)
+            foreach (Element curElement in Elements)
             {
                 dSize += (double)curElement.Size;
-                iPV += curElement.PointValue;
-                
+                if (!dicTypes.ContainsKey(curElement.UnitType.Code)) dicTypes.Add(curElement.UnitType.Code, 0);
+
                 foreach (MovementMode curMode in curElement.MovementModes)
                 {
                     bool bModeAlreadyInList = false;
@@ -76,7 +65,7 @@ namespace BattleTechNET.StrategicBattleForce
             {
                 bool bMovementModeIsValid = true;
                 //Cycle through each Element in the Unit.
-                foreach (Unit currentElement in mUnits)
+                foreach (Element currentElement in Elements)
                 {
                     bool bElementMeetsMovementRequirement = false;
                     foreach (MovementMode ElementMovementMode in currentElement.MovementModes)
@@ -98,21 +87,33 @@ namespace BattleTechNET.StrategicBattleForce
             }
 
 
-            Type = SBFType.GetAggregateUnitType(dicTypes);
-            Size = (int)Math.Round(dSize / (double)mUnits.Count);
-            PointValue = iPV;
+            Size = (int)Math.Round(dSize / (double)Elements.Count);
+
+
         }
 
-        public SBFType Type { get; set; }
         public int Size { get; set; }
-        public List<MovementMode> MovementModes { get; set; }
-        public string Jump { get; set; }
-        public string TransportMove { get; set; }
-        public string TMM { get; set; }
-        public string Tactics {get;set;}
-        public string Morale { get; set; }
-        public string Skill { get; set; }
+
+        public IList<MovementMode> MovementModes { get; set; }
+
+        public int Jump { get; set; }
+
+        public int TMM { get; set; }
+
+        public int Armor { get; set; }
+
+        public int ShortRange { get; set; }
+
+        public int MediumRange { get; set; }
+
+        public int LongRange { get; set; }
+
+        public int Skill { get; set; }
+
         public int PointValue { get; set; }
-        public List<Common.SpecialAbility> SpecialAbilities { get; set; }
+
+        public List<SpecialAbility> SpecialAbilities { get; set; }
+
+        public string Note { get; set; }
     }
 }
