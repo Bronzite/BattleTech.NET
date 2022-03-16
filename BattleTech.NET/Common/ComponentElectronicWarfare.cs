@@ -158,6 +158,7 @@ namespace BattleTechNET.Common
                 .AddAlias("ISC3MasterComputer")
                 .AddAlias("ISC3MasterUnit")
                 .AddAlias("C3 Computer [Master]")
+                .AddAlias("C3 Computer (Master)")
                 .AddAlias("C3 Master Boosted with TAG")
                 .AddAlias("C3 Master with TAG") as ComponentElectronicWarfare); //TM342
                 componentECMs.Add(new ComponentElectronicWarfare
