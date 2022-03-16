@@ -105,7 +105,7 @@ namespace BattleTechNET.StrategicBattleForce
 
         private static string GetPreferredMovementType(string[] sCode)
         {
-            string[] sIndexList = new string[] { "l", "j", "s", "qt", "qw", "h", "n", "r", "t", "v", "w", "g", "f", "k", "i", "a", "p", "aw" };
+            string[] sIndexList = new string[] { "l", "j", "s", "qt", "qw", "h", "n", "r", "t", "v", "w", "g", "f", "k", "i", "a", "p", "aw", "bm" };
             int iLowest = int.MaxValue;
             foreach(string s in sCode)
             {
@@ -128,7 +128,7 @@ namespace BattleTechNET.StrategicBattleForce
             }
             else
             {
-                if (sCode.Equals("l", StringComparison.CurrentCultureIgnoreCase) || sCode.Equals(""))
+                if (sCode.Equals("l", StringComparison.CurrentCultureIgnoreCase) || sCode.Equals("") || sCode.Equals("bm"))
                     if (sType.Equals("BM", StringComparison.CurrentCultureIgnoreCase)) return 6;
                     else return 5;
                 if (sCode.Equals("j", StringComparison.CurrentCultureIgnoreCase))
@@ -301,7 +301,9 @@ namespace BattleTechNET.StrategicBattleForce
                 SBFType sbfType = SBFType.GetCanonicalTypeByCode(sCode);
                 if (sbfType.AeroType) iAerospace += dicTypes[sCode];
                 else iGround += dicTypes[sCode];
-                lstMovementTypes.Add(sCode);
+                string sInsertValue = sCode;
+                if (sCode == "") sInsertValue = "BM";
+                lstMovementTypes.Add(sInsertValue);
             }
 
             //Disallow units with both Aerospace

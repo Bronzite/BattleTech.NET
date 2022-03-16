@@ -9,7 +9,7 @@ namespace BattleTechNET.Common
     public class MovementMode:ICloneable
     {
         private string[] mValidCodes = {
-            "", //Default ground-based movement
+            "bm", //Default ground-based movement/Battlemech Movement
             "j", //Infantry Jump (SO219,AS31)
             "h", //Vehicle Hover (SO217, AS31)
             "n", //Vehicle Naval (SO217, AS31)
@@ -41,10 +41,12 @@ namespace BattleTechNET.Common
             get { return mCode; }
             set
             {
-                if (mValidCodes.Contains(value.ToLower()))
-                    mCode = value.ToLower();
+                string sCode = mCode;
+                if (sCode == "") sCode = "bm";
+                if (mValidCodes.Contains(sCode.ToLower()))
+                    mCode = sCode.ToLower();
                 else
-                    throw new Exception(string.Format("Unknown Movement Type Code: {0}", mCode));
+                    throw new Exception(string.Format("Unknown Movement Type Code: {0}", sCode));
             }
         }
 
