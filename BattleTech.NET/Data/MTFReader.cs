@@ -69,6 +69,7 @@ namespace BattleTechNET.Data
                 if(dVersion > 1.2)
                 {
                     //TODO: We need to add Ejection support for v1.2
+                    //TODO: We need to add support for v1.3
                     throw new Exception(string.Format("Current Implementation only supports MTF Version 1.0.  File is version {0}", sVersionFields[1]));
                 }
 
@@ -90,7 +91,22 @@ namespace BattleTechNET.Data
                         if (kvp.Key.Equals("Config",StringComparison.CurrentCultureIgnoreCase))
                         {
                             sConfig = kvp.Value;
-                            if(sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
+                            if(sConfig.Contains("Tripod"))
+                            {
+                                //TODO: Support Tripods
+                                throw new Exception("Tripods not supported");
+                            }
+                            if (sConfig.Contains("LAM"))
+                            {
+                                //TODO: Support LAMs
+                                throw new Exception("LAMs not supported");
+                            }
+                            if (sConfig.Contains("QuadVee"))
+                            {
+                                //TODO: Support QuadVees
+                                throw new Exception("QuadVees not supported");
+                            }
+                            if (sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
                                 sConfig.Equals("Biped OmniMech", StringComparison.InvariantCultureIgnoreCase))
                             {
                                 BattleMechHitLocation mhlHead = new BattleMechHitLocation()
@@ -595,7 +611,13 @@ namespace BattleTechNET.Data
                             //Is this needed?  Do we care?
                             int iJumpMP = int.Parse(kvp.Value);
                         }
-
+                        if(kvp.Key.Equals("mul id",StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            //This is the Master Unit List ID Number
+                            //We don't do anything with it.
+                            //But it does throw off our Config expectations
+                            continue;
+                        }
                         //This is where we load the slot for critical hit locations.
                         foreach(string sKey in CriticalHitSlotCount.Keys)
                         {
