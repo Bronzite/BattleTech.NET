@@ -64,6 +64,13 @@ page number (for instance, SO217 for Strategic Operations, page 217.)  This
 really helps with validaating where a particular rule came from, especially
 when clarifying contradictory or strangely interacting rules.
 
+If you are citing Tactical Operations or Interstellar Operations from after 
+those books were separated, be sure to include their subtitled abbreviation 
+(TO:AR for Tactical Operations: Advance Rules, TO:AUE for Tactical Operations:
+Advanced Units and Equipment, IO:AE for Interstellar Operations:Alternate Eras,
+and IO:BF for Interstellar Operations:BattleForce.)
+
+
 ### 5. Id Is Mixed-Case
 
 For the sake of consistency, an identification field named Id is mixed-case,
