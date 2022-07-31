@@ -41,7 +41,7 @@ namespace BattleTechNET.Common
             get { return mCode; }
             set
             {
-                string sCode = mCode;
+                string sCode = value;
                 if (sCode == "") sCode = "bm";
                 if (mValidCodes.Contains(sCode.ToLower()))
                     mCode = sCode.ToLower();

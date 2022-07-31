@@ -35,6 +35,7 @@ namespace BattleTechNET.Conversion
             retval.CurrentArmor = retval.MaxArmor;
             retval.MaxStructure = BattleMechStructureConverter.GetStructure(battleMechDesign.Engine, (int)battleMechDesign.Tonnage);
             retval.CurrentStructure = retval.MaxStructure;
+            retval.UnitType = new UnitTypeBattleMech();
             
             //Apply ENE ability if appropriate
             if (PossessesENEAbility(battleMechDesign)) retval.SpecialAbilities.Add(SpecialAbilityFactory.CreateSpecialAbility("ENE"));
@@ -105,14 +106,14 @@ namespace BattleTechNET.Conversion
         {
             List<MovementMode> retval = new List<MovementMode>();
 
-            MovementMode walking = new MovementMode(battleMechDesign.WalkMP, "");
+            MovementMode walking = new MovementMode(battleMechDesign.WalkMP, "bm");
             retval.Add(walking);
             int JumpingMP = battleMechDesign.JumpMP;
             if (JumpingMP > 0 )
             {
                 if (JumpingMP < walking.Points)
                     JumpingMP = (int)Math.Round((double)JumpingMP * 0.66D);
-                MovementMode jumping = new MovementMode(battleMechDesign.JumpMP, "j");
+                MovementMode jumping = new MovementMode(JumpingMP, "j");
                 retval.Add(jumping);
             }
 
