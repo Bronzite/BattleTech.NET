@@ -79,7 +79,7 @@ namespace BattleTechNET.Common
         {
             foreach(MovementMode movementMode in MovementModes)
             {
-                if(movementMode.Code.Equals(sMovementMode,StringComparison.CurrentCultureIgnoreCase))
+                if(movementMode.Code.Equals(sMovementMode,StringComparison.CurrentCultureIgnoreCase) || (sMovementMode == "" && movementMode.Code == "bm"))
                 {
                     return movementMode;
                 }
