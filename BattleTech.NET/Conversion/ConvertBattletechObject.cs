@@ -1,5 +1,5 @@
 ﻿using BattleTechNET.Common;
-using BattleTechNET.Common;
+using BattleTechNET.StrategicBattleForce;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,16 @@ namespace BattleTechNET.Conversion
 {
     public static class ConvertBattletechObject
     {
+        static public BattleTechNET.StrategicBattleForce.Unit ToSBFUnit(IEnumerable<Element> ieElements)
+        {
+            BattleTechNET.StrategicBattleForce.Unit unit = new StrategicBattleForce.Unit();
+
+            unit.Elements = new List<Element>(ieElements);
+            unit.CalculateStats();
+            return unit;
+        }
+
+
         /// <summary>
         /// Convert a Total Warfare BattleMech Design to an Alpha Strike
         /// element.

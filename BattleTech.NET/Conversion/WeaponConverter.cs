@@ -8,7 +8,7 @@ namespace BattleTechNET.Conversion
     public class WeaponConverter
     {
         //Minimum Range Damage Adjustment Table, SO361
-        private static double[] MinimumRangeFraction = new double[7] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50 }; 
+        private static double[] MinimumRangeFraction = new double[7] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50}; 
 
         public static AlphaStrikeWeapon ConvertTotalWarfareWeapon(ComponentWeapon componentWeapon)
         {
@@ -25,6 +25,15 @@ namespace BattleTechNET.Conversion
                 else
                     DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
             }
+
+            //Configurable Damage on SO360
+            ComponentWeaponConfigurableDamage componentWeaponConfigurableDamage = componentWeapon as ComponentWeaponConfigurableDamage;
+            if(componentWeaponConfigurableDamage != null)
+            {
+                DamageRating = componentWeaponConfigurableDamage.MaxDamage;
+            }
+
+
             //Here because we stopped counting Rotary AC's as Cluster weapons
             //due to BV calculation code.
             if (componentWeapon.Name.StartsWith("Rotary ")) DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(6, 7);
@@ -65,6 +74,14 @@ namespace BattleTechNET.Conversion
                 retval.MediumRangeDamage = 1.5 * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
                 retval.LongRangeDamage = 1 * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
             }
+
+            if(componentWeapon.Name.StartsWith("Extended LRM"))
+            {
+                retval.ShortRangeDamage = componentWeapon.Damage * ComponentWeaponClustered.ClusterHitResult((int)Math.Ceiling((double)clusterWeapon.SalvoSize * 0.5D), 7);
+                retval.MediumRangeDamage = componentWeapon.Damage * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
+                retval.LongRangeDamage = componentWeapon.Damage * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
+                retval.ExtremeRangeDamage = componentWeapon.Damage * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
+            }
             
             //Variable-Damage Weapons
             //This doesn't handle cluster-based variable damage weapons,
@@ -82,7 +99,7 @@ namespace BattleTechNET.Conversion
             }
 
             //Minimum Range Modifier on SO361
-            int iMinimumRangeFraction = Math.Min(componentWeapon.MinimumRange,7);
+            int iMinimumRangeFraction = Math.Min(componentWeapon.MinimumRange,6);
             retval.ShortRangeDamage *= MinimumRangeFraction[iMinimumRangeFraction];
 
 
@@ -91,6 +108,10 @@ namespace BattleTechNET.Conversion
             int iEffectiveToHitModifier = componentWeapon.ToHitModifier;
             //Ugly hack until we have multi-mode weapons set up
             if (componentWeapon.Name.StartsWith("LB ")) iEffectiveToHitModifier = -1;
+            //Modify for Configurable Damage weapons (Bombast Laser)
+            //This isn't explicitly stated anywhere, but is implied
+            //by the printed values for the Bombast.
+            if (componentWeaponConfigurableDamage != null) iEffectiveToHitModifier = (int)Math.Ceiling((double)(componentWeaponConfigurableDamage.MaxDamage - componentWeaponConfigurableDamage.ToHitMinDamage) * componentWeaponConfigurableDamage.ToHitMultiplier);
             double[] dToHitModifiers = new double[] { 1.2, 1.15, 1.1, 1.05, 1, 0.95, 0.90, 0.85, 0.8 };
             double dToHitModifier = dToHitModifiers[iEffectiveToHitModifier + 4];
             retval.ShortRangeDamage *= dToHitModifier;

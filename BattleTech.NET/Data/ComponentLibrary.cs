@@ -2954,15 +2954,20 @@ namespace BattleTechNET.Data
               .AddAlias("Primitive Particle Cannon")
                 .AddAlias("Primitive ISPPC") as ComponentWeapon
             },
-                 {"Bombast Laser",new ComponentWeapon() //TM341
+                 {"Bombast Laser",new ComponentWeaponConfigurableDamage() //TM341
             {
                 Name = "Bombast Laser",
                 BaseCost = 200000,
-                Heat = 0,
+                Heat = 12,
                 AeroHeat = 12,
-                Damage = 0,
+                MinDamage=12,
+                MaxDamage=12,
+                HeatPerDamage=1,
+                ToHitMinDamage=7,
+                ToHitMultiplier = 0.5,
+                Damage = 12,
                 AeroDamage = 12,
-                MinimumRange = 5,
+                MinimumRange = 0,
                 ShortRange = 5,
                 MediumRange = 10,
                 LongRange = 15,
