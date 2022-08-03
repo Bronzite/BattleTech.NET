@@ -8,22 +8,30 @@ namespace BattleTechNET.Conversion
     public class WeaponConverter
     {
         //Minimum Range Damage Adjustment Table, SO361
-        private static double[] MinimumRangeFraction = new double[7] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50}; 
+        private static double[] MinimumRangeFraction = new double[7] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50};
 
-        public static AlphaStrikeWeapon ConvertTotalWarfareWeapon(ComponentWeapon componentWeapon)
+        public static AlphaStrikeWeapon ConvertTotalWarfareWeapon(ComponentWeapon componentWeapon) { return ConvertTotalWarfareWeapon(componentWeapon, null); }
+        public static AlphaStrikeWeapon ConvertTotalWarfareWeapon(ComponentWeapon componentWeapon,ComponentTargetingComputer compTC)
         {
             AlphaStrikeWeapon retval = new AlphaStrikeWeapon();
             retval.Name = componentWeapon.Name;
             if (componentWeapon.AlphaStrikeAbility != "" && componentWeapon.AlphaStrikeAbility != null) retval.SpecialAbilityCode = componentWeapon.AlphaStrikeAbility;
             double DamageRating = (double)componentWeapon.Damage;
+            int iFCSModifier = 0;
             //Cluster Weapons on SO360
             ComponentWeaponClustered clusterWeapon = componentWeapon as ComponentWeaponClustered;
             if (clusterWeapon != null)
             {
+                if (clusterWeapon.FireControlSystem != null)
+                {
+                    iFCSModifier = clusterWeapon.FireControlSystem.ClusterHitsModifier;
+                    //If LRMs have an Artemis system, they are rolled into the base damage.
+                    if (componentWeapon.AlphaStrikeAbility == "LRM") retval.SpecialAbilityCode = "";
+                }
                 if(clusterWeapon.Streak)
                     DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 12);
                 else
-                    DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7);
+                    DamageRating = DamageRating * ComponentWeaponClustered.ClusterHitResult(clusterWeapon.SalvoSize, 7+ iFCSModifier);
             }
 
             //Configurable Damage on SO360
@@ -121,11 +129,12 @@ namespace BattleTechNET.Conversion
 
 
             retval.Heat = componentWeapon.Heat;
-
-            retval.ShortRangeDamage = Math.Round(retval.ShortRangeDamage, 2);
-            retval.MediumRangeDamage = Math.Round(retval.MediumRangeDamage, 2);
-            retval.LongRangeDamage = Math.Round(retval.LongRangeDamage, 2);
-            retval.ExtremeRangeDamage = Math.Round(retval.ExtremeRangeDamage, 2);
+            double dTCMultiplier = 1;
+            if (compTC != null && componentWeapon.ContributesToTargetingComputerMass) dTCMultiplier = 1.1;
+            retval.ShortRangeDamage = Math.Round(retval.ShortRangeDamage * dTCMultiplier, 2);
+            retval.MediumRangeDamage = Math.Round(retval.MediumRangeDamage * dTCMultiplier, 2);
+            retval.LongRangeDamage = Math.Round(retval.LongRangeDamage * dTCMultiplier, 2);
+            retval.ExtremeRangeDamage = Math.Round(retval.ExtremeRangeDamage * dTCMultiplier, 2);
 
             return retval;
         }
