@@ -95,11 +95,26 @@ namespace BattleTechNET.Common
                     {
                         iSlotCount -= component.CriticalSpaceMech.Value;
                         
-                            //Add component to design
+                        //Add component to design
                         UnitComponent uc = new UnitComponent(component.Clone() as Component, location);
                         foreach (CriticalSlot criticalSlot in dicComponents[component.Name])
                             criticalSlot.AffectedComponent = uc;
                      
+                        foreach(CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                        {
+                            if (criticalSlot.AffectedComponent != null && criticalSlot.Location.Name == location.Name)
+                            {
+                                ComponentWeaponClustered clustered = criticalSlot.AffectedComponent.Component as ComponentWeaponClustered;
+                                if (clustered != null)
+                                    if (clustered.Name.Contains("LRM") || clustered.Name.Contains("SRM") || clustered.Name.Contains("MML"))
+                                    {
+                                        clustered.FireControlSystem = uc.Component as ComponentFireControlSystem;
+                                        clustered.Name = $"{clustered.Name} + {uc.Component.Name}";
+                                        //clustered.IndirectFire = false; //Artemis can't indirect fire by default
+                                        if (clustered.AlphaStrikeAbility == "LRM") clustered.AlphaStrikeAbility = "";
+                                    }
+                            }
+                        }
                         design.Components.Add(uc);
                     }
                 }
