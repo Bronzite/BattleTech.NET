@@ -830,8 +830,7 @@ namespace BattleTechNET.Data
                 //Install any Electronic Warfare components
                 ComponentElectronicWarfare.ResolveComponent(retval);
 
-                //Install any FCS systems
-                ComponentFireControlSystem.ResolveComponent(retval);
+
 
                 //Install any Targeting Computer
                 ComponentTargetingComputer.ResolveComponent(retval);
@@ -1053,6 +1052,9 @@ namespace BattleTechNET.Data
                             }   
                         }
                 }
+                
+                //Install any FCS systems
+                ComponentFireControlSystem.ResolveComponent(retval);
 
             }
             catch (Exception ex)
