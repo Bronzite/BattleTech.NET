@@ -10,7 +10,7 @@ namespace BattleTechNET.Conversion
         public AttackValue() { }
         public AttackValue (AlphaStrikeWeapon asw)
         {
-            Name = asw.Name;
+            Name = asw.SpecialAbilityCode;
             Heat = asw.Heat;
             ShortRangeDamage = asw.ShortRangeDamage;
             MediumRangeDamage = asw.MediumRangeDamage;
@@ -36,6 +36,16 @@ namespace BattleTechNET.Conversion
 
             return retval;
         }
+
+        public void AdjustBasedOnHeat(double MaxHeatDissipation, double dMaxHeatShort, double dMaxHeatMedium, double dMaxHeatLong, double dMaxHeatExtreme)
+        {
+            if (MaxHeatDissipation < dMaxHeatShort - 4) ShortRangeDamage = (ShortRangeDamage * MaxHeatDissipation) / (dMaxHeatShort - 4);
+            if (MaxHeatDissipation < dMaxHeatMedium - 4) MediumRangeDamage = (MediumRangeDamage * MaxHeatDissipation) / (dMaxHeatMedium - 4);
+            if (MaxHeatDissipation < dMaxHeatLong - 4) LongRangeDamage = (LongRangeDamage * MaxHeatDissipation) / (dMaxHeatLong - 4);
+            if (MaxHeatDissipation < dMaxHeatExtreme - 4) ExtremeRangeDamage = (ExtremeRangeDamage * MaxHeatDissipation) / (dMaxHeatExtreme - 4);
+        }
+            
+
         public int[] ToFinalDamageValueIntArray()
         {
             //SO362 calls these out as rounding normally
@@ -68,6 +78,11 @@ namespace BattleTechNET.Conversion
             {
                 return new Element.Arc(Name, (int)Math.Ceiling(ShortRangeDamage / 10), (int)Math.Ceiling(MediumRangeDamage / 10), (int)Math.Ceiling(LongRangeDamage / 10), (int)Math.Ceiling(ExtremeRangeDamage / 10),null) ;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} {ShortRangeDamage}/{MediumRangeDamage}/{LongRangeDamage}/{ExtremeRangeDamage}";
         }
     }
 }
