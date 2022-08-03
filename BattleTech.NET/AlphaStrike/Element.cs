@@ -197,6 +197,11 @@ namespace BattleTechNET.Common
 
             public IList<SpecialAbility> SpecialAbilities { get; set; }
 
+            public override string ToString()
+            {
+                return $"{Name} {Short}/{Medium}/{Long}/{Extreme}";
+            }
+
         }
     }
 }
