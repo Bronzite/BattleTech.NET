@@ -1,4 +1,5 @@
 ﻿using BattleTechNET.Common;
+using BattleTechNET.Data;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,20 @@ namespace BattleTechNETTest
             }
             retval.AddRange(Directory.GetFiles(sDirectory, sPattern));
             return retval.ToArray();
+        }
+
+        static public BattleMechDesign GetBattleMech(string sDirectory, string sFile)
+        {
+            string[] sFiles = GetFiles(sDirectory, "*.mtf");
+            foreach(string s in sFiles)
+            {
+                if(Path.GetFileNameWithoutExtension(s) == sFile)
+                {
+                    return MTFReader.ReadBattleMechDesignFile(s);
+                }
+
+            }
+            return null;
         }
 
         static public Element GenerateASBattleMech(string sName, int iSize, int iWalk, int iJump, int iArmor, int iStructure, int iShort, int iMedium, int iLong)

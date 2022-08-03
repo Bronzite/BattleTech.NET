@@ -3,6 +3,7 @@ using BattleTechNET.StrategicBattleForce;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace BattleTechNET.Conversion
@@ -18,61 +19,126 @@ namespace BattleTechNET.Conversion
             return unit;
         }
 
-
+        static public Element ToAlphaStrike(BattleMechDesign battleMechDesign) { return ToAlphaStrike(battleMechDesign, null); }
         /// <summary>
         /// Convert a Total Warfare BattleMech Design to an Alpha Strike
         /// element.
         /// </summary>
         /// <param name="battleMechDesign">Valid Total Warfare BattleMech Design</param>
         /// <returns>Valid Alpha Strike Element</returns>
-        static public Element ToAlphaStrike(BattleMechDesign battleMechDesign)
+        static public Element ToAlphaStrike(BattleMechDesign battleMechDesign,StringWriter log)
         {
             Element retval = new Element();
-
+            if (log != null) log.WriteLine($"Converting {battleMechDesign.Model} {battleMechDesign.Variant}");
             retval.Size = GetSize(battleMechDesign);
+            if (log != null) log.WriteLine($"Size {retval.Size}");
             retval.MovementModes = GetMovementMode(battleMechDesign);
+            if (log!=null)
+            {
+                foreach(MovementMode mode in retval.MovementModes)
+                {
+                    log.WriteLine($"Has Movement mode {mode.Code} {mode.Points}");
+                }
+            }
             retval.MaxArmor = GetAlphaStrikeArmor(battleMechDesign);
+            if (log != null) log.WriteLine($"Armor {retval.MaxArmor}");
             retval.CurrentArmor = retval.MaxArmor;
             retval.MaxStructure = BattleMechStructureConverter.GetStructure(battleMechDesign.Engine, (int)battleMechDesign.Tonnage);
+            if (log != null) log.WriteLine($"Structure {retval.MaxStructure}");
             retval.CurrentStructure = retval.MaxStructure;
             retval.UnitType = new UnitTypeBattleMech();
-            
+
             //Apply ENE ability if appropriate
-            if (PossessesENEAbility(battleMechDesign)) retval.SpecialAbilities.Add(SpecialAbilityFactory.CreateSpecialAbility("ENE"));
-            
-            //Compile Attack Values
-            Dictionary<string, AttackValue> dicAbilities = new Dictionary<string, AttackValue>();
+            if (PossessesENEAbility(battleMechDesign))
+            {
+                retval.SpecialAbilities.Add(SpecialAbilityFactory.CreateSpecialAbility("ENE"));
+                if (log != null) log.WriteLine($"Unit possesses ENE");
+            }
+
+                //Compile Attack Values
+                Dictionary<string, AttackValue> dicAbilities = new Dictionary<string, AttackValue>();
             AttackValue indirectFire = new AttackValue() { Name = "IF" };
-            foreach(UnitComponent unitComponent in battleMechDesign.Components)
+            ComponentTargetingComputer compTC = null;
+            foreach (UnitComponent unitComponent in battleMechDesign.Components)
+                if (compTC == null)
+                {
+                    compTC = unitComponent.Component as ComponentTargetingComputer;
+                    if (compTC != null && log != null) log.WriteLine($"Unit has targeting computer.");
+                }
+
+            double dHeatShort = 0;
+            double dHeatMedium = 0;
+            double dHeatLong = 0;
+            double dHeatExtreme = 0;
+            double dHeatMovement = 2;
+            if (battleMechDesign.JumpMP > 0)
+                dHeatMovement += Math.Max(battleMechDesign.JumpMP, 3);
+            foreach (UnitComponent unitComponent in battleMechDesign.Components)
             {
                 ComponentWeapon componentWeapon = unitComponent.Component as ComponentWeapon;
-                if(componentWeapon != null)
+
+                if (componentWeapon != null)
                 {
                     string sAlphaStrikeAbility = componentWeapon.AlphaStrikeAbility;
                     if (sAlphaStrikeAbility == null) sAlphaStrikeAbility = ""; //Empty string represent base attack
+
                     if (unitComponent.RearFacing) sAlphaStrikeAbility = "REAR";
+                    AttackValue av = new AttackValue(WeaponConverter.ConvertTotalWarfareWeapon(componentWeapon, compTC));
                     if (!dicAbilities.ContainsKey(sAlphaStrikeAbility)) dicAbilities.Add(sAlphaStrikeAbility, new AttackValue { Name = sAlphaStrikeAbility });
-                    dicAbilities[sAlphaStrikeAbility] = dicAbilities[sAlphaStrikeAbility] + new AttackValue(WeaponConverter.ConvertTotalWarfareWeapon(componentWeapon));
-                    if(componentWeapon.IndirectFire) indirectFire = indirectFire + new AttackValue(WeaponConverter.ConvertTotalWarfareWeapon(componentWeapon));
+                    if (!dicAbilities.ContainsKey("")) dicAbilities.Add("", new AttackValue { Name = "" });
+                    
+                    
+                    dicAbilities[sAlphaStrikeAbility] = dicAbilities[sAlphaStrikeAbility] + av;
+                    if (sAlphaStrikeAbility != "") dicAbilities[""] = dicAbilities[""] + av;
+                    if(componentWeapon.IndirectFire) indirectFire = indirectFire + av;
+                    if (componentWeapon.HeatIsPerShot == false) //TODO: Handle heat from rear-facing weapons correctly
+                    {
+                        if(av.ShortRangeDamage > 0) dHeatShort += componentWeapon.Heat;
+                        if (av.MediumRangeDamage > 0) dHeatMedium += componentWeapon.Heat;
+                        if (av.LongRangeDamage > 0) dHeatLong += componentWeapon.Heat;
+                        if (av.ExtremeRangeDamage > 0) dHeatExtreme += componentWeapon.Heat;
+
+                    }
+                    else
+                    {
+                        double dHeatAmount = componentWeapon.Heat * 1; //TODO: Compute per-shot hit correctly.
+                        if (av.ShortRangeDamage > 0) dHeatShort += dHeatAmount;
+                        if (av.MediumRangeDamage > 0) dHeatMedium += dHeatAmount;
+                        if (av.LongRangeDamage > 0) dHeatLong += dHeatAmount;
+                        if (av.ExtremeRangeDamage > 0) dHeatExtreme += dHeatAmount;
+                    }    
+                        
+
+                    if (log != null) log.WriteLine($"Weapon {componentWeapon.Name} contributed {av.ToString()}");
                 }
             }
+
+            
+            
 
             AttackValue baseAttackValue = new AttackValue();
             if (dicAbilities.ContainsKey("")) baseAttackValue = dicAbilities[""];
 
             foreach(string sKey in dicAbilities.Keys)
             {
-                if(sKey!= "")
+                
+                dicAbilities[sKey].AdjustBasedOnHeat(battleMechDesign.HeatDissipation, dHeatShort,dHeatMedium,dHeatLong,dHeatExtreme);
+                
+                if (sKey!= "")
                 {
                     if (dicAbilities[sKey].MediumRangeDamage >= 10)
                         retval.SpecialAbilities.Add(new SpecialAbilityVector(sKey, dicAbilities[sKey].ToFinalDamageValueIntArray()));
                     else
                         baseAttackValue = baseAttackValue + dicAbilities[sKey];
                 }
+
+                if (log != null) log.WriteLine($"Ability {sKey} values {dicAbilities[sKey].ToString()}");
             }
+            
+            if (log != null) log.WriteLine($"Total Base Attack Values {baseAttackValue}");
 
             retval.Arcs.Add(baseAttackValue.ToFinalDamageValueArc());
-
+            if (log != null) log.WriteLine($"Final attack values {baseAttackValue.ToFinalDamageValueArc()}");
             
 
             if(indirectFire.ToFinalDamageValueIntArray()[2] > 0)
@@ -80,6 +146,13 @@ namespace BattleTechNET.Conversion
                 retval.SpecialAbilities.Add(new SpecialAbilityScalar("IF") { Value = indirectFire.ToFinalDamageValueIntArray()[2] });
             }
 
+            if(log!=null)
+            {
+                foreach(SpecialAbility sa in retval.SpecialAbilities )
+                {
+                    log.WriteLine($"Special Ability {sa.ToString()}");
+                }
+            }
             return retval;
         }
 

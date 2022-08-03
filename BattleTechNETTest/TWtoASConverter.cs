@@ -35,6 +35,16 @@ namespace BattleTechNETTest
         }
 
         [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "AS7-D Unit Type Set")]
+        public void CheckAS7DUnitType()
+        {
+            BattleMechDesign atlasDesign = MTFReader.ReadBattleMechDesignFile(AtlasTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(atlasDesign);
+            Assert.Equal("BM", element.UnitType.Code);
+        }
+
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
         [Fact(DisplayName = "AS7-D Armor Amount Check")]
         public void CheckAS7DArmor()
         {
@@ -75,6 +85,16 @@ namespace BattleTechNETTest
             BattleMechDesign designGoliath = MTFReader.ReadBattleMechDesignFile(GoliathTestFile);
 
             Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
+        }
+
+        [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
+        [Fact(DisplayName = "GOL-1H Unit Type Check")]
+        public void CheckGOL1HUnitType()
+        {
+            BattleMechDesign designGoliath = MTFReader.ReadBattleMechDesignFile(GoliathTestFile);
+
+            Element element = ConvertBattletechObject.ToAlphaStrike(designGoliath);
+            Assert.Equal("BM", element.UnitType.Code);
         }
 
         [Trait("Category", "Total Warfare to Alpha Strike Conversion")]
