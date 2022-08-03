@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BattleTechNET.Common
 {
-    class ComponentTargetingComputer:Component,IDesignConfigured
+    public class ComponentTargetingComputer:Component,IDesignConfigured
     {
         static public List<ComponentTargetingComputer> GetCanonicalTargetingComputers()
         {
