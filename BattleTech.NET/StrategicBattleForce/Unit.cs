@@ -23,7 +23,16 @@ namespace BattleTechNET.StrategicBattleForce
         private static bool IsGroundMovement (string sCode)
         {
             string sCodeLower = sCode.ToLower();
-            string[] sGroundsCode = new string[] { "l", "j", "s", "qt", "qw", "h", "n", "s", "r", "t", "v", "w", "g","f" };
+            string[] sGroundsCode = new string[] { "l", "j", "s", "qt", "qw", "h", "n", "s", "r", "t", "v", "w", "g","f","bm" };
+            for (int i = 0; i < sGroundsCode.Length; i++)
+                if (sGroundsCode[i] == sCodeLower) return true;
+            return false;
+        }
+
+        private static bool IsNonjumpGroundMovement(string sCode)
+        {
+            string sCodeLower = sCode.ToLower();
+            string[] sGroundsCode = new string[] { "l", "s", "qt", "qw", "h", "n", "s", "r", "t", "v", "w", "g", "f","bm" };
             for (int i = 0; i < sGroundsCode.Length; i++)
                 if (sGroundsCode[i] == sCodeLower) return true;
             return false;
@@ -209,7 +218,7 @@ namespace BattleTechNET.StrategicBattleForce
                     if (curMode.Code.Equals("j", StringComparison.CurrentCultureIgnoreCase))
                         dJumpMovement += curMode.Points;
 
-                    if(IsGroundMovement(curMode.Code))
+                    if(IsNonjumpGroundMovement(curMode.Code))
                     {
                         dTotalGroundMovement += curMode.Points;
                     }
@@ -259,6 +268,13 @@ namespace BattleTechNET.StrategicBattleForce
                     dLongRangeDamage += arc.Long;
                     dExtremeRangeDamage += arc.Extreme;
                 }
+
+                
+
+                dShortRangeDamage += curElement.OverheatValue / 2;
+                if (dMediumRangeDamage >= 1) dMediumRangeDamage += curElement.OverheatValue / 2;
+                if (dLongRangeDamage >= 1) dLongRangeDamage += curElement.OverheatValue / 2;
+                
             }
 
             //Note that we may have Movement Modes in the list at this point that only some of the
@@ -334,6 +350,10 @@ namespace BattleTechNET.StrategicBattleForce
             TMM = TargetMovementModifier(MP, UnitType.Code); //Step 1D, IO329
             Armor = (int)Math.Round(dArmorValue / 3D);
             Size = (int)Math.Round(dSize / (double)Elements.Count); //Step 1C, IO327
+            ShortRange = (int)Math.Round(dShortRangeDamage/3);
+            MediumRange = (int)Math.Round(dMediumRangeDamage/3);
+            LongRange = (int)Math.Round(dLongRangeDamage/3);
+            dExtremeRangeDamage = (int)Math.Round(dExtremeRangeDamage/3);
 
 
         }
