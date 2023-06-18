@@ -8,7 +8,9 @@ namespace BattleTechNET.Conversion
     public class WeaponConverter
     {
         //Minimum Range Damage Adjustment Table, SO361
-        private static double[] MinimumRangeFraction = new double[7] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50 }; 
+        //Added implicit 0.33 based on Extended LRM expressed values
+        //in the Conversion Table
+        private static double[] MinimumRangeFraction = new double[8] { 1, 0.92, 0.83, 0.75, 0.66, 0.58, 0.50,1D/3D }; 
 
         public static AlphaStrikeWeapon ConvertTotalWarfareWeapon(ComponentWeapon componentWeapon)
         {
@@ -98,6 +100,10 @@ namespace BattleTechNET.Conversion
             retval.LongRangeDamage *= dToHitModifier;
             retval.ExtremeRangeDamage *= dToHitModifier;
 
+            if(componentWeapon.SBFShortRangeDamageOverride.HasValue) retval.ShortRangeDamage= componentWeapon.SBFShortRangeDamageOverride.Value;
+            if (componentWeapon.SBFMediumRangeDamageOverride.HasValue) retval.MediumRangeDamage = componentWeapon.SBFMediumRangeDamageOverride.Value;
+            if (componentWeapon.SBFLongRangeDamageOverride.HasValue) retval.LongRangeDamage = componentWeapon.SBFLongRangeDamageOverride.Value;
+            if (componentWeapon.SBFExtremeRangeDamageOverride.HasValue) retval.ExtremeRangeDamage = componentWeapon.SBFExtremeRangeDamageOverride.Value;
 
             retval.Heat = componentWeapon.Heat;
 
