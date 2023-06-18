@@ -210,6 +210,7 @@ namespace BattleTechNETTest
         [MemberData(nameof(GetWeaponConversionTestCases))]
         public void CheckWeaponDamageValues(ComponentWeapon weapon, double expectedShortRangeValue, double expectedMediumRangeValue, double expectedLongRangeValue, double expectedExtremeRangeValue)
         {
+            if (weapon.Name == "Improved Heavy Gauss Rifle") System.Threading.Thread.Sleep(100);
             AlphaStrikeWeapon asw = WeaponConverter.ConvertTotalWarfareWeapon(weapon);
             Assert.Equal(expectedShortRangeValue, asw.ShortRangeDamage);
             Assert.Equal(expectedMediumRangeValue, asw.MediumRangeDamage);

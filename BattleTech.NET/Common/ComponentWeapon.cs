@@ -48,7 +48,12 @@ namespace BattleTechNET.Common
         //Damage done when weapon is critted.  Used for Gauss Rifles.
         //Also used to calculate defensive BV (TM302).
         public int VolatileDamage { get; set; }
-        public void CopyComponents(ComponentWeapon weapon)
+        public float? SBFShortRangeDamageOverride { get; set; }
+		public float? SBFMediumRangeDamageOverride { get; set; }
+		public float? SBFLongRangeDamageOverride { get; set; }
+		public float? SBFExtremeRangeDamageOverride { get; set; }
+
+		public void CopyComponents(ComponentWeapon weapon)
         {
             Name = weapon.Name;
             Tonnage = weapon.Tonnage;

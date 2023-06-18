@@ -1300,8 +1300,8 @@ namespace BattleTechNET.Data
                 AeroDamage = 9,
                 IndirectFire=true,
                 SalvoSize=15,
-                MinimumRange = 6,
-                ShortRange = 3,
+                MinimumRange = 3,
+                ShortRange = 7,
                 MediumRange = 14,
                 LongRange = 21,
                 AmmoPerTon = 8,
@@ -1333,7 +1333,7 @@ namespace BattleTechNET.Data
                 SalvoSize=20,
                 IndirectFire=true,
                 AeroDamage = 12,
-                MinimumRange = 6,
+                MinimumRange = 3,
                 ShortRange = 7,
                 MediumRange = 14,
                 LongRange = 21,
@@ -1385,9 +1385,12 @@ namespace BattleTechNET.Data
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
                 AlphaStrikeAbility = "LRM",
                 ContributesToTargetingComputerMass=false,
-                BV=67
-
-            }
+                BV=67,
+                SBFShortRangeDamageOverride = 1,
+				SBFMediumRangeDamageOverride = 3,
+                SBFLongRangeDamageOverride = 3,
+                SBFExtremeRangeDamageOverride = 3
+			}
 
             .AddAlias("ISExtendedLRM5") as ComponentWeapon
             },
@@ -1420,8 +1423,12 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
-                BV=104
-            }
+                BV=104,
+				SBFShortRangeDamageOverride = 1.5F,
+				SBFMediumRangeDamageOverride = 6,
+				SBFLongRangeDamageOverride = 6,
+				SBFExtremeRangeDamageOverride = 6
+			}
             .AddAlias("ISExtendedLRM10") as ComponentWeapon
             },
             {"Extended LRM 15",new ComponentWeaponClustered() //TM341
@@ -1434,10 +1441,10 @@ namespace BattleTechNET.Data
                 AeroDamage = 9,
                 IndirectFire=true,
                 SalvoSize=15,
-                MinimumRange = 6,
-                ShortRange = 3,
-                MediumRange = 14,
-                LongRange = 21,
+                MinimumRange = 10,
+                ShortRange = 12,
+                MediumRange = 22,
+                LongRange = 38,
                 AmmoPerTon = 6,
                 Tonnage = 12,
                 CriticalSpaceMech = 6,
@@ -1453,8 +1460,12 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
-                BV=200
-            }
+                BV=200,
+				SBFShortRangeDamageOverride = 2.5F,
+				SBFMediumRangeDamageOverride = 9,
+				SBFLongRangeDamageOverride = 9,
+				SBFExtremeRangeDamageOverride = 9
+			}
             .AddAlias("ISExtendededLRM15") as ComponentWeapon
             },
             {"Extended LRM 20",new ComponentWeaponClustered() //TM341
@@ -1486,8 +1497,12 @@ namespace BattleTechNET.Data
                 ContributesToTargetingComputerMass=false,
                 AlphaStrikeAbility = "LRM",
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
-                BV=268
-            }
+                BV=268,
+				SBFShortRangeDamageOverride = 3,
+				SBFMediumRangeDamageOverride = 12,
+				SBFLongRangeDamageOverride = 12,
+				SBFExtremeRangeDamageOverride = 12
+			}
             .AddAlias("ISExtendedLRM20") as ComponentWeapon
             },
             {"Clan LRM 5",new ComponentWeaponClustered() //TM343
@@ -1772,7 +1787,7 @@ namespace BattleTechNET.Data
             .AddAlias("LRT20")
             .AddAlias("CLLRT20") as ComponentWeapon
             },
-            { "Retractable Blade", 
+            { "Retractable Blade",
                 new ComponentRetractableBlade() as ComponentWeapon
 
             },
@@ -2199,7 +2214,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceMech = 4,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 4, 
+                CriticalSpaceSupportVehicle = 4,
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
@@ -2524,7 +2539,7 @@ namespace BattleTechNET.Data
                 CriticalSpaceMech = 4,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 4, 
+                CriticalSpaceSupportVehicle = 4,
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
@@ -2628,7 +2643,7 @@ namespace BattleTechNET.Data
                          .AddAlias("Primitive LLaser")
             .AddAlias("Primitive ISLargeLaser") as ComponentWeapon
             },
-            
+
              {"Improved Large Laser",new ComponentWeapon() //TM341
             {
                 Name = "Improved Large Laser",
@@ -2956,11 +2971,14 @@ namespace BattleTechNET.Data
             },
                  {"Bombast Laser",new ComponentWeapon() //TM341
             {
+                     // The Bombast Laser is a ridiculous corner case weapon
+                     // that is almost never used.  We aren't going to implement
+                     // it unless someone asks for it.
                 Name = "Bombast Laser",
                 BaseCost = 200000,
                 Heat = 0,
                 AeroHeat = 12,
-                Damage = 0,
+                Damage = 12,
                 AeroDamage = 12,
                 MinimumRange = 5,
                 ShortRange = 5,
@@ -2979,7 +2997,9 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
-                BV=137
+                BV=137,
+                SBFShortRangeDamageOverride= 10.2F,
+                SBFMediumRangeDamageOverride=10.2F
             }
               .AddAlias("ISBombastLaser") as ComponentWeapon
             },
@@ -6290,7 +6310,7 @@ namespace BattleTechNET.Data
                 AeroHeat = 2,
                 Damage = 22,
                 AeroDamage = 22,
-                MinimumRange = 4,
+                MinimumRange = 3,
                 ShortRange = 6,
                 MediumRange = 12,
                 LongRange = 19,
