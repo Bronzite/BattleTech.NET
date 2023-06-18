@@ -3,7 +3,6 @@ using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Xunit;
 using Xunit.Abstractions;
