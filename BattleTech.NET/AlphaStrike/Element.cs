@@ -77,9 +77,11 @@ namespace BattleTechNET.Common
 
         public MovementMode GetMovementMode(string sMovementMode)
         {
+            string sSearchFor = sMovementMode.Trim();
+            if (sSearchFor == "") sSearchFor = "BM";
             foreach(MovementMode movementMode in MovementModes)
             {
-                if(movementMode.Code.Equals(sMovementMode,StringComparison.CurrentCultureIgnoreCase))
+                if(movementMode.Code.Equals(sSearchFor,StringComparison.CurrentCultureIgnoreCase))
                 {
                     return movementMode;
                 }
