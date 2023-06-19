@@ -1032,6 +1032,17 @@ namespace BattleTechNET.Data
                 }
                 //A-Pods and B-Pods don't show up on the weapons list is most
                 //MTF files that contain them.
+                bool bPodsAlreadyLoaded = false;
+                foreach(UnitComponent component in retval.Components)
+                {
+                    if(component.Component is ComponentAntiPersonnelPod)
+                    {
+						bPodsAlreadyLoaded = true;
+						break;
+					}
+                }
+
+                if(!bPodsAlreadyLoaded)
                 foreach (BattleMechHitLocation bmhl in retval.HitLocations)
                 {
                     if (bmhl.CriticalSlots != null)
