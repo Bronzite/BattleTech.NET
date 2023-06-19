@@ -1,4 +1,5 @@
-﻿using BattleTechNET.Data;
+﻿using BattleTechNET.Common;
+using BattleTechNET.Data;
 using BattleTechNET.TotalWarfare;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,10 @@ namespace BattleTechNETTest
 
                     iLoadCount++;
                 }
+                catch (DesignUnsupportedTypeException ex)
+                {
+					//_outputHelper.WriteLine($"{sFile}: {ex.Message}");
+                }
                 catch (Exception ex)
                 {
                     _outputHelper.WriteLine($"{sFile}: {ex.Message}");
@@ -101,6 +106,10 @@ namespace BattleTechNETTest
                     }
                     else
                     iLoadCount++;
+                }
+                catch (DesignUnsupportedTypeException ex)
+                {
+
                 }
                 catch (Exception ex)
                 {
@@ -140,6 +149,9 @@ namespace BattleTechNETTest
                         iClanMechCount++;
                     }
                 }
+                catch (DesignUnsupportedTypeException ex)
+                {
+				}
                 catch (Exception ex)
                 {
                     throw new Exception($"Error loading {sFile}", ex);

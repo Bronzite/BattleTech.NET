@@ -94,21 +94,22 @@ namespace BattleTechNET.Data
                             if(sConfig.Contains("Tripod"))
                             {
                                 //TODO: Support Tripods
-                                throw new Exception("Tripods not supported");
+                                throw new DesignUnsupportedTypeException(sConfig);
                             }
                             if (sConfig.Contains("LAM"))
                             {
-                                //TODO: Support LAMs
-                                throw new Exception("LAMs not supported");
-                            }
+								//TODO: Support LAMs
+								throw new DesignUnsupportedTypeException(sConfig);
+							}
                             if (sConfig.Contains("QuadVee"))
                             {
-                                //TODO: Support QuadVees
-                                throw new Exception("QuadVees not supported");
-                            }
+								//TODO: Support QuadVees
+								throw new DesignUnsupportedTypeException(sConfig);
+							}
                             if (sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
                                 sConfig.Equals("Biped OmniMech", StringComparison.InvariantCultureIgnoreCase))
                             {
+                                
                                 BattleMechHitLocation mhlHead = new BattleMechHitLocation()
                                 {
                                     Name = "HD",
@@ -446,6 +447,7 @@ namespace BattleTechNET.Data
                                 throw new Exception(string.Format("Unable to parse mass: {0}", kvp.Value));
                             }
                             retval.Tonnage = iMass;
+                            if (retval.Tonnage > 100) throw new DesignUnsupportedTypeException("Superheavy");
                         }
                         if(kvp.Key.Equals("Gyro",StringComparison.CurrentCultureIgnoreCase) && kvp.Value.Trim() != "")
                         {
