@@ -27,7 +27,8 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias(new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half", "Clan Machine Gun Ammo - Half", "Clan Light Machine Gun Ammo - Half" }) as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
-                    .AddAlias("IS Light Machine Gun Ammo - Full")
+                    .AddAlias("Clan Light Machine Gun Ammo - Full")
+					.AddAlias("IS Light Machine Gun Ammo - Full")
                     .AddAlias("ISLightMG Ammo (200)") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias("IS Light Machine Gun Ammo - Half") as ComponentAmmunition);
@@ -491,7 +492,8 @@ namespace BattleTechNET.Data
                         .AddAlias("ISArrowIV Ammo") as ComponentAmmunition
                         );
                     privateAmmunitionList.Add(new ComponentAmmunition("Arrow IV Ammo", 5, "E", TECHNOLOGY_BASE.CLAN) { BV = 30 }
-                        .AddAlias("CLArrowIV Ammo") as ComponentAmmunition
+                    .AddAlias("CLArrowIVAmmo")
+					.AddAlias("CLArrowIV Ammo") as ComponentAmmunition
                         );
                     privateAmmunitionList.Add(new ComponentAmmunition("Arrow IV Homing Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE) { BV = 30 }
                         .AddAlias("ISArrowIV Homing Ammo") as ComponentAmmunition
@@ -2758,7 +2760,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
-                BV=244
+				BV=244
             }
              .AddAlias("CLHeavyLargeLaser") as ComponentWeapon
             },

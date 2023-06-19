@@ -396,27 +396,33 @@ namespace BattleTechNET.TotalWarfare
                 retval += EngineTonnage;
                 retval += StructureTonnage; 
                 retval += MyomerTonnage;
-                double ArmorTonnage = 0;
+                decimal ArmorTonnage = 0; //Made decimal to avoid rounding errors
                 string sArmorType = "";
                 foreach (BattleMechHitLocation bmhl in HitLocations)
                 {
                     foreach (ArmorFacing armorFacing in bmhl.ArmorFacings.Values)
                     {
                         retval += armorFacing.Tonnage;
-                        ArmorTonnage += armorFacing.Tonnage;
+                        ArmorTonnage += (decimal)armorFacing.Tonnage;
                         sArmorType = armorFacing.ArmorType.Name;
                     }
                 }
-                retval += ArmorTonnage;
-                ArmorTonnage = Math.Ceiling(2D * ArmorTonnage) / 2D; //Round to nearest half-ton
+                //We need to fix certain double drift.               
+                retval += (double)ArmorTonnage;
+
+                ArmorTonnage = Math.Ceiling((decimal)2 * ArmorTonnage) / (decimal)2; //Round to nearest half-ton
                 
                 sb.AppendLine($"{sArmorType} Armor Tonnage: {ArmorTonnage.ToString()}");
-                foreach(UnitComponent comp in Components)
+                double dTonnage = 0;
+                foreach(UnitComponent comp in base.Components)
                 {
+                    dTonnage += comp.Component.Tonnage;
                     if(comp.Component.Tonnage > 0)
-                    sb.AppendLine($"{comp.Component.Name}: {comp.Component.Tonnage}");
+                    sb.AppendLine($"{comp.Component.Name}: {comp.Component.Tonnage} (Running total: {dTonnage.ToString("0.00")})");
                 }
-                return sb.ToString();
+
+				
+				return sb.ToString();
             }
         }
 
@@ -424,20 +430,20 @@ namespace BattleTechNET.TotalWarfare
         {
             get
             {
-                double retval = base.ComputedTonnage;
-                retval += Engine.Tonnage;
-                retval += StructureType.TonnageMultipler * Tonnage;
-                retval += Math.Round(MyomerType.MassFraction * Tonnage,MidpointRounding.AwayFromZero); //TM Errata v4.0
-                double totalArmorTonnage = 0;
+                decimal retval = (decimal)base.ComputedTonnage;
+                retval += (decimal)Engine.Tonnage;
+                retval += (decimal)StructureType.TonnageMultipler * (decimal)Tonnage;
+                retval += Math.Round((decimal)MyomerType.MassFraction * (decimal)Tonnage,MidpointRounding.AwayFromZero); //TM Errata v4.0
+                decimal totalArmorTonnage = 0;
                 foreach(BattleMechHitLocation bmhl in HitLocations )
                 {
                     foreach(ArmorFacing armorFacing in bmhl.ArmorFacings.Values)
                     {
-                       totalArmorTonnage += armorFacing.Tonnage;
+                       totalArmorTonnage += (decimal)armorFacing.Tonnage;
                     }
                 }
-                retval += Math.Ceiling(2D * totalArmorTonnage) / 2D;
-                return retval;
+                retval += Math.Ceiling(2 * totalArmorTonnage) / 2;
+                return (double)retval;
             }
         }
 
