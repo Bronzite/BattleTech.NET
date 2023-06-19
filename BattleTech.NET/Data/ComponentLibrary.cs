@@ -6410,7 +6410,7 @@ namespace BattleTechNET.Data
                 MediumRange = 0,
                 LongRange = 0,
                 AmmoPerTon = 24,
-                Tonnage = 1,
+                Tonnage = 0.5,
                 CriticalSpaceMech = 1,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
