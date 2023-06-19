@@ -66,7 +66,7 @@ namespace BattleTechNET.Data
                     throw new Exception(string.Format("Version number not parseable: {0}", sVersionFields[1]));
                 }
 
-                if(dVersion > 1.2)
+                if(dVersion > 1.3)
                 {
                     //TODO: We need to add Ejection support for v1.2
                     //TODO: We need to add support for v1.3
