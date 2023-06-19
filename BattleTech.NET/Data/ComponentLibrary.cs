@@ -2551,6 +2551,7 @@ namespace BattleTechNET.Data
             }
                          .AddAlias("Blazer")
                 .AddAlias("ISBlazer")
+                .AddAlias("Binary Laser (Blazer) Cannon")
             .AddAlias("Blazer Cannon") as ComponentWeapon
             },
               {"Primitive Small Laser",new ComponentWeapon() //TM341
@@ -2969,7 +2970,37 @@ namespace BattleTechNET.Data
               .AddAlias("Primitive Particle Cannon")
                 .AddAlias("Primitive ISPPC") as ComponentWeapon
             },
-                 {"Bombast Laser",new ComponentWeapon() //TM341
+				{"Primitive Prototype PPC",new ComponentWeapon() //IO216
+            {
+				Name = "Primitive Prototype PPC",
+				BaseCost = 200000,
+				Heat = 15,
+				AeroHeat = 15,
+				Damage = 10,
+				AeroDamage = 10,
+				MinimumRange = 3,
+				ShortRange = 6,
+				MediumRange = 12,
+				LongRange = 18,
+				AmmoPerTon = 0,
+				Tonnage = 7,
+				CriticalSpaceMech = 3,
+				CriticalSpaceProtomech = int.MaxValue,
+				CriticalSpaceCombatVehicle = 1,
+				CriticalSpaceSupportVehicle = 3,
+				CriticalSpaceFighters = 1,
+				CriticalSpaceSmallCraft = 1,
+				CriticalSpaceDropShips = 1,
+				TechRating="D",
+				AeroRange = AerospaceWeaponRanges.MEDIUM,
+				HeatIsPerShot= false,
+				TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+				BV=176
+			}
+			  .AddAlias("Primitive Prototype Particle Cannon")
+				.AddAlias("Primitive Prototype ISPPC") as ComponentWeapon
+			},
+				 {"Bombast Laser",new ComponentWeapon() //TM341
             {
                      // The Bombast Laser is a ridiculous corner case weapon
                      // that is almost never used.  We aren't going to implement
@@ -8925,6 +8956,38 @@ namespace BattleTechNET.Data
 
              .AddAlias("TSEMP") as ComponentWeapon
             },
+
+            {
+                "Remote Sensor Launcher", new ComponentWeapon()
+                {
+                    Name="Remote Sensor Launcher",
+                    Damage=0,
+                    AeroDamage=0,
+                    Heat=0,
+                    HeatIsPerShot = false,
+                    MinimumRange=0,
+                    ShortRange=3,
+                    MediumRange=6,
+                    LongRange=9,
+                    ContributesToTargetingComputerMass=false,
+                    Tonnage = 4,
+                    CriticalSpaceMech=3,
+                    CriticalSpaceSupportVehicle=3,
+                    CriticalSpaceCombatVehicle=1,
+                    CriticalSpaceFighters=1,
+                    CriticalSpaceSmallCraft=1,
+                    AmmoPerTon=4,
+                    TechnologyBase= TECHNOLOGY_BASE.INNERSPHERE,
+                    TechRating="E",
+                    AeroRange=AerospaceWeaponRanges.SHORT,
+                    AeroHeat=0,
+                    BaseCost=400000,
+                    BV=30
+                    
+
+                }
+                .AddAlias("ISRemoteSensorDispenser") as ComponentWeapon
+            }
         };
     }
 }
