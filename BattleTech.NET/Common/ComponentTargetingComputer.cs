@@ -11,10 +11,11 @@ namespace BattleTechNET.Common
         {
             List<ComponentTargetingComputer> retval = new List<ComponentTargetingComputer>();
 
-            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.CLAN }.
-                AddAlias("CLTargeting Computer") as ComponentTargetingComputer);
-            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE }.
-                AddAlias("ISTargeting Computer") as ComponentTargetingComputer);
+            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.CLAN }
+                
+				.AddAlias("CLTargeting Computer") as ComponentTargetingComputer);
+            retval.Add(new ComponentTargetingComputer() { TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE }
+                .AddAlias("ISTargeting Computer") as ComponentTargetingComputer);
 
             return retval;
         }

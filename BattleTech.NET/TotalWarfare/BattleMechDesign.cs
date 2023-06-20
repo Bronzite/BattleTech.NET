@@ -1,4 +1,5 @@
 ﻿using BattleTechNET.Common;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -407,7 +408,8 @@ namespace BattleTechNET.TotalWarfare
                         sArmorType = armorFacing.ArmorType.Name;
                     }
                 }
-                //We need to fix certain double drift.               
+                //We need to fix certain double drift.
+                ArmorTonnage = Math.Floor(ArmorTonnage * 1000) / 1000;
                 retval += (double)ArmorTonnage;
 
                 ArmorTonnage = Math.Ceiling((decimal)2 * ArmorTonnage) / (decimal)2; //Round to nearest half-ton
@@ -442,6 +444,7 @@ namespace BattleTechNET.TotalWarfare
                        totalArmorTonnage += (decimal)armorFacing.Tonnage;
                     }
                 }
+				totalArmorTonnage = Math.Floor(totalArmorTonnage * 1000) / 1000;
                 retval += Math.Ceiling(2 * totalArmorTonnage) / 2;
                 return (double)retval;
             }

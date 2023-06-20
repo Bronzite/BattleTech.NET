@@ -114,10 +114,14 @@ namespace BattleTechNET.Common
 
             retval.Add(new ComponentJumpJet() { Name = "Jump Jet", Tonnage = 0.5, CriticalSpaceMech = 1, TechnologyBase = TECHNOLOGY_BASE.BOTH, TechRating = "C" }
                 .AddAlias("ISJumpJet")
-                .AddAlias("CLJumpJet") as ComponentJumpJet);
+				.AddAlias("Clan Jump Jet")
+				.AddAlias("IS Jump Jet")
+				.AddAlias("CLJumpJet") as ComponentJumpJet);
             retval.Add(new ComponentJumpJet() { Name = "Improved Jump Jet", Tonnage = 0.5, CriticalSpaceMech = 2, TechnologyBase = TECHNOLOGY_BASE.BOTH, TechRating = "C",Improved = true }
                 .AddAlias("ImprovedJump Jet")
-                .AddAlias("ImprovedJumpJet") as ComponentJumpJet);
+				.AddAlias("Clan Improved Jump Jet")
+				.AddAlias("IS Improved Jump Jet")
+				.AddAlias("ImprovedJumpJet") as ComponentJumpJet);
 
             return retval;
         }
