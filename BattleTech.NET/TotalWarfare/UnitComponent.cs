@@ -28,7 +28,10 @@ namespace BattleTechNET.TotalWarfare
         }
         public override string ToString()
         {
-            return $"{Component} [{HitLocation}]";
+            if(Component.Tonnage>0)
+				return $"({Component.Tonnage}t {Component} [{HitLocation}]";
+            else
+			return $"{Component} [{HitLocation}]";
         }
     }
 }

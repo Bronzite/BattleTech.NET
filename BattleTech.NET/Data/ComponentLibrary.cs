@@ -27,7 +27,8 @@ namespace BattleTechNET.Data
                     privateAmmunitionList.Add(new ComponentAmmunition("Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias(new string[] { "IS Machine Gun Ammo - Half", "IS Machine Gun - Half", "Clan Machine Gun Ammo - Half", "Clan Light Machine Gun Ammo - Half" }) as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo", 200, "A", TECHNOLOGY_BASE.BOTH) { BV = 1 }
-                    .AddAlias("IS Light Machine Gun Ammo - Full")
+                    .AddAlias("Clan Light Machine Gun Ammo - Full")
+					.AddAlias("IS Light Machine Gun Ammo - Full")
                     .AddAlias("ISLightMG Ammo (200)") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Light Machine Gun Ammo Half", 100, 0.5, "A", TECHNOLOGY_BASE.BOTH) { BV = 0.5 }
                         .AddAlias("IS Light Machine Gun Ammo - Half") as ComponentAmmunition);
@@ -160,13 +161,16 @@ namespace BattleTechNET.Data
                         .AddAlias("IS Heavy Gauss Ammo")
                         .AddAlias("ISHeavyGauss Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 20 Ammo", 6, "F", TECHNOLOGY_BASE.CLAN) { Volatile = false, BV = 33 }
-                    .AddAlias("Hyper-Assault Gauss Rifle/20 Ammo")
+                        .AddAlias("CLHAG20 Ammo")
+					.AddAlias("Hyper-Assault Gauss Rifle/20 Ammo")
                         .AddAlias("HAG/20 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 30 Ammo", 4, "F", TECHNOLOGY_BASE.CLAN) { Volatile = false, BV = 50 }
-                    .AddAlias("Hyper-Assault Gauss Rifle/30 Ammo")
+					.AddAlias("CLHAG30 Ammo")
+					.AddAlias("Hyper-Assault Gauss Rifle/30 Ammo")
                     .AddAlias("HAG/30 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Hyper-Assault Gauss Rifle 40 Ammo", 3, "F", TECHNOLOGY_BASE.CLAN) { Volatile = false, BV = 67 }
-                    .AddAlias("Hyper-Assault Gauss Rifle/40 Ammo")
+					.AddAlias("CLHAG40 Ammo")
+					.AddAlias("Hyper-Assault Gauss Rifle/40 Ammo")
                     .AddAlias("HAG/40 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Vehicle Flamer Ammo", 20, "A", TECHNOLOGY_BASE.BOTH)); //TODO: Does this have no BV?
                     privateAmmunitionList.Add(new ComponentAmmunition("Plasma Cannon Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 21 }
@@ -175,14 +179,42 @@ namespace BattleTechNET.Data
                         .AddAlias("ISPlasmaRifle Ammo")
                         .AddAlias("ISPlasmaRifleAmmo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 Ammo", 20, "F", TECHNOLOGY_BASE.CLAN) { BV = 14 }
-                        .AddAlias("Clan Ammo ATM-3") as ComponentAmmunition);
+                        .AddAlias("CLATM3 Ammo")
+						.AddAlias("Clan Ammo ATM-3") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 26 }
-                        .AddAlias("Clan Ammo ATM-6") as ComponentAmmunition);
+					    .AddAlias("CLATM6 Ammo")    
+					    .AddAlias("Clan Ammo ATM-6") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 Ammo", 7, "F", TECHNOLOGY_BASE.CLAN) { BV = 36 }
-                        .AddAlias("Clan Ammo ATM-9") as ComponentAmmunition);
+						.AddAlias("CLATM9 Ammo")
+						.AddAlias("Clan Ammo ATM-9") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 Ammo", 5, "F", TECHNOLOGY_BASE.CLAN) { BV = 52 }
-                        .AddAlias("Clan Ammo ATM-12") as ComponentAmmunition);
-                    privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 6 }
+						.AddAlias("CLATM12 Ammo")
+						.AddAlias("Clan Ammo ATM-12") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 ER Ammo", 20, "F", TECHNOLOGY_BASE.CLAN) { BV = 14 }
+					    .AddAlias("CLATM3 ER Ammo")
+						.AddAlias("Clan Ammo ER ATM-3") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 ER Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 26 }
+						.AddAlias("CLATM6 ER Ammo")
+						.AddAlias("Clan Ammo ER ATM-6") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 ER Ammo", 7, "F", TECHNOLOGY_BASE.CLAN) { BV = 36 }
+					    .AddAlias("CLATM9 ER Ammo")
+					    .AddAlias("Clan Ammo ER ATM-9") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 ER Ammo", 5, "F", TECHNOLOGY_BASE.CLAN) { BV = 52 }
+						.AddAlias("CLATM12 ER Ammo")
+						.AddAlias("Clan Ammo ER ATM-12") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 3 HE Ammo", 20, "F", TECHNOLOGY_BASE.CLAN) { BV = 14 }
+	.AddAlias("CLATM3 HE Ammo")
+	.AddAlias("Clan Ammo HE ATM-3") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 6 HE Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 26 }
+						.AddAlias("CLATM6 HE Ammo")
+						.AddAlias("Clan Ammo HE ATM-6") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 9 HE Ammo", 7, "F", TECHNOLOGY_BASE.CLAN) { BV = 36 }
+						.AddAlias("CLATM9 HE Ammo")
+						.AddAlias("Clan Ammo HE ATM-9") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ATM 12 HE Ammo", 5, "F", TECHNOLOGY_BASE.CLAN) { BV = 52 }
+						.AddAlias("CLATM12 HE Ammo")
+						.AddAlias("Clan Ammo HE ATM-12") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 6 }
                         .AddAlias("IS Ammo LRM-5")
                         .AddAlias("ISLRM5 Ammo") as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("LRM 5 Ammo", 24, "C", TECHNOLOGY_BASE.CLAN) { BV = 7 }
@@ -491,7 +523,8 @@ namespace BattleTechNET.Data
                         .AddAlias("ISArrowIV Ammo") as ComponentAmmunition
                         );
                     privateAmmunitionList.Add(new ComponentAmmunition("Arrow IV Ammo", 5, "E", TECHNOLOGY_BASE.CLAN) { BV = 30 }
-                        .AddAlias("CLArrowIV Ammo") as ComponentAmmunition
+                    .AddAlias("CLArrowIVAmmo")
+					.AddAlias("CLArrowIV Ammo") as ComponentAmmunition
                         );
                     privateAmmunitionList.Add(new ComponentAmmunition("Arrow IV Homing Ammo", 5, "E", TECHNOLOGY_BASE.INNERSPHERE) { BV = 30 }
                         .AddAlias("ISArrowIV Homing Ammo") as ComponentAmmunition
@@ -509,6 +542,32 @@ namespace BattleTechNET.Data
                         as ComponentAmmunition);
                     privateAmmunitionList.Add(new ComponentAmmunition("Thunderbolt 20 Ammo", 3, "E", TECHNOLOGY_BASE.INNERSPHERE) { BV = 38 }
                         as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Airburst", 1, "C", TECHNOLOGY_BASE.BOTH) { BV = 0 }
+					    .AddAlias("IS Ammo AB Mortar-8")
+					    .AddAlias("CL Ammo AB Mortar-8") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Anti-Personnel", 1, "C", TECHNOLOGY_BASE.BOTH) { BV = 0 }
+					    .AddAlias("IS Ammo AP Mortar-8")
+					    .AddAlias("CL Ammo AP Mortar-8") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Flare", 1, "C", TECHNOLOGY_BASE.BOTH) { BV = 0 }
+					    .AddAlias("IS Ammo F Mortar-8")
+					    .AddAlias("CL Ammo F Mortar-8") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Semi-Guide", 1, "C", TECHNOLOGY_BASE.INNERSPHERE) { BV = 0 }
+					    .AddAlias("IS Ammo SG Mortar-8") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Smoke", 1, "C", TECHNOLOGY_BASE.BOTH) { BV = 0 }
+					    .AddAlias("IS Ammo S Mortar-8")
+					    .AddAlias("CL Ammo S Mortar-8") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("Mortar Shaped Charge", 1, "C", TECHNOLOGY_BASE.BOTH) { BV = 0 }
+					    .AddAlias("IS Ammo SC Mortar-8")
+                        .AddAlias("Clan Ammo SC Mortar-8")
+						.AddAlias("CL Ammo SC Mortar-8") as ComponentAmmunition);
+
+                    privateAmmunitionList.Add(new ComponentAmmunition("ProtoMech AC/2 Ammo", 40, "F", TECHNOLOGY_BASE.CLAN) { BV = 4 }
+                        .AddAlias("Clan ProtoMech AC/2 Ammo") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ProtoMech AC/4 Ammo", 20, "F", TECHNOLOGY_BASE.CLAN) { BV = 6 }
+						.AddAlias("Clan ProtoMech AC/4 Ammo") as ComponentAmmunition);
+					privateAmmunitionList.Add(new ComponentAmmunition("ProtoMech AC/8 Ammo", 10, "F", TECHNOLOGY_BASE.CLAN) { BV = 8 }
+						.AddAlias("Clan ProtoMech AC/8 Ammo") as ComponentAmmunition);
+						
                 }
                 semaphoreAmmunitionLoad.Release();
                 return privateAmmunitionList;
@@ -2551,6 +2610,7 @@ namespace BattleTechNET.Data
             }
                          .AddAlias("Blazer")
                 .AddAlias("ISBlazer")
+                .AddAlias("Binary Laser (Blazer) Cannon")
             .AddAlias("Blazer Cannon") as ComponentWeapon
             },
               {"Primitive Small Laser",new ComponentWeapon() //TM341
@@ -2757,7 +2817,7 @@ namespace BattleTechNET.Data
                 AeroRange = AerospaceWeaponRanges.MEDIUM,
                 HeatIsPerShot= false,
                 TechnologyBase = TECHNOLOGY_BASE.CLAN,
-                BV=244
+				BV=244
             }
              .AddAlias("CLHeavyLargeLaser") as ComponentWeapon
             },
@@ -2969,7 +3029,37 @@ namespace BattleTechNET.Data
               .AddAlias("Primitive Particle Cannon")
                 .AddAlias("Primitive ISPPC") as ComponentWeapon
             },
-                 {"Bombast Laser",new ComponentWeapon() //TM341
+				{"Primitive Prototype PPC",new ComponentWeapon() //IO216
+            {
+				Name = "Primitive Prototype PPC",
+				BaseCost = 200000,
+				Heat = 15,
+				AeroHeat = 15,
+				Damage = 10,
+				AeroDamage = 10,
+				MinimumRange = 3,
+				ShortRange = 6,
+				MediumRange = 12,
+				LongRange = 18,
+				AmmoPerTon = 0,
+				Tonnage = 7,
+				CriticalSpaceMech = 3,
+				CriticalSpaceProtomech = int.MaxValue,
+				CriticalSpaceCombatVehicle = 1,
+				CriticalSpaceSupportVehicle = 3,
+				CriticalSpaceFighters = 1,
+				CriticalSpaceSmallCraft = 1,
+				CriticalSpaceDropShips = 1,
+				TechRating="D",
+				AeroRange = AerospaceWeaponRanges.MEDIUM,
+				HeatIsPerShot= false,
+				TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+				BV=176
+			}
+			  .AddAlias("Primitive Prototype Particle Cannon")
+				.AddAlias("Primitive Prototype ISPPC") as ComponentWeapon
+			},
+				 {"Bombast Laser",new ComponentWeapon() //TM341
             {
                      // The Bombast Laser is a ridiculous corner case weapon
                      // that is almost never used.  We aren't going to implement
@@ -6379,7 +6469,7 @@ namespace BattleTechNET.Data
                 MediumRange = 0,
                 LongRange = 0,
                 AmmoPerTon = 24,
-                Tonnage = 1,
+                Tonnage = 0.5,
                 CriticalSpaceMech = 1,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
@@ -8925,6 +9015,38 @@ namespace BattleTechNET.Data
 
              .AddAlias("TSEMP") as ComponentWeapon
             },
+
+            {
+                "Remote Sensor Launcher", new ComponentWeapon()
+                {
+                    Name="Remote Sensor Launcher",
+                    Damage=0,
+                    AeroDamage=0,
+                    Heat=0,
+                    HeatIsPerShot = false,
+                    MinimumRange=0,
+                    ShortRange=3,
+                    MediumRange=6,
+                    LongRange=9,
+                    ContributesToTargetingComputerMass=false,
+                    Tonnage = 4,
+                    CriticalSpaceMech=3,
+                    CriticalSpaceSupportVehicle=3,
+                    CriticalSpaceCombatVehicle=1,
+                    CriticalSpaceFighters=1,
+                    CriticalSpaceSmallCraft=1,
+                    AmmoPerTon=4,
+                    TechnologyBase= TECHNOLOGY_BASE.INNERSPHERE,
+                    TechRating="E",
+                    AeroRange=AerospaceWeaponRanges.SHORT,
+                    AeroHeat=0,
+                    BaseCost=400000,
+                    BV=30
+                    
+
+                }
+                .AddAlias("ISRemoteSensorDispenser") as ComponentWeapon
+            }
         };
     }
 }

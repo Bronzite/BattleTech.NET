@@ -53,12 +53,12 @@ namespace BattleTechNET.TotalWarfare
         {
             get
             {
-                double dTonnage = 0;
+                decimal dTonnage = 0;
                 foreach(UnitComponent component in Components)
                 {
-                    dTonnage += component.Component.Tonnage;
+                    dTonnage += (decimal)component.Component.Tonnage;
                 }
-                return dTonnage;
+                return (double)dTonnage;
             }
 
         }

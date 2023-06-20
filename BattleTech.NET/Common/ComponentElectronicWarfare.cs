@@ -161,7 +161,59 @@ namespace BattleTechNET.Common
                 .AddAlias("C3 Computer (Master)")
                 .AddAlias("C3 Master Boosted with TAG")
                 .AddAlias("C3 Master with TAG") as ComponentElectronicWarfare); //TM342
-                componentECMs.Add(new ComponentElectronicWarfare
+				componentECMs.Add(new ComponentElectronicWarfare
+				{
+					Name = "C3 Boosted Master",
+					TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+					Tonnage = 6,
+					BaseCost = 3000000, //TM292
+					TechRating = "E",
+					ECMRange = 0,
+					ActiveRange = 0,
+					CriticalSpaceMech = 6,
+					CriticalSpaceCombatVehicle = 1,
+					CriticalSpaceSupportVehicle = 6,
+					CriticalSpaceSmallCraft = null,
+					CriticalSpaceFighters = null,
+					CriticalSpaceDropShips = null
+				}
+				.AddAlias("C3 Boosted System (Master)") as ComponentElectronicWarfare); //TOAUE 110
+				componentECMs.Add(new ComponentElectronicWarfare
+				{
+					Name = "C3 Boosted Slave",
+					TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+					Tonnage = 3,
+					BaseCost = 500000, //TM292
+					TechRating = "E",
+					ECMRange = 0,
+					ActiveRange = 0,
+					CriticalSpaceMech = 2,
+					CriticalSpaceCombatVehicle = 1,
+					CriticalSpaceSupportVehicle = 2,
+					CriticalSpaceSmallCraft = null,
+					CriticalSpaceFighters = null,
+					CriticalSpaceDropShips = null
+				}
+                .AddAlias("ISC3BoostedSystemSlaveUnit")
+				.AddAlias("C3 Boosted System (Slave)") as ComponentElectronicWarfare); //TOAUE 110
+				componentECMs.Add(new ComponentElectronicWarfare
+				{
+					Name = "C3 Emergency Master",
+					TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,
+					Tonnage = 3,
+					BaseCost = 2800000, //TM292
+					TechRating = "E",
+					ECMRange = 0,
+					ActiveRange = 0,
+					CriticalSpaceMech = 2,
+					CriticalSpaceCombatVehicle = 1,
+					CriticalSpaceSupportVehicle = 2,
+					CriticalSpaceSmallCraft = null,
+					CriticalSpaceFighters = null,
+					CriticalSpaceDropShips = null
+				}
+                .AddAlias("C3 Boosted System (Emergency Master)") as ComponentElectronicWarfare); //TOAUE 110
+				componentECMs.Add(new ComponentElectronicWarfare
                 {
                     Name = "C3 Computer Slave",
                     TechnologyBase = TECHNOLOGY_BASE.INNERSPHERE,

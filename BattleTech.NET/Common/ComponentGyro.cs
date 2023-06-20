@@ -50,13 +50,15 @@ namespace BattleTechNET.Common
             ComponentGyro compactGyro = new ComponentGyro() { Name = "Compact Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 2, WeightMultiplier = 1.5, BattleValueModifier = 0.5 };
             ComponentGyro heavyDutyGyro = new ComponentGyro() { Name = "Heavy-Duty Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 4, WeightMultiplier = 2.0, BattleValueModifier = 1.0 };
             ComponentGyro extraLightGyro = new ComponentGyro() { Name = "Extra-Light Gyro", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 6, WeightMultiplier = 0.5, BattleValueModifier = 0.5 };
+			ComponentGyro nullGyro = new ComponentGyro() { Name = "None", TechnologyBase = TECHNOLOGY_BASE.BOTH, CriticalSpaceMech = 0, WeightMultiplier = 0, BattleValueModifier = 0 };
 
-            retval.Add(standardGyro);
+			retval.Add(standardGyro);
             retval.Add(compactGyro);
             retval.Add(heavyDutyGyro);
             retval.Add(extraLightGyro);
+			retval.Add(nullGyro);
 
-            return retval;
+			return retval;
         }
 
         public override Component CreateInstance()

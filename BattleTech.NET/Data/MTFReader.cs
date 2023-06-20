@@ -66,7 +66,7 @@ namespace BattleTechNET.Data
                     throw new Exception(string.Format("Version number not parseable: {0}", sVersionFields[1]));
                 }
 
-                if(dVersion > 1.2)
+                if(dVersion > 1.3)
                 {
                     //TODO: We need to add Ejection support for v1.2
                     //TODO: We need to add support for v1.3
@@ -94,21 +94,22 @@ namespace BattleTechNET.Data
                             if(sConfig.Contains("Tripod"))
                             {
                                 //TODO: Support Tripods
-                                throw new Exception("Tripods not supported");
+                                throw new DesignUnsupportedTypeException(sConfig);
                             }
                             if (sConfig.Contains("LAM"))
                             {
-                                //TODO: Support LAMs
-                                throw new Exception("LAMs not supported");
-                            }
+								//TODO: Support LAMs
+								throw new DesignUnsupportedTypeException(sConfig);
+							}
                             if (sConfig.Contains("QuadVee"))
                             {
-                                //TODO: Support QuadVees
-                                throw new Exception("QuadVees not supported");
-                            }
+								//TODO: Support QuadVees
+								throw new DesignUnsupportedTypeException(sConfig);
+							}
                             if (sConfig.Equals("Biped",StringComparison.InvariantCultureIgnoreCase) ||
                                 sConfig.Equals("Biped OmniMech", StringComparison.InvariantCultureIgnoreCase))
                             {
+                                
                                 BattleMechHitLocation mhlHead = new BattleMechHitLocation()
                                 {
                                     Name = "HD",
@@ -446,6 +447,7 @@ namespace BattleTechNET.Data
                                 throw new Exception(string.Format("Unable to parse mass: {0}", kvp.Value));
                             }
                             retval.Tonnage = iMass;
+                            if (retval.Tonnage > 100) throw new DesignUnsupportedTypeException("Superheavy");
                         }
                         if(kvp.Key.Equals("Gyro",StringComparison.CurrentCultureIgnoreCase) && kvp.Value.Trim() != "")
                         {
@@ -1030,6 +1032,17 @@ namespace BattleTechNET.Data
                 }
                 //A-Pods and B-Pods don't show up on the weapons list is most
                 //MTF files that contain them.
+                bool bPodsAlreadyLoaded = false;
+                foreach(UnitComponent component in retval.Components)
+                {
+                    if(component.Component is ComponentAntiPersonnelPod)
+                    {
+						bPodsAlreadyLoaded = true;
+						break;
+					}
+                }
+
+                if(!bPodsAlreadyLoaded)
                 foreach (BattleMechHitLocation bmhl in retval.HitLocations)
                 {
                     if (bmhl.CriticalSlots != null)
