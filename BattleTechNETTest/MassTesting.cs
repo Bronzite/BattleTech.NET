@@ -124,7 +124,7 @@ namespace BattleTechNETTest
         [Fact(DisplayName = "Clan Mass Check MegaMek Files")]
         public void MassCheckClanMegaMekFiles()
         {
-            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mekfiles{Path.DirectorySeparatorChar}mechs", "*.mtf");
+            string[] sFiles = Utilities.GetFiles($"{Utilities.DataDirectory}{Path.DirectorySeparatorChar}megamek-master{Path.DirectorySeparatorChar}megamek{Path.DirectorySeparatorChar}data{Path.DirectorySeparatorChar}mekfiles{Path.DirectorySeparatorChar}meks", "*.mtf");
             int iLoadCount = 0;
             int iClanMechCount = 0;
             if (sFiles == null) return;
