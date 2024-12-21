@@ -1,6 +1,10 @@
-﻿using System;
+﻿using BattleTechNET.Data;
+using BattleTechNET.TotalWarfare;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -123,6 +127,184 @@ namespace BattleTechNET.Common
         public override Component CreateInstance()
         {
             return new ComponentWeapon();
+        }
+
+        /// <summary>
+        /// Resolving weapons from the hit location table.
+        /// NOTE: We'll need to figure out what to do about large weapons that span multiple hit locations, but in principle
+        /// this method should have the information it needs to resolve them properly.
+        /// </summary>
+        /// <param name="design">The BattleMech Design</param>
+        public static void ResolveComponent(Design design)
+        {
+            //TM212: 
+            Dictionary<string, Dictionary<string, int>> dicLargeSplitWeapons = new Dictionary<string, Dictionary<string, int>>();
+            foreach (HitLocation location in design.HitLocations)
+            {
+                BattleMechHitLocation bmhl = location as BattleMechHitLocation;
+                List<CriticalSlot> slots = new List<CriticalSlot>();
+
+                List<ComponentWeapon> canonicalWeapons = ComponentWeapon.GetCanonicalWeapons();
+
+
+                foreach (CriticalSlot criticalSlot in bmhl.CriticalSlots)
+                {
+                    foreach (ComponentWeapon componentWeapon in canonicalWeapons)
+                    {
+                        if(componentWeapon.TechnologyBase == design.TechnologyBase || componentWeapon.TechnologyBase == TECHNOLOGY_BASE.BOTH)
+                        if (Utilities.IsSynonymFor(componentWeapon, criticalSlot.Label.Replace("(R)","").Trim()))
+                            slots.Add(criticalSlot);
+                    }
+                }
+
+                
+                int iComponentSlots = slots.Count;
+                Dictionary<string, int> dicSlotsInSpace = new Dictionary<string, int>();
+                for (int i = 0; i<slots.Count; i++)
+                {
+                    if (!dicSlotsInSpace.ContainsKey(slots[i].Label)) dicSlotsInSpace.Add(slots[i].Label, 0);
+                    dicSlotsInSpace[slots[i].Label]++;
+                }
+                foreach (string s in dicSlotsInSpace.Keys)
+                {
+
+                    foreach (ComponentWeapon compWeapon in canonicalWeapons)
+                    {
+                        ComponentWeapon componentWeapon = compWeapon.Clone() as ComponentWeapon;
+                        componentWeapon.Configure(design);
+                        if(design.Tonnage > 100)
+                        {
+                            componentWeapon.CriticalSpaceMech = (int)Math.Ceiling(((double)componentWeapon.CriticalSpaceMech /2D));
+                        }
+                        bool bRear = false;
+                        string sLabel = s.Trim();
+                        if (sLabel.EndsWith("(R)"))
+                        {
+                            sLabel = sLabel.Replace("(R)", "").Trim();
+                        }
+                        if (Utilities.IsSynonymFor(componentWeapon, sLabel) &&
+                            (componentWeapon.TechnologyBase == design.TechnologyBase || componentWeapon.TechnologyBase == TECHNOLOGY_BASE.BOTH))
+                        {
+                            int iSlots = dicSlotsInSpace[s];
+                            if (iSlots % componentWeapon.CriticalSpaceMech == 0)
+                            {
+                                int iInstances = iSlots / componentWeapon.CriticalSpaceMech.Value;
+                                for (int j = 0; j < iInstances; j++)
+                                {
+                                    iComponentSlots -= componentWeapon.CriticalSpaceMech.Value;
+
+                                    ComponentWeapon currentWeapon = componentWeapon.Clone() as ComponentWeapon;
+
+                                    currentWeapon.Configure(design);
+
+
+                                    UnitComponent uc = new UnitComponent(currentWeapon, bmhl);
+                                    uc.RearFacing = bRear;
+                                    design.Components.Add(uc);
+                                }
+                            }
+                            else
+                            {
+                                if (componentWeapon.CriticalSpaceMech < 8)
+                                    throw new Exception("Invalid number of slots for weapon " + componentWeapon.Name + " in " + bmhl.Name);
+                                else
+                                {
+                                    if (!dicLargeSplitWeapons.ContainsKey(componentWeapon.Name))
+                                    {
+                                        dicLargeSplitWeapons.Add(componentWeapon.Name, new Dictionary<string, int>());
+                                        dicLargeSplitWeapons[componentWeapon.Name].Add("RT", 0);
+                                        dicLargeSplitWeapons[componentWeapon.Name].Add("LT", 0);
+                                        dicLargeSplitWeapons[componentWeapon.Name].Add("CT", 0);
+                                    }
+                                    string sLocation = null;
+                                    string[] sValidLocations = new string[] { "RA", "LA", "RT", "LT", "CT" };
+                                    foreach (string sCurLocation in sValidLocations)
+                                        if (Utilities.IsSynonymFor(sCurLocation, bmhl.Name))
+                                        {
+                                            sLocation = sCurLocation;
+                                        }
+
+                                    if (sLocation == null)
+                                    {
+                                        throw new Exception($"Large weapon partially placed in invalid location ({bmhl.Name})");
+                                    }
+
+                                    if (sLocation == "RA") sLocation = "RT"; if (sLocation == "LA") sLocation = "LT";
+
+                                    dicLargeSplitWeapons[componentWeapon.Name][sLocation]+=iSlots;
+                                }
+                            }
+
+                        }
+                    }
+                
+
+
+                   
+                }
+
+
+
+            }
+
+            if(dicLargeSplitWeapons.Count > 0)
+            {
+                foreach(ComponentWeapon componentWeapon in ComponentLibrary.Weapons.Values)
+                {
+                    if(dicLargeSplitWeapons.ContainsKey(componentWeapon.Name) && componentWeapon.CriticalSpaceMech >= 8) 
+                    {
+                        foreach(string sLocation in dicLargeSplitWeapons[componentWeapon.Name].Keys)
+                        {
+                            int iSlots = dicLargeSplitWeapons[componentWeapon.Name][sLocation];
+                            int iInstances = iSlots / componentWeapon.CriticalSpaceMech.Value;
+                            for (int j = 0; j < iInstances; j++)
+                            {
+                                ComponentWeapon currentWeapon = componentWeapon.Clone() as ComponentWeapon;
+                                currentWeapon.Configure(design);
+                                BattleMechHitLocation bmhl = null;
+                                foreach (HitLocation location in design.HitLocations)
+                                {
+                                    if (Utilities.IsSynonymFor(sLocation, location.Name))
+                                    {
+                                        bmhl = location as BattleMechHitLocation;
+                                    }
+                                }
+                                if (bmhl == null) throw new Exception("Invalid location for large weapon");
+                                UnitComponent uc = new UnitComponent(currentWeapon, bmhl);
+                                design.Components.Add(uc);
+                                iSlots-=componentWeapon.CriticalSpaceMech.Value;
+                            }
+                            if(iSlots > 0)
+                            {
+                                if(!dicLargeSplitWeapons[componentWeapon.Name].ContainsKey("CT")) 
+                                    dicLargeSplitWeapons[componentWeapon.Name].Add("CT", 0);
+                                dicLargeSplitWeapons[componentWeapon.Name]["CT"] += iSlots;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        public void Configure(Design design)
+        {
+            BattleMechDesign battleMechDesign = design as BattleMechDesign;
+            //Not sure if we actually need to configure weapons based on design
+            //Physical weapons already have their own configure protocol
+            //TODO: Need to test more on Axman, Hatchman, and other mechs with 
+            //melee weapons
+
+        }
+
+        static public List<ComponentWeapon> GetCanonicalWeapons()
+        {
+
+            
+            List<ComponentWeapon> retval = new List<ComponentWeapon>();
+
+            retval = ComponentLibrary.Weapons.Values.ToList();
+
+            return retval;
+            
         }
 
         public virtual double BVHeatPoints { 

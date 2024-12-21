@@ -13,6 +13,7 @@ namespace BattleTechNETTest
     {
         public static string AtlasTestFile = "./TestFiles/AtlasAS7-D.mtf";
         public static string GoliathTestFile = "./TestFiles/GoliathGOL-1H.mtf";
+        public static string AresTestFile = "./TestFiles/AresARS-V1Aphrodite.mtf";
 
         private readonly ITestOutputHelper _outputHelper;
 
@@ -386,16 +387,88 @@ namespace BattleTechNETTest
 
 
             
-            Assert.True(bMLaserCT1);
-            Assert.True(bMLaserCT2);
-            Assert.True(bAC20RT);
-            Assert.True(bLRM20LT);
-            Assert.True(bSRM6LT);
-            Assert.True(bMLaserRA1);
-            Assert.True(bMLaserLA1);
+            Assert.True(bMLaserCT1,"CT Medium Laser 1 Missing");
+            Assert.True(bMLaserCT2, "CT Medium Laser 2 Missing");
+            Assert.True(bAC20RT, "RT AC/20 Missing");
+            Assert.True(bLRM20LT, "LT LRM20 Missing");
+            Assert.True(bSRM6LT, "LT SRM6 Missing");
+            Assert.True(bMLaserRA1, "RA Medium Laser Missing");
+            Assert.True(bMLaserLA1, "LA Medium Laser Missing");
         }
 
+        [Trait("Category", "Read Value Test")]
+        [Fact(DisplayName = "Battlemech Ares Weapons Loaded ")]
+        public void BattlemechAresWeaponsLoaded()
+        {
+            string sFilePath = AresTestFile;
+            BattleMechDesign battleMechDesign = MTFReader.ReadBattleMechDesignFile(sFilePath);
 
+            bool bRotaryAC5LA = false;
+            bool bStreakLRM5RA1 = false;
+            bool bStreakLRM5RA2 = false;
+            bool bStreakLRM5RA3 = false;
+            bool ERMLLT = false;
+            bool ERSLLT = false;
+            bool LRM55LT = false;
+            bool SRM2LT = false;
+            bool C3MasterLT = false;
+            bool ERMLRT = false;
+            bool ERSLRT = false;
+            bool LRM5RT = false;
+            bool SRM2RT = false;
+            bool C3MasterRT = false;
+            bool ERSLCT = false;
+            bool SRM2CT = false;
+
+            foreach (UnitComponent componentWeapon in battleMechDesign.Components)
+            {
+                if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Right Arm") &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Streak LRM 5") &&
+                    bStreakLRM5RA2 == true) bStreakLRM5RA3 = true;
+                if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Right Arm") &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Streak LRM 5") &&
+                    bStreakLRM5RA1 == true) bStreakLRM5RA2 = true;
+                if (BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.HitLocation.Name, "Right Arm") &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(componentWeapon.Component, "Streak LRM 5")) bStreakLRM5RA3 = true;
+                if(IsPresent(componentWeapon.Component.Name, "Rotary AC/5", componentWeapon.HitLocation.Name, "Left Arm")) bRotaryAC5LA = true;
+                if (IsPresent(componentWeapon.Component.Name, "ER Medium Laser",componentWeapon.HitLocation.Name, "Left Torso")) ERMLLT = true;
+                if (IsPresent(componentWeapon.Component.Name, "ER Small Laser", componentWeapon.HitLocation.Name, "Left Torso")) ERSLLT = true;
+                if (IsPresent(componentWeapon.Component.Name, "LRM 5", componentWeapon.HitLocation.Name, "Left Torso")) LRM55LT = true;
+                if (IsPresent(componentWeapon.Component.Name, "SRM 2", componentWeapon.HitLocation.Name, "Left Torso")) SRM2LT = true;
+                if (IsPresent(componentWeapon.Component.Name, "C3 Master", componentWeapon.HitLocation.Name, "Left Torso")) C3MasterLT = true;
+                if (IsPresent(componentWeapon.Component.Name, "ER Medium Laser", componentWeapon.HitLocation.Name, "Right Torso")) ERMLRT = true;
+                if (IsPresent(componentWeapon.Component.Name, "ER Small Laser", componentWeapon.HitLocation.Name, "Right Torso")) ERSLRT = true;
+                if (IsPresent(componentWeapon.Component.Name, "LRM 5", componentWeapon.HitLocation.Name, "Right Torso")) LRM5RT = true;
+                if (IsPresent(componentWeapon.Component.Name, "SRM 2", componentWeapon.HitLocation.Name, "Right Torso")) SRM2RT = true;
+                if (IsPresent(componentWeapon.Component.Name, "C3 Master", componentWeapon.HitLocation.Name, "Right Torso")) C3MasterRT = true;
+                if (IsPresent(componentWeapon.Component.Name, "ER Small Laser", componentWeapon.HitLocation.Name, "Center Torso")) ERSLCT = true;
+                if (IsPresent(componentWeapon.Component.Name, "SRM 2", componentWeapon.HitLocation.Name, "Center Torso")) SRM2CT = true;
+            }
+            Assert.True(bRotaryAC5LA);
+            Assert.True( bStreakLRM5RA1 );
+            Assert.True( bStreakLRM5RA2 );
+            Assert.True( bStreakLRM5RA3 );
+            Assert.True( ERMLLT );
+            Assert.True( ERSLLT );
+            Assert.True( LRM55LT );
+            Assert.True( SRM2LT );
+            Assert.True( C3MasterLT );
+            Assert.True( ERMLRT );
+            Assert.True( ERSLRT );
+            Assert.True( LRM5RT );
+            Assert.True( SRM2RT );
+            Assert.True( C3MasterRT );
+            Assert.True( ERSLCT );
+            Assert.True( SRM2CT );
+
+        }
+
+        private bool IsPresent(string sCompName, string sCompNameCheck, string sLocationName, string sLocationNameCheck)
+        {
+            if (BattleTechNET.Common.Utilities.IsSynonymFor(sLocationName, sLocationNameCheck) &&
+                    BattleTechNET.Common.Utilities.IsSynonymFor(sCompName, sCompNameCheck)) return true;
+            return false;
+        }
 
 
         public StructureLocation GetBattleMechStructureLocation(BattleMechDesign bmd, string sLocation)

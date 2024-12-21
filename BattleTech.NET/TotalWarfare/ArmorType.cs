@@ -56,12 +56,19 @@ namespace BattleTechNET.TotalWarfare
                 as ArmorType);     //TM56
             retval.Add(new ArmorType("Heavy Ferro-Fibrous", TECHNOLOGY_BASE.INNERSPHERE, 16 * 1.24, 21));    //TM56
             retval.Add(new ArmorType("Ferro-Lemellor", TECHNOLOGY_BASE.BOTH, 14,2));    //TO280
-            retval.Add(new ArmorType("Hardened", TECHNOLOGY_BASE.BOTH, 8, 2));    //TO280
+            retval.Add(new ArmorType("Hardened", TECHNOLOGY_BASE.BOTH, 8, 2)
+                .AddAlias("IS Hardened(Inner Sphere)")
+                as ArmorType);    //TO280
             retval.Add(new ArmorType("Laser-Reflective (I.S.)", TECHNOLOGY_BASE.INNERSPHERE, 16, 10));    //TO280
             retval.Add(new ArmorType("Laser-Reflective (Clan)", TECHNOLOGY_BASE.CLAN, 16, 5));    //TO280
             retval.Add(new ArmorType("Modular", TECHNOLOGY_BASE.BOTH, 10, 1));    //TO280
-            retval.Add(new ArmorType("Reactive (I.S.)", TECHNOLOGY_BASE.INNERSPHERE, 16, 14));    //TO280
-            retval.Add(new ArmorType("Reactive (Clan)", TECHNOLOGY_BASE.CLAN, 16, 7));    //TO280
+            retval.Add(new ArmorType("Reactive (I.S.)", TECHNOLOGY_BASE.INNERSPHERE, 16, 14)
+                .AddAlias("Reactive(Inner Sphere)")
+                .AddAlias("IS Reactive(Inner Sphere")
+                as ArmorType);    //TO280
+            retval.Add(new ArmorType("Reactive (Clan)", TECHNOLOGY_BASE.CLAN, 16, 7)
+                .AddAlias("Reactive(Clan)")
+                as ArmorType);    //TO280
             retval.Add(new ArmorType("Vehicle Stealth", TECHNOLOGY_BASE.BOTH, 16, 7));    //TO280
 
             return retval;

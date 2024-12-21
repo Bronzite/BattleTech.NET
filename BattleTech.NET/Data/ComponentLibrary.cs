@@ -5794,10 +5794,10 @@ namespace BattleTechNET.Data
                 LongRange = 25,
                 AmmoPerTon = 0,
                 Tonnage = 4,
-                CriticalSpaceMech = 4, //TODO: Seems like this should be 2 (TM343)
+                CriticalSpaceMech = 1, 
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 1, //TODO: Seems like this should be 2 (TM343)
+                CriticalSpaceSupportVehicle = 1, 
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
@@ -6125,10 +6125,10 @@ namespace BattleTechNET.Data
                 LongRange = 22,
                 AmmoPerTon = 8, //Pretty sure there's a typo in IO, but it isn't in the errata
                 Tonnage = 15,
-                CriticalSpaceMech = 7,
+                CriticalSpaceMech = 8,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 7,
+                CriticalSpaceSupportVehicle = 8,
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
@@ -6489,12 +6489,12 @@ namespace BattleTechNET.Data
                   .AddAlias("CLAntiMissileSystem")
                   .AddAlias("CLAMS") as ComponentWeapon
             },
-                   {"Laser Anti-Missile System",new ComponentWeapon() //TM343
+                   {"Clan Laser Anti-Missile System",new ComponentWeapon() //TM343
             {
                 Name = "Laser Anti-Missile System",
                 BaseCost = 225000,
-                Heat = 7,
-                AeroHeat = 7,
+                Heat = 5,
+                AeroHeat = 5,
                 Damage = 0,
                 AeroDamage = 0,
                 MinimumRange = 0,
@@ -6502,11 +6502,11 @@ namespace BattleTechNET.Data
                 MediumRange = 0,
                 LongRange = 0,
                 AmmoPerTon = 0,
-                Tonnage = 1.5,
-                CriticalSpaceMech = 2,
+                Tonnage = 0.5,
+                CriticalSpaceMech = 1,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 2,
+                CriticalSpaceSupportVehicle = 1,
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,
@@ -6522,12 +6522,12 @@ namespace BattleTechNET.Data
                 .AddAlias("CLLaserAntiMissileSystem")
                   .AddAlias("LAMS") as ComponentWeapon
             },
-                    {"Clan Laser Anti-Missile System",new ComponentWeapon() //TM343
+                    {"Laser Anti-Missile System",new ComponentWeapon() //TM343
             {
                 Name = "Laser Anti-Missile System",
                 BaseCost = 20000,
-                Heat = 5,
-                AeroHeat = 5,
+                Heat = 7,
+                AeroHeat = 7,
                 Damage = 0,
                 AeroDamage = 0,
                 MinimumRange = 0,
@@ -6535,11 +6535,11 @@ namespace BattleTechNET.Data
                 MediumRange = 0,
                 LongRange = 0,
                 AmmoPerTon = 24,
-                Tonnage = 0.5,
-                CriticalSpaceMech = 1,
+                Tonnage = 1.5,
+                CriticalSpaceMech = 2,
                 CriticalSpaceProtomech = int.MaxValue,
                 CriticalSpaceCombatVehicle = 1,
-                CriticalSpaceSupportVehicle = 1,
+                CriticalSpaceSupportVehicle = 2,
                 CriticalSpaceFighters = 1,
                 CriticalSpaceSmallCraft = 1,
                 CriticalSpaceDropShips = 1,

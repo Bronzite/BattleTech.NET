@@ -56,19 +56,30 @@ namespace BattleTechNET.TotalWarfare
                 .AddAlias("Clan Standard") as StructureType); //Standard Structure TM47
 
             retval.Add(new StructureType("Industrial", TECHNOLOGY_BASE.BOTH, 0.2, 0, 1, false)
+                .AddAlias("Clan Industrial")
                 .AddAlias("IS Industrial") as StructureType); //TM47
             retval.Add(new StructureType("Endo Steel (I.S.)", TECHNOLOGY_BASE.INNERSPHERE, 0.05, 14, 1, false)
                 .AddAlias("Endo Steel")
                 .AddAlias("IS Endo-Steel")
                 .AddAlias("Endo-Steel")
-                .AddAlias("Endo Steel Prototype")
+                
                 .AddAlias("IS Endo Steel") as StructureType); //TM47
             retval.Add(new StructureType("Endo Steel (Clan)", TECHNOLOGY_BASE.CLAN, 0.05, 7, 1, false)
                 .AddAlias("Endo Steel")
                 .AddAlias("Clan Endo-Steel")
                 .AddAlias("Endo-Steel")
-                .AddAlias("Endo Steel Prototype")
+
+                .AddAlias("Clan Endo Steel")
                 .AddAlias("Clan Endo Steel") as StructureType);//TM47
+
+            retval.Add(new StructureType("Endo Steel Prototype (Clan)", TECHNOLOGY_BASE.CLAN, 0.05, 9, 1, false)
+                .AddAlias("Endo Steel Prototype")
+                .AddAlias("Clan Endo-Steel Prototype")
+                as StructureType);//TM47
+            retval.Add(new StructureType("Endo Steel Prototype (IS)", TECHNOLOGY_BASE.INNERSPHERE, 0.05, 16, 1, false)
+                .AddAlias("Endo Steel Prototype")
+                .AddAlias("IS Endo-Steel Prototype")
+                as StructureType);//TM47
             retval.Add(new StructureType("Composite", TECHNOLOGY_BASE.INNERSPHERE, 0.05, 0, 2, false)
                 .AddAlias("IS Composite") as StructureType); //TO342
             retval.Add(new StructureType("Endo-Composite (I.S.)", TECHNOLOGY_BASE.INNERSPHERE, 0.075, 7, 1, true)

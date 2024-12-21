@@ -17,6 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="TestFiles\AresARS-V1Aphrodite.mtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="TestFiles\AtlasAS7-D.mtf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

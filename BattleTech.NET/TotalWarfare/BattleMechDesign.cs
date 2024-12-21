@@ -14,6 +14,7 @@ namespace BattleTechNET.TotalWarfare
         public Common.ComponentEngine Engine { get; set; }
         public StructureType StructureType { get; set; }
         public MyomerType MyomerType { get; set; }
+        public bool DoubleIntegralHeatSinks { get; set; }
         public override string ToString()
         {
             return string.Format("{0} {1}", this.Model, this.Variant);
@@ -342,7 +343,27 @@ namespace BattleTechNET.TotalWarfare
                 {3,27,18,14,18 },
                 {3,29,19,15,19 },
                 {3,30,20,16,20 },
-                {3,31,21,17,21 }
+                {3,31,21,17,21 },
+                {4,32,22,17,21 }, //105 tons
+                {4,33,23,18,23 },
+                {4,35,24,19,24 },
+                {4,36,26,20,25 },
+                {4,38,26,21,26 },
+                {4,39,27,21,27 },
+                {4,41,28,22,28 },
+                {4,42,29,23,29 },
+                {4,44,31,24,31 },
+                {4,45,32,25,32 },
+                {4,47,33,26,33 },
+                {4,48,34,26,34 },
+                {4,50,35,27,25 },
+                {4,51,36,28,36 },
+                {4,53,37,29,37 },
+                {4,54,38,30,38 },
+                {4,56,39,31,39 },
+                {4,57,40,31,40 },
+                {4,59,41,32,41 },
+                {4,60,42,33,42 }
             }; //TM47
 
             int iTonnage = Tonnage / 5 - 2;
@@ -496,22 +517,31 @@ namespace BattleTechNET.TotalWarfare
             }
 
         }
-
+        private int? mHeatDissipation = null;
         public int HeatDissipation
         {
+            set
+            {
+                mHeatDissipation=value;
+            }
+
             get
             {
-                int retval = 0;// Engine.CriticalFreeHeatSinks;
-                foreach (UnitComponent unitComponent in Components)
+                if (mHeatDissipation.HasValue) return mHeatDissipation.Value;
+                else
                 {
-                    ComponentHeatSink hs = unitComponent.Component as ComponentHeatSink;
-                    if (hs != null)
+                    int retval = 0;// Engine.CriticalFreeHeatSinks;
+                    foreach (UnitComponent unitComponent in Components)
                     {
-                        retval += hs.HeatDissipation;
+                        ComponentHeatSink hs = unitComponent.Component as ComponentHeatSink;
+                        if (hs != null)
+                        {
+                            retval += hs.HeatDissipation;
+                        }
                     }
-                }
 
-                return retval;
+                    return retval;
+                }
             }
         }
     }

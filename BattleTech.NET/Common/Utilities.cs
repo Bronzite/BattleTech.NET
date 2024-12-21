@@ -17,6 +17,7 @@ namespace BattleTechNET.Common
             new string[] {"LA","Left Arm" },
             new string[] {"RA","Right Arm" },
             new string[] {"LL","Left Leg" },
+            new string[] {"CL","Center Leg" },
             new string[] {"RL","Right Leg" },
             new string[] {"FLL","Front Left Leg" },
             new string[] {"FRL","Front Right Leg" },
@@ -27,26 +28,30 @@ namespace BattleTechNET.Common
             new string[] {"CT","Center Torso" },
             new string[] {"HD","Head" },
 
-            
+            //Tech Base
+            new string[] {"Mixed","Mixed (Clan Chassis)", "Mixed (IS Chassis)" },
+
+
             new string[] {"Endo Steel", "Endo Steel (I.S.)", "Endo Steel (Clan)", "IS Endo Steel", "IS Endo-Steel", "Endo-Steel","Clan Endo Steel","Endo Steel Prototype" },
             new string[] {"TSM","Triple-Strength","Triple-Strength Myomer","Triple Strength Myomer"},
             new string[] {"MASC","ISMASC"},
             new string[] {"MASC (Clan)","CLMASC"},
-            new string[] {"Standard","IS Standard","Clan Standard"},
+            //Gyros
+            new string[] {"Standard","IS Standard","Clan Standard", "Standard Gyro", "Gyro"},
             new string[] { "Extra-Light Gyro","XL Gyro","XL" },
             new string[] { "Heavy Duty Gyro","Heavy-Duty Gyro" },
 
 
 
-
-            new string[] {"ICE","I.C.E","I.C.E.","ICE (IS)" },
-            new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)", "Fusion  (Clan)","Fusion (Clan) (IS)" },
-            new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion","XL  (Inner Sphere)", "XL Fusion  (Clan)" },
-            new string[] {"XXL", "XXL (IS)", "XXL (Clan)", "XXL (Clan) (IS)","XXL Fusion" },
-            new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion" },
-            new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)" },
-            new string[] {"Fuel Cell","Fuel Cell (IS)","Cell","Fuel-Cell","Fuel Cell (Clan) (IS)" },
-            new string[] {"Fission", "Fission (IS)", "Fission (Clan)"},
+            //Engines
+            new string[] {"ICE","I.C.E","I.C.E.","ICE (IS)","ICE Engine", "ICE Engine(IS)", "I.C.E. Engine" },
+            new string[] {"Standard","Fusion","Fusion (IS)","Fusion (Clan)", "Fusion  (Clan)","Fusion (Clan) (IS)" ,"Fusion Engine(IS)", "Fusion Engine", "Fusion (Clan) Engine(IS)", "Fusion (Clan) Engine","Fusion Engine (Clan)"},
+            new string[] {"XL","Extra-Light","XL (IS)","XL (Clan)", "XL (Clan) (IS)", "XL Fusion","XL  (Inner Sphere)", "XL Fusion  (Clan)","XL Engine (IS)", "XL Engine", "XL (Clan) Engine(IS)", "XL Engine(IS)", "XL Fusion Engine", "XL (Clan) Engine", "XL Fusion Engine (Inner Sphere)", "XL Fusion Engine (Clan)", "XL Engine (Inner Sphere)","XL Engine (Clan)"},
+            new string[] {"XXL", "XXL (IS)", "XXL (Clan)", "XXL (Clan) (IS)","XXL Fusion", "XXL Engine", "Large XXL Engine", "XXL (Clan) Engine", "Large XXL (Clan) Engine(IS)", "XXL (Clan) Engine", "XXL (Clan) Engine(IS)","XXL Engine(IS)", "XXL Eng", "XXL Fusion Engine" , "Large XXL Engine(IS)", "XXL Fusion Engine (Inner Sphere)"},
+            new string[] {"Light", "Light (IS)", "Light (Clan)", "Light Fusion","Light Engine","Light Engine(IS)", "Light Fusion Engine", "Light Engine (IS)" },
+            new string[] {"Compact","Compact Fusion","Compact (IS)","Compact (Clan)","Compact Engine","Compact Engine(IS)","Compact Engine(Clan)", "Compact Fusion Engine" },
+            new string[] {"Fuel Cell","Fuel Cell (IS)","Cell","Fuel-Cell","Fuel Cell (Clan) (IS)", "Fuel Cell Engine (IS)","Fuel Cell Engine(IS)","Fuel Cell (Clan) Engine(IS)", "Fuel-Cell Engine" },
+            new string[] {"Fission", "Fission (IS)", "Fission (Clan)", "Fission Engine (IS)", "Fission Engine(IS)"},
 
 
             new string[] { "CASE","ISCASE","ClanCASE" },
@@ -62,6 +67,7 @@ namespace BattleTechNET.Common
 
             new string[] { "Targeting Computer","ISTargeting Computer","CLTargeting Computer","CLTargeting Computer"},
             
+            new string[] {"Sensor","Sensors"}
 
         };
 

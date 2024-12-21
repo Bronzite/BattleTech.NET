@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BattleTechNET.TotalWarfare;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +43,40 @@ namespace BattleTechNET.Common
         }
 
         public double WeightMultiplier { get; set; }
+
+        public static void ResolveComponents(Design design)
+        {
+            
+            BattleMechDesign bmd = design as BattleMechDesign;
+
+            
+            
+            if(bmd.Engine == null) throw new Exception("No engine found in design");
+            UnitComponent ucGyro = null;
+            foreach (HitLocation location in design.HitLocations)
+            {
+                foreach (ComponentGyro gyro in GetCanonicalGyros())
+                {
+                    BattleMechHitLocation bmhl = location as BattleMechHitLocation;
+                    List<CriticalSlot> slots = new List<CriticalSlot>();
+
+                    if (design.IsCompatible(gyro))
+                    {
+                        
+                        foreach (CriticalSlot slot in bmhl.CriticalSlots)
+                        {
+                            if(Utilities.IsSynonymFor(slot.Label,gyro.Name))
+                            {
+                                ComponentGyro actualGyro = new ComponentGyro(bmd.Engine.EngineRating, gyro.Name);
+                                ucGyro = new UnitComponent(actualGyro, bmhl);
+                            }
+                        }
+                    }
+                }
+            }
+            if (ucGyro!=null) bmd.Components.Add(ucGyro);
+        }
+
 
         public static List<ComponentGyro> GetCanonicalGyros()
         {

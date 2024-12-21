@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BattleTechNET.Data;
+using BattleTechNET.TotalWarfare;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +35,31 @@ namespace BattleTechNET.Common
             ComponentAmmunition retval = base.Clone() as ComponentAmmunition;
             retval.Rounds = Rounds;
             return retval;
+        }
+
+        public static void ResolveComponents(Design design)
+        {
+            List<ComponentAmmunition> ammunitions = ComponentLibrary.Ammunitions;
+            foreach(HitLocation hitLocation in design.HitLocations)
+            {
+                BattleMechHitLocation bmhl = hitLocation as BattleMechHitLocation;
+                foreach(CriticalSlot slot in bmhl.CriticalSlots)
+                {
+                    foreach(ComponentAmmunition ammo in ammunitions)
+                    {
+                        if (design.IsCompatible(ammo))
+                        {
+                            if (Utilities.IsSynonymFor(ammo, slot.Label))
+                            {
+                                ComponentAmmunition newAmmo = ammo.Clone() as ComponentAmmunition;
+                                UnitComponent uc = new UnitComponent(newAmmo, bmhl);
+                                slot.AffectedComponent = uc;
+                                design.Components.Add(uc);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
     }

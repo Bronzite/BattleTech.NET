@@ -65,7 +65,35 @@ namespace BattleTechNET.Common
         
         }
         public ComponentEngine(int iEngineRating, string sEngineType) : this(iEngineRating, sEngineType, 1) { }
-        public ComponentEngine(int iEngineRating, string sEngineType,double dBattleValueModifier) { EngineRating = iEngineRating; EngineType = sEngineType; BattleValueModifier = dBattleValueModifier; AliasList = new List<string>(); }
+        public ComponentEngine(int iEngineRating, string sEngineType,double dBattleValueModifier) { 
+        
+            EngineRating = iEngineRating;
+            bool bPrimitive = false;
+            if(sEngineType.Contains ("Primitive"))
+            {
+                bPrimitive=true;
+                sEngineType = sEngineType.Replace("Primitive", "").Trim();
+            }
+
+            //Convert EngineType to a canonical name
+            string sCanonicalEngineType = null;
+            foreach(string s in EngineTonnages.Keys)
+            {
+                if (Utilities.IsSynonymFor(s, sEngineType))
+                    sCanonicalEngineType = s;
+            }
+
+            if (sCanonicalEngineType==null) throw new Exception($"Engine Type {sEngineType} is not recognized");
+            if(bPrimitive)
+            {
+                double dPrimitiveEngineRating = Math.Ceiling(((double)iEngineRating*1.2D)/5D) * 5D;
+                EngineRating = (int)dPrimitiveEngineRating;
+            }
+            EngineType = sCanonicalEngineType; 
+            BattleValueModifier = dBattleValueModifier; 
+            AliasList = new List<string>(); 
+        
+        }
 
         private int mEngineRating = 100;
 

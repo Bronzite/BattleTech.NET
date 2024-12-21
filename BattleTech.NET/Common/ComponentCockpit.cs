@@ -21,6 +21,44 @@ namespace BattleTechNET.Common
             
         }
 
+        public static void ResolveComponents(Design design)
+        {
+            foreach (HitLocation location in design.HitLocations)
+            {
+                foreach (ComponentCockpit cockpit in GetCanonicalCockpits())
+                {
+                    BattleMechHitLocation bmhl = location as BattleMechHitLocation;
+                    List<CriticalSlot> slots = new List<CriticalSlot>();
+
+                    if (design.IsCompatible(cockpit))
+                    {
+                        bool bCompatible = true;
+                        foreach(CriticalSlot slot in cockpit.CriticalSlots)
+                        {
+                            foreach(CriticalSlot designSlot in bmhl.CriticalSlots)
+                            {
+                                if (slot.SlotNumber == designSlot.SlotNumber)
+                                {
+                                    if (!Utilities.IsSynonymFor(slot.Label, designSlot.Label))
+                                    {
+                                        bCompatible = false;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        if(bCompatible)
+                        {
+                            UnitComponent uc = new UnitComponent(cockpit.Clone() as ComponentCockpit, bmhl);
+                            design.Components.Add(uc);
+                        }
+                    }
+                }
+            }
+
+        }
+
         CriticalSlot[] CriticalSlots { get; set; }
         public int PilotingRollModifier { get; set; }
 
